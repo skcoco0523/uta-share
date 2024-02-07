@@ -1,0 +1,57 @@
+/*------------------------------------------------------------------------slider*/
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-item {
+    width: 100%;
+}
+/* 画像が横に続くようにマージンを調整 */
+.carousel-item img {
+    margin-right: -10px; /* 画像のマージンを調整 */
+}
+/* 次のスライドの画像が表示される際のアニメーション */
+.carousel-item-next {
+    transform: translateX(100%);
+}
+/* 前のスライドの画像が表示される際のアニメーション */
+.carousel-item-prev {
+    transform: translateX(-100%);
+}
+/* 前のスライドと次のスライドの画像が表示される際のアニメーション */
+.carousel-item-prev, .carousel-item-next {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+/*------------------------------------------------------------------------home*/
+.header {
+  margin-top:40px; /* fixed-bottom-menu の高さ + 追加の余白 */;
+}
+.card {
+    width: 120px;
+    height: 170px;
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .card-img-top {
+    object-fit: cover;
+    height: 75%;
+  }
+.contents_box{
+  overflow: scroll;
+  /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+  -ms-overflow-style: none;
+  /*Firefoxへの対応*/
+  scrollbar-width: none;
+}
+  /*Google Chrome、Safariへの対応*/
+  .contents_box::-webkit-scrollbar{
+  display: none;
+}
+.card-text {
+  margin: 0 !important;
+}
+/*------------------------------------------------------------------------ranking*/
+
