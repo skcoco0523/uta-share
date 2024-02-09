@@ -68,25 +68,25 @@
         </thead>
         @foreach($artists as $artist)
             <tr>
-                <form method="POST" action="{{ route('admin-artist-del') }}">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$artist->id}}">
-                    <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                    <td class="fw-light">{{$artist->id}}</td>
-                    <td class="fw-light">{{$artist->name}}</td>
-                    <td class="fw-light">{{$artist->name2}}</td>
-                    <td class="fw-light">{{$artist->debut}}</td>
-                    <td class="fw-light">
-                        @if($artist->sex === 0)     ｸﾞﾙｰﾌﾟ
-                        @elseif($artist->sex === 1) 男性
-                        @elseif($artist->sex === 2) 女性
-                        @endif
-                    </td>
-                    <td class="fw-light">{{$artist->created_at}}</td>
-                    <td class="fw-light">
+                <td class="fw-light">{{$artist->id}}</td>
+                <td class="fw-light">{{$artist->name}}</td>
+                <td class="fw-light">{{$artist->name2}}</td>
+                <td class="fw-light">{{$artist->debut}}</td>
+                <td class="fw-light">
+                    @if($artist->sex === 0)     ｸﾞﾙｰﾌﾟ
+                    @elseif($artist->sex === 1) 男性
+                    @elseif($artist->sex === 2) 女性
+                    @endif
+                </td>
+                <td class="fw-light">{{$artist->created_at}}</td>
+                <td class="fw-light">
+                    <form method="POST" action="{{ route('admin-artist-del') }}">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$artist->id}}">
+                        <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
                         <input type="submit" value="削除" class="btn btn-danger">
-                    </td>
-                </form>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>
@@ -114,6 +114,7 @@
 @endif
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
     // テーブルの各行にクリックイベントリスナーを追加
     document.querySelectorAll('table tr').forEach(row => {
         row.addEventListener('click', () => {
@@ -139,4 +140,5 @@
         else  selectSex.value = ''; // その他の場合、空の値にする
         });
     });
+});
 </script>

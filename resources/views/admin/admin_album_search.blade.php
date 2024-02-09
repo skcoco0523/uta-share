@@ -90,25 +90,25 @@
         </thead>
         @foreach($albums as $album)
             <tr>
-                <form method="POST" action="{{ route('admin-album-del') }}">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$album->id}}">
-                    <input type="hidden" name="aff_id" value="{{$album->aff_id}}">
-                    <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                    <input type="hidden" name="music_list" value="{{$album->music_list}}">
-                    <td class="fw-light">{{$album->id}}</td>
-                    <td class="fw-light">{{$album->name}}</td>
-                    <td class="fw-light">{{$album->art_name}}</td>
-                    <td class="fw-light">{{$album->mus_cnt}}</td>
-                    <td class="fw-light">{{$album->release_date}}</td>
-                    <td class="fw-light">{{$album->created_at}}</td>
+                <td class="fw-light">{{$album->id}}</td>
+                <td class="fw-light">{{$album->name}}</td>
+                <td class="fw-light">{{$album->art_name}}</td>
+                <td class="fw-light">{{$album->mus_cnt}}</td>
+                <td class="fw-light">{{$album->release_date}}</td>
+                <td class="fw-light">{{$album->created_at}}</td>
                 <td><a href="{{ $album->href }}">
                     <img src="{{ $album->src }}" style="object-fit: cover; width: 100px; height: 100px;" alt="album_image">
                 </a></td>
-                    <td class="fw-light">
+                <td class="fw-light">
+                    <form method="POST" action="{{ route('admin-album-del') }}">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$album->id}}">
+                        <input type="hidden" name="aff_id" value="{{$album->aff_id}}">
+                        <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+                        <input type="hidden" name="music_list" value="{{$album->music_list}}">
                         <input type="submit" value="削除" class="btn btn-danger">
-                    </td>
-                </form>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>
@@ -136,6 +136,23 @@
 @endif
 
 <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    var affiliateLinkInput = document.getElementById('affiliate-link');
+    var affiliatePreview = document.getElementById('affiliate-preview');
+
+    affiliateLinkInput.addEventListener('input', function () {
+        var link = affiliateLinkInput.value.trim();
+        if (link !== '') {
+            // 入力されたリンクをそのまま表示する
+            affiliatePreview.innerHTML = link;
+        } else {
+            // クリア
+            affiliatePreview.innerHTML = '';
+        }
+    });
+
     // テーブルの各行にクリックイベントリスナーを追加
     document.querySelectorAll('table tr').forEach(row => {
         row.addEventListener('click', () => {
@@ -160,22 +177,6 @@
             document.querySelector('textarea[name="music_list"]').value = music_list_value; // alb_musの値を設定
         });
     });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var affiliateLinkInput = document.getElementById('affiliate-link');
-        var affiliatePreview = document.getElementById('affiliate-preview');
-
-        affiliateLinkInput.addEventListener('input', function () {
-            var link = affiliateLinkInput.value.trim();
-            if (link !== '') {
-                // 入力されたリンクをそのまま表示する
-                affiliatePreview.innerHTML = link;
-            } else {
-                // クリア
-                affiliatePreview.innerHTML = '';
-            }
-        });
-    });
     
     //リストから選択時、art_idをpostできないため、再取得
     document.getElementById('alb_search_form').addEventListener('submit', function(event) {
@@ -191,7 +192,6 @@
             }
         }
     });
-    
-
+});
 </script>
 

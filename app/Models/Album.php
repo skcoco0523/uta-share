@@ -53,6 +53,17 @@ class Album extends Model
         //画像情報を付与
         $album=setAffData($album);
         return $album; 
+    }    
+    //詳細変更　収録曲変更
+    public static function getAlbum_detail($alb_id)
+    {
+        //アルバム情報を取得
+        $album = DB::table('albums')->where('id', $alb_id)->first();
+        //アーティスト名を取得
+        $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
+        //収録数、収録曲を取得
+        $album->music = DB::table('musics')->where('alb_id', $album->id)->get();
+        return $album; 
     }
     //作成
     public static function createAlbum($data)

@@ -88,34 +88,35 @@
 @endif
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var affiliateLinkInput = document.getElementById('affiliate-link');
-        var affiliatePreview = document.getElementById('affiliate-preview');
+document.addEventListener('DOMContentLoaded', function () {
+    var affiliateLinkInput = document.getElementById('affiliate-link');
+    var affiliatePreview = document.getElementById('affiliate-preview');
 
-        affiliateLinkInput.addEventListener('input', function () {
-            var link = affiliateLinkInput.value.trim();
-            if (link !== '') {
-                // 入力されたリンクをそのまま表示する
-                affiliatePreview.innerHTML = link;
-            } else {
-                // クリア
-                affiliatePreview.innerHTML = '';
-            }
-        });
+    affiliateLinkInput.addEventListener('input', function () {
+        var link = affiliateLinkInput.value.trim();
+        if (link !== '') {
+            // 入力されたリンクをそのまま表示する
+            affiliatePreview.innerHTML = link;
+        } else {
+            // クリア
+            affiliatePreview.innerHTML = '';
+        }
     });
-    
     //リストから選択時、art_idをpostできないため、再取得
     document.getElementById('alb_reg_form').addEventListener('submit', function(event) {
-    var artistInput = document.querySelector('input[name="art_name"]');
-    var art_idInput = document.getElementById('selectedArtistId');
-    
-    // アーティストが入力されている場合のみ、フォームに値を設定する
-    if (artistInput.value !== '') {
-        var artistSelect = document.getElementById('artistSelect');
-        var selectedOption = Array.from(artistSelect.options).find(option => option.value === artistInput.value);
-        if (selectedOption) {
-            art_idInput.value = selectedOption.dataset.id;
+        var artistInput = document.querySelector('input[name="art_name"]');
+        var art_idInput = document.getElementById('selectedArtistId');
+        
+        // アーティストが入力されている場合のみ、フォームに値を設定する
+        if (artistInput.value !== '') {
+            var artistSelect = document.getElementById('artistSelect');
+            var selectedOption = Array.from(artistSelect.options).find(option => option.value === artistInput.value);
+            if (selectedOption) {
+                art_idInput.value = selectedOption.dataset.id;
+            }
         }
-    }
+    });
 });
+    
+
 </script>

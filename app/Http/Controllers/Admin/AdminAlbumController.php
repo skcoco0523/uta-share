@@ -150,4 +150,62 @@ class AdminAlbumController extends Controller
         $msg = "アルバム：" . $request->input('alb_name') . " を更新しました。";
         return redirect()->route('admin-album-search', ['input' => $input, 'msg' => $msg]);
     }
+    //詳細変更
+    public function album_chg_detail(Request $request)
+    {
+        $tab_name="アルバム";
+        $ope_type="album_chg_detail";
+        $keyword = $request->input('keyword');
+        //追加からのリダイレクトの場合、inputを取得
+        if($request->input('input')!==null)     $alb_id = request('input');
+        else                                    $alb_id = $request->input('id');
+        //dd($alb_id);
+        $chg_flg = 0;
+        //if($request->input('input')!==null) dd($alb_id);
+        if($alb_id === null){
+            //検索
+            $album = null;
+            $albums = Album::getAlbum(5,true,$keyword);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+        }else{
+            //収録曲変更
+            $chg_flg = 1;
+            $album = Album::getAlbum_detail($alb_id);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+            $albums = null;
+        }
+        
+        $msg = request('msg');
+        $msg = ($msg===NULL && $keyword !==null && $albums === null) ? "検索結果が0件です。" : $msg;
+        $input = $request->input('input');
+        $input['chg_flg'] = $chg_flg;
+        
+        return view('admin.adminhome', compact('tab_name', 'ope_type', 'albums', 'album', 'input', 'msg'));
+    }
+    //詳細変更用　関数(変更・削除・追加)
+    public function album_chg_detail_fnc(Request $request)
+    {
+        make_error_log("album_chg_detail_fnc.log","-----start-----");
+        $fnc_data = $request->only(['fnc', 'alb_id', 'mus_id','name']);
+        make_error_log("album_chg_detail_fnc.log","fnc=".$fnc_data['fnc']." alb_id=".$fnc_data['alb_id']." mus_id=".$fnc_data['mus_id']." name=".$fnc_data['name']);
+        
+        //fncに応じて処理●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●　　　ここから開発　　●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+        switch($fnc_data['fnc']){
+            case "chg":
+
+                break;
+            case "del":
+
+                break;
+            case "add":
+
+                break;
+            default:
+        }
+
+        $msg = request('msg');
+        //$msg = ($msg===NULL && $keyword !==null && $albums === null) ? "検索結果が0件です。" : $msg;
+        //$input = $fnc_data;
+        $input['id'] = $fnc_data['alb_id'];
+        
+        return redirect()->route('admin-album-chgdetail', ['input' => $input, 'msg' => $msg]);
+    }
 }

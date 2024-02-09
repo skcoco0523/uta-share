@@ -9,6 +9,9 @@
         @case("album_reg")
             @include('admin.admin_album_reg')
             @break
+        @case("album_chg_detail")
+            @include('admin.admin_album_chg_detail')
+            @break
         @case("album_search")
             @include('admin.admin_album_search')
             @break

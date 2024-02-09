@@ -54,6 +54,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('album/reg', [AdminAlbumController::class, 'album_reg'])->name('admin-album-reg');
 
         Route::get('album/chgdetail', [AdminAlbumController::class, 'album_chg_detail'])->name('admin-album-chgdetail');
+        Route::post('album/chgdetail', [AdminAlbumController::class, 'album_chg_detail_fnc'])->name('admin-album-chgdetail_fnc');
 
         Route::get('album/search', [AdminAlbumController::class, 'album_search'])->name('admin-album-search');
         Route::post('album/search/del', [AdminAlbumController::class, 'album_del'])->name('admin-album-del');
