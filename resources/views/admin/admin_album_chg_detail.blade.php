@@ -1,10 +1,3 @@
-{{--エラー--}}
-@if(isset($msg))
-    <div class="alert alert-danger">
-        {!! nl2br(e($msg)) !!}
-    </div>
-@endif
-
 {{--検索--}}
 <form id="alb_search_form" method="GET" action="{{ route('admin-album-chgdetail') }}">
 
@@ -82,6 +75,13 @@
     </nav>
 @endif
 
+{{--エラー--}}
+@if(isset($msg))
+    <div class="alert alert-danger">
+        {!! nl2br(e($msg)) !!}
+    </div>
+@endif
+
 {{--収録曲変更--}}
 @if($input['chg_flg'])
     <div class="row g-3 align-items-end">
@@ -100,13 +100,13 @@
             {{--変更フォーム--}}
             <span class="form-label" style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_chg()">変更</span>
             
-            <div id="detail_chg" style="display: none;">
+            <div id="detail_chg" style="display:  {{ $input['redirect_flg'] ? 'block' : 'none' }}">
                 @foreach($album->music as $music)
                 <div class="row">
-                    <div class="col-sm-10 mb-2"> <!-- フォームの列 -->
+                    <div class="col-sm-9 mb-2"> <!-- フォームの列 -->
                         <input type="text" name="name_{{$music->id}}" class="form-control" value="{{$music->name}}">
                     </div>
-                    <div class="col-sm-2 mb-2"> <!-- ボタンの列 -->
+                    <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->
                         <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
                             <input type="button" class="btn btn-primary me-2" value="更新" onclick="alb_detail_fnc('chg','{{$music->id}}');" >
                             <input type="button" class="btn btn-danger" value="削除" onclick="alb_detail_fnc('del','{{$music->id}}');" >
@@ -121,10 +121,10 @@
 
             <div id="detail_add" style="display: none;">
                 <div class="row">
-                    <div class="col-sm-10">
-                        <input type="text" name="name_{{$music->id}}" class="form-control" value="">
+                    <div class="col-sm-9">
+                        <input type="text" name="add_name" class="form-control" value="">
                     </div>
-                    <div class="col-sm-2 mb-2">
+                    <div class="col-sm-3 mb-2">
                         <input type="button" class="btn btn-success" value="追加" onclick="alb_detail_fnc('add','');" >
                     </div>
                 </div>
@@ -158,6 +158,10 @@
             document.detail_form["mus_id"].value  =mus_id;
             var chg_name =document.getElementsByName("name_" + mus_id)[0].value;
             document.detail_form["name"].value    =chg_name;
+
+        }else if(fnc === 'add'){
+            var add_name =document.getElementsByName("add_name")[0].value;
+            document.detail_form["name"].value    =add_name;
         }
         trg.submit();
     }

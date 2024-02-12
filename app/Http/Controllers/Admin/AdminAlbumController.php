@@ -25,7 +25,7 @@ class AdminAlbumController extends Controller
         $tab_name="アルバム";
         $ope_type="album_reg";
         $artists = Artist::getArtist();  //全件　リスト用
-        $albums = Album::getalbum(5);  //5件
+        $albums = Album::getAlbum_list(5);  //5件
         $msg = request('msg');
         
         //追加からのリダイレクトの場合、inputを取得
@@ -72,7 +72,8 @@ class AdminAlbumController extends Controller
 
         //Music登録　必須ではないためデータがない場合はここでリダイレクト
         // 改行で分割して配列に格納     空の要素を削除して配列を整理
-        $input = $request->only(['art_id', 'release_date']);
+        //$input = $request->only(['art_id', 'release_date']);  //アルバムにリリース日情報があるため不要
+        $input = $request->only(['art_id']);
         $input['alb_id'] = $alb_id;          //AlbumID追加
 
         $add_mus_list = array_filter(array_map('trim', preg_split('/\R/', $request->input('music_list'))));
@@ -95,7 +96,7 @@ class AdminAlbumController extends Controller
         $ope_type="album_search";
         $keyword = $request->input('keyword');
 
-        $albums = Album::getAlbum(5,true,$keyword);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
+        $albums = Album::getAlbum_list(5,true,$keyword);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
         $artists = Artist::getArtist();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $keyword !==null && $albums === null) ? "検索結果が0件です。" : $msg;
@@ -157,26 +158,29 @@ class AdminAlbumController extends Controller
         $ope_type="album_chg_detail";
         $keyword = $request->input('keyword');
         //追加からのリダイレクトの場合、inputを取得
-        if($request->input('input')!==null)     $alb_id = request('input');
+        if($request->input('input')!==null)     $alb_id = request('input')['alb_id'];
         else                                    $alb_id = $request->input('id');
-        //dd($alb_id);
         $chg_flg = 0;
+        $redirect_flg = 0;
         //if($request->input('input')!==null) dd($alb_id);
         if($alb_id === null){
             //検索
             $album = null;
-            $albums = Album::getAlbum(5,true,$keyword);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+            $albums = Album::getAlbum_list(5,true,$keyword);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
         }else{
             //収録曲変更
             $chg_flg = 1;
             $album = Album::getAlbum_detail($alb_id);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
             $albums = null;
+            //リダイレクトの場合は、表示状態とする
+            if($request->input('input')!==null) $redirect_flg = 1;
         }
         
         $msg = request('msg');
         $msg = ($msg===NULL && $keyword !==null && $albums === null) ? "検索結果が0件です。" : $msg;
         $input = $request->input('input');
         $input['chg_flg'] = $chg_flg;
+        $input['redirect_flg'] = $redirect_flg;
         
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'albums', 'album', 'input', 'msg'));
     }
@@ -184,28 +188,37 @@ class AdminAlbumController extends Controller
     public function album_chg_detail_fnc(Request $request)
     {
         make_error_log("album_chg_detail_fnc.log","-----start-----");
-        $fnc_data = $request->only(['fnc', 'alb_id', 'mus_id','name']);
-        make_error_log("album_chg_detail_fnc.log","fnc=".$fnc_data['fnc']." alb_id=".$fnc_data['alb_id']." mus_id=".$fnc_data['mus_id']." name=".$fnc_data['name']);
-        
-        //fncに応じて処理●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●　　　ここから開発　　●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
-        switch($fnc_data['fnc']){
+        $input = $request->only(['fnc', 'alb_id', 'mus_id','name']);
+        $msg=null;
+        make_error_log("album_chg_detail_fnc.log","fnc=".$input['fnc']." alb_id=".$input['alb_id']." mus_id=".$input['mus_id']." name=".$input['name']);
+        $input['id']=$input['mus_id'];
+        switch($input['fnc']){
             case "chg":
+                $ret = Music::chgMusic($input);
+                if($ret['error_code']==-1)    $msg = "収録曲の更新に失敗しました。";
+                if($ret['error_code']==0)    $msg = "収録曲を更新しました。";
 
                 break;
             case "del":
+                $ret = Music::delMusic($input['id']);
+                if($ret['error_code']==-1)    $msg = "収録曲の削除に失敗しました。";
+                if($ret['error_code']==0)    $msg = "収録曲を削除しました。";
 
                 break;
             case "add":
-
+                if($input['name'] == null){
+                    $msg = "アルバムに追加する楽曲名を入力してください。";
+                }else{
+                    //album情報を取得　既存art_idを付与
+                    $album = Album::getalbum_detail($input['alb_id']);
+                    //album情報から既存art_idを取得
+                    $input['art_id'] = $album->art_id;
+                    $ret = Music::createMusic($input);
+                    //dd($input,$album,$ret);
+                }
                 break;
             default:
         }
-
-        $msg = request('msg');
-        //$msg = ($msg===NULL && $keyword !==null && $albums === null) ? "検索結果が0件です。" : $msg;
-        //$input = $fnc_data;
-        $input['id'] = $fnc_data['alb_id'];
-        
         return redirect()->route('admin-album-chgdetail', ['input' => $input, 'msg' => $msg]);
     }
 }

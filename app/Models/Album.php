@@ -10,8 +10,8 @@ class Album extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'art_id', 'release_date', 'aff_id'];     //一括代入の許可
-    //取得
-    public static function getAlbum($disp_cnt=null,$pageing=false,$keyword=null)
+    //アルバム一覧取得
+    public static function getAlbum_list($disp_cnt=null,$pageing=false,$keyword=null)
     {
         if ($pageing) {
             // ページングを適用してデータを取得する     デフォルト5件
@@ -63,6 +63,9 @@ class Album extends Model
         $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
         //収録数、収録曲を取得
         $album->music = DB::table('musics')->where('alb_id', $album->id)->get();
+        //画像情報を付与
+        $album=setAffData($album);
+        
         return $album; 
     }
     //作成
@@ -72,10 +75,13 @@ class Album extends Model
         make_error_log("createAlbum.log","name=".$data['name']." art_id=".$data['art_id']." release_date=".$data['release_date']." aff_id=".$data['aff_id']);
 
         //データチェック
-        if(!$data['name'])      return ['id' => null, 'error_code' => 1];   //データ不足
-        if(!$data['art_id'])    return ['id' => null, 'error_code' => 2];   //データ不足
-        if(!$data['aff_id'])    return ['id' => null, 'error_code' => 3];   //データ不足
-
+        if(!isset($data['name']) || !$data['name'])     return ['id' => null, 'error_code' => 1];   //データ不足
+        if(!isset($data['art_id']) || !$data['art_id']) return ['id' => null, 'error_code' => 2];   //データ不足
+        if(!isset($data['aff_id']) || !$data['aff_id']) return ['id' => null, 'error_code' => 3];   //データ不足
+        
+        
+        
+        
         //DB追加処理チェック
         try {
             // DBに追加
@@ -94,10 +100,12 @@ class Album extends Model
     {
         $msg="";
         //データチェック
-        if(!$data['id'])        return ['id' => null, 'error_code' => 1];   //データ不足
-        if(!$data['art_id'])    return ['id' => null, 'error_code' => 2];   //データ不足
-        if(!$data['name'])      return ['id' => null, 'error_code' => 3];   //データ不足
-
+        if(!isset($data['id']) || !$data['id'])         return ['id' => null, 'error_code' => 1];   //データ不足
+        if(!isset($data['art_id']) || !$data['art_id']) return ['id' => null, 'error_code' => 2];   //データ不足
+        if(!isset($data['name']) || !$data['name'])     return ['id' => null, 'error_code' => 3];   //データ不足
+        
+        
+        
         $artist = DB::table('albums')->where('id', $data['id'])->first();
         if ($artist !== null) {
             DB::table('albums')->where('id', $data['id'])
