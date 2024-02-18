@@ -92,10 +92,16 @@ class Playlist extends Model
             //DB追加処理チェック
             make_error_log("chgPlaylist.log","data=".print_r($data,1));
 
+            /*  クエリビルダではupdated_atが自動更新されない
             DB::table('playlist')->where('id', $data['id'])
             ->update([
                 'name' => $data['name']
             ]);
+            */
+            Playlist::where('id', $data['id'])
+                ->update([
+                    'name' => $data['name']
+                ]);
 
             make_error_log("chgPlaylist.log","success");
             return 0;   //追加成功

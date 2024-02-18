@@ -105,12 +105,22 @@ class Album extends Model
         
         $artist = DB::table('albums')->where('id', $data['id'])->first();
         if ($artist !== null) {
+            /*  クエリビルダではupdated_atが自動更新されない
             DB::table('albums')->where('id', $data['id'])
             ->update([
                 'name' => $data['name'], 
                 'art_id' => $data['art_id'], 
                 'release_date' => $data['release_date'], 
             ]);
+            */
+            Album::where('id', $data['id'])
+            ->update([
+                'name' => $data['name'], 
+                'art_id' => $data['art_id'], 
+                'release_date' => $data['release_date'], 
+            ]);
+
+
             return ['id' => $data['id'], 'error_code' => 0];   //更新成功
         } else {
             return ['id' => null, 'error_code' => -1];   //更新失敗

@@ -306,3 +306,27 @@
 )
   
 [2024-02-18 13:54:00] local.DEBUG: success  
+[2024-02-18 14:31:19] local.DEBUG: ---------start----------  
+[2024-02-18 14:31:19] local.DEBUG: data=Array
+(
+    [id] => 8
+    [name] => test playlist7_after
+)
+  
+[2024-02-18 14:31:19] local.DEBUG: success  
+[2024-02-18 14:36:22] local.DEBUG: ---------start----------  
+[2024-02-18 14:36:22] local.DEBUG: data=Array
+(
+    [id] => 8
+    [name] => test playlist7_uodate
+)
+  
+[2024-02-18 14:36:22] local.DEBUG: success  
+[2024-02-18 14:39:34] local.DEBUG: ---------start----------  
+[2024-02-18 14:39:34] local.DEBUG: data=Array
+(
+    [id] => 8
+    [name] => test playlist7_update
+)
+  
+[2024-02-18 14:39:34] local.DEBUG: success  

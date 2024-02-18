@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Music extends Model
 {
     use HasFactory;
-    protected $table = 'musuics';    //musicテーブルが指定されてしまうため、強制的に指定
+    protected $table = 'musics';    //musicテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['alb_id', 'art_id', 'name', 'release_date', 'aff_id'];     //一括代入の許可
 
     //楽曲一覧取得
@@ -79,6 +79,7 @@ class Music extends Model
         //if(!$data['alb_id'])    return ['id' => null, 'error_code' => 3];   //データ不足      シングルもあるため
         //dd($data);
         //DB追加処理チェック
+        //dd($data);
         try {
             // DBに追加
             $music = self::create($data);
@@ -129,7 +130,12 @@ class Music extends Model
         
             make_error_log("chgMusic.log","after_data=".print_r($updateData,1));
             // musicデータ更新
+            /*  クエリビルダではupdated_atが自動更新されない
             DB::table('musics')->where('id', $updateData['id'])->update($updateData);
+            */
+            Music::where('id', $updateData['id'])
+                ->update($updateData);
+
             make_error_log("chgMusic.log","success");
             return ['id' => $music->id, 'error_code' => 0];   //更新成功
 

@@ -68,20 +68,19 @@ class Affiliate extends Model
             make_error_log("chgAffiliate.log","chg_aff_id=".$data['aff_id']);
 
             try {
-                
+                /*  クエリビルダではupdated_atが自動更新されない
                 DB::table('affiliates')->where('id', $data['aff_id'])
                 ->update([
                     'href' => $new_href, 
                     'src' => $new_src, 
                 ]);
-                /*
-
-                $affiliate = Affiliate::find($data['aff_id']);
-                $affiliate->href = $new_href;
-                $affiliate->src = $new_src;
-                $affiliate->save();// 更新内容を保存
-                $aff_id = $affiliate->id;
                 */
+                Affiliate::where('id', $data['aff_id'])
+                    ->update([
+                        'href' => $new_href, 
+                        'src' => $new_src, 
+                    ]);
+                
                 // 保存されたレコードのIDを取得
                 make_error_log("chgAffiliate.log","success");
                 return ['id' => $data['aff_id'], 'error_code' => 0];   //更新成功

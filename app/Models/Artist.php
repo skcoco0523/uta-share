@@ -62,6 +62,7 @@ class Artist extends Model
 
         $artist = DB::table('artists')->where('id', $data['id'])->first();
         if ($artist !== null) {
+            /*  クエリビルダではupdated_atが自動更新されない
             DB::table('artists')->where('id', $data['id'])
             ->update([
                 'name' => $data['name'], 
@@ -69,7 +70,16 @@ class Artist extends Model
                 'debut' => $data['debut'], 
                 'sex' => $data['sex'], 
             ]);
+            */
             
+            Artist::where('id', $data['id'])
+                ->update([
+                    'name' => $data['name'],
+                    'name2' => $data['name2'],
+                    'debut' => $data['debut'],
+                    'sex' => $data['sex'],
+                ]);
+
             $msg = "更新しました。";
         } else {
             $msg = "更新に失敗しました。";
