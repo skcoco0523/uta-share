@@ -46,6 +46,7 @@
             <th scope="col" class="fw-light">ﾃﾞﾋﾞｭｰ日</th>
             <th scope="col" class="fw-light">その他</th>
             <th scope="col" class="fw-light">データ登録日</th>
+            <th scope="col" class="fw-light">データ更新日</th>
         </tr>
         </thead>
         @foreach($artists as $artist)
@@ -60,6 +61,7 @@
                     @endif
                 </td>
                 <td class="fw-light">{{$artist->created_at}}</td>
+                <td class="fw-light">{{$artist->updated_at}}</td>
             </tr>
         @endforeach
         </tbody>

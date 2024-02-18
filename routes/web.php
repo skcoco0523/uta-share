@@ -64,24 +64,30 @@ Route::middleware(['auth'])->group(function () {
         Route::get('artist/reg', [AdminArtistController::class, 'artist_regist'])->name('admin-artist-reg');
         Route::post('artist/reg', [AdminArtistController::class, 'artist_reg'])->name('admin-artist-reg');
     
-        Route::get('artist/bulkreg', [AdminArtistController::class, 'artist_bulkreg'])->name('admin-artist-bulkreg');
-        
         Route::get('artist/search', [AdminArtistController::class, 'artist_search'])->name('admin-artist-search');
         Route::post('artist/search/del', [AdminArtistController::class, 'artist_del'])->name('admin-artist-del');
         Route::post('artist/search/chg', [AdminArtistController::class, 'artist_chg'])->name('admin-artist-chg');
         
     
         //管理者　プレイリスト------------------------------------------------------------------------
-        Route::get('playlist/reg', [PlaylistController::class, 'playlist_regist'])->name('admin-playlist-reg');
-        Route::get('playlist/bulkreg', [PlaylistController::class, 'playlist_bulkreg'])->name('admin-playlist-bulkreg');
-        Route::get('playlist/chg', [PlaylistController::class, 'playlist_chg'])->name('admin-playlist-chg');
-        Route::get('playlist/search', [PlaylistController::class, 'playlist_search'])->name('admin-playlist-search');
+        Route::get('playlist/reg', [AdminPlaylistController::class, 'playlist_regist'])->name('admin-playlist-reg');
+        Route::post('playlist/reg', [AdminPlaylistController::class, 'playlist_reg'])->name('admin-playlist-reg');
+        
+        Route::get('playlist/chgdetail', [AdminPlaylistController::class, 'playlist_chg_detail'])->name('admin-playlist-chgdetail');
+        Route::get('playlist/chgdetail/getmusic', [AdminPlaylistController::class, 'playlist_music_search'])->name('admin-playlist-music-search');
+
+        
+        Route::post('playlist/chgdetail', [AdminPlaylistController::class, 'playlist_chg_detail_fnc'])->name('admin-playlist-chgdetail_fnc');
+
+        Route::get('playlist/search', [AdminPlaylistController::class, 'playlist_search'])->name('admin-playlist-search');
+        Route::post('playlist/search/del', [AdminPlaylistController::class, 'playlist_del'])->name('admin-playlist-del');
+
+        Route::post('playlist/chg', [AdminPlaylistController::class, 'playlist_chg'])->name('admin-playlist-chg');
         
         //管理者　おすすめ------------------------------------------------------------------------
-        Route::get('recommend/reg', [RecommendController::class, 'recommend_regist'])->name('admin-recommend-reg');
-        Route::get('recommend/bulkreg', [RecommendController::class, 'recommend_bulkreg'])->name('admin-recommend-bulkreg');
-        Route::get('recommend/chg', [RecommendController::class, 'recommend_chg'])->name('admin-recommend-chg');
-        Route::get('recommend/search', [RecommendController::class, 'recommend_search'])->name('admin-recommend-search');
+        Route::get('recommend/reg', [AdminRecommendController::class, 'recommend_regist'])->name('admin-recommend-reg');
+        Route::get('recommend/chg', [AdminRecommendController::class, 'recommend_chg'])->name('admin-recommend-chg');
+        Route::get('recommend/search', [AdminRecommendController::class, 'recommend_search'])->name('admin-recommend-search');
 
     });
 });

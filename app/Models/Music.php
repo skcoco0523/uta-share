@@ -9,10 +9,42 @@ use Illuminate\Support\Facades\DB;
 class Music extends Model
 {
     use HasFactory;
-    protected $table = 'musics';    //musicテーブルが指定されてしまうため、強制的に指定
+    protected $table = 'musuics';    //musicテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['alb_id', 'art_id', 'name', 'release_date', 'aff_id'];     //一括代入の許可
 
-    
+    //楽曲一覧取得
+    public static function getMusic_list($disp_cnt=null,$pageing=false,$keyword=null)
+    {
+        if ($pageing) {
+            // ページングを適用してデータを取得する     デフォルト5件
+            if ($disp_cnt === null) $disp_cnt=5;  
+            $music = DB::table('musics')
+                ->orderBy('created_at', 'desc')
+                ->where('name', 'like', "%$keyword%")
+                ->paginate($disp_cnt);
+        }elseif($disp_cnt !== null){
+            //件数指定で取得                        デフォルト5件
+            if ($disp_cnt === null) $disp_cnt=5;  
+            $music = DB::table('musics')
+                ->orderBy('created_at', 'desc')
+                ->where('name', 'like', "%$keyword%")
+                ->limit($disp_cnt)
+                ->get();
+        }else{
+            //全データ取得
+            $music = DB::table('musics')
+                ->orderBy('created_at', 'desc')
+                ->where('name', 'like', "%$keyword%")
+                ->get();
+        }
+        //アーティスト名を取得
+        foreach ($music as $mus) {
+            $mus->art_name = DB::table('artists')->where('id', $mus->art_id)->first()->name;
+        }
+        //画像情報を付与
+        //$music=setAffData($music);
+        return $music; 
+    }
     //取得
     public static function getMusic_detail($mus_id)
     {
@@ -49,8 +81,8 @@ class Music extends Model
         //DB追加処理チェック
         try {
             // DBに追加
-            $Music = self::create($data);
-            $mus_id = $Music->id;
+            $music = self::create($data);
+            $mus_id = $music->id;
             make_error_log("createMusic.log","success");
             return ['id' => $mus_id, 'error_code' => 0];   //追加成功
 

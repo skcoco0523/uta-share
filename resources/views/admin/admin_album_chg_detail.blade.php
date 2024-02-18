@@ -23,6 +23,7 @@
             <th scope="col" class="fw-light">収録数</th>
             <th scope="col" class="fw-light">ﾘﾘｰｽ</th>
             <th scope="col" class="fw-light">データ登録日</th>
+            <th scope="col" class="fw-light">データ更新日</th>
             <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
             <th scope="col" class="fw-light"></th>
         </tr>
@@ -40,12 +41,13 @@
                 <td class="fw-light">{{$album->mus_cnt}}</td>
                 <td class="fw-light">{{$album->release_date}}</td>
                 <td class="fw-light">{{$album->created_at}}</td>
+                <td class="fw-light">{{$album->updated_at}}</td>
                 <td><a href="{{ $album->href }}">
                     <img src="{{ $album->src }}" style="object-fit: cover; width: 100px; height: 100px;" alt="album_image">
                 </a></td>
                 <td class="fw-light">
                     <form method="GET" action="{{ route('admin-album-chgdetail') }}">
-                        <input type="hidden" name="id" value="{{$album->id}}">
+                        <input type="hidden" name="alb_id" value="{{$album->id}}">
                         <input type="submit" value="収録曲変更" class="btn btn-primary">
                     </form>
                 </td>

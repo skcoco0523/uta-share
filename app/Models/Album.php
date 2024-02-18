@@ -53,7 +53,7 @@ class Album extends Model
         //画像情報を付与
         $album=setAffData($album);
         return $album; 
-    }    
+    }
     //詳細変更　収録曲変更
     public static function getAlbum_detail($alb_id)
     {
@@ -78,9 +78,6 @@ class Album extends Model
         if(!isset($data['name']) || !$data['name'])     return ['id' => null, 'error_code' => 1];   //データ不足
         if(!isset($data['art_id']) || !$data['art_id']) return ['id' => null, 'error_code' => 2];   //データ不足
         if(!isset($data['aff_id']) || !$data['aff_id']) return ['id' => null, 'error_code' => 3];   //データ不足
-        
-        
-        
         
         //DB追加処理チェック
         try {
