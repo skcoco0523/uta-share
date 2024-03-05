@@ -5,7 +5,7 @@
             @case("音楽")
                 {{$tab_name}}メニュー
                 <li><a href="{{ route('admin-music-reg') }}">新規登録 </a></li>
-                <li><a href="{{ route('admin-music-bulkreg') }}">一括登録 </a></li>
+                {{--<li><a href="{{ route('admin-music-bulkreg') }}">一括登録 </a></li>--}}
                 <li><a href="{{ route('admin-music-search') }}">検索/変更/削除</a></li>
                 @break
             @case("アルバム")

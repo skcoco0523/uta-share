@@ -20,7 +20,7 @@ class AdminAlbumController extends Controller
     }
     
     //追加
-    public function album_regit(Request $request)
+    public function album_regist(Request $request)
     {
         $tab_name="アルバム";
         $ope_type="album_reg";

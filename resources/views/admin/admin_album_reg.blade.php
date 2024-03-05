@@ -7,14 +7,14 @@
             <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{$input['alb_name'] ?? ''}}">
         </div>
         <div class="col-sm">
-        <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
-        <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
-        <input type="hidden" id="selectedArtistId" name="art_id">
-        <datalist id="artistSelect">
-            @foreach($artists as $artist)
-            <option value="{{ $artist->name }}" data-id="{{ $artist->id }}">{{ $artist->name }}</option>
-            @endforeach
-        </datalist>
+            <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
+            <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
+            <input type="hidden" id="selectedArtistId" name="art_id">
+            <datalist id="artistSelect">
+                @foreach($artists as $artist)
+                <option value="{{ $artist->name }}" data-id="{{ $artist->id }}">{{ $artist->name }}</option>
+                @endforeach
+            </datalist>
         </div>
         <div class="col-md-3">
             <label for="inputrelease_date" class="form-label">ﾘﾘｰｽ</label>

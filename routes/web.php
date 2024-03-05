@@ -45,12 +45,14 @@ Route::middleware(['auth'])->group(function () {
 
         //管理者　音楽------------------------------------------------------------------------
         Route::get('music/reg', [AdminMusicController::class, 'music_regist'])->name('admin-music-reg');
+        Route::post('music/reg', [AdminMusicController::class, 'music_reg'])->name('admin-music-reg');
+
         Route::get('music/bulkreg', [AdminMusicController::class, 'music_bulkreg'])->name('admin-music-bulkreg');
         Route::get('music/chg', [AdminMusicController::class, 'music_chg'])->name('admin-music-chg');
         Route::get('music/search', [AdminMusicController::class, 'music_search'])->name('admin-music-search');
     
         //管理者　アルバム------------------------------------------------------------------------
-        Route::get('album/reg', [AdminAlbumController::class, 'album_regit'])->name('admin-album-reg');
+        Route::get('album/reg', [AdminAlbumController::class, 'album_regist'])->name('admin-album-reg');
         Route::post('album/reg', [AdminAlbumController::class, 'album_reg'])->name('admin-album-reg');
 
         Route::get('album/chgdetail', [AdminAlbumController::class, 'album_chg_detail'])->name('admin-album-chgdetail');

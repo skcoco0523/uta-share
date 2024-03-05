@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger ('art_id');
             $table->string('name');
             $table->date('release_date')->nullable();
-            $table->string('rink')->nullable();
+            $table->string('link')->nullable();
             $table->unsignedBigInteger ('aff_id')->nullable();
             $table->timestamps();
     

@@ -77,7 +77,7 @@ class Music extends Model
         if(!isset($data['art_id']) || !$data['art_id']) return ['id' => null, 'error_code' => 2];   //データ不足
 
         //if(!$data['alb_id'])    return ['id' => null, 'error_code' => 3];   //データ不足      シングルもあるため
-        //dd($data);
+        dd($data);
         //DB追加処理チェック
         //dd($data);
         try {
