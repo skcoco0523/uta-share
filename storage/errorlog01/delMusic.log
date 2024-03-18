@@ -109,3 +109,26 @@
 #49 C:\\xampp\\htdocs\\app01\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #50 {main}
 "} 
+[2024-03-18 20:32:13] local.DEBUG: -------start-------  
+[2024-03-18 20:32:13] local.DEBUG: delete_mus_id=125  
+[2024-03-18 20:32:13] local.DEBUG: success  
+[2024-03-18 20:32:40] local.DEBUG: -------start-------  
+[2024-03-18 20:32:40] local.DEBUG: delete_mus_id=124  
+[2024-03-18 20:32:40] local.DEBUG: success  
+[2024-03-18 20:43:53] local.DEBUG: -------start-------  
+[2024-03-18 20:43:53] local.DEBUG: delete_mus_id=123  
+[2024-03-18 20:43:53] local.DEBUG: success  
+[2024-03-18 20:44:10] local.DEBUG: -------start-------  
+[2024-03-18 20:44:10] local.DEBUG: delete_mus_id=119  
+[2024-03-18 20:44:10] local.DEBUG: success  
+[2024-03-18 20:47:09] local.DEBUG: -------start-------  
+[2024-03-18 20:47:09] local.DEBUG: delete_mus_id=122  
+[2024-03-18 20:47:24] local.DEBUG: -------start-------  
+[2024-03-18 20:47:24] local.DEBUG: delete_mus_id=122  
+[2024-03-18 20:47:24] local.DEBUG: success  
+[2024-03-18 20:57:42] local.DEBUG: -------start-------  
+[2024-03-18 20:57:42] local.DEBUG: delete_mus_id=121  
+[2024-03-18 20:57:42] local.DEBUG: success  
+[2024-03-18 20:58:09] local.DEBUG: -------start-------  
+[2024-03-18 20:58:09] local.DEBUG: delete_mus_id=118  
+[2024-03-18 20:58:09] local.DEBUG: success  

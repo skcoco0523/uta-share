@@ -126,7 +126,7 @@ class Album extends Model
             return ['id' => null, 'error_code' => -1];   //更新失敗
         }
     }
-    //削除
+    //削除：アルバム・アフィリエイトリンク・収録曲　を削除                    ●●●●●●●●●戻り値にエラーコードを返して、呼び出しもとでエラーメッセージを定義●●●●●●●●
     public static function delAlbum($id)
     {
         $msg="";
@@ -136,6 +136,7 @@ class Album extends Model
         
         if ($albums !== null) {
             make_error_log("delAlbum.log","-------start-------");
+            //削除対象アルバムの収録曲削除
             foreach ($musics as $music) {
                 make_error_log("delAlbum.log","mus_id=".$music->id);
                 DB::table('musics')->where('id', $music->id)->delete();

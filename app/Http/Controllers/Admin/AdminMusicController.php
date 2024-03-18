@@ -80,7 +80,59 @@ class AdminMusicController extends Controller
         $musics = Music::getMusic_list(5,true,$input['keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
         $artists = Artist::getArtist();  //全件　リスト用
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['keyword'] !==null && $albums === null) ? "検索結果が0件です。" : $msg;
+        $msg = ($msg===NULL && $input['keyword'] !==null && $musics === null) ? "検索結果が0件です。" : $msg;
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'musics', 'input', 'msg'));
+    }
+    //削除
+    public function music_del(Request $request)
+    {
+        $input = $request->only(['id','name']);
+        //$msg = Music::delMusic($data['id']);
+        $ret = Music::delMusic($input['id']);
+        if($ret['error_code']==0)     $msg = "曲：". $input['name']. "を削除しました。";
+        if($ret['error_code']==-1)    $msg = "曲の削除に失敗しました。";
+
+        $input = $request->only(['keyword']);
+        return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
+    }
+    //変更
+    public function music_chg(Request $request)
+    {
+        $input = $request->only(['id', 'alb_name', 'art_id', 'art_name', 'release_date', 'aff_id', 'aff_link', 'keyword']);
+        $msg=null;
+        //music,Affiliate,Musicを一括で登録するため、事前にデータ確認
+        //if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
+        if(!$input['art_id'])       $msg =  "登録されていないアーティストは選択できません。";
+        if(!$input['art_name'])     $msg =  "アーティストを選択してください。";
+        if(!$input['alb_name'])     $msg =  "アルバム名を入力してください。";
+        if(!$input['id'])           $msg =  "テーブルから選択してください。";
+        if($msg!==null)         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
+
+        //affiliate変更
+        $input = $request->only(['aff_link', 'aff_id']);
+        if($input['aff_link']){
+            $ret = Affiliate::chgAffiliate($input);
+            if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
+            if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
+            if($ret['error_code']==-1)    $msg = "アフィリエイト情報の変更に失敗しました。";
+            if($msg!==null) return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
+
+        }
+        
+        //music変更
+        $input = $request->only(['id', 'alb_name', 'art_id','release_date']);
+        $input['name'] = $input['alb_name'];    //musicのカラム名に合わせる
+        if($input){
+            $ret = Music::chgMusic($input);
+            //最初にデータ不足の判定済み
+            if($ret['error_code']==-1)    $msg = "アルバム情報の更新に失敗しました。";
+            if($msg!==null) return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
+            $alb_id=$ret['id']; //変更したAlbimID
+        
+        }
+        //収録曲は詳細変更でのみ可能
+        $input = $request->only(['keyword']);
+        $msg = "アルバム：" . $request->input('alb_name') . " を更新しました。";
+        return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
     }
 }

@@ -47,9 +47,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('music/reg', [AdminMusicController::class, 'music_regist'])->name('admin-music-reg');
         Route::post('music/reg', [AdminMusicController::class, 'music_reg'])->name('admin-music-reg');
 
-        Route::get('music/bulkreg', [AdminMusicController::class, 'music_bulkreg'])->name('admin-music-bulkreg');
-        Route::get('music/chg', [AdminMusicController::class, 'music_chg'])->name('admin-music-chg');
-
         Route::get('music/search', [AdminMusicController::class, 'music_search'])->name('admin-music-search');
         Route::post('music/search/del', [AdminMusicController::class, 'music_del'])->name('admin-music-del');
         Route::post('music/search/chg', [AdminMusicController::class, 'music_chg'])->name('admin-music-chg');

@@ -92,7 +92,7 @@ class Music extends Model
             return ['id' => null, 'error_code' => -1];   //追加失敗
         }
     }
-    //削除                                                  ●●●●●●修正必須●●●●●●
+    //削除：曲・アフィリエイトリンク　を削除
     public static function delMusic($id)
     {
         make_error_log("delMusic.log","-------start-------");
@@ -102,6 +102,7 @@ class Music extends Model
             // musicデータ削除
             $music = DB::table('musics')->where('id', $id)->first();
             DB::table('musics')->where('id', $id)->delete();
+            DB::table('affiliates')->where('id', $music->aff_id)->delete();
 
             make_error_log("delMusic.log","success");
             return ['id' => $music->id, 'error_code' => 0];   //更新成功

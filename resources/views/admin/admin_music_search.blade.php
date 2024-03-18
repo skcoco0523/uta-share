@@ -7,8 +7,8 @@
         <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
         <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
         <div class="col-sm">
-            <label for="inputname" class="form-label">ｱﾙﾊﾞﾑ名</label>
-            <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['alb_name'] ?? '') }}">
+            <label for="inputname" class="form-label">曲名</label>
+            <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['mus_name'] ?? '') }}">
         </div>
         <div class="col-sm">
             <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
@@ -63,8 +63,8 @@
 
     <div class="row g-3 align-items-end">
     <div class="col-sm-6">
-        <label for="keyword" class="visually-hidden">検索(アルバム名)</label>
-        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(アルバム名)">
+        <label for="keyword" class="visually-hidden">検索(曲名)</label>
+        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(曲名)">
     </div>
     <div class="col-auto align-self-end">
         <button type="submit" class="btn btn-success">検索</button>
@@ -72,7 +72,7 @@
 </div>
 </form>
 
-{{--アルバム一覧--}}
+{{--曲一覧--}}
 @if(isset($musics))
     <table class="table table-striped table-hover table-bordered fs-6 ">
         <thead>
@@ -104,6 +104,7 @@
                     <form method="POST" action="{{ route('admin-music-del') }}">
                         @csrf
                         <input type="hidden" name="id" value="{{$music->id}}">
+                        <input type="hidden" name="name" value="{{$music->name}}">
                         <input type="hidden" name="aff_id" value="{{$music->aff_id}}">
                         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
                         <input type="submit" value="削除" class="btn btn-danger">

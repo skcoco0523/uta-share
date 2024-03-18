@@ -18,7 +18,7 @@
             </datalist>
         </div>
         <div class="col-md-3">
-            <label for="inputbirth" class="form-label">ﾘﾘｰｽ日</label>
+            <label for="inputbirth" class="form-label">ﾘﾘｰｽ</label>
             <input type="date" name="release_date" class="form-control" value="{{$input['release_date'] ?? ''}}">
         </div>
     </div>
