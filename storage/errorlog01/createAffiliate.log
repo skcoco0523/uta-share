@@ -1965,3 +1965,117 @@
 )
   
 [2024-03-05 23:45:40] local.DEBUG: success  
+[2024-03-18 19:51:10] local.DEBUG: -------start-------  
+[2024-03-18 19:51:10] local.DEBUG: aff_link=  
+[2024-03-18 19:59:10] local.DEBUG: -------start-------  
+[2024-03-18 19:59:10] local.DEBUG: aff_link=  
+[2024-03-18 20:01:16] local.DEBUG: -------start-------  
+[2024-03-18 20:01:16] local.DEBUG: aff_link=  
+[2024-03-18 20:01:24] local.DEBUG: -------start-------  
+[2024-03-18 20:01:24] local.DEBUG: aff_link=  
+[2024-03-18 20:05:47] local.DEBUG: -------start-------  
+[2024-03-18 20:05:47] local.DEBUG: aff_link=  
+[2024-03-18 20:06:57] local.DEBUG: -------start-------  
+[2024-03-18 20:06:57] local.DEBUG: aff_link=  
+[2024-03-18 20:07:20] local.DEBUG: -------start-------  
+[2024-03-18 20:07:20] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-18 20:07:20] local.DEBUG: success  
+[2024-03-18 20:07:20] local.DEBUG: -------start-------  
+[2024-03-18 20:07:20] local.DEBUG: create_data=Array
+(
+    [name] => music_add_test
+    [art_id] => 6
+    [art_name] => 声にならないよ
+    [release_date] => 2024-03-11
+    [link] => https://XXXXXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 23
+)
+  
+[2024-03-18 20:07:20] local.DEBUG: success  
+[2024-03-18 20:09:59] local.DEBUG: -------start-------  
+[2024-03-18 20:09:59] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-18 20:09:59] local.DEBUG: success  
+[2024-03-18 20:09:59] local.DEBUG: -------start-------  
+[2024-03-18 20:09:59] local.DEBUG: name=test art_id=6 release_date=2024-03-04 aff_id=24  
+[2024-03-18 20:09:59] local.DEBUG: success  
+[2024-03-18 20:12:20] local.DEBUG: -------start-------  
+[2024-03-18 20:12:20] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-18 20:12:20] local.DEBUG: success  
+[2024-03-18 20:12:20] local.DEBUG: -------start-------  
+[2024-03-18 20:12:20] local.DEBUG: create_data=Array
+(
+    [name] => music_add_test
+    [art_id] => 6
+    [art_name] => 声にならないよ
+    [release_date] => 2024-03-11
+    [link] => https://XXXXXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 25
+)
+  
+[2024-03-18 20:12:20] local.DEBUG: success  
+[2024-03-18 20:12:43] local.DEBUG: -------start-------  
+[2024-03-18 20:12:43] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-18 20:12:43] local.DEBUG: success  
+[2024-03-18 20:12:43] local.DEBUG: -------start-------  
+[2024-03-18 20:12:43] local.DEBUG: create_data=Array
+(
+    [name] => music_add_test
+    [art_id] => 6
+    [art_name] => 声にならないよ
+    [release_date] => 2024-03-11
+    [link] => https://XXXXXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 26
+)
+  
+[2024-03-18 20:12:43] local.DEBUG: success  
+[2024-03-18 20:13:21] local.DEBUG: -------start-------  
+[2024-03-18 20:13:21] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-18 20:13:21] local.DEBUG: success  
+[2024-03-18 20:13:21] local.DEBUG: -------start-------  
+[2024-03-18 20:13:21] local.DEBUG: create_data=Array
+(
+    [name] => music_add_test
+    [art_id] => 6
+    [art_name] => 声にならないよ
+    [release_date] => 2024-03-11
+    [link] => https://XXXXXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 27
+)
+  
+[2024-03-18 20:13:21] local.DEBUG: success  
+[2024-03-18 20:15:24] local.DEBUG: -------start-------  
+[2024-03-18 20:15:24] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-18 20:15:24] local.DEBUG: success  
+[2024-03-18 20:15:24] local.DEBUG: -------start-------  
+[2024-03-18 20:15:24] local.DEBUG: create_data=Array
+(
+    [name] => music_add_test
+    [art_id] => 6
+    [art_name] => 声にならないよ
+    [release_date] => 2024-03-11
+    [link] => https://XXXXXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 28
+)
+  
+[2024-03-18 20:15:24] local.DEBUG: success  
+[2024-03-18 20:15:36] local.DEBUG: -------start-------  
+[2024-03-18 20:15:36] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-18 20:15:37] local.DEBUG: success  
+[2024-03-18 20:15:37] local.DEBUG: -------start-------  
+[2024-03-18 20:15:37] local.DEBUG: create_data=Array
+(
+    [name] => music_add_test
+    [art_id] => 6
+    [art_name] => 声にならないよ
+    [release_date] => 2024-03-11
+    [link] => https://XXXXXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 29
+)
+  
+[2024-03-18 20:15:37] local.DEBUG: success  

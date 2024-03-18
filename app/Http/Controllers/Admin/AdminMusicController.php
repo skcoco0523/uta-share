@@ -19,24 +19,30 @@ class AdminMusicController extends Controller
         return view('admin.adminhome');
     }
     //追加
-    public function music_regist()
+    public function music_regist(Request $request)
     {
         $tab_name="音楽";
         $ope_type="music_reg";
         $artists = Artist::getArtist();  //全件　リスト用
         $musics = Music::getMusic_list(5);  //5件
         $msg = request('msg');
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'musics', 'artists', 'msg'));
+        
+        //追加からのリダイレクトの場合、inputを取得
+        if($request->input('input')!==null)     $input = request('input');
+        else                                    $input = $request->only(['name', 'art_name', 'release_date', 'link']);
+        
+        return view('admin.adminhome', compact('tab_name', 'ope_type', 'musics', 'artists', 'input', 'msg'));
     }
     //追加
     public function music_reg(Request $request)
     {
-        $input = $request->only(['name', 'alb_id', 'art_id', 'release_date', 'link', 'aff_link']);
+        $input = $request->only(['name', 'alb_id', 'art_id', 'art_name', 'release_date', 'link', 'aff_link']);
         //dd($input);
         $msg=null;
         //Affiliate,Musicを一括で登録するため、事前にデータ確認
         //if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
         if(!$input['art_id'])       $msg =  "登録されていないアーティストは選択できません。";
+        if(!$input['art_name'])     $msg =  "アーティストを選択してください。";
         if(!$input['name'])         $msg =  "曲名を入力してください。";
         if($msg!==null)         return redirect()->route('admin-music-reg', ['input' => $input, 'msg' => $msg]);
 
@@ -51,11 +57,11 @@ class AdminMusicController extends Controller
 
         //曲登録
         $ret = Music::createMusic($input);
-
-        if($ret==0){
+        if($ret['error_code']==0){
              $msg = "曲：{$input['name']} を追加しました。";
              $input=null;   //データ登録成功時 初期化
         }
+
         if($ret==1) $msg = "曲名を入力してください。";
         if($ret==-1) $msg = "曲：{$input['name']} の追加に失敗しました。";
         return redirect()->route('admin-music-reg', ['input' => $input, 'msg' => $msg]);

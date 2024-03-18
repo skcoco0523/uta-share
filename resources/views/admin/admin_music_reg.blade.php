@@ -19,14 +19,14 @@
         </div>
         <div class="col-md-3">
             <label for="inputbirth" class="form-label">ﾘﾘｰｽ日</label>
-            <input type="date" name="release_date" class="form-control" value="{{$input['debut'] ?? ''}}">
+            <input type="date" name="release_date" class="form-control" value="{{$input['release_date'] ?? ''}}">
         </div>
     </div>
 
     <div class="row mt-3 align-items-stretch">
         <div class="col-sm">
             <label for="inputlink" class="form-label">ﾘﾝｸ</label>
-            <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['name'] ?? ''}}">
+            <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['link'] ?? ''}}">
         </div>
         <div class="col-sm">
             <label for="affiliate-link" class="form-label">アフィリエイトリンク</label>
