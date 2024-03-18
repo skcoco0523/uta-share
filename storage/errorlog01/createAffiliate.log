@@ -1904,3 +1904,64 @@
     [aff_id] => 18
 )
   
+[2024-03-05 23:01:22] local.DEBUG: -------start-------  
+[2024-03-05 23:01:22] local.DEBUG: aff_link=  
+[2024-03-05 23:01:55] local.DEBUG: -------start-------  
+[2024-03-05 23:01:55] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-05 23:01:55] local.DEBUG: success  
+[2024-03-05 23:01:55] local.DEBUG: -------start-------  
+[2024-03-05 23:01:55] local.DEBUG: create_data=Array
+(
+    [name] => test3
+    [art_id] => 6
+    [release_date] => 2024-03-11
+    [link] => https://XXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 19
+)
+  
+[2024-03-05 23:25:29] local.DEBUG: -------start-------  
+[2024-03-05 23:25:29] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-05 23:25:29] local.DEBUG: success  
+[2024-03-05 23:25:29] local.DEBUG: -------start-------  
+[2024-03-05 23:25:29] local.DEBUG: create_data=Array
+(
+    [name] => test3
+    [art_id] => 6
+    [release_date] => 2024-03-11
+    [link] => https://XXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 20
+)
+  
+[2024-03-05 23:25:29] local.DEBUG: success  
+[2024-03-05 23:26:33] local.DEBUG: -------start-------  
+[2024-03-05 23:26:33] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-05 23:26:33] local.DEBUG: success  
+[2024-03-05 23:26:33] local.DEBUG: -------start-------  
+[2024-03-05 23:26:33] local.DEBUG: create_data=Array
+(
+    [name] => test3
+    [art_id] => 2
+    [release_date] => 2024-03-11
+    [link] => https://XXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 21
+)
+  
+[2024-03-05 23:26:33] local.DEBUG: success  
+[2024-03-05 23:45:40] local.DEBUG: -------start-------  
+[2024-03-05 23:45:40] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-05 23:45:40] local.DEBUG: success  
+[2024-03-05 23:45:40] local.DEBUG: -------start-------  
+[2024-03-05 23:45:40] local.DEBUG: create_data=Array
+(
+    [name] => listtest
+    [art_id] => 4
+    [release_date] => 2024-03-18
+    [link] => https://www.youtube.com/watch?v=YB_St-YN3Y8&t=3s
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16174628%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=19887666&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6029%2F4988013916029.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 22
+)
+  
+[2024-03-05 23:45:40] local.DEBUG: success  

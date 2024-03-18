@@ -10,7 +10,7 @@ class Music extends Model
 {
     use HasFactory;
     protected $table = 'musics';    //musicテーブルが指定されてしまうため、強制的に指定
-    protected $fillable = ['alb_id', 'art_id', 'name', 'release_date', 'aff_id'];     //一括代入の許可
+    protected $fillable = ['alb_id', 'art_id', 'name', 'release_date', 'link', 'aff_id'];     //一括代入の許可
 
     //楽曲一覧取得
     public static function getMusic_list($disp_cnt=null,$pageing=false,$keyword=null)
@@ -42,7 +42,7 @@ class Music extends Model
             $mus->art_name = DB::table('artists')->where('id', $mus->art_id)->first()->name;
         }
         //画像情報を付与
-        //$music=setAffData($music);
+        $music=setAffData($music);
         return $music; 
     }
     //取得
@@ -77,7 +77,7 @@ class Music extends Model
         if(!isset($data['art_id']) || !$data['art_id']) return ['id' => null, 'error_code' => 2];   //データ不足
 
         //if(!$data['alb_id'])    return ['id' => null, 'error_code' => 3];   //データ不足      シングルもあるため
-        dd($data);
+        //dd($data);
         //DB追加処理チェック
         //dd($data);
         try {

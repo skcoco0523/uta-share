@@ -64,6 +64,7 @@
             <th scope="col" class="fw-light">ﾘﾝｸ</th>
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
+            <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
         </tr>
         </thead>
         @foreach($musics as $music)
@@ -74,6 +75,9 @@
                 <td class="fw-light">{{$music->link}}</td>
                 <td class="fw-light">{{$artist->created_at}}</td>
                 <td class="fw-light">{{$artist->updated_at}}</td>
+                <td><a href="{{ $music->href }}">
+                    <img src="{{ $music->src }}" style="object-fit: cover; width: 100px; height: 100px;" alt="music_image">
+                </a></td>
             </tr>
         @endforeach
         </tbody>

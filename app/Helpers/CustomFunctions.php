@@ -29,9 +29,14 @@ if (! function_exists('setAffData')) {
                 ->select('affiliates.id','affiliates.href','affiliates.src')
                 ->where('id', '=', $obj->aff_id)
                 ->first();
-                $obj->href = $aff_data->href;
-                $obj->src = $aff_data->src;
-
+                if ($aff_data) {
+                    $obj->href = $aff_data->href;
+                    $obj->src = $aff_data->src;
+                } else {
+                    // $aff_data が null の場合
+                    $obj->href = NULL;
+                    $obj->src = asset('img/pic/no_image.png');
+                }
             }else{
                 foreach ($obj as $val) {
                     //コレクション内のaff_idが配列
@@ -44,12 +49,22 @@ if (! function_exists('setAffData')) {
                             ->select('affiliates.id','affiliates.href','affiliates.src')
                             ->where('id', '=', $aff_id)
                             ->first();
-                            $href_array[] = $aff_data->href;
-                            $src_array[] = $aff_data->src;
+                            if ($aff_data) {
+                                $href_array[] = $aff_data->href;
+                                $src_array[] = $aff_data->src;
+                            } else {
+                                // $aff_data が null の場合
+                                $href_array[] = NULL;
+                                $src_array[] = asset('img/pic/no_image.png');
+                            }
+                            /*
+                            $href_array[] = $href;
+                            $src_array[] = $src;
                             if($aff_data->isEmpty()){
                                 //$aff_array[] = "pic/no_image.png";
                                 $aff_array[] = "pic/no_image.png";
                             }
+                            */
                         }
                         $val->href = $href_array;
                         $val->src = $src_array;
@@ -59,9 +74,11 @@ if (! function_exists('setAffData')) {
                         ->select('affiliates.id','affiliates.href','affiliates.src')
                         ->where('id', '=', $val->aff_id)
                         ->first();
-                        $href = $aff_data->href;
-                        $src= $aff_data->src;
-                        if(!$aff_data){
+                        if ($aff_data) {
+                            $href = $aff_data->href;
+                            $src = $aff_data->src;
+                        } else {
+                            // $aff_data が null の場合
                             $href = null;
                             $src = asset('img/pic/no_image.png');
                         }
