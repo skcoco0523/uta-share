@@ -3,14 +3,14 @@
 @extends('admin.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         {{-- メニュー選択したタブによって切り替え --}}
-        <div class="col-md-2">
+        <div class="col-2" style="width: 100%;">
             @include('admin.admin_menu_left')
         </div>
         <!--メイン-->
-        <div class="col-md-8">
+        <div class="col-8" style="width: 100%;">
             <div class="rounded border p-3">
                 @include('admin.admin_menu_right')
             </div>

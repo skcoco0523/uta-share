@@ -37,9 +37,14 @@ class Music extends Model
                 ->where('name', 'like', "%$keyword%")
                 ->get();
         }
-        //アーティスト名を取得
+        //アーティスト名・アルバム名を取得
         foreach ($music as $mus) {
             $mus->art_name = DB::table('artists')->where('id', $mus->art_id)->first()->name;
+            if($mus->alb_id==NULL){
+                $mus->alb_name = NULL;
+            }else{
+                $mus->alb_name = DB::table('albums')->where('id', $mus->alb_id)->first()->name;
+            }
         }
         //画像情報を付与
         $music=setAffData($music);
@@ -122,11 +127,11 @@ class Music extends Model
             // 更新対象となるカラムと値を連想配列に追加
             $updateData = [];
             $updateData['id'] =             $data['id'];
-            $updateData['alb_id'] =         (isset($data['alb_id']))        ? $data['alb_id'] : $music->id;
+            $updateData['alb_id'] =         (isset($data['alb_id']))        ? $data['alb_id'] : $music->alb_id;
             $updateData['art_id'] =         (isset($data['art_id']))        ? $data['art_id'] : $music->art_id;
             $updateData['name'] =           (isset($data['name']))          ? $data['name'] : $music->name;
             $updateData['release_date'] =   (isset($data['release_date']))  ? $data['release_date'] : $music->release_date;
-            $updateData['rink'] =           (isset($data['rink']))          ? $data['rink'] : $music->rink;
+            $updateData['link'] =           (isset($data['link']))          ? $data['link'] : $music->link;
             $updateData['aff_id'] =         (isset($data['aff_id']))        ? $data['aff_id'] : $music->aff_id;
         
             make_error_log("chgMusic.log","after_data=".print_r($updateData,1));

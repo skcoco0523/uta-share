@@ -29,7 +29,7 @@
     <div class="row mt-3 align-items-stretch">
         <div class="col-sm">
             <label for="inputlink" class="form-label">ﾘﾝｸ</label>
-            <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['name'] ?? ''}}">
+            <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['link'] ?? ''}}">
         </div>
         <div class="col-sm">
             <label for="affiliate-link" class="form-label">アフィリエイトリンク</label>
@@ -74,12 +74,14 @@
 
 {{--曲一覧--}}
 @if(isset($musics))
+    ｱﾌｨﾘｴｲﾄﾘﾝｸ(ｲﾒｰｼﾞ&ﾘﾝｸ)はアルバムの情報が優先されます
     <table class="table table-striped table-hover table-bordered fs-6 ">
         <thead>
         <tr>
             <th scope="col" class="fw-light">#</th>
             <th scope="col" class="fw-light">曲名</th>
             <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
+            <th scope="col" class="fw-light">アルバム名</th>
             <th scope="col" class="fw-light">ﾘﾘｰｽ</th>
             <th scope="col" class="fw-light">ﾘﾝｸ</th>
             <th scope="col" class="fw-light">データ登録日</th>
@@ -93,6 +95,7 @@
                 <td class="fw-light">{{$music->id}}</td>
                 <td class="fw-light">{{$music->name}}</td>
                 <td class="fw-light">{{$music->art_name}}</td>
+                <td class="fw-light">{{$music->alb_name}}</td>
                 <td class="fw-light">{{$music->release_date}}</td>
                 <td class="fw-light">{{$music->link}}</td>
                 <td class="fw-light">{{$music->created_at}}</td>
@@ -162,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const id = cells[0].textContent;
             const alb_name = cells[1].textContent;
             const art_name = cells[2].textContent;
-            const release_date = cells[3].textContent;
-            const link = cells[4].textContent;
+            const release_date = cells[4].textContent;
+            const link = cells[5].textContent;
             const aff_id_input = row.querySelector('input[name="aff_id"]');
             const aff_id_value = aff_id_input.value;
 
@@ -178,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     //リストから選択時、art_idをpostできないため、再取得
-    document.getElementById('alb_search_form').addEventListener('submit', function(event) {
+    document.getElementById('mus_search_form').addEventListener('submit', function(event) {
         var artistInput = document.querySelector('input[name="art_name"]');
         var art_idInput = document.getElementById('selectedArtistId');
         

@@ -98,7 +98,7 @@ class AdminMusicController extends Controller
     //変更
     public function music_chg(Request $request)
     {
-        $input = $request->only(['id', 'alb_name', 'art_id', 'art_name', 'release_date', 'aff_id', 'aff_link', 'keyword']);
+        $input = $request->only(['id', 'alb_name', 'art_id', 'alb_id', 'art_name', 'release_date', 'link', 'aff_id', 'aff_link', 'keyword']);
         $msg=null;
         //music,Affiliate,Musicを一括で登録するため、事前にデータ確認
         //if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
@@ -120,7 +120,7 @@ class AdminMusicController extends Controller
         }
         
         //music変更
-        $input = $request->only(['id', 'alb_name', 'art_id','release_date']);
+        $input = $request->only(['id', 'alb_name', 'art_id','release_date', 'link']);
         $input['name'] = $input['alb_name'];    //musicのカラム名に合わせる
         if($input){
             $ret = Music::chgMusic($input);
