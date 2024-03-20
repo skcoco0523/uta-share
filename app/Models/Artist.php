@@ -13,31 +13,21 @@ class Artist extends Model
     //取得
     public static function getArtist($disp_cnt=null,$pageing=false,$keyword=null)
     {
-        if ($pageing) {
-            // ページングを適用してデータを取得する     デフォルト5件
-            if ($disp_cnt === null) $disp_cnt=5;  
-            $artist = DB::table('artists')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->orWhere('name2', 'like', "%$keyword%")
-                ->paginate($disp_cnt);
-        }elseif($disp_cnt !== null){
-            //件数指定で取得                        デフォルト5件
-            if ($disp_cnt === null) $disp_cnt=5;  
-            $artist = DB::table('artists')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->orWhere('name2', 'like', "%$keyword%")
-                ->limit($disp_cnt)
-                ->get();
-        }else{
-            //全データ取得
-            $artist = DB::table('artists')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->orWhere('name2', 'like', "%$keyword%")
-                ->get();
+        $sql_cmd = DB::table('artists')->orderBy('created_at', 'desc')
+            ->where('name', 'like', "%$keyword%")
+            ->orWhere('name2', 'like', "%$keyword%");
+        
+        // デフォルト5件
+        if ($disp_cnt === null) $disp_cnt=5;  
+        // ページングを適用してデータを取得する
+        if ($pageing) {                     $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        // 件数指定で取得
+        }elseif($disp_cnt !== null){        $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+        // 全データ取得
+        }else{                              $sql_cmd = $sql_cmd->get();
         }
+        $artist = $sql_cmd;
+
         return $artist; 
     }
     //作成

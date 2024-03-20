@@ -53,8 +53,8 @@
         <tr>
             <th scope="col" class="fw-light">#</th>
             <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
-            <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">登録曲数</th>
+            <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">種別</th>
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
@@ -65,8 +65,8 @@
             <tr>
                 <td class="fw-light">{{$pl->id}}</td>
                 <td class="fw-light">{{$pl->name}}</td>
-                <td class="fw-light">{{$pl->user_name}}</td>
                 <td class="fw-light">{{$pl->mus_cnt}}</td>
+                <td class="fw-light">{{$pl->user_name}}</td>
                 <td class="fw-light">
                     @if($pl->admin_flg === 0)     ユーザー
                     @elseif($pl->admin_flg === 1) 管理者

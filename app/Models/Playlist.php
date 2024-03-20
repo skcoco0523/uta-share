@@ -14,31 +14,22 @@ class Playlist extends Model
     //取得
     public static function getPlaylist_list($disp_cnt=null,$pageing=false,$keyword=null,$admin_flg=0)
     {
-        if ($pageing) {
-            // ページングを適用してデータを取得する     デフォルト5件
-            if ($disp_cnt === null) $disp_cnt=5;  
-            $playlist = DB::table('playlist')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->where('admin_flg', $admin_flg)
-                ->paginate($disp_cnt);
-        }elseif($disp_cnt !== null){
-            //件数指定で取得                        デフォルト5件
-            if ($disp_cnt === null) $disp_cnt=5;  
-            $playlist = DB::table('playlist')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->where('admin_flg', $admin_flg)
-                ->limit($disp_cnt)
-                ->get();
-        }else{
-            //全データ取得
-            $playlist = DB::table('playlist')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->where('admin_flg', $admin_flg)
-                ->get();
+        $sql_cmd = DB::table('playlist')
+            ->orderBy('created_at', 'desc')
+            ->where('name', 'like', "%$keyword%")
+            ->where('admin_flg', $admin_flg);
+        
+        // デフォルト5件
+        if ($disp_cnt === null) $disp_cnt=5;  
+        // ページングを適用してデータを取得する
+        if ($pageing) {                     $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        // 件数指定で取得
+        }elseif($disp_cnt !== null){        $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+        // 全データ取得
+        }else{                              $sql_cmd = $sql_cmd->get();
         }
+        $playlist = $sql_cmd;
+
         // 楽曲登録数、登録者名を取得
         foreach ($playlist as $item) {
             $item->mus_cnt = DB::table('playlistdetail')->where('pl_id', $item->id)->count();
@@ -71,15 +62,15 @@ class Playlist extends Model
     {
         make_error_log("createPlaylist.log","---------start----------");
         try {
-            if(!$data['name'])  return 1;   //データ不足
+            if(!$data['name'])  return ['id' => null, 'error_code' => 1];   //データ不足
             //DB追加処理チェック
             make_error_log("createPlaylist.log","data=".print_r($data,1));
             $result = self::create($data);
             make_error_log("createPlaylist.log","success");
-            return 0;   //追加成功
+            return ['id' => null, 'error_code' => 0];   //追加成功
         } catch (\Exception $e) {
             make_error_log("createPlaylist.log","failure");
-            return -1;   //追加失敗
+            return ['id' => null, 'error_code' => -1];   //追加失敗
         }
     }
     //変更
@@ -87,8 +78,8 @@ class Playlist extends Model
     {
         make_error_log("chgPlaylist.log","---------start----------");
         try {
-            if(!$data['id'])  return 1;   //データ不足
-            if(!$data['name'])  return 2;   //データ不足
+            if(!$data['id'])    return ['id' => null, 'error_code' => 1];   //データ不足
+            if(!$data['name'])  return ['id' => null, 'error_code' => 2];   //データ不足
             //DB追加処理チェック
             make_error_log("chgPlaylist.log","data=".print_r($data,1));
 
@@ -104,10 +95,10 @@ class Playlist extends Model
                 ]);
 
             make_error_log("chgPlaylist.log","success");
-            return 0;   //追加成功
+            return ['id' => null, 'error_code' => 0];   //追加成功
         } catch (\Exception $e) {
             make_error_log("chgPlaylist.log","failure");
-            return -1;   //追加失敗
+            return ['id' => null, 'error_code' => -1];   //追加失敗
         }
     }
     //削除
@@ -115,7 +106,7 @@ class Playlist extends Model
     {
         make_error_log("delPlaylist.log","---------start----------");
         try {
-            if(!$data['pl_id'])  return 1;   //データ不足
+            if(!$data['pl_id'])  return ['id' => null, 'error_code' => 1];   //データ不足
             make_error_log("delPlaylist.log","delete_pl_id=".$data['pl_id']);
 
             //DB::table('playlistdetail')->where('pl_id', $data['pl_id'])->where('id', $data['detail_id'])->delete();
@@ -123,10 +114,10 @@ class Playlist extends Model
             DB::table('playlist')->where('id', $data['pl_id'])->delete();
 
             make_error_log("delPlaylist.log","success");
-            return 0;   //削除成功
+            return ['id' => null, 'error_code' => 0];   //削除成功
         } catch (\Exception $e) {
             make_error_log("delPlaylist.log","failure");
-            return -1;   //削除失敗
+            return ['id' => null, 'error_code' => -1];   //削除失敗
         }
     }
     //プレイリスト収録曲削除

@@ -35,12 +35,12 @@ class AdminPlaylistController extends Controller
     {
         $input = $request->only(['name', 'user_id', 'admin_flg']);
         $ret = Playlist::createPlaylist($input);
-        if($ret==0){
+        if($ret['error_code']==0){
              $msg = "プレイリスト：{$input['name']} を追加しました。";
              $input=null;   //データ登録成功時 初期化
         }
-        if($ret==1) $msg = "プレイリスト名を入力してください。";
-        if($ret==-1) $msg = "プレイリスト：{$input['name']} の追加に失敗しました。";
+        if($ret['error_code']==1) $msg = "プレイリスト名を入力してください。";
+        if($ret['error_code']==-1) $msg = "プレイリスト：{$input['name']} の追加に失敗しました。";
         return redirect()->route('admin-playlist-reg', ['input' => $input, 'msg' => $msg]);
     }
     //削除
@@ -48,11 +48,11 @@ class AdminPlaylistController extends Controller
     {
         $input = $request->only(['pl_id','pl_name','keyword','admin_flg']);
         $ret = Playlist::delPlaylist($input);
-        if($ret==0){
+        if($ret['error_code']==0){
              $msg = "プレイリスト：{$input['pl_name']} を削除しました。";
         }
         //if($ret==1) $msg = "プレイリスト名";
-        if($ret==-1) $msg = "プレイリスト：{$input['pl_name']} の削除に失敗しました。";
+        if($ret['error_code']==-1) $msg = "プレイリスト：{$input['pl_name']} の削除に失敗しました。";
         return redirect()->route('admin-playlist-search', ['input' => $input, 'msg' => $msg]);
     }
     //検索
@@ -79,10 +79,10 @@ class AdminPlaylistController extends Controller
         $ret = Playlist::chgPlaylist($input);
 
 
-        if($ret==1) $msg = "テーブルから変更対象を選択してください。";
-        if($ret==2) $msg = "プレイリスト名を入力してください。";
-        if($ret==-1) $msg = "プレイリスト：{$input['name']} の追加に失敗しました。";
-        if($ret==0) $msg = "プレイリスト：{$input['name']} を更新しました。";
+        if($ret['error_code']==1) $msg = "テーブルから変更対象を選択してください。";
+        if($ret['error_code']==2) $msg = "プレイリスト名を入力してください。";
+        if($ret['error_code']==-1) $msg = "プレイリスト：{$input['name']} の追加に失敗しました。";
+        if($ret['error_code']==0) $msg = "プレイリスト：{$input['name']} を更新しました。";
 
         $input = $request->only(['keyword','admin_flg']);
 

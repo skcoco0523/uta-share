@@ -4744,3 +4744,20 @@
 [2024-03-19 22:41:54] local.DEBUG: -------start-------  
 [2024-03-19 22:41:54] local.DEBUG: delete_pl_id=8  
 [2024-03-19 22:41:54] local.DEBUG: success  
+[2024-03-20 19:48:29] local.DEBUG: -----start-----  
+[2024-03-20 19:48:29] local.DEBUG: fnc=add pl_id=7 mus_id=128  
+[2024-03-20 19:48:29] local.DEBUG: -------start-------  
+[2024-03-20 19:48:29] local.DEBUG: pl_id=7  
+[2024-03-20 19:48:29] local.DEBUG: pl_detail_add_mus_id=128  
+[2024-03-20 19:48:29] local.DEBUG: success  
+[2024-03-21 00:30:48] local.DEBUG: -----start-----  
+[2024-03-21 00:30:48] local.DEBUG: fnc=del pl_id=8 mus_id=  
+[2024-03-21 00:30:48] local.DEBUG: -------start-------  
+[2024-03-21 00:30:48] local.DEBUG: delete_pl_id=8  
+[2024-03-21 00:30:48] local.DEBUG: success  
+[2024-03-21 00:31:00] local.DEBUG: -----start-----  
+[2024-03-21 00:31:00] local.DEBUG: fnc=add pl_id=8 mus_id=130  
+[2024-03-21 00:31:00] local.DEBUG: -------start-------  
+[2024-03-21 00:31:00] local.DEBUG: pl_id=8  
+[2024-03-21 00:31:00] local.DEBUG: pl_detail_add_mus_id=130  
+[2024-03-21 00:31:00] local.DEBUG: success  

@@ -27,8 +27,8 @@
         <thead>
         <tr>
             <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
-            <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">登録曲数</th>
+            <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
         </tr>
@@ -36,8 +36,8 @@
         @foreach($playlist as $pl)
             <tr>
                 <td class="fw-light">{{$pl->name}}</td>
-                <td class="fw-light">{{$pl->user_name}}</td>
                 <td class="fw-light">{{$pl->mus_cnt}}</td>
+                <td class="fw-light">{{$pl->user_name}}</td>
                 <td class="fw-light">{{$pl->created_at}}</td>
                 <td class="fw-light">{{$pl->updated_at}}</td>
             </tr>

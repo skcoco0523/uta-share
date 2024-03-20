@@ -15,28 +15,20 @@ class Music extends Model
     //楽曲一覧取得
     public static function getMusic_list($disp_cnt=null,$pageing=false,$keyword=null)
     {
-        if ($pageing) {
-            // ページングを適用してデータを取得する     デフォルト5件
-            if ($disp_cnt === null) $disp_cnt=5;  
-            $music = DB::table('musics')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->paginate($disp_cnt);
-        }elseif($disp_cnt !== null){
-            //件数指定で取得                        デフォルト5件
-            if ($disp_cnt === null) $disp_cnt=5;  
-            $music = DB::table('musics')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->limit($disp_cnt)
-                ->get();
-        }else{
-            //全データ取得
-            $music = DB::table('musics')
-                ->orderBy('created_at', 'desc')
-                ->where('name', 'like', "%$keyword%")
-                ->get();
+        $sql_cmd = DB::table('musics')
+            ->orderBy('created_at', 'desc')
+            ->where('name', 'like', "%$keyword%");
+        
+        // デフォルト5件
+        if ($disp_cnt === null) $disp_cnt=5;  
+        // ページングを適用してデータを取得する
+        if ($pageing) {                     $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        // 件数指定で取得
+        }elseif($disp_cnt !== null){        $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+        // 全データ取得
+        }else{                              $sql_cmd = $sql_cmd->get();
         }
+        $music = $sql_cmd;
         //アーティスト名・アルバム名を取得
         foreach ($music as $mus) {
             $mus->art_name = DB::table('artists')->where('id', $mus->art_id)->first()->name;

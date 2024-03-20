@@ -92,6 +92,8 @@ Route::middleware(['auth'])->group(function () {
             
             //管理者　おすすめ------------------------------------------------------------------------
             Route::get('recommend/reg', [AdminRecommendController::class, 'recommend_regist'])->name('admin-recommend-reg');
+            Route::post('recommend/reg', [AdminRecommendController::class, 'recommend_reg'])->name('admin-recommend-reg');
+
             Route::get('recommend/chg', [AdminRecommendController::class, 'recommend_chg'])->name('admin-recommend-chg');
             Route::get('recommend/search', [AdminRecommendController::class, 'recommend_search'])->name('admin-recommend-search');
 

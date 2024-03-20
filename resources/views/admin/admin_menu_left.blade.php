@@ -30,7 +30,7 @@
                 {{$tab_name}}メニュー
                 <li><a href="{{ route('admin-recommend-reg') }}">新規登録 </a></li>
                 <li><a href="{{ route('admin-recommend-chg') }}">詳細変更</a></li>
-                <li><a href="{{ route('admin-recommend-search') }}">検索</a></li>
+                <li><a href="{{ route('admin-recommend-search') }}">検索/変更/削除</a></li>
                 @break
             @endswitch
         @endif

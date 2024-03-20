@@ -25,8 +25,8 @@
         <tr>
             <th scope="col" class="fw-light">#</th>
             <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
-            <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">登録曲数</th>
+            <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
             <th scope="col" class="fw-light"></th>
@@ -36,8 +36,8 @@
             <tr>
                 <td class="fw-light">{{$playlist->id}}</td>
                 <td class="fw-light">{{$playlist->name}}</td>
-                <td class="fw-light">{{$playlist->user_name}}</td>
                 <td class="fw-light">{{$playlist->mus_cnt}}</td>
+                <td class="fw-light">{{$playlist->user_name}}</td>
                 <td class="fw-light">{{$playlist->created_at}}</td>
                 <td class="fw-light">{{$playlist->updated_at}}</td>
                 <td class="fw-light">
