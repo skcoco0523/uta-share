@@ -20,14 +20,12 @@ class Playlist extends Model
             ->where('admin_flg', $admin_flg);
         
         // デフォルト5件
-        if ($disp_cnt === null) $disp_cnt=5;  
-        // ページングを適用してデータを取得する
-        if ($pageing) {                     $sql_cmd = $sql_cmd->paginate($disp_cnt);
-        // 件数指定で取得
-        }elseif($disp_cnt !== null){        $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
-        // 全データ取得
-        }else{                              $sql_cmd = $sql_cmd->get();
-        }
+        if ($disp_cnt === null)             $disp_cnt=5;
+        // ページング・取得件数指定・全件で分岐
+        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+        else                                $sql_cmd = $sql_cmd->get();
+
         $playlist = $sql_cmd;
 
         // 楽曲登録数、登録者名を取得
