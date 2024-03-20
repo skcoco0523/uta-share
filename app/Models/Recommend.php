@@ -12,13 +12,13 @@ class Recommend extends Model
     protected $table = 'recommend';    //recommendsテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['name', 'user_id', 'category', 'disp_flag', 'sort_num'];
     //取得
-    public static function getRecommend_list($disp_cnt=null,$pageing=false,$keyword=null,$sort_flg=0)
+    public static function getRecommend_list($disp_cnt=null,$pageing=false,$keyword=null,$category=null,$sort_flag=0)
     {
         $sql_cmd = DB::table('recommend')
             ->where('name', 'like', "%$keyword%");
         
         //ソート条件を判定
-        if ($sort_flg)                      $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
+        if ($sort_flag)                      $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
         else                                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
             
         // デフォルト5件
@@ -112,10 +112,10 @@ class Recommend extends Model
                 ]);
 
             make_error_log("chgRecommend.log","success");
-            return 0;   //追加成功
+            return ['id' => null, 'error_code' => 0];   //追加成功
         } catch (\Exception $e) {
             make_error_log("chgRecommend.log","failure");
-            return -1;   //追加失敗
+            return ['id' => null, 'error_code' => -1];   //追加失敗
         }
     }
     //削除
@@ -123,17 +123,17 @@ class Recommend extends Model
     {
         make_error_log("delRecommend.log","---------start----------");
         try {
-            if(!$data['pl_id'])  return 1;   //データ不足
-            make_error_log("delRecommend.log","delete_pl_id=".$data['pl_id']);
+            if(!$data['recom_id'])  return 1;   //データ不足
+            make_error_log("delRecommend.log","delete_recom_id=".$data['recom_id']);
 
-            DB::table('recommenddetail')->where('pl_id', $data['pl_id'])->delete();
-            DB::table('recommend')->where('id', $data['pl_id'])->delete();
+            DB::table('recommenddetail')->where('recom_id', $data['recom_id'])->delete();
+            DB::table('recommend')->where('id', $data['recom_id'])->delete();
 
             make_error_log("delRecommend.log","success");
-            return 0;   //削除成功
+            return ['id' => null, 'error_code' => 0];   //削除成功
         } catch (\Exception $e) {
             make_error_log("delRecommend.log","failure");
-            return -1;   //削除失敗
+            return ['id' => null, 'error_code' => -1];   //削除失敗
         }
     }
     //プレイリスト収録曲削除

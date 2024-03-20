@@ -39,6 +39,12 @@
         @case("recommend_reg")
             @include('admin.admin_recommend_reg')
             @break
+        @case("recommend_chg_detail")
+            @include('admin.admin_recommend_chg_detail')
+            @break
+        @case("recommend_search")
+            @include('admin.admin_recommend_search')
+            @break
         @default
     @endswitch
 @endif
