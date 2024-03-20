@@ -291,3 +291,33 @@
 [2024-02-18 14:49:17] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/39822639.76e52d7a.3982263a.68b931aa/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjoshin-cddvd%2F4522197141695%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/39822639.76e52d7a.3982263a.68b931aa/?me_id=1229477&item_id=10977323&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fjoshin-cddvd%2Fcabinet%2F695%2Fkenr-001.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
 [2024-02-18 14:49:17] local.DEBUG: chg_aff_id=13  
 [2024-02-18 14:49:17] local.DEBUG: success  
+[2024-03-19 22:44:47] local.DEBUG: -------start-------  
+[2024-03-19 22:44:47] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3914e7a8.a87afbc2.3914e7a9.97132a7c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fn-plots%2F4961501652159v276%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3914e7a8.a87afbc2.3914e7a9.97132a7c/?me_id=1360100&item_id=10358335&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fn-plots%2Fcabinet%2Fv276-14%2F4961501652159v276.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-19 22:44:47] local.DEBUG: chg_aff_id=30  
+[2024-03-19 22:44:47] local.DEBUG: success  
+[2024-03-19 22:44:47] local.DEBUG: -------start-------  
+[2024-03-19 22:44:47] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 128
+    [alb_id] => 
+    [art_id] => 6
+    [name] => mus_add_test
+    [release_date] => 2024-03-04
+    [link] => https://www.youtube.com/
+    [aff_id] => 30
+    [created_at] => 2024-03-18 21:44:43
+    [updated_at] => 2024-03-18 21:49:05
+)
+  
+[2024-03-19 22:44:47] local.DEBUG: after_data=Array
+(
+    [id] => 128
+    [alb_id] => 
+    [art_id] => 6
+    [name] => mus_add_test
+    [release_date] => 2024-03-04
+    [link] => https://www.youtube.com/
+    [aff_id] => 30
+)
+  
+[2024-03-19 22:44:47] local.DEBUG: success  

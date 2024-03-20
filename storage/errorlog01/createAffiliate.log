@@ -2111,3 +2111,18 @@
 )
   
 [2024-03-18 21:47:27] local.DEBUG: success  
+[2024-03-19 22:38:13] local.DEBUG: -------start-------  
+[2024-03-19 22:38:13] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17207656%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20718148&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F1695%2F4522197141695.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-03-19 22:38:13] local.DEBUG: success  
+[2024-03-19 22:38:13] local.DEBUG: -------start-------  
+[2024-03-19 22:38:13] local.DEBUG: name=テスト art_id=4 release_date=2024-03-04 aff_id=32  
+[2024-03-19 22:38:13] local.DEBUG: success  
+[2024-03-19 22:38:13] local.DEBUG: -------start-------  
+[2024-03-19 22:38:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 15
+    [name] => テスト
+)
+  
+[2024-03-19 22:38:13] local.DEBUG: success  

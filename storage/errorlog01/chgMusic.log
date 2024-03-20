@@ -232,3 +232,29 @@
 )
   
 [2024-03-18 21:49:05] local.DEBUG: success  
+[2024-03-19 22:38:34] local.DEBUG: -------start-------  
+[2024-03-19 22:38:34] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 130
+    [alb_id] => 15
+    [art_id] => 4
+    [name] => テスト
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-03-19 22:38:13
+    [updated_at] => 2024-03-19 22:38:13
+)
+  
+[2024-03-19 22:38:34] local.DEBUG: after_data=Array
+(
+    [id] => 130
+    [alb_id] => 15
+    [art_id] => 4
+    [name] => テスト
+    [release_date] => 
+    [link] => https://XXXXXX
+    [aff_id] => 
+)
+  
+[2024-03-19 22:38:34] local.DEBUG: success  

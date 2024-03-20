@@ -4686,3 +4686,61 @@
 [2024-03-18 21:08:33] local.DEBUG: -------start-------  
 [2024-03-18 21:08:33] local.DEBUG: delete_mus_id=127  
 [2024-03-18 21:08:33] local.DEBUG: success  
+[2024-03-19 22:39:35] local.DEBUG: -----start-----  
+[2024-03-19 22:39:35] local.DEBUG: fnc=add alb_id=15 mus_id= name=アルバム追加テスト  
+[2024-03-19 22:39:35] local.DEBUG: -------start-------  
+[2024-03-19 22:39:35] local.DEBUG: create_data=Array
+(
+    [fnc] => add
+    [alb_id] => 15
+    [mus_id] => 
+    [name] => アルバム追加テスト
+    [id] => 
+    [art_id] => 4
+)
+  
+[2024-03-19 22:39:35] local.DEBUG: success  
+[2024-03-19 22:40:00] local.DEBUG: -----start-----  
+[2024-03-19 22:40:00] local.DEBUG: fnc=chg alb_id=15 mus_id=131 name=アルバム追加テスト　変更  
+[2024-03-19 22:40:00] local.DEBUG: -------start-------  
+[2024-03-19 22:40:00] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 131
+    [alb_id] => 15
+    [art_id] => 4
+    [name] => アルバム追加テスト
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-03-19 22:39:35
+    [updated_at] => 2024-03-19 22:39:35
+)
+  
+[2024-03-19 22:40:00] local.DEBUG: after_data=Array
+(
+    [id] => 131
+    [alb_id] => 15
+    [art_id] => 4
+    [name] => アルバム追加テスト　変更
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-03-19 22:40:00] local.DEBUG: success  
+[2024-03-19 22:40:12] local.DEBUG: -----start-----  
+[2024-03-19 22:40:12] local.DEBUG: fnc=del alb_id=15 mus_id=131 name=アルバム追加テスト　変更  
+[2024-03-19 22:40:12] local.DEBUG: -------start-------  
+[2024-03-19 22:40:12] local.DEBUG: delete_mus_id=131  
+[2024-03-19 22:40:12] local.DEBUG: success  
+[2024-03-19 22:41:48] local.DEBUG: -----start-----  
+[2024-03-19 22:41:48] local.DEBUG: fnc=add pl_id=8 mus_id=128  
+[2024-03-19 22:41:48] local.DEBUG: -------start-------  
+[2024-03-19 22:41:48] local.DEBUG: pl_id=8  
+[2024-03-19 22:41:48] local.DEBUG: pl_detail_add_mus_id=128  
+[2024-03-19 22:41:48] local.DEBUG: success  
+[2024-03-19 22:41:54] local.DEBUG: -----start-----  
+[2024-03-19 22:41:54] local.DEBUG: fnc=del pl_id=8 mus_id=  
+[2024-03-19 22:41:54] local.DEBUG: -------start-------  
+[2024-03-19 22:41:54] local.DEBUG: delete_pl_id=8  
+[2024-03-19 22:41:54] local.DEBUG: success  
