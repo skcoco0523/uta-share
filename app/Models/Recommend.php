@@ -107,7 +107,7 @@ class Recommend extends Model
                 'name' => $data['name']
             ]);
             */
-            Recommend::where('id', $data['id'])->update(['name' => $data['name']],['disp_flag' => $data['disp_flag']]);
+            Recommend::where('id', $data['id'])->update(['name' => $data['name'],'disp_flag' => $data['disp_flag']]);
 
             make_error_log("chgRecommend.log","success");
             return ['id' => null, 'error_code' => 0];   //追加成功
