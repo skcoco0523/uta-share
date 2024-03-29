@@ -11,9 +11,9 @@
             <label for="inputcategory" class="form-label">カテゴリ</label>
             <select id="inputState" name="category" class="form-select">
                 <option value="0" {{ ($input['category'] ?? '') == '0' ? 'selected' : '' }}>曲</option>
-                <option value="1" {{ ($input['category'] ?? '') == '1' ? 'selected' : '' }}>ｱｰﾃｨｽﾄ</option>
-                <option value="2" {{ ($input['category'] ?? '') == '2' ? 'selected' : '' }}>ｱﾙﾊﾞﾑ</option>
-                <option value="3" {{ ($input['category'] ?? '') == '3' ? 'selected' : '' }}>ﾌﾟﾚｲﾘｽﾄ</option>
+                <option value="1" {{ ($input['category'] ?? '') == '1' ? 'selected' : '' }}>アーティスト</option>
+                <option value="2" {{ ($input['category'] ?? '') == '2' ? 'selected' : '' }}>アルバム</option>
+                <option value="3" {{ ($input['category'] ?? '') == '3' ? 'selected' : '' }}>プレイリスト</option>
             </select>
         </div>
         <div class="col-2">
@@ -48,9 +48,9 @@
                 <td class="fw-light">{{$recom->name}}</td>
                 <td class="fw-light">
                 @if($recom->category === 0)         曲
-                    @elseif($recom->category === 1) ｱｰﾃｨｽﾄ
-                    @elseif($recom->category === 2) ｱﾙﾊﾞﾑ
-                    @elseif($recom->category === 3) ﾌﾟﾚｲﾘｽﾄ
+                    @elseif($recom->category === 1) アーティスト
+                    @elseif($recom->category === 2) アルバム
+                    @elseif($recom->category === 3) プレイリスト
                 @endif
                 </td>
                 <td class="fw-light">{{$recom->detail_cnt}}</td>

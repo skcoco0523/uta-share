@@ -23,7 +23,7 @@ class AdminRecommendController extends Controller
         else                                    $input = $request->only(['name']);
         //$sort_flag = 0;
         //$category = null;
-        $recommend = Recommend::getRecommend_list(5,false,null);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,カテゴリ,sort_flag
+        $recommend = Recommend::getRecommend_list(null,false,null);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,カテゴリ,sort_flag
         $msg = request('msg');
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'recommend', 'input', 'msg'));
     }
@@ -57,12 +57,20 @@ class AdminRecommendController extends Controller
         $ope_type="recommend_search";
         
         //変更 or 削除からのリダイレクトの場合、inputを取得
-        if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['keyword', 'admin_flg']);
-        if (empty($input['keyword']))           $input['keyword']=null;
-        if (empty($input['admin_flg']))         $input['admin_flg']=null;
-
-        $recommend = Recommend::getRecommend_list(5,true,$input['keyword'],$input['admin_flg']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flg
+        if($request->input('input')!==null)             $input = request('input');
+        else                                            $input = $request->only(['keyword', 'category']);
+        if (empty($input['keyword']))                   $input['keyword']=null;
+        //0がはじかれてしまうためemptyは使わない
+        if (!isset($input['category']))                 $input['category'] = null;
+        elseif ($input['category'] === '')              $input['category'] = null;
+        
+        //$sort_flag = ($input['category']!=null) ?       1:0;
+        if($input['category']!=null){
+            //カテゴリ検索時は表示順を切り替えるため件数を15に増やす
+            $recommend = Recommend::getRecommend_list(15,true,$input['keyword'],$input['category'],1);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,category,表示順ソート
+        }else{
+            $recommend = Recommend::getRecommend_list(null,true,$input['keyword'],$input['category'],0);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,category,
+        }
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($recommend) === 0) ? "検索結果が0件です。" : $msg;
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'recommend', 'input', 'msg'));
@@ -70,16 +78,31 @@ class AdminRecommendController extends Controller
     //変更
     public function recommend_chg(Request $request)
     {
-        $input = $request->only(['id', 'name']);
+        $input = $request->only(['id', 'name', "category",'disp_flag']);
         $ret = Recommend::chgRecommend($input);
-
-
+        
         if($ret['error_code']==1) $msg = "テーブルから変更対象を選択してください。";
         if($ret['error_code']==2) $msg = "登録名を入力してください。";
+        if($ret['error_code']==3) $msg = "表示有無を選択してください。";
         if($ret['error_code']==-1) $msg = "おすすめ：{$input['name']} の変更に失敗しました。";
         if($ret['error_code']==0) $msg = "おすすめ：{$input['name']} を更新しました。";
 
-        $input = $request->only(['keyword','admin_flg']);
+        $input = $request->only(['keyword','category']);
+
+        return redirect()->route('admin-recommend-search', ['input' => $input, 'msg' => $msg]);
+    }
+    //表示順変更用
+    public function recommend_chg_fnc(Request $request)
+    {
+        make_error_log("recommend_chg_fnc.log","-----start-----");
+        $input = $request->only(['fnc', 'id', 'category']);
+        //dd($input);
+        $msg=null;
+        make_error_log("recommend_chg_fnc.log","fnc=".$input['fnc']." recom_id=".$input['id']);
+        $ret = Recommend::chgsortRecommend($input);
+        if($ret['error_code']==1)    $msg = "必要な情報が不足しています。";
+        if($ret['error_code']==-1)    $msg = "表示順の変更に失敗しました。";
+        if($ret['error_code']==0)    $msg = "表示順を変更しました。";
 
         return redirect()->route('admin-recommend-search', ['input' => $input, 'msg' => $msg]);
     }

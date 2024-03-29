@@ -7,8 +7,21 @@
         <input type="hidden" name="admin_flg" value="{{$input['admin_flg'] ?? ''}}">
         <input type="hidden" name="id" value="{{$select->id ?? ''}}">
         <div class="col-sm">
-            <label for="inputname" class="form-label">ﾌﾟﾚｲﾘｽﾄ名</label>
+            <label for="inputname" class="form-label">登録名</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
+        </div>
+        <div class="col-sm">
+            <label for="inputcategoryname" class="form-label">カテゴリ</label>
+            <input type="text" name="category_name" class="form-control" value="{{$select->category ?? ''}}" style="background-color: #f0f0f0; pointer-events: none;">
+            <input type="hidden" name="category" class="form-control" value="{{$input['category'] ?? ''}}">
+        </div>
+        <div class="col-sm">
+            <label for="inputdispflag" class="form-label">表示有無</label>
+            <select id="inputState" name="disp_flag" class="form-select">
+                <option value="" {{ ($select->disp_flag ?? '') == '' ? 'selected' : '' }}></option>
+                <option value="0" {{ ($select->disp_flag ?? '') == '0' ? 'selected' : '' }}>非表示</option>
+                <option value="1" {{ ($select->disp_flag ?? '') == '1' ? 'selected' : '' }}>表示</option>
+            </select>
         </div>
         <div class="col-sm">
             <label for="inputusername" class="form-label">登録者</label>
@@ -32,13 +45,16 @@
 
     <div class="row g-3 align-items-end">
     <div class="col-sm-6">
-        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(ﾌﾟﾚｲﾘｽﾄ名)">
+        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(登録名)">
     </div>
     <div class="col-md-2">
-        <select id="inputState" name="admin_flg" class="form-select">
-            <option value="0" {{ ($input['admin_flg'] ?? '') == '0' ? 'selected' : '' }}>ユーザー</option>
-            <option value="1" {{ ($input['admin_flg'] ?? '') == '1' ? 'selected' : '' }}>管理者</option>
-        </select>
+            <select id="inputState" name="category" class="form-select">
+                <option value="" {{ ($input['category'] ?? '') == '' ? 'selected' : '' }}></option>
+                <option value="0" {{ ($input['category'] ?? '') == '0' ? 'selected' : '' }}>曲</option>
+                <option value="1" {{ ($input['category'] ?? '') == '1' ? 'selected' : '' }}>アーティスト</option>
+                <option value="2" {{ ($input['category'] ?? '') == '2' ? 'selected' : '' }}>アルバム</option>
+                <option value="3" {{ ($input['category'] ?? '') == '3' ? 'selected' : '' }}>プレイリスト</option>
+            </select>
     </div>
     <div class="col-auto align-self-end">
         <button type="submit" class="btn btn-success">検索</button>
@@ -52,9 +68,11 @@
         <thead>
         <tr>
             <th scope="col" class="fw-light">#</th>
-            <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
+            <th scope="col" class="fw-light">登録名</th>
             <th scope="col" class="fw-light">カテゴリ</th>
             <th scope="col" class="fw-light">登録数</th>
+            <th scope="col" class="fw-light">表示順</th>
+            <th scope="col" class="fw-light">表示状態</th>              {{--表示状態追加！！！！--}}
             <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
@@ -67,12 +85,27 @@
                 <td class="fw-light">{{$recom->name}}</td>
                 <td class="fw-light">
                 @if($recom->category === 0)         曲
-                    @elseif($recom->category === 1) ｱｰﾃｨｽﾄ
-                    @elseif($recom->category === 2) ｱﾙﾊﾞﾑ
-                    @elseif($recom->category === 3) ﾌﾟﾚｲﾘｽﾄ
+                    @elseif($recom->category === 1) アーティスト
+                    @elseif($recom->category === 2) アルバム
+                    @elseif($recom->category === 3) プレイリスト
                 @endif
                 </td>
                 <td class="fw-light">{{$recom->detail_cnt}}</td>
+                <td class="fw-light">
+                    {{$recom->sort_num}}　　
+                    {{--カテゴリ検索時のみ表示順変更可能--}}
+                    @if($input['category']!=null)
+                    <div class="btn-group btn-group-sm" role="group" aria-label="">
+                        <input type="button" class="btn btn-secondary btn-sm" value="∧" onclick="recom_sort_fnc('up','{{$recom->id}}');" >
+                        <input type="button" class="btn btn-secondary btn-sm" value="∨" onclick="recom_sort_fnc('down','{{$recom->id}}');" >
+                    </div>
+                    @endif
+                </td>
+                <td class="fw-light">
+                @if($recom->disp_flag === 0)         非表示
+                    @elseif($recom->disp_flag === 1) 表示
+                @endif
+                </td>
                 <td class="fw-light">{{$recom->user_name}}</td>
                 <td class="fw-light">{{$recom->created_at}}</td>
                 <td class="fw-light">{{$recom->updated_at}}</td>
@@ -110,30 +143,50 @@
             </li>
         </ul>
     </nav>
+    {{--更新・削除・追加用フォーム--}}
+    <form name="recom_form" method="POST" action="{{ route('admin-recommend-fnc') }}">
+        @csrf
+        <input type="hidden" name="fnc" value="">
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="category" value={{$input['category']}}>
+    </form>
 @endif
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // テーブルの各行にクリックイベントリスナーを追加
-    document.querySelectorAll('table tr').forEach(row => {
-        row.addEventListener('click', () => {
-            // クリックされた行からデータを取得
-            const cells = row.querySelectorAll('td');
-            const id = cells[0].textContent;
-            const name = cells[1].textContent;
-            const user_name = cells[2].textContent;
+    //お気に入り表示順変更
+    function recom_sort_fnc(fnc,recom_id){
+        var trg = document.forms["recom_form"];
+        trg.method="post";
+        document.recom_form["fnc"].value    =fnc;
+        document.recom_form["id"].value     =recom_id;
+        trg.submit();
+    }
 
-            // フォームの対応するフィールドにデータを設定
-            document.querySelector('input[name="id"]').value = id;
-            document.querySelector('input[name="name"]').value = name;
-            document.querySelector('input[name="user_name"]').value = user_name;
-                    
-        // その他(性別)の選択肢を設定
-        const selectAdmin = document.querySelector('select[name="admin_flg"]');
-        if (admin_flg === 'ユーザー')         selectAdmin.value = '0';
-        else if (admin_flg === '管理者')    selectAdmin.value = '1';
-        else  selectAdmin.value = ''; 
+    document.addEventListener('DOMContentLoaded', function() {
+        // テーブルの各行にクリックイベントリスナーを追加
+        document.querySelectorAll('table tr').forEach(row => {
+            row.addEventListener('click', () => {
+                // クリックされた行からデータを取得
+                const cells = row.querySelectorAll('td');
+                const id = cells[0].textContent;
+                const name = cells[1].textContent;
+                const category_name = cells[2].textContent;
+                const disp_flag = cells[5].textContent.trim();
+                const user_name = cells[6].textContent;
+
+                // フォームの対応するフィールドにデータを設定
+                document.querySelector('input[name="id"]').value = id;
+                document.querySelector('input[name="name"]').value = name;
+                document.querySelector('input[name="category_name"]').value = category_name;
+                document.querySelector('input[name="user_name"]').value = user_name;
+
+                const selectDispflag = document.querySelector('select[name="disp_flag"]');
+                if (disp_flag === '非表示')         selectDispflag.value = '0';
+                else if (disp_flag === '表示')      selectDispflag.value = '1';
+                else  selectDispflag.value = ''; // その他の場合、空の値にする
+                
+                        
+            });
         });
     });
-});
 </script>

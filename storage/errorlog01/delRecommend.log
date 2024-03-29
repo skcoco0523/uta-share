@@ -117,3 +117,6 @@
 [2024-03-21 03:12:18] local.DEBUG: ---------start----------  
 [2024-03-21 03:12:18] local.DEBUG: delete_recom_id=12  
 [2024-03-21 03:12:18] local.DEBUG: success  
+[2024-03-28 22:03:51] local.DEBUG: ---------start----------  
+[2024-03-28 22:03:51] local.DEBUG: delete_recom_id=7  
+[2024-03-28 22:03:51] local.DEBUG: success  

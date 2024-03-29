@@ -135,7 +135,7 @@
     </div>
 
 {{--更新・削除・追加用フォーム--}}
-<form name="detail_form" method="POST" action="{{ route('admin-album-chgdetail_fnc') }}">
+<form name="detail_form" method="POST" action="{{ route('admin-album-chgdetail-fnc') }}">
     @csrf
     <input type="hidden" name="fnc" value="">
     <input type="hidden" name="alb_id" value="{{$album->id}}">

@@ -88,9 +88,7 @@ class Playlist extends Model
             ]);
             */
             Playlist::where('id', $data['id'])
-                ->update([
-                    'name' => $data['name']
-                ]);
+                ->update(['name' => $data['name']]);
 
             make_error_log("chgPlaylist.log","success");
             return ['id' => null, 'error_code' => 0];   //追加成功

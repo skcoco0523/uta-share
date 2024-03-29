@@ -744,3 +744,64 @@
 )
   
 [2024-03-21 01:22:34] local.DEBUG: success  
+[2024-03-28 22:50:47] local.DEBUG: ---------start----------  
+[2024-03-28 22:50:47] local.DEBUG: data=Array
+(
+    [name] => おすすめ曲2
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 2
+)
+  
+[2024-03-28 22:50:47] local.DEBUG: success  
+[2024-03-28 22:50:53] local.DEBUG: ---------start----------  
+[2024-03-28 22:50:53] local.DEBUG: data=Array
+(
+    [name] => おすすめ曲3
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 3
+)
+  
+[2024-03-28 22:50:53] local.DEBUG: success  
+[2024-03-29 02:00:49] local.DEBUG: ---------start----------  
+[2024-03-29 02:00:49] local.DEBUG: data=Array
+(
+    [name] => おすすめ曲4
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 4
+)
+  
+[2024-03-29 02:00:49] local.DEBUG: success  
+[2024-03-29 02:00:53] local.DEBUG: ---------start----------  
+[2024-03-29 02:00:53] local.DEBUG: data=Array
+(
+    [name] => おすすめ曲5
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 5
+)
+  
+[2024-03-29 02:00:53] local.DEBUG: success  
+[2024-03-29 02:00:57] local.DEBUG: ---------start----------  
+[2024-03-29 02:00:57] local.DEBUG: data=Array
+(
+    [name] => おすすめ曲6
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 6
+)
+  
+[2024-03-29 02:00:57] local.DEBUG: success  
+[2024-03-29 02:01:00] local.DEBUG: ---------start----------  
+[2024-03-29 02:01:00] local.DEBUG: data=Array
+(
+    [name] => おすすめ曲7
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 7
+)
+  
+[2024-03-29 02:01:00] local.DEBUG: success  
+[2024-03-29 20:53:09] local.DEBUG: ---------start----------  

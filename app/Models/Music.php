@@ -129,8 +129,7 @@ class Music extends Model
             /*  クエリビルダではupdated_atが自動更新されない
             DB::table('musics')->where('id', $updateData['id'])->update($updateData);
             */
-            Music::where('id', $updateData['id'])
-                ->update($updateData);
+            Music::where('id', $updateData['id'])->update($updateData);
 
             make_error_log("chgMusic.log","success");
             return ['id' => $music->id, 'error_code' => 0];   //更新成功

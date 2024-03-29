@@ -60,7 +60,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('album/reg', [AdminAlbumController::class, 'album_reg'])->name('admin-album-reg');
 
             Route::get('album/chgdetail', [AdminAlbumController::class, 'album_chg_detail'])->name('admin-album-chgdetail');
-            Route::post('album/chgdetail', [AdminAlbumController::class, 'album_chg_detail_fnc'])->name('admin-album-chgdetail_fnc');
+            Route::post('album/chgdetail', [AdminAlbumController::class, 'album_chg_detail_fnc'])->name('admin-album-chgdetail-fnc');
 
             Route::get('album/search', [AdminAlbumController::class, 'album_search'])->name('admin-album-search');
             Route::post('album/search/del', [AdminAlbumController::class, 'album_del'])->name('admin-album-del');
@@ -82,8 +82,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('playlist/chgdetail', [AdminPlaylistController::class, 'playlist_chg_detail'])->name('admin-playlist-chgdetail');
             Route::get('playlist/chgdetail/getmusic', [AdminPlaylistController::class, 'playlist_music_search'])->name('admin-playlist-music-search');
 
-            
-            Route::post('playlist/chgdetail', [AdminPlaylistController::class, 'playlist_chg_detail_fnc'])->name('admin-playlist-chgdetail_fnc');
+            Route::post('playlist/chgdetail', [AdminPlaylistController::class, 'playlist_chg_detail_fnc'])->name('admin-playlist-chgdetail-fnc');
 
             Route::get('playlist/search', [AdminPlaylistController::class, 'playlist_search'])->name('admin-playlist-search');
             Route::post('playlist/search/del', [AdminPlaylistController::class, 'playlist_del'])->name('admin-playlist-del');
@@ -94,11 +93,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('recommend/reg', [AdminRecommendController::class, 'recommend_regist'])->name('admin-recommend-reg');
             Route::post('recommend/reg', [AdminRecommendController::class, 'recommend_reg'])->name('admin-recommend-reg');
 
-            Route::post('recommend/chgdetail', [AdminRecommendController::class, 'recommend_chg_detail_fnc'])->name('admin-recommend-chgdetail_fnc');
+            Route::post('recommend/chgdetail', [AdminRecommendController::class, 'recommend_chg_detail_fnc'])->name('admin-recommend-chgdetail-fnc');
+
 
 
             Route::get('recommend/search', [AdminRecommendController::class, 'recommend_search'])->name('admin-recommend-search');
             Route::post('recommend/search/del', [AdminRecommendController::class, 'recommend_del'])->name('admin-recommend-del');
+            Route::post('recommend/chgdetail', [AdminRecommendController::class, 'recommend_chg_fnc'])->name('admin-recommend-fnc');
             
             Route::post('recommend/chg', [AdminRecommendController::class, 'recommend_chg'])->name('admin-recommend-chg');
         });

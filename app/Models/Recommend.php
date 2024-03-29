@@ -17,8 +17,9 @@ class Recommend extends Model
         $sql_cmd = DB::table('recommend')
             ->where('name', 'like', "%$keyword%");
         
+        if ($category !== null)                       $sql_cmd = $sql_cmd->where('category', '=', $category);
         //ソート条件を判定
-        if ($sort_flag)                      $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
+        if ($sort_flag)                     $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
         else                                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
             
         // デフォルト5件
@@ -95,21 +96,18 @@ class Recommend extends Model
     {
         make_error_log("chgRecommend.log","---------start----------");
         try {
-            if(!$data['id'])  return 1;   //データ不足
-            if(!$data['name'])  return 2;   //データ不足
+            if(!$data['id'])                return ['id' => null, 'error_code' => 1];   //データ不足
+            if(!$data['name'])              return ['id' => null, 'error_code' => 2];   //データ不足
+            if($data['disp_flag']==null)    return ['id' => null, 'error_code' => 3];   //データ不足    カテゴリ:0がはじかれる
             //DB追加処理チェック
             make_error_log("chgRecommend.log","data=".print_r($data,1));
-
             /*  クエリビルダではupdated_atが自動更新されない
             DB::table('recommend')->where('id', $data['id'])
             ->update([
                 'name' => $data['name']
             ]);
             */
-            Recommend::where('id', $data['id'])
-                ->update([
-                    'name' => $data['name']
-                ]);
+            Recommend::where('id', $data['id'])->update(['name' => $data['name']],['disp_flag' => $data['disp_flag']]);
 
             make_error_log("chgRecommend.log","success");
             return ['id' => null, 'error_code' => 0];   //追加成功
@@ -123,7 +121,7 @@ class Recommend extends Model
     {
         make_error_log("delRecommend.log","---------start----------");
         try {
-            if(!$data['recom_id'])  return 1;   //データ不足
+            if(!$data['recom_id'])  return ['id' => null, 'error_code' => -1];   //データ不足
             make_error_log("delRecommend.log","delete_recom_id=".$data['recom_id']);
 
             DB::table('recommenddetail')->where('recom_id', $data['recom_id'])->delete();
@@ -136,6 +134,48 @@ class Recommend extends Model
             return ['id' => null, 'error_code' => -1];   //削除失敗
         }
     }
+    //お気に入り表示順変更
+    public static function chgsortRecommend($data)
+    {
+        make_error_log("chgsortRecommend.log","---------start----------");
+        try {
+            if(!$data['fnc'])       return ['id' => null, 'error_code' => 1];   //データ不足
+            if(!$data['id'])        return ['id' => null, 'error_code' => 1];   //データ不足
+            //if(!$data['category'])  return ['id' => null, 'error_code' => 1];   //データ不足  カテゴリ:0がはじかれる
+
+            make_error_log("chgsortRecommend.log","sort_chg id=".$data['id']."-".$data['fnc']);
+            
+            $sort1=DB::table('recommend')->where('id', $data['id'])->value('sort_num');
+
+            if($data['fnc']=="up"){
+                $sort2=$sort1-1;
+                //0以下は不可
+                if($sort2<=0)           return ['id' => null, 'error_code' => -1];   //削除失敗
+            }elseif($data['fnc']=="down"){
+                $sort2=$sort1+1;
+                $max_num=DB::table('recommend')->where('category', $data['category'])->max('sort_num');
+                //連番にするため最大値以上との入れ替えを禁止
+                if($sort2>$max_num)     return ['id' => null, 'error_code' => -1];   //削除失敗
+            }
+            //表示順を入れ替え
+            $replace_id = DB::table('recommend')->where('category', $data['category'])->where('sort_num', $sort2)->value('id');
+
+            Recommend::where('id', $data['id'])->update(['sort_num' => $sort2]);
+            Recommend::where('id', $replace_id)->update(['sort_num' => $sort1]);
+            make_error_log("chgsortRecommend.log","success");
+            return ['id' => null, 'error_code' => 0];   //削除成功
+        } catch (\Exception $e) {
+            make_error_log("chgsortRecommend.log","failure");
+            return ['id' => null, 'error_code' => -1];   //削除失敗
+        }
+
+    }
+
+
+
+
+
+
     //プレイリスト収録曲削除
     public static function delRecommend_detail($data)
     {
