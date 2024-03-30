@@ -1124,3 +1124,13 @@
 )
   
 [2024-03-29 23:00:19] local.DEBUG: success  
+[2024-03-30 15:58:30] local.DEBUG: ---------start----------  
+[2024-03-30 15:58:30] local.DEBUG: data=Array
+(
+    [id] => 18
+    [name] => おすすめ曲7
+    [category] => 
+    [disp_flag] => 1
+)
+  
+[2024-03-30 15:58:30] local.DEBUG: success  

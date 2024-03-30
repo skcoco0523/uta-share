@@ -62,9 +62,13 @@ class AdminPlaylistController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['keyword', 'admin_flg']);
         if (empty($input['keyword']))           $input['keyword']=null;
-        if (empty($input['admin_flg']))         $input['admin_flg']=null;
+        //0がはじかれてしまうためemptyは使わない
+        //if (empty($input['admin_flg']))         $input['admin_flg']=null;
+        if (!isset($input['admin_flg']))                 $input['admin_flg'] = 1;
+        elseif ($input['admin_flg'] === '')              $input['admin_flg'] = 1;
+        
         $input['chg_flg'] = 0;
-
+        //dd($input);
         $playlist = Playlist::getPlaylist_list(5,true,$input['keyword'],$input['admin_flg']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flg
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($playlist) === 0) ? "検索結果が0件です。" : $msg;
@@ -97,7 +101,10 @@ class AdminPlaylistController extends Controller
         else                                    $input = $request->only(['id', 'keyword', 'admin_flg']);
         if (empty($input['id']))                $input['id']=null;
         if (empty($input['keyword']))           $input['keyword']=null;
-        if (empty($input['admin_flg']))         $input['admin_flg']=null;
+        //0がはじかれてしまうためemptyは使わない
+        //if (empty($input['admin_flg']))         $input['admin_flg']=null;
+        if (!isset($input['admin_flg']))                 $input['admin_flg'] = null;
+        elseif ($input['admin_flg'] === '')              $input['admin_flg'] = null;
 
         //収録曲変更
         $playlist_detail = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
