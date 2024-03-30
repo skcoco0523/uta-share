@@ -17,13 +17,11 @@
             @case("アーティスト")
                 {{$tab_name}}メニュー
                 <li><a href="{{ route('admin-artist-reg') }}">新規登録 </a></li>
-                {{--<li><a href="{{ route('admin-artist-chg') }}">詳細変更</a></li>--}}
                 <li><a href="{{ route('admin-artist-search') }}">検索/変更/削除</a></li>
                 @break
             @case("プレイリスト")
                 {{$tab_name}}メニュー
                 <li><a href="{{ route('admin-playlist-reg') }}">新規登録 </a></li>
-                <li><a href="{{ route('admin-playlist-chgdetail') }}">詳細変更</a></li>
                 <li><a href="{{ route('admin-playlist-search') }}">検索/変更/削除</a></li>
                 @break
             @case("おすすめ")

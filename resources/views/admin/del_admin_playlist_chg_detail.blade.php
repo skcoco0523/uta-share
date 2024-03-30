@@ -180,14 +180,14 @@
     </div>
 
 
-{{--削除・追加用フォーム--}}
-<form name="detail_form" method="POST" action="{{ route('admin-playlist-chgdetail_fnc') }}">
-    @csrf
-    <input type="hidden" name="fnc" value="">
-    <input type="hidden" name="pl_id" value="{{$playlist->id}}">
-    <input type="hidden" name="mus_id" value="">
-    <input type="hidden" name="detail_id" value="">
-</form>
+    {{--削除・追加用フォーム--}}
+    <form name="detail_form" method="POST" action="{{ route('admin-playlist-chgdetail-fnc') }}">
+        @csrf
+        <input type="hidden" name="fnc" value="">
+        <input type="hidden" name="pl_id" value="{{$playlist->id}}">
+        <input type="hidden" name="mus_id" value="">
+        <input type="hidden" name="detail_id" value="">
+    </form>
 
 @endif
 

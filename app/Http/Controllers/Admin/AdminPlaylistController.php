@@ -63,6 +63,7 @@ class AdminPlaylistController extends Controller
         else                                    $input = $request->only(['keyword', 'admin_flg']);
         if (empty($input['keyword']))           $input['keyword']=null;
         if (empty($input['admin_flg']))         $input['admin_flg']=null;
+        $input['chg_flg'] = 0;
 
         $playlist = Playlist::getPlaylist_list(5,true,$input['keyword'],$input['admin_flg']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flg
         $msg = request('msg');
@@ -79,7 +80,7 @@ class AdminPlaylistController extends Controller
         if($ret['error_code']==1) $msg = "テーブルから変更対象を選択してください。";
         if($ret['error_code']==2) $msg = "プレイリスト名を入力してください。";
         if($ret['error_code']==-1) $msg = "プレイリスト：{$input['name']} の変更に失敗しました。";
-        if($ret['error_code']==0) $msg = "プレイリスト：{$input['name']} を更新しました。";
+        if($ret['error_code']==0) $msg = "プレイリスト：{$input['name']} に更新しました。";
 
         $input = $request->only(['keyword','admin_flg']);
 
@@ -89,7 +90,8 @@ class AdminPlaylistController extends Controller
     public function playlist_chg_detail(Request $request)
     {
         $tab_name="プレイリスト";
-        $ope_type="playlist_chg_detail";
+        $ope_type="playlist_search";    //同一テンプレート内で分岐する
+        //$ope_type="playlist_chg_detail";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['id', 'keyword', 'admin_flg']);
@@ -97,34 +99,21 @@ class AdminPlaylistController extends Controller
         if (empty($input['keyword']))           $input['keyword']=null;
         if (empty($input['admin_flg']))         $input['admin_flg']=null;
 
-        $chg_flg = 0;
-        $redirect_flg = 0;
-        //if($request->input('input')!==null) dd($alb_id);
-        if($input['id'] === null){
-            //検索
-            $playlist = null;
-            $playlists = Playlist::getPlaylist_list(5,true,$input['keyword'],$input['admin_flg']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
-        }else{
-            //収録曲変更
-            $chg_flg = 1;
-            $playlist = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用                          ここから開発
-            $playlists = null;
-            //リダイレクトの場合は、表示状態とする
-            if($request->input('input')!==null) $redirect_flg = 1;
-        }
+        //収録曲変更
+        $playlist_detail = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+        $playlist = null;
+            
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['keyword'] !==null && $playlists === null) ? "検索結果が0件です。" : $msg;
+        $msg = ($msg===NULL && $input['keyword'] !==null && $playlist_detail === null) ? "検索結果が0件です。" : $msg;
 
-        $input['chg_flg'] = $chg_flg;
-        $input['redirect_flg'] = $redirect_flg;
-
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlists', 'playlist', 'input', 'msg'));
+        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist_detail', 'playlist', 'input', 'msg'));
     }
     //詳細変更用　楽曲検索
     public function playlist_music_search(Request $request)
     {
         $tab_name="プレイリスト";
-        $ope_type="playlist_chg_detail";
+        $ope_type="playlist_search";    //同一テンプレート内で分岐する
+        //$ope_type="playlist_chg_detail";
         //ﾌﾟﾚｲﾘｽﾄ追加用楽曲の検索　リダイレクト無し
         $input = $request->only(['id', 'mus_keyword']);
         if (empty($input['id']))                $input['id']=null;      //ﾌﾟﾚｲﾘｽﾄID
@@ -135,8 +124,8 @@ class AdminPlaylistController extends Controller
 
         //収録曲変更　現在の収録曲
         $chg_flg = 1;
-        $playlist = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
-        $playlists = null;
+        $playlist_detail = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+        $playlist = null;
         
         //楽曲検索
         $music = Music::getMusic_list(5,true,$input['mus_keyword']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
@@ -148,7 +137,7 @@ class AdminPlaylistController extends Controller
         $input['redirect_flg'] = $redirect_flg;
 
 
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlists', 'playlist', 'music', 'input', 'msg'));
+        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist_detail', 'playlist', 'music', 'input', 'msg'));
     }
     //詳細変更用　関数(変更・削除・追加)
     public function playlist_chg_detail_fnc(Request $request)

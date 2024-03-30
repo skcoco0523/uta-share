@@ -4761,3 +4761,37 @@
 [2024-03-21 00:31:00] local.DEBUG: pl_id=8  
 [2024-03-21 00:31:00] local.DEBUG: pl_detail_add_mus_id=130  
 [2024-03-21 00:31:00] local.DEBUG: success  
+[2024-03-30 14:44:10] local.DEBUG: -----start-----  
+[2024-03-30 14:44:10] local.DEBUG: fnc=add pl_id=8 mus_id=128  
+[2024-03-30 14:44:10] local.DEBUG: -------start-------  
+[2024-03-30 14:44:10] local.DEBUG: pl_id=8  
+[2024-03-30 14:44:10] local.DEBUG: pl_detail_add_mus_id=128  
+[2024-03-30 14:44:10] local.DEBUG: success  
+[2024-03-30 14:50:44] local.DEBUG: -----start-----  
+[2024-03-30 14:50:44] local.DEBUG: fnc=add pl_id=8 mus_id=128  
+[2024-03-30 14:50:44] local.DEBUG: -------start-------  
+[2024-03-30 14:50:44] local.DEBUG: pl_id=8  
+[2024-03-30 14:50:44] local.DEBUG: pl_detail_add_mus_id=128  
+[2024-03-30 14:50:44] local.DEBUG: success  
+[2024-03-30 14:50:50] local.DEBUG: -----start-----  
+[2024-03-30 14:50:50] local.DEBUG: fnc=del pl_id=8 mus_id=  
+[2024-03-30 14:50:50] local.DEBUG: -------start-------  
+[2024-03-30 14:50:50] local.DEBUG: delete_pl_id=8  
+[2024-03-30 14:50:50] local.DEBUG: success  
+[2024-03-30 14:52:20] local.DEBUG: -----start-----  
+[2024-03-30 14:52:20] local.DEBUG: fnc=del pl_id=8 mus_id=  
+[2024-03-30 14:52:20] local.DEBUG: -------start-------  
+[2024-03-30 14:52:20] local.DEBUG: delete_pl_id=8  
+[2024-03-30 14:52:20] local.DEBUG: success  
+[2024-03-30 14:57:22] local.DEBUG: -----start-----  
+[2024-03-30 14:57:22] local.DEBUG: fnc=add pl_id=8 mus_id=128  
+[2024-03-30 14:57:22] local.DEBUG: -------start-------  
+[2024-03-30 14:57:22] local.DEBUG: pl_id=8  
+[2024-03-30 14:57:22] local.DEBUG: pl_detail_add_mus_id=128  
+[2024-03-30 14:57:22] local.DEBUG: success  
+[2024-03-30 15:20:47] local.DEBUG: -----start-----  
+[2024-03-30 15:20:47] local.DEBUG: fnc=add pl_id=8 mus_id=116  
+[2024-03-30 15:20:47] local.DEBUG: -------start-------  
+[2024-03-30 15:20:47] local.DEBUG: pl_id=8  
+[2024-03-30 15:20:47] local.DEBUG: pl_detail_add_mus_id=116  
+[2024-03-30 15:20:48] local.DEBUG: success  

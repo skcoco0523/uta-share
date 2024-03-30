@@ -29,9 +29,6 @@
         @case("playlist_reg")
             @include('admin.admin_playlist_reg')
             @break
-        @case("playlist_chg_detail")
-            @include('admin.admin_playlist_chg_detail')
-            @break
         @case("playlist_search")
             @include('admin.admin_playlist_search')
             @break
