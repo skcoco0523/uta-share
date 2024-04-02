@@ -99,11 +99,11 @@ class AdminAlbumController extends Controller
         else                                    $input = $request->only(['keyword']);
         if (empty($input['keyword']))           $input['keyword']=null;
 
-        $albums = Album::getAlbum_list(5,true,$input['keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
-        $artists = Artist::getArtist();  //全件　リスト用
+        $album = Album::getAlbum_list(5,true,$input['keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
+        $artist = Artist::getArtist();  //全件　リスト用
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['keyword'] !==null && $albums === null) ? "検索結果が0件です。" : $msg;
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'albums', 'input', 'msg'));
+        $msg = ($msg===NULL && $input['keyword'] !==null && $album === null) ? "検索結果が0件です。" : $msg;
+        return view('admin.adminhome', compact('tab_name', 'ope_type', 'artist', 'album', 'input', 'msg'));
     }
     //削除
     public function album_del(Request $request)
@@ -157,37 +157,24 @@ class AdminAlbumController extends Controller
     public function album_chg_detail(Request $request)
     {
         $tab_name="アルバム";
-        $ope_type="album_chg_detail";
+        $ope_type="album_search";    //同一テンプレート内で分岐する
+        //$ope_type="album_chg_detail";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['alb_id', 'keyword']);
+        else                                    $input = $request->only(['id', 'keyword']);
         if (empty($input['keyword']))           $input['keyword']=null;
-        if (empty($input['alb_id']))            $input['alb_id']=null;
+        if (empty($input['id']))            $input['id']=null;
 
-        $chg_flg = 0;
-        $redirect_flg = 0;
-
-        //if($request->input('input')!==null) dd($alb_id);
-        if($input['alb_id'] === null){
-            //検索
-            $album = null;
-            $albums = Album::getAlbum_list(5,true,$input['keyword']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
-        }else{
-            //収録曲変更
-            $chg_flg = 1;
-            $album = Album::getAlbum_detail($input['alb_id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
-            $albums = null;
-            //リダイレクトの場合は、表示状態とする
-            if($request->input('input')!==null) $redirect_flg = 1;
-        }
+        //収録曲変更
+        $chg_flg = 1;
+        $album_detail = Album::getAlbum_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+        $album = null;
         
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $albums === null) ? "検索結果が0件です。" : $msg;
 
-        $input['chg_flg'] = $chg_flg;
-        $input['redirect_flg'] = $redirect_flg;
         
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'albums', 'album', 'input', 'msg'));
+        return view('admin.adminhome', compact('tab_name', 'ope_type', 'album_detail', 'album', 'input', 'msg'));
     }
     //詳細変更用　関数(変更・削除・追加)
     public function album_chg_detail_fnc(Request $request)
@@ -226,6 +213,7 @@ class AdminAlbumController extends Controller
 
             default:
         }
+        $input['id'] = $input['alb_id'];
         return redirect()->route('admin-album-chgdetail', ['input' => $input, 'msg' => $msg]);
     }
 }

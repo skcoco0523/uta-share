@@ -86,22 +86,23 @@ class Album extends Model
     //変更
     public static function chgAlbum($data)
     {
-        $msg="";
         //データチェック
         if(!isset($data['id']) || !$data['id'])         return ['id' => null, 'error_code' => 1];   //データ不足
         if(!isset($data['art_id']) || !$data['art_id']) return ['id' => null, 'error_code' => 2];   //データ不足
         if(!isset($data['name']) || !$data['name'])     return ['id' => null, 'error_code' => 3];   //データ不足
         
+        make_error_log("chgAlbum.log","-------start-------");
+        make_error_log("chgAlbum.log","id=".$data['id']." art_id=".$data['art_id']." name=".$data['name']);
         
         
-        $artist = DB::table('albums')->where('id', $data['id'])->first();
-        if ($artist !== null) {
+        $album = DB::table('albums')->where('id', $data['id'])->first();
+        if ($album !== null) {
             /*  クエリビルダではupdated_atが自動更新されない
-            DB::table('albums')->where('id', $data['id'])
-            ->update([
-                'name' => $data['name'], 
-                'art_id' => $data['art_id'], 
-                'release_date' => $data['release_date'], 
+                DB::table('albums')->where('id', $data['id'])
+                ->update([
+                    'name' => $data['name'], 
+                    'art_id' => $data['art_id'], 
+                    'release_date' => $data['release_date'], 
             ]);
             */
             Album::where('id', $data['id'])
@@ -110,6 +111,12 @@ class Album extends Model
                 'art_id' => $data['art_id'], 
                 'release_date' => $data['release_date'], 
             ]);
+
+            //アーティストが変更された場合、曲のart_idも更新する
+            if($album->art_id != $data['art_id']){
+                make_error_log("chgAlbum.log","change:musics.art_id");
+                DB::table('musics')->where('alb_id', $data['id'])->update(['art_id' => $data['art_id']]);
+            }
 
 
             return ['id' => $data['id'], 'error_code' => 0];   //更新成功

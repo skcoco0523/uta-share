@@ -66,7 +66,7 @@ class AdminPlaylistController extends Controller
         //if (empty($input['admin_flg']))         $input['admin_flg']=null;
         if (!isset($input['admin_flg']))                 $input['admin_flg'] = 1;
         elseif ($input['admin_flg'] === '')              $input['admin_flg'] = 1;
-        
+
         $input['chg_flg'] = 0;
         //dd($input);
         $playlist = Playlist::getPlaylist_list(5,true,$input['keyword'],$input['admin_flg']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flg
@@ -126,11 +126,7 @@ class AdminPlaylistController extends Controller
         if (empty($input['id']))                $input['id']=null;      //ﾌﾟﾚｲﾘｽﾄID
         if (empty($input['mus_keyword']))           $input['mus_keyword']=null;
 
-        $chg_flg = 0;
-        $redirect_flg = 1;  //検索時は表示させる
-
         //収録曲変更　現在の収録曲
-        $chg_flg = 1;
         $playlist_detail = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
         $playlist = null;
         
@@ -139,10 +135,6 @@ class AdminPlaylistController extends Controller
 
         $msg = request('msg');
         $msg = ($msg===NULL && $input['mus_keyword'] !==null && $music === null) ? "検索結果が0件です。" : $msg;
-
-        $input['chg_flg'] = $chg_flg;
-        $input['redirect_flg'] = $redirect_flg;
-
 
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist_detail', 'playlist', 'music', 'input', 'msg'));
     }

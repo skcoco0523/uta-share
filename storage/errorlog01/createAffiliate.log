@@ -2126,3 +2126,27 @@
 )
   
 [2024-03-19 22:38:13] local.DEBUG: success  
+[2024-04-02 22:42:00] local.DEBUG: -------start-------  
+[2024-04-02 22:42:00] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3b072e9f.197d677c.3b072ea0.4c317123/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhmvjapan%2F10588144%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3b072e9f.197d677c.3b072ea0.4c317123/?me_id=1251035&item_id=18316155&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fhmvjapan%2Fcabinet%2Fa05%2F90000%2F10588144.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-04-02 22:42:00] local.DEBUG: success  
+[2024-04-02 22:42:00] local.DEBUG: -------start-------  
+[2024-04-02 22:42:00] local.DEBUG: name=アルバム新規登録 art_id=3 release_date=2024-04-02 aff_id=33  
+[2024-04-02 22:42:00] local.DEBUG: success  
+[2024-04-02 22:42:00] local.DEBUG: -------start-------  
+[2024-04-02 22:42:00] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 16
+    [name] => 曲1
+)
+  
+[2024-04-02 22:42:00] local.DEBUG: success  
+[2024-04-02 22:42:00] local.DEBUG: -------start-------  
+[2024-04-02 22:42:00] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 16
+    [name] => 曲2
+)
+  
+[2024-04-02 22:42:00] local.DEBUG: success  
