@@ -86,7 +86,9 @@
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
             <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
-            <th scope="col" class="fw-light"></th>
+            <th scope="col" class="fw-light">詳細変更
+                
+            </th>
             <th scope="col" class="fw-light"></th>
         </tr>
         </thead>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('recommenddetail', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger ('recom_id');
-            $table->unsignedBigInteger ('category_id')->comment('詳細データid');
+            $table->unsignedBigInteger ('detail_id')->comment('詳細データid');
             $table->timestamps();
 
             // 外部キー制約

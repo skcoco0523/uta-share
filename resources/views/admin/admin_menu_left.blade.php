@@ -11,7 +11,6 @@
             @case("アルバム")
                 {{$tab_name}}メニュー
                 <li><a href="{{ route('admin-album-reg') }}">新規登録 </a></li>
-                <li><a href="{{ route('admin-album-chgdetail') }}">詳細変更</a></li>
                 <li><a href="{{ route('admin-album-search') }}">検索/変更/削除</a></li>
                 @break
             @case("アーティスト")
@@ -27,7 +26,6 @@
             @case("おすすめ")
                 {{$tab_name}}メニュー
                 <li><a href="{{ route('admin-recommend-reg') }}">新規登録 </a></li>
-                <li><a href="{{ route('admin-recommend-chg') }}">詳細変更</a></li>
                 <li><a href="{{ route('admin-recommend-search') }}">検索/変更/削除</a></li>
                 @break
             @endswitch

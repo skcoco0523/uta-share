@@ -116,7 +116,7 @@ class AdminPlaylistController extends Controller
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist_detail', 'playlist', 'input', 'msg'));
     }
     //詳細変更用　楽曲検索
-    public function playlist_music_search(Request $request)
+    public function playlist_detail_search(Request $request)
     {
         $tab_name="プレイリスト";
         $ope_type="playlist_search";    //同一テンプレート内で分岐する
@@ -142,30 +142,20 @@ class AdminPlaylistController extends Controller
     public function playlist_chg_detail_fnc(Request $request)
     {
         make_error_log("album_chg_detail_fnc.log","-----start-----");
-        $input = $request->only(['fnc', 'pl_id', 'mus_id', 'detail_id']);
+        $input = $request->only(['fnc', 'pl_id','detail_id']);
         $msg=null;
-        make_error_log("album_chg_detail_fnc.log","fnc=".$input['fnc']." pl_id=".$input['pl_id']." mus_id=".$input['mus_id']);
+        make_error_log("album_chg_detail_fnc.log","fnc=".$input['fnc']." pl_id=".$input['pl_id']." detail_id=".$input['detail_id']);
+        
+        $ret = Playlist::chgPlaylist_detail($input);
         switch($input['fnc']){
-            /*
-            case "chg":
-                $ret = Music::chgMusic($input);
-                if($ret['error_code']==-1)    $msg = "収録曲の更新に失敗しました。";
-                if($ret['error_code']==0)    $msg = "収録曲を更新しました。";
-
-                break;
-            */
             case "del":
-                $ret = Playlist::delPlaylist_detail($input);
                 if($ret['error_code']==-1)    $msg = "収録曲の削除に失敗しました。";
                 if($ret['error_code']==0)    $msg = "収録曲を削除しました。";
-
                 break;
             case "add":
-                $ret = Playlist::addPlaylist_detail($input);
                 if($ret['error_code']==-1)    $msg = "ﾌﾟﾚｲﾘｽﾄへの追加に失敗しました。";
                 if($ret['error_code']==0)    $msg = "ﾌﾟﾚｲﾘｽﾄに追加しました。";
                 break;
-
             default:
         }
         $input['id'] = $input['pl_id'];

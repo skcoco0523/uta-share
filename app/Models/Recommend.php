@@ -50,24 +50,40 @@ class Recommend extends Model
         $sql_cmd = DB::table('recommenddetail')->where('recom_id', $recom_id);
         switch($recommend->category){
             case 0: //曲
-                $sql_cmd = $sql_cmd->paginate($disp_cnt);
-                $sql_cmd = $sql_cmd->join('musics', 'recommenddetail.recom_id', '=', 'musics.id');
+                $item1   = "曲名";
+                $item2   = "";
+                $sql_cmd = $sql_cmd->join('musics', 'recommenddetail.detail_id', '=', 'musics.id');
                 $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name');
+                //$sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name','artists.name As art_name')->get();
                 break;
             case 1: //ｱｰﾃｨｽﾄ
+                $item1   = "アーティスト名";
+                $item2   = "";
+                $sql_cmd = $sql_cmd->join('artists', 'recommenddetail.detail_id', '=', 'artists.id');
+                //$sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name As art_name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name')->get();
                 break;
             case 2: //ｱﾙﾊﾞﾑ
+                $item1   = "アルバム名";
+                $item2   = "";
+                $sql_cmd = $sql_cmd->join('albums', 'recommenddetail.detail_id', '=', 'albums.id');
+                $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.name','artists.name As art_name')->get();
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
+                $item1   = "プレイリスト名";
+                $item2   = "";
+                $sql_cmd = $sql_cmd->join('playlist', 'recommenddetail.detail_id', '=', 'playlist.id');
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.name')->get();
                 break;
             default:
-            break;
+                break;
         }
-        $recommend->detail = $sql_cmd;      
-        //画像情報を付与
-        //$album=setAffData($album);
-        
+        $recommend->detail = $sql_cmd; 
+        //dd($recommend->detail );
+        $recommend->item1 = $item1; 
+        $recommend->item2 = $item2;    
         return $recommend; 
     }
     //作成
@@ -170,55 +186,33 @@ class Recommend extends Model
         }
 
     }
-
-
-
-
-
-
-    //プレイリスト収録曲削除
-    public static function delRecommend_detail($data)
+    //お気に入り　追加・削除
+    public static function chgRecommend_detail($data)
     {
-        make_error_log("delRecommend_detail.log","-------start-------");
-        try {
-            if(!$data['pl_id'])     return ['id' => null, 'error_code' => 1];   //データ不足
-            if(!$data['detail_id'])    return ['id' => null, 'error_code' => 2];   //データ不足
-            make_error_log("delMusic.log","delete_pl_id=".$data['pl_id']);
-            // pl_detailデータ削除
-            //$music = DB::table('musics')->where('id', $data['mus_id'])->first();
-            DB::table('recommenddetail')->where('pl_id', $data['pl_id'])->where('id', $data['detail_id'])->delete();
-
-            make_error_log("delRecommend_detail.log","success");
-            return ['id' => null, 'error_code' => 0];   //削除成功
-
-        } catch (\Exception $e) {
-            make_error_log("delRecommend_detail.log","failure");
-            return ['id' => null, 'error_code' => -1];   //削除失敗
-        }
-    }
-    //プレイリスト収録曲追加
-    public static function addRecommend_detail($data)
-    {
-        make_error_log("addRecommend_detail.log","-------start-------");
+        make_error_log("chgRecommend_detail.log","-------start-------");
         //try {
-            if(!$data['pl_id'])     return ['id' => null, 'error_code' => 1];   //データ不足
-            if(!$data['mus_id'])    return ['id' => null, 'error_code' => 2];   //データ不足
-            make_error_log("addRecommend_detail.log","pl_id=".$data['pl_id']);
-            make_error_log("addRecommend_detail.log","pl_detail_add_mus_id=".$data['mus_id']);
-            // pl_detailデータ追加
+            if(!$data['recom_id'])     return ['id' => null, 'error_code' => 1];   //データ不足
+            if(!$data['detail_id'])    return ['id' => null, 'error_code' => 2];   //データ不足
             
-        
-            $pl_id = DB::table('recommenddetail')->insert([
-                'pl_id' => $data['pl_id'],
-                'mus_id' => $data['mus_id']
-            ]);
-
-            make_error_log("addRecommend_detail.log","success");
-            return ['id' => null, 'error_code' => 0];   //更新成功
-
+            make_error_log("chgRecommend_detail.log","delete_pl_id=".$data['detail_id']);
+            switch($data['fnc']){
+                case "add":
+                    $detail_id = DB::table('recommenddetail')->insert(['recom_id' => $data['recom_id'],'detail_id' => $data['detail_id']]);
+                    break;
+                case "del":
+                    DB::table('recommenddetail')->where('recom_id', $data['recom_id'])->where('id', $data['detail_id'])->delete();
+                    break;
+                default:
+            }
+            make_error_log("chgRecommend_detail.log","success");
+            return ['id' => null, 'error_code' => 0];   //削除成功
         //} catch (\Exception $e) {
-            make_error_log("addRecommend_detail.log","failure");
-            return ['id' => null, 'error_code' => -1];   //更新失敗
+            make_error_log("chgRecommend_detail.log","failure");
+            return ['id' => null, 'error_code' => -1];   //削除失敗
         //}
     }
+
+
+
+    
 }

@@ -1134,3 +1134,43 @@
 )
   
 [2024-03-30 15:58:30] local.DEBUG: success  
+[2024-04-02 23:44:11] local.DEBUG: ---------start----------  
+[2024-04-02 23:44:11] local.DEBUG: data=Array
+(
+    [id] => 18
+    [name] => おすすめ曲7　edit
+    [category] => 
+    [disp_flag] => 1
+)
+  
+[2024-04-02 23:44:11] local.DEBUG: success  
+[2024-04-05 13:09:55] local.DEBUG: ---------start----------  
+[2024-04-05 13:09:55] local.DEBUG: data=Array
+(
+    [id] => 17
+    [name] => おすすめ曲6
+    [category] => 
+    [disp_flag] => 1
+)
+  
+[2024-04-05 13:09:55] local.DEBUG: success  
+[2024-04-08 17:35:02] local.DEBUG: ---------start----------  
+[2024-04-08 17:35:02] local.DEBUG: data=Array
+(
+    [id] => 8
+    [name] => おすすめ登録テスト　アルバム１
+    [category] => 2
+    [disp_flag] => 1
+)
+  
+[2024-04-08 17:35:02] local.DEBUG: success  
+[2024-04-08 17:35:47] local.DEBUG: ---------start----------  
+[2024-04-08 17:35:47] local.DEBUG: data=Array
+(
+    [id] => 11
+    [name] => おすすめ登録テスト　ﾌﾟﾚｲﾘｽﾄ2　edit
+    [category] => 3
+    [disp_flag] => 1
+)
+  
+[2024-04-08 17:35:47] local.DEBUG: success  

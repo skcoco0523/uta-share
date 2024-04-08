@@ -103,7 +103,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('playlist/chgdetail', [AdminPlaylistController::class, 'playlist_chg_detail'])->name('admin-playlist-chgdetail');
             Route::post('playlist/chgdetail', [AdminPlaylistController::class, 'playlist_chg_detail_fnc'])->name('admin-playlist-chgdetail-fnc');
             //プレイリスト検索>収録曲修正>曲検索
-            Route::get('playlist/chgdetail/getmusic', [AdminPlaylistController::class, 'playlist_music_search'])->name('admin-playlist-music-search');
+            Route::get('playlist/chgdetail/search-detail', [AdminPlaylistController::class, 'playlist_detail_search'])->name('admin-playlist-detail-search');
         
         //------------------------------------------------------------------------
             //おすすめ登録
@@ -116,11 +116,15 @@ Route::middleware(['auth'])->group(function () {
             Route::post('recommend/chg', [AdminRecommendController::class, 'recommend_chg'])->name('admin-recommend-chg');
             //おすすめ検索>削除
             Route::post('recommend/search/del', [AdminRecommendController::class, 'recommend_del'])->name('admin-recommend-del');
+            //おすすめ検索>詳細変更
+            Route::get('recommend/chgdetail', [AdminRecommendController::class, 'recommend_chg_detail'])->name('admin-recommend-chgdetail');
 
+            //おすすめ検索>カテゴリ指定検索>並び変更
+            Route::post('recommend/chgsort', [AdminRecommendController::class, 'recommend_chg_sort'])->name('admin-recommend-sort-chg');
 
-
+            //おすすめ検索>詳細変更>登録データ修正
+            Route::get('recommend/chgdetail/search-detail', [AdminRecommendController::class, 'recommend_detail_search'])->name('admin-recommend-detail-search');
             Route::post('recommend/chgdetail', [AdminRecommendController::class, 'recommend_chg_detail_fnc'])->name('admin-recommend-chgdetail-fnc');
-            Route::post('recommend/chgdetail', [AdminRecommendController::class, 'recommend_chg_fnc'])->name('admin-recommend-fnc');
             
         });
     });

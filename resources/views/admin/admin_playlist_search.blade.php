@@ -60,7 +60,7 @@
             <th scope="col" class="fw-light">種別</th>
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
-            <th scope="col" class="fw-light"></th>
+            <th scope="col" class="fw-light">詳細変更</th>
             <th scope="col" class="fw-light"></th>
         </tr>
         </thead>
@@ -154,7 +154,7 @@
             <span class="form-label"  style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_add()">追加</span>
             <div id="detail_add">
                 {{--追加用  検索フォーム--}}
-                <form method="GET" action="{{ route('admin-playlist-music-search') }}">
+                <form method="GET" action="{{ route('admin-playlist-detail-search') }}">
 
                     <input type="hidden" name="id" value="{{$playlist_detail->id}}">
                     <div class="row g-3 align-items-end">
@@ -225,7 +225,6 @@
     @csrf
     <input type="hidden" name="fnc" value="">
     <input type="hidden" name="pl_id" value="{{$playlist_detail->id}}">
-    <input type="hidden" name="mus_id" value="">
     <input type="hidden" name="detail_id" value="">
 </form>
 
@@ -248,7 +247,7 @@
             //document.detail_form["name"].value    =chg_name;
 
         }else if(fnc === 'add'){
-            document.detail_form["mus_id"].value  =id;
+            document.detail_form["detail_id"].value  =id;
             //var add_name =document.getElementsByName("add_name")[0].value;
             //document.detail_form["name"].value    =add_name;
         }
