@@ -53,5 +53,32 @@
 .card-text {
   margin: 0 !important;
 }
-/*------------------------------------------------------------------------ranking*/
+
+.fixed-bottom-menu {
+  bottom: 0;
+  background-color: #fff; /* メニューの背景色を指定 */
+  border-top: 1px solid #ddd; /* 上部にボーダーを追加 */
+}
+
+/* ナビメニューのスタイルが必要な場合に追加 */
+.fixed-bottom-menu nav {
+  /* ここにナビメニューのスタイルを追加 */
+}
+.nav-pills .nav-link {
+  color: #000 !important; /* 任意の文字色に変更 */
+}
+.header {
+  margin-top:50px; /* fixed-bottom-menu の高さ + 追加の余白 */;
+}
+.footer {
+  margin-bottom:50px; /* fixed-bottom-menu の高さ + 追加の余白 */;
+}
+
+.user-home {
+  background-color: #fff; /* メニューの背景色を指定 */
+  border-top: 1px solid #ddd; /* 上部にボーダーを追加 */
+  z-index: 1000; /* 他の要素よりも手前に表示 */
+  margin-top: 70px; /* 上部の余白を追加 */
+  margin-bottom: 50px; /* 下部部の余白を追加 */
+}
 

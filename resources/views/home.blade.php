@@ -1,24 +1,31 @@
-
 <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+
 @extends('layouts.app')
 
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
     
-    @include('layouts.slider')
-    <div class="col-md-8">
+    <div class="col-12 col-md-6">
+        <?//コンテンツ?>  
+        @section('content')
+
+        <?//スライダー?>  
+        @include('layouts.slider')
         
-        <?//ランキング?>
+        <?//ランキング?>  
         @include('layouts.ranking')
 
-        <?//プレイリスト?>
+        <?//プレイリスト?>  
         @include('layouts.playlist')
 
-        <?//おすすめ?>
+        <?//おすすめ?>  
         @include('layouts.recommend')
 
-        
+        <?//ログインユーザーのみ表示させるナビ?>   
+        @include('layouts.nav_menu')
+
+
     </div>
+</div>
 </div>
 @endsection
