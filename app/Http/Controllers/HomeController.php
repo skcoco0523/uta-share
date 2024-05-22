@@ -29,15 +29,19 @@ class HomeController extends Controller
         //ランキング
         $ranking = $homeModel->getRankingData("test");
         //プレイリスト
-        //$playlist = $homeModel->getPlaylistData(auth()->id());
+        $playlist = $homeModel->getPlaylistData(auth()->id());              //追加開発必須
         //$playlist = $homeModel->getRankingData(NULL,"test");
-        $playlist = null;
+        //$playlist = null;
         //おすすめ
-        $recommend = $homeModel->getRecommendData();
+        $recommend_mus = $homeModel->getRecommendList(0);//カテゴリ指定
+        //$recommend_art = $homeModel->getRecommendList(1);//カテゴリ指定   アーティストは現在画像情報なし
+        $recommend_alb = $homeModel->getRecommendList(2);//カテゴリ指定
+        $recommend_pl = $homeModel->getRecommendList(3);//カテゴリ指定
         //return view('home');
-        //dd($ranking);
+        //dd($recommend_pl);
         
-        return view('home', compact('ranking', 'playlist', 'recommend'));
+        //return view('home', compact('ranking', 'playlist', 'recommend_mus', 'recommend_art', 'recommend_alb', 'recommend_pl'));
+        return view('home', compact('ranking', 'playlist', 'recommend_mus', 'recommend_alb', 'recommend_pl'));
 
     }
     public function dashboard()

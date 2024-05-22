@@ -45,3 +45,13 @@
 [2024-04-08 17:35:41] local.DEBUG: fnc=down recom_id=9  
 [2024-04-08 17:35:41] local.DEBUG: ---------start----------  
 [2024-04-08 17:35:41] local.DEBUG: sort_chg id=9-down  
+[2024-05-18 17:26:06] local.DEBUG: -----start-----  
+[2024-05-18 17:26:07] local.DEBUG: fnc=up recom_id=14  
+[2024-05-18 17:26:07] local.DEBUG: ---------start----------  
+[2024-05-18 17:26:07] local.DEBUG: sort_chg id=14-up  
+[2024-05-18 17:26:07] local.DEBUG: success  
+[2024-05-18 17:26:10] local.DEBUG: -----start-----  
+[2024-05-18 17:26:10] local.DEBUG: fnc=up recom_id=13  
+[2024-05-18 17:26:10] local.DEBUG: ---------start----------  
+[2024-05-18 17:26:10] local.DEBUG: sort_chg id=13-up  
+[2024-05-18 17:26:10] local.DEBUG: success  

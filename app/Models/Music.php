@@ -46,6 +46,7 @@ class Music extends Model
         //オブジェクトの場合と配列の場合の2パターンを作成して負荷軽減
         //楽曲情報を取得
         $music = DB::table('musics')->where('id', $mus_id)->first();
+        $music->mus_name = $music->name;
 
         //アーティスト情報を取得
         $artist = DB::table('artists')->where('id', $music->art_id)->first();

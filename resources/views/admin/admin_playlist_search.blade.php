@@ -5,7 +5,7 @@
         @csrf
         <div class="row g-3 align-items-end" >
             <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-            <input type="hidden" name="admin_flg" value="{{$input['admin_flg'] ?? ''}}">
+            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
             <input type="hidden" name="id" value="{{$select->id ?? ''}}">
             <div class="col-sm">
                 <label for="inputname" class="form-label">ﾌﾟﾚｲﾘｽﾄ名</label>
@@ -37,9 +37,9 @@
         <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(ﾌﾟﾚｲﾘｽﾄ名)">
     </div>
     <div class="col-md-2">
-        <select id="inputState" name="admin_flg" class="form-select">
-            <option value="1" {{ ($input['admin_flg'] ?? '') == '1' ? 'selected' : '' }}>管理者</option>
-            <option value="0" {{ ($input['admin_flg'] ?? '') == '0' ? 'selected' : '' }}>ユーザー</option>
+        <select id="inputState" name="admin_flag" class="form-select">
+            <option value="1" {{ ($input['admin_flag'] ?? '') == '1' ? 'selected' : '' }}>管理者</option>
+            <option value="0" {{ ($input['admin_flag'] ?? '') == '0' ? 'selected' : '' }}>ユーザー</option>
         </select>
     </div>
     <div class="col-auto align-self-end">
@@ -71,8 +71,8 @@
                 <td class="fw-light">{{$pl->mus_cnt}}</td>
                 <td class="fw-light">{{$pl->user_name}}</td>
                 <td class="fw-light">
-                    @if($pl->admin_flg === 0)     ユーザー
-                    @elseif($pl->admin_flg === 1) 管理者
+                    @if($pl->admin_flag === 0)     ユーザー
+                    @elseif($pl->admin_flag === 1) 管理者
                     @endif
                 </td>
                 <td class="fw-light">{{$pl->created_at}}</td>
@@ -89,7 +89,7 @@
                         <input type="hidden" name="pl_id" value="{{$pl->id}}">
                         <input type="hidden" name="pl_name" value="{{$pl->name}}">
                         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                        <input type="hidden" name="admin_flg" value="{{$input['admin_flg'] ?? ''}}">
+                        <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
                         <input type="submit" value="削除" class="btn btn-danger">
                     </form>
                 </td>
@@ -106,7 +106,7 @@
             </li>
             @for ($i = 1; $i <= $playlist->lastPage(); $i++)
                 <li class="page-item {{ $playlist->currentPage() == $i ? 'active' : '' }}">
-                    <a class="page-link" href="{{ $playlist->url($i) }}&keyword={{$input['keyword'] ?? ''}}&admin_flg={{$input['admin_flg'] ?? ''}}">{{ $i }}</a>
+                    <a class="page-link" href="{{ $playlist->url($i) }}&keyword={{$input['keyword'] ?? ''}}&admin_flag={{$input['admin_flag'] ?? ''}}">{{ $i }}</a>
                     
                 </li>
             @endfor

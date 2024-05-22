@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger ('user_id');
             $table->string('name');
-            $table->tinyInteger('admin_flg')->default(0);
+            $table->tinyInteger('admin_flag')->default(0);
             $table->timestamps();
 
             // 外部キー制約

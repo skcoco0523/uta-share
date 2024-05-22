@@ -491,3 +491,23 @@
 [2024-04-08 17:34:36] local.DEBUG: -------start-------  
 [2024-04-08 17:34:36] local.DEBUG: delete_pl_id=10  
 [2024-04-08 17:34:36] local.DEBUG: success  
+[2024-05-18 17:33:03] local.DEBUG: -----start-----  
+[2024-05-18 17:33:03] local.DEBUG: fnc=add recom_id=13 category= detail_id=97  
+[2024-05-18 17:33:03] local.DEBUG: -------start-------  
+[2024-05-18 17:33:03] local.DEBUG: delete_pl_id=97  
+[2024-05-18 17:33:03] local.DEBUG: success  
+[2024-05-22 15:12:18] local.DEBUG: -----start-----  
+[2024-05-22 15:12:18] local.DEBUG: fnc=del recom_id=5 category=0 detail_id=2  
+[2024-05-22 15:12:18] local.DEBUG: -------start-------  
+[2024-05-22 15:12:18] local.DEBUG: delete_pl_id=2  
+[2024-05-22 15:12:18] local.DEBUG: success  
+[2024-05-22 15:12:20] local.DEBUG: -----start-----  
+[2024-05-22 15:12:20] local.DEBUG: fnc=del recom_id=5 category=0 detail_id=3  
+[2024-05-22 15:12:20] local.DEBUG: -------start-------  
+[2024-05-22 15:12:20] local.DEBUG: delete_pl_id=3  
+[2024-05-22 15:12:20] local.DEBUG: success  
+[2024-05-22 15:12:23] local.DEBUG: -----start-----  
+[2024-05-22 15:12:23] local.DEBUG: fnc=del recom_id=5 category=0 detail_id=4  
+[2024-05-22 15:12:23] local.DEBUG: -------start-------  
+[2024-05-22 15:12:23] local.DEBUG: delete_pl_id=4  
+[2024-05-22 15:12:23] local.DEBUG: success  

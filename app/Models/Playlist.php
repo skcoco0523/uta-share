@@ -10,14 +10,14 @@ class Playlist extends Model
 {
     use HasFactory;
     protected $table = 'playlist';    //playlistsテーブルが指定されてしまうため、強制的に指定
-    protected $fillable = ['name', 'user_id', 'admin_flg'];
+    protected $fillable = ['name', 'user_id', 'admin_flag'];
     //取得
-    public static function getPlaylist_list($disp_cnt=null,$pageing=false,$keyword=null,$admin_flg=0)
+    public static function getPlaylist_list($disp_cnt=null,$pageing=false,$keyword=null,$admin_flag=0)
     {
         $sql_cmd = DB::table('playlist')
             ->orderBy('created_at', 'desc')
             ->where('name', 'like', "%$keyword%")
-            ->where('admin_flg', $admin_flg);
+            ->where('admin_flag', $admin_flag);
         
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;
@@ -44,14 +44,25 @@ class Playlist extends Model
         $playlist = DB::table('playlist')->where('id', $pl_id)->first();
 
         //収録数、収録曲を取得
+        $music_list = DB::table('playlistdetail')->where('pl_id', $pl_id)
+        ->get();
+        /*
         $playlist->music = DB::table('playlistdetail')->where('pl_id', $pl_id)
             ->join('musics', 'playlistdetail.mus_id', '=', 'musics.id')
             ->join('artists', 'musics.art_id', '=', 'artists.id')
-            ->select('playlistdetail.id','musics.name As mus_name','artists.name As art_name')
+            ->select('playlistdetail.id')
             ->get();
-                            
-        //画像情報を付与
-        //$album=setAffData($album);
+        */
+        $music = new Music();
+        //dd($music_list);
+        foreach ($music_list as $key => $item) {
+            $detail_list[$key] = $music->getMusic_detail($item->mus_id);
+        }        
+        $playlist->music = $detail_list;    
+    
+        //dd($playlist);
+        //画像情報を付与 getMusic_detailで取得
+        //$playlist=setAffData($playlist);
         
         return $playlist; 
     }
