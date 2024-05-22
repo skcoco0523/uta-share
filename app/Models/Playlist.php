@@ -54,6 +54,7 @@ class Playlist extends Model
             ->get();
         */
         $music = new Music();
+        $detail_list = [];
         //dd($music_list);
         foreach ($music_list as $key => $item) {
             $detail_list[$key] = $music->getMusic_detail($item->mus_id);

@@ -1185,3 +1185,13 @@
 )
   
 [2024-05-18 17:30:47] local.DEBUG: success  
+[2024-05-22 19:13:22] local.DEBUG: ---------start----------  
+[2024-05-22 19:13:22] local.DEBUG: data=Array
+(
+    [id] => 11
+    [name] => テストプレイリスト
+    [category] => 3
+    [disp_flag] => 1
+)
+  
+[2024-05-22 19:13:22] local.DEBUG: success  

@@ -100,7 +100,7 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
             <li class="page-item {{ $playlist->currentPage() == 1 ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $playlist->previousPageUrl() }}" aria-label="Previous">
+                <a class="page-link" href="{{ $playlist->previousPageUrl() }}&keyword={{$input['keyword'] ?? ''}}&admin_flag={{$input['admin_flag'] ?? ''}}" aria-label="Previous">
                     <span aria-hidden="true">Previous</span>
                 </a>
             </li>
@@ -111,7 +111,7 @@
                 </li>
             @endfor
             <li class="page-item {{ $playlist->currentPage() == $playlist->lastPage() ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $playlist->nextPageUrl() }}" aria-label="Next">
+                <a class="page-link" href="{{ $playlist->nextPageUrl() }}&keyword={{$input['keyword'] ?? ''}}&admin_flag={{$input['admin_flag'] ?? ''}}" aria-label="Next">
                     <span aria-hidden="true">Next</span>
                 </a>
             </li>

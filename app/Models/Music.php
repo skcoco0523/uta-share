@@ -58,6 +58,7 @@ class Music extends Model
         if($music->aff_id == null) $music->aff_id = $album->aff_id;
         if($music->release_date == null) $music->release_date = $album->release_date;
         
+        //dd($music);
         //画像情報を付与
         $music=setAffData($music);
 

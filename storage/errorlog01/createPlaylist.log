@@ -852,3 +852,20 @@
 )
   
 [2024-03-30 14:59:38] local.DEBUG: success  
+[2024-05-22 18:17:34] local.DEBUG: ---------start----------  
+[2024-05-22 18:17:34] local.DEBUG: data=Array
+(
+    [name] => add_test_0522
+    [user_id] => 1
+)
+  
+[2024-05-22 18:17:34] local.DEBUG: success  
+[2024-05-22 18:19:39] local.DEBUG: ---------start----------  
+[2024-05-22 18:19:39] local.DEBUG: data=Array
+(
+    [name] => おすすめプレイリスト
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-05-22 18:19:39] local.DEBUG: success  

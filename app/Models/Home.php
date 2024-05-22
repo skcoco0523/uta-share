@@ -100,40 +100,43 @@ class Home extends Model
 
                 $item->count = count($detail_list);
                 //収録曲が０件の場合は除外
-                if ($item->count == 0)  unset($recommend[$key]);
-                //dd($detail_list);
-
+                if ($item->count == 0) unset($recommend[$key]);
+                $add_list = [];
                 //if (is_null($detail->detail_id)) continue;
                 switch($category){
                     case 0://曲
                         $music = new Music();
                         foreach ($detail_list as $key => $detail) {
-                            $detail_list[$key] = $music->getMusic_detail($detail->detail_id);
+                            $add_list[$key] = $music->getMusic_detail($detail->detail_id);
                         }
-                        $item->detail = $detail_list;
+                        $item->detail = $add_list;
                         break;
                     
                     case 1://アーティスト
                         //現在はアーティストに画像情報がない
                         //$artist = new Artist();
                         //foreach ($detail_list as $key => $detail) {
-                            //$detail_list[$key] = $artist->getMusic_detail($detail->detail_id);
+                            //$add_list[$key] = $artist->getMusic_detail($detail->detail_id);
                         //}
-                        //$item->detail = $detail_list;
+                        //$item->detail = $add_list;
                         break;
                     case 2://アルバム
                         $album = new Album();
                         foreach ($detail_list as $key => $detail) {
-                            $detail_list[$key] = $album->getAlbum_detail($detail->detail_id);
+                            $add_list[$key] = $album->getAlbum_detail($detail->detail_id);
                         }
-                        $item->detail = $detail_list;
+                        $item->detail = $add_list;
                         break;
-                    case 3://プレイリスト
+                    case 3://プレイリスト          
                         $playlist = new Playlist();
                         foreach ($detail_list as $key => $detail) {
-                            $detail_list[$key] = $playlist->getPlaylist_detail($detail->detail_id);
-                        }
-                        $item->detail = $detail_list;
+                            $add_list[$key] = $playlist->getPlaylist_detail($detail->detail_id);
+                            //プレイリストの収録曲が０件の場合は除外
+                            if (count($add_list[$key]->music) == 0) unset($add_list[$key]);
+                        }     
+                        if (count($add_list) == 0) unset($recommend[$key]);
+                        //dd($add_list);     
+                        $item->detail = $add_list;
                         break;
                     default:
                         $recommend = DB::table('musics')
@@ -145,6 +148,7 @@ class Home extends Model
                         ->get();
                     
                 }
+                
                 //トップ用のリンクを取得
                 //$recommend[0]->href = $recommend[0]->detail[0]->href;
                 //$recommend[0]->src = $recommend[0]->detail[0]->src;
