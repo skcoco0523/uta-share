@@ -77,7 +77,7 @@
             </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_mus); $i++)
-                    <a href="{{ route('music-show', ['id' => $recommend_mus[$i]->detail[0]->id]) }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('music-list-show', ['list' => $recommend_mus[$i]]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                                 <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_mus[$i]->name}}</p>
@@ -96,7 +96,7 @@
             </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_alb); $i++)
-                    <a href="{{ route('album-show', ['id' => $recommend_alb[$i]->detail[0]->id]) }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('album-list-show', ['list' => $recommend_alb[$i]]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                                 <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_alb[$i]->name}}</p>

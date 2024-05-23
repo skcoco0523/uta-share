@@ -136,8 +136,13 @@ Route::middleware(['auth'])->group(function () {
     //ユーザー------------------------------------------------------------------------
     //曲詳細
     Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
+    //曲一覧
+    Route::get('music_list', [MusicController::class, 'music_list_show'])->name('music-list-show');
+
     //アルバム詳細
     Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');
+    //アルバム一覧
+    Route::get('album_list', [AlbumController::class, 'album_list_show'])->name('album-list-show');
 
 
 });

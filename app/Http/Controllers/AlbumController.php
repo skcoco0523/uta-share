@@ -35,6 +35,19 @@ class AlbumController extends Controller
             return redirect()->route('home')->with('error', '該当のアルバムが存在しません');
         }
     }
+    //曲一覧                                                        修正必須
+    public function album_list_show(Request $request)
+    {
+        //$album = Album::getAlbum_detail($request->only(['id']));  //album
+        $album = $request->only(['list']);
+        $msg = null;
+        //dd($album);
+        if($album){
+            return view('album_list_show', compact('album', 'msg'));
+        }else{
+            return redirect()->route('home')->with('error', '該当のアルバムが存在しません');
+        }
+    }
 
     
 }
