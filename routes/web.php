@@ -12,6 +12,10 @@ use App\Http\Controllers\Admin\AdminAlbumController;
 use App\Http\Controllers\Admin\AdminArtistController;
 use App\Http\Controllers\Admin\AdminPlaylistController;
 use App\Http\Controllers\Admin\AdminRecommendController;
+
+//ユーザー
+use App\Http\Controllers\MusicController;
+use App\Http\Controllers\AlbumController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -128,4 +132,12 @@ Route::middleware(['auth'])->group(function () {
             
         });
     });
+
+    //ユーザー------------------------------------------------------------------------
+    //曲詳細
+    Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
+    //アルバム詳細
+    Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');
+
+
 });

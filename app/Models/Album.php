@@ -54,6 +54,8 @@ class Album extends Model
         $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
         //収録数、収録曲を取得
         $album->music = DB::table('musics')->where('alb_id', $album->id)->get();
+        //件数を取得
+        $album->mus_cnt = count($album->music);
         //画像情報を付与
         $album=setAffData($album);
         

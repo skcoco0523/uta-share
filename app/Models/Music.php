@@ -43,26 +43,30 @@ class Music extends Model
     //取得
     public static function getMusic_detail($mus_id)
     {
-        //オブジェクトの場合と配列の場合の2パターンを作成して負荷軽減
-        //楽曲情報を取得
-        $music = DB::table('musics')->where('id', $mus_id)->first();
-        $music->mus_name = $music->name;
+        try {
+            //オブジェクトの場合と配列の場合の2パターンを作成して負荷軽減
+            //楽曲情報を取得
+            $music = DB::table('musics')->where('id', $mus_id)->first();
+            $music->mus_name = $music->name;
 
-        //アーティスト情報を取得
-        $artist = DB::table('artists')->where('id', $music->art_id)->first();
-        $music->art_name = $artist->name;
+            //アーティスト情報を取得
+            $artist = DB::table('artists')->where('id', $music->art_id)->first();
+            $music->art_name = $artist->name;
 
-        //アルバム情報を取得
-        $album = DB::table('albums')->where('id', $music->alb_id)->first();
-        $music->alb_name = $album->name;
-        if($music->aff_id == null) $music->aff_id = $album->aff_id;
-        if($music->release_date == null) $music->release_date = $album->release_date;
-        
-        //dd($music);
-        //画像情報を付与
-        $music=setAffData($music);
+            //アルバム情報を取得
+            $album = DB::table('albums')->where('id', $music->alb_id)->first();
+            $music->alb_name = $album->name;
+            if($music->aff_id == null) $music->aff_id = $album->aff_id;
+            if($music->release_date == null) $music->release_date = $album->release_date;
+            
+            //dd($music);
+            //画像情報を付与
+            $music=setAffData($music);
 
-        return $music; 
+            return $music; 
+        } catch (\Exception $e) {
+            return null; 
+        }
     }
     //作成
     public static function createMusic($data)

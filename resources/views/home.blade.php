@@ -77,10 +77,12 @@
             </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_mus); $i++)
-                    <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                            <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
-                            <p class="card-text">{{$recommend_mus[$i]->name}}</p>
-                    </div>
+                    <a href="{{ route('music-show', ['id' => $recommend_mus[$i]->detail[0]->id]) }}" style="text-decoration: none; color: inherit;">
+                        <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
+                                <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
+                                <p class="card-text">{{$recommend_mus[$i]->name}}</p>
+                        </div>
+                    </a>
                     @endfor
                 </div>
             </div>
@@ -94,10 +96,12 @@
             </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_alb); $i++)
-                    <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                            <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
-                            <p class="card-text">{{$recommend_alb[$i]->name}}</p>
-                    </div>
+                    <a href="{{ route('album-show', ['id' => $recommend_alb[$i]->detail[0]->id]) }}" style="text-decoration: none; color: inherit;">
+                        <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
+                                <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
+                                <p class="card-text">{{$recommend_alb[$i]->name}}</p>
+                        </div>
+                    </a>
                     @endfor
                 </div>
             </div>
