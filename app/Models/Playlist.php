@@ -60,6 +60,8 @@ class Playlist extends Model
             $detail_list[$key] = $music->getMusic_detail($item->mus_id);
         }        
         $playlist->music = $detail_list;    
+        //件数を取得
+        $playlist->pl_cnt = count($detail_list);
     
         //dd($playlist);
         //画像情報を付与 getMusic_detailで取得

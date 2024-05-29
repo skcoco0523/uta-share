@@ -18,7 +18,10 @@
             </a>
         <div class="text-center">
             <p class="card-text">{{ $music->name }}</p>
-            <p class="card-text">{{ $music->alb_name }}</p>     <!--対象アルバムの曲一覧に遷移させるリンク-->
+            <a >
+            <p class="card-text">
+                <a href="{{ route('album-show',  ['id' => $music->alb_id]) }}" style="text-decoration: none; color: inherit;">{{ $music->alb_name }}</a>
+            </p>
             <p class="card-text">{{ $music->art_name }}</p>     <!--対象アーティストの曲一覧に遷移させるリンク-->
         </div>
         <!--

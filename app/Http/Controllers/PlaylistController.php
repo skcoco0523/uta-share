@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Album;
+use App\Models\Playlist;
 
-class AlbumController extends Controller
+class PlaylistController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,26 +23,26 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    //アルバム詳細
-    public function album_show(Request $request)
+    //プレイリスト詳細
+    public function playlist_show(Request $request)
     {
-        $album = Album::getAlbum_detail($request->only(['id']));  //mus_id
+        $playlist = Playlist::getplaylist_detail($request->only(['id']));  //mus_id
         $msg = null;
-        if($album){
-            return view('album_show', compact('album', 'msg'));
+        //dd($playlist);
+        if($playlist){
+            return view('playlist_show', compact('playlist', 'msg'));
         }else{
             return redirect()->route('home')->with('error', '該当のアルバムが存在しません');
         }
     }
-    //アルバム一覧
-    public function album_list_show(Request $request)
+    //プレイリスト一覧                                                        修正必須
+    public function playlist_list_show(Request $request)
     {
-        //$album = Album::getAlbum_detail($request->only(['id']));  //album
-        $album = $request->only(['list']);
+        $playlist = $request->only(['list']);
         $msg = null;
-        //dd($album);
-        if($album){
-            return view('album_list_show', compact('album', 'msg'));
+        //dd($playlist);
+        if($playlist){
+            return view('playlist_list_show', compact('playlist', 'msg'));
         }else{
             return redirect()->route('home')->with('error', '該当のアルバムが存在しません');
         }
