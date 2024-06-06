@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -43,15 +44,14 @@ class UserController extends Controller
 
             //パスワードリセットメール送信
             mail_send($send_info, $mail, $tmpl);
+            // メール送信成功メッセージをセッションに設定
+            Session::flash('status', __('passwords.sent'));
+        } else {
+            // ユーザーが見つからない場合のメッセージをセッションに設定
+            Session::flash('status', __('passwords.user'));
         }
 
-        $msg = request('msg');
-        return view('home', compact( 'msg'));
+        // リダイレクト
+        return redirect()->back();
     }
-    /*
-    // ユーザーが入力したメールアドレスをハッシュ化
-    $hashe_addr = Hash::make($send_addr); 
-    // ハッシュ値が一致するユーザーを検索
-    $matchedUser = DB::table('users')->where('email', $hashe_addr)->first();
-    */
 }
