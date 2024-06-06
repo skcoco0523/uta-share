@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminPlaylistController;
 use App\Http\Controllers\Admin\AdminRecommendController;
 
 //ユーザー
+use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PlaylistController;
@@ -37,6 +38,9 @@ Route::get('/', function () {
 
 // 未認証ユーザー向け
 Route::get('/', [HomeController::class, 'index']);
+
+//パスワードリセット
+Route::post('password/reset/mailsend', [UserController::class, 'password_reset_mailsend'])->name('password-reset');
 
 Auth::routes();
 

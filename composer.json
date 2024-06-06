@@ -29,7 +29,8 @@
         },
         "comment": "自作関数を自動読み込み",
         "files": [
-            "app/Helpers/CustomFunctions.php"
+            "app/Helpers/CustomFunctions.php",
+            "app/Helpers/Mailsend.php"
         ]
     },
     "autoload-dev": {
