@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -14,8 +15,12 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <!-- 追加 -->
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    
 </head>
 <div class="header"></div>
 
@@ -57,14 +62,14 @@
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>-->
-                                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>-->
-                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -78,18 +83,18 @@
                                     <a class="dropdown-item" href=""
                                        onclick="event.preventDefault();
                                                      document.getElementById('').submit();">
-                                        {{ __('プロフィール') }}
+                                        {{ __('Profile') }}
                                     </a>
                                     
                                 @if (Auth::user()->admin_flag)
                                     <a class="dropdown-item" href="{{ route('admin-home') }}">
-                                        {{ __('管理者') }}
+                                        {{ __('Admin') }}
                                     </a>
                                 @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('ログアウト') }}
+                                        {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

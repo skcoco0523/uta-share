@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-
 @extends('layouts.app')
 
 <div class="container">
@@ -20,8 +18,8 @@
                 </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($ranking); $i++)
-                    <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $ranking[$i]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
+                    <div class="card card-mini" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
+                        <img src="{{ $ranking[$i]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                         <p class="card-text text-truncate">{{$ranking[$i]->name}}</p>
                         <p class="card-text text-truncate">{{$ranking[$i]->alb_name}}</p>
                     </div>
@@ -42,22 +40,22 @@
                         <div class="image-container" style="display: flex; flex-wrap: wrap; width: 100%; height: 75%;">
                         @if(isset($playlist[$i]->pic_dir[0]))
                             <div class="image-part" style="width: 50%; height: 50%;">
-                                <img src="{{ $ranking[$i]->src[0] }}" class="card-img-top" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
+                                <img src="{{ $ranking[$i]->src[0] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
                             </div>
                         @endif
                         @if(isset($playlist[$i]->pic_dir[1]))
                             <div class="image-part" style="width: 50%; height: 50%;">
-                                <img src="{{ $ranking[$i]->src[1] }}" class="card-img-top" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
+                                <img src="{{ $ranking[$i]->src[1] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
                             </div>
                         @endif
                         @if(isset($playlist[$i]->pic_dir[2]))
                             <div class="image-part" style="width: 50%; height: 50%;">
-                                <img src="{{ $ranking[$i]->src[2] }}" class="card-img-top" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
+                                <img src="{{ $ranking[$i]->src[2] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
                             </div>
                         @endif
                         @if(isset($playlist[$i]->pic_dir[3]))
                             <div class="image-part" style="width: 50%; height: 50%;">
-                                <img src="{{ $ranking[$i]->src[3] }}" class="card-img-top" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
+                                <img src="{{ $ranking[$i]->src[3] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
                             </div>
                         @endif
                         </div>
@@ -79,7 +77,7 @@
                     @for ($i=0; $i < count($recommend_mus); $i++)
                     <a href="{{ route('music-list-show', ['list' => $recommend_mus[$i]]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                                <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
+                                <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_mus[$i]->name}}</p>
                         </div>
                     </a>
@@ -98,7 +96,7 @@
                     @for ($i=0; $i < count($recommend_alb); $i++)
                     <a href="{{ route('album-list-show', ['list' => $recommend_alb[$i]]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                                <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
+                                <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_alb[$i]->name}}</p>
                         </div>
                     </a>
@@ -117,7 +115,7 @@
                     @for ($i=0; $i < count($recommend_pl); $i++)
                     <a href="{{ route('playlist-list-show', ['list' => $recommend_pl[$i]]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                                <img src="{{ $recommend_pl[$i]->detail[0]->music[0]->src }}" class="card-img-top" alt="pic" style="object-fit: cover; height: 75%;">
+                                <img src="{{ $recommend_pl[$i]->detail[0]->music[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_pl[$i]->name}}</p>
                         </div>
                     </a>

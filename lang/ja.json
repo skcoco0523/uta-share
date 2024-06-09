@@ -8,6 +8,9 @@
     "Send Password Reset Link"      : "リンクを送信する",
     "Remember Me"                   : "ログイン情報を保存する",
     "Login"                         : "ログイン",
+    "Logout"                        : "ログアウト",
+    "Admin"                         : "管理者",
+    "Profile"                       : "プロフィール",
     "Register"                      : "新規登録",
     "Name"                          : "名前"
 }

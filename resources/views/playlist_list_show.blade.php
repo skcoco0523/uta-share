@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-
 @extends('layouts.app')
 
 <div class="container">
@@ -18,10 +16,14 @@
                 <tbody>
                 @foreach ($playlist['list']['detail'] as $key => $detail)
                     <tr>
-                        <th class="col-1" onclick="redirectToPlaylistShow({{ $detail['id'] }})">{{ $key + 1 }}</th>
+                        <td class="col-1" onclick="redirectToPlaylistShow({{ $detail['id'] }})">{{ $key + 1 }}</th>
                         <td class="col-9" onclick="redirectToPlaylistShow({{ $detail['id'] }})">{{ Str::limit($detail['name'], 30, '...') }}</td>
-                        <td class="col-1">♡</td>
-                        <td class="col-1">＋</td>
+                        <td class="col-1">
+                            <img src="{{ asset('img/icon/fav_red1.png') }}" alt="アイコン" class="icon-20">
+                        </td>
+                        <td class="col-1">
+                            <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

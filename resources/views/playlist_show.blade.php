@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-
 @extends('layouts.app')
 
 <div class="container">
@@ -24,10 +22,14 @@
                 <tbody>
                     @for ($i=0; $i < $playlist->pl_cnt; $i++)
                         <tr>
-                            <th class="col-1" onclick="redirectToMusicShow({{$playlist->music[$i]->id}})">{{$i+1}}</th>
+                            <td class="col-1" onclick="redirectToMusicShow({{$playlist->music[$i]->id}})">{{$i+1}}</th>
                             <td class="col-9" onclick="redirectToMusicShow({{$playlist->music[$i]->id}})">{{Str::limit($playlist->music[$i]->name, 30, '...')}}</td>
-                            <td class="col-1">♡</td>
-                            <td class="col-1">＋</td>
+                            <td class="col-1">
+                                <img src="{{ asset('img/icon/fav_red1.png') }}" alt="アイコン" class="icon-20">
+                            </td>
+                            <td class="col-1">
+                                <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
+                            </td>
                         </tr>
                     @endfor
                 </tbody>
