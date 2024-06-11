@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\FavoriteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,6 +62,7 @@ Route::get('album_list', [AlbumController::class, 'album_list_show'])->name('alb
 Route::get('playlist', [PlaylistController::class, 'playlist_show'])->name('playlist-show');
 //プレイリスト一覧
 Route::get('playlist_list', [PlaylistController::class, 'playlist_list_show'])->name('playlist-list-show');
+
 
 // 認証済みユーザー向け
 Route::middleware(['auth'])->group(function () {
@@ -158,5 +160,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     //ユーザー------------------------------------------------------------------------
-    
+    //お気に入り変更
+    Route::post('favorite-chg', [FavoriteController::class, 'favorite_chg'])->name('favorite-chg');
+
 });

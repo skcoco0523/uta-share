@@ -11,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recommend', function (Blueprint $table) {
+        Schema::create('favorite', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger ('user_id');
-            $table->string('name');
             $table->tinyInteger('category')->comment('0:曲,1:ｱｰﾃｨｽﾄ,2:ｱﾙﾊﾞﾑ,3:ﾌﾟﾚｲﾘｽﾄ');
-            $table->boolean('disp_flag')->default(false)->comment('表示フラグ');
-            $table->tinyInteger('sort_num')->comment('表示順');
+            $table->unsignedBigInteger ('detail_id')->comment('詳細データid');
             $table->timestamps();
-
+            
             // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recommend');
+        Schema::dropIfExists('favorite');
     }
 };

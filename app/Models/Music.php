@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\Favorite;
+
 class Music extends Model
 {
     use HasFactory;
@@ -29,6 +32,7 @@ class Music extends Model
         $music = $sql_cmd;
         //アーティスト名・アルバム名を取得
         foreach ($music as $mus) {
+            $mus->mus_id = $mus->id;
             $mus->art_name = DB::table('artists')->where('id', $mus->art_id)->first()->name;
             if($mus->alb_id==NULL){
                 $mus->alb_name = NULL;
@@ -47,6 +51,7 @@ class Music extends Model
             //オブジェクトの場合と配列の場合の2パターンを作成して負荷軽減
             //楽曲情報を取得
             $music = DB::table('musics')->where('id', $mus_id)->first();
+            $music->mus_id = $music->id;
             $music->mus_name = $music->name;
 
             //アーティスト情報を取得
@@ -58,7 +63,13 @@ class Music extends Model
             $music->alb_name = $album->name;
             if($music->aff_id == null) $music->aff_id = $album->aff_id;
             if($music->release_date == null) $music->release_date = $album->release_date;
-            
+            //ログインしているユーザーはお気に入り情報も取得する
+            //ログインしているユーザーはお気に入り情報も取得する
+            if (Auth::check()) {
+                $music->fav_flag = Favorite::chkFavorite(Auth::id(), 0, $music->mus_id);
+            }else{
+                $music->fav_flag = 0;
+            }
             //dd($music);
             //画像情報を付与
             $music=setAffData($music);

@@ -11,6 +11,12 @@
 
     <title>{{ config('app.name', '歌Share') }}</title>
 
+    <!-- notification.js を読み込む -->
+    <script src="{{ asset('js/notification.js') }}"></script>
+
+    <!-- jQueryの読み込み -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -30,6 +36,11 @@
             alert('{{ session('error') }}');
         </script>
     @endif
+    
+    <div id="notification">
+        <img src="{{ asset('img/icon/defo.gif') }}" alt="通知GIF">
+    </div>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
