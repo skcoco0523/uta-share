@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+
 class RegisterController extends Controller
 {
     /*
@@ -69,4 +73,16 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    protected function registered(Request $request, $user)
+    {
+        $send_info = new \stdClass();
+        $send_info->name = $request->name;
+        $mail = $request->email;//送信先
+        $tmpl='user_reg';//  送信内容
+
+        //パスワードリセットメール送信
+        mail_send($send_info, $mail, $tmpl);
+    }
+
 }

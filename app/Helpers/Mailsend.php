@@ -58,8 +58,23 @@ if (! function_exists('get_MailMessage')) {
                     ->line(Lang::get('もしパスワード再発行をリクエストしていない場合、操作は不要です。'));
 
                 return $MailMessage;
-            break;
+                break;
                     
+            case 'user_reg':
+                $MailMessage = (new MailMessage)
+                ->markdown('emails.mail')
+                ->subject(Lang::get('【歌share】会員登録のお知らせ'))
+                ->line(Lang::get($send_info->name.'様'))
+                ->line(Lang::get('この度は歌シェア会員のご登録ありがとうございます。'))
+                ->line(Lang::get('本メールは登録された時点で送信される自動配信メールです。'))
+                ->line(Lang::get('メールが不要の場合は、配信停止設定をお願いいたします。。'))
+                //->action(Lang::get('リセットはこちらから'), url(config('app.url').route('password.reset', ['token' => $send_info->token, 'email' => $send_info->mail], false)))
+                ->line(Lang::get('************************************'))
+                ->line(Lang::get('問い合わせ先：skcoco.05.23@gmail.com'))
+                ->line(Lang::get('************************************'));
+
+                return $MailMessage;
+                break;
             default:
                 return null;
         }
