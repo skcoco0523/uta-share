@@ -15,7 +15,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //ホームはゲストも表示可能に
+        //$this->middleware('auth');
     }
 
     /**

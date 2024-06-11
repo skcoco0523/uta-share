@@ -36,19 +36,38 @@ Route::get('/', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// 未認証ユーザー向け
-Route::get('/', [HomeController::class, 'index']);
-
-//パスワードリセット
-Route::post('password/reset/mailsend', [UserController::class, 'password_reset_mailsend'])->name('password-reset');
 
 Auth::routes();
 
+// 未認証ユーザー向け
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+//ユーザー------------------------------------------------------------------------
+//パスワードリセット
+Route::post('password/reset/mailsend', [UserController::class, 'password_reset_mailsend'])->name('password-reset');
+//曲詳細
+Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
+//曲一覧
+Route::get('music_list', [MusicController::class, 'music_list_show'])->name('music-list-show');
+
+//アルバム詳細
+Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');
+//アルバム一覧
+Route::get('album_list', [AlbumController::class, 'album_list_show'])->name('album-list-show');
+
+//プレイリスト詳細
+Route::get('playlist', [PlaylistController::class, 'playlist_show'])->name('playlist-show');
+//プレイリスト一覧
+Route::get('playlist_list', [PlaylistController::class, 'playlist_list_show'])->name('playlist-list-show');
+
 // 認証済みユーザー向け
 Route::middleware(['auth'])->group(function () {
+    /*
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    */
     
     // 管理者権限があるユーザーのみ
     Route::middleware([AdminMiddleware::class])->group(function () {
@@ -139,20 +158,5 @@ Route::middleware(['auth'])->group(function () {
     });
 
     //ユーザー------------------------------------------------------------------------
-    //曲詳細
-    Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
-    //曲一覧
-    Route::get('music_list', [MusicController::class, 'music_list_show'])->name('music-list-show');
-
-    //アルバム詳細
-    Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');
-    //アルバム一覧
-    Route::get('album_list', [AlbumController::class, 'album_list_show'])->name('album-list-show');
-
-    //プレイリスト詳細
-    Route::get('playlist', [PlaylistController::class, 'playlist_show'])->name('playlist-show');
-    //プレイリスト一覧
-    Route::get('playlist_list', [PlaylistController::class, 'playlist_list_show'])->name('playlist-list-show');
-
-
+    
 });

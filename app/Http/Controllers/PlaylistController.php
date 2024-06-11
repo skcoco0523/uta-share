@@ -15,7 +15,8 @@ class PlaylistController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //ホームはゲストも表示可能に
+        //$this->middleware('auth');
     }
 
     /**
@@ -47,6 +48,7 @@ class PlaylistController extends Controller
             return redirect()->route('home')->with('error', '該当のアルバムが存在しません');
         }
     }
+    //マイプレイリストは分ける
 
     
 }
