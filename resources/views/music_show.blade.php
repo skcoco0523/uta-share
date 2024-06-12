@@ -30,8 +30,13 @@
                     <th class="col-3" onclick="ShareToMusic({{ $music->mus_id }})">
                         <img src="{{ asset('img/icon/share_red1.png') }}" alt="アイコン" class="icon-20">
                     </th>
+                    
                     <td class="col-3" data-mus-id="{{ $music->mus_id }}">
-                        <img id="favoriteIcon" src="{{ asset('img/icon/fav_red'. ($music->fav_flag). '.png') }}" alt="アイコン" class="icon-20" onclick="chgToFavorite({{ $music->mus_id }}, 0)">
+                        @if($music->fav_flag)
+                            <i id="favoriteIcon" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                        @else
+                            <i id="favoriteIcon" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                        @endif
                     </td>
                     <td class="col-3">
                         <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
@@ -68,20 +73,22 @@
         .done(response => {
             if (response === "add") {
                 //切り替え通知
-                //showNotification('お気に入りに追加しました。',"fav_chg.gif",2000);
-                showNotification('お気に入りに追加しました。',"loading",2000);
-                const favoriteIcon = document.querySelector(`[data-mus-id="${detail_id}"] img`);
+                //showNotification('お気に入りに追加しました。',"loading",2000);
+                showNotification('お気に入りに追加しました。',"fav_add",2000);
+                const favoriteIcon = document.querySelector(`[data-mus-id="${detail_id}"] i`);
                 //アイコン切り替え
-                favoriteIcon.src = "{{ asset('img/icon/fav_red1.png') }}";
+                favoriteIcon.classList.remove("fa-regular");
+                favoriteIcon.classList.add("fa-solid");
                 action = "del";
 
             } else if (response === "del") {
                 //切り替え通知
-                //showNotification('お気に入りから削除しました。',"fav_chg.gif",2000);
-                showNotification('お気に入りから削除しました。',"loading",2000);
-                const favoriteIcon = document.querySelector(`[data-mus-id="${detail_id}"] img`);
+                //showNotification('お気に入りに追加しました。',"loading",2000);
+                showNotification('お気に入りから削除しました。',"fav_del",2000);
+                const favoriteIcon = document.querySelector(`[data-mus-id="${detail_id}"] i`);
                 //アイコン切り替え
-                favoriteIcon.src = "{{ asset('img/icon/fav_red0.png') }}";
+                favoriteIcon.classList.remove("fa-solid");
+                favoriteIcon.classList.add("fa-regular");
                 action = "add";
             } else {
                 showNotification(response,"",1000);

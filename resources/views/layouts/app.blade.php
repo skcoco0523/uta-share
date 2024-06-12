@@ -14,6 +14,9 @@
     <!-- notification.js を読み込む -->
     <script src="{{ asset('js/notification.js') }}"></script>
 
+    <!-- Font Awesome CDN アイコン　　　https://fontawesome.com/　　　-->
+    <script src="https://kit.fontawesome.com/46a805b165.js" crossorigin="anonymous"></script>
+
     <!-- jQueryの読み込み -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -26,6 +29,8 @@
     
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    
     
 </head>
 <div class="header"></div>
