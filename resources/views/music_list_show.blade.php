@@ -23,7 +23,11 @@
                             {{ Str::limit($detail['name'], 30, '...') }}
                         </td>
                         <td class="col-1">
-                            <img src="{{ asset('img/icon/fav_red1.png') }}" alt="アイコン" class="icon-20">
+                            @if($detail["fav_flag"])
+                                <i id="favoriteIcon" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $detail['mus_id'] }}, 0)"></i>
+                            @else
+                                <i id="favoriteIcon" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $detail['mus_id'] }}, 0)"></i>
+                            @endif
                         </td>
                         <td class="col-1">
                             <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">

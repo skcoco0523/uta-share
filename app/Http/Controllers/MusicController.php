@@ -36,6 +36,8 @@ class MusicController extends Controller
             return redirect()->route('home')->with('error', '該当の曲が存在しません');
         }
     }
+
+/*
     //曲一覧                                                        修正必須
     public function music_list_show(Request $request)
     {
@@ -49,6 +51,6 @@ class MusicController extends Controller
             return redirect()->route('home')->with('error', '該当の曲が存在しません');
         }
     }
-
+*/
     
 }

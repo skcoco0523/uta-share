@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Favorite;
 
 class Recommend extends Model
 {
@@ -55,32 +57,43 @@ class Recommend extends Model
                 $sql_cmd = $sql_cmd->join('musics', 'recommenddetail.detail_id', '=', 'musics.id');
                 $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name','artists.name As art_name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name')->get();
                 break;
             case 1: //ｱｰﾃｨｽﾄ
                 $item1   = "アーティスト名";
                 $item2   = "";
                 $sql_cmd = $sql_cmd->join('artists', 'recommenddetail.detail_id', '=', 'artists.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','artists.id As detail_id','artists.name')->get();
                 break;
             case 2: //ｱﾙﾊﾞﾑ
                 $item1   = "アルバム名";
                 $item2   = "";
                 $sql_cmd = $sql_cmd->join('albums', 'recommenddetail.detail_id', '=', 'albums.id');
                 $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.name','artists.name As art_name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.id As detail_id','albums.name','artists.name As art_name')->get();
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
                 $item1   = "プレイリスト名";
                 $item2   = "";
                 $sql_cmd = $sql_cmd->join('playlist', 'recommenddetail.detail_id', '=', 'playlist.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.id As detail_id','playlist.name')->get();
                 break;
             default:
                 break;
         }
         $recommend->detail = $sql_cmd; 
+
+
+        //ログインしているユーザーはお気に入り情報も取得する
+        foreach ($recommend->detail as $item) {
+            if (Auth::check()) {
+                $item->fav_flag = Favorite::chkFavorite(Auth::id(), $recommend->category, $item->detail_id);
+            }else{
+                $item->fav_flag = 0;
+            }
+        }
+
         //dd($recommend->detail );
         $recommend->item1 = $item1; 
         $recommend->item2 = $item2;    
@@ -150,7 +163,7 @@ class Recommend extends Model
             return ['id' => null, 'error_code' => -1];   //削除失敗
         }
     }
-    //お気に入り表示順変更
+    //おすすめ表示順変更
     public static function chgsortRecommend($data)
     {
         make_error_log("chgsortRecommend.log","---------start----------");
@@ -186,7 +199,7 @@ class Recommend extends Model
         }
 
     }
-    //お気に入り　追加・削除
+    //おすすめ　追加・削除
     public static function chgRecommend_detail($data)
     {
         make_error_log("chgRecommend_detail.log","-------start-------");

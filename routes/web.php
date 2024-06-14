@@ -19,6 +19,7 @@ use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\RecommendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,8 @@ Route::post('password/reset/mailsend', [UserController::class, 'password_reset_m
 Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
 //曲一覧
 Route::get('music_list', [MusicController::class, 'music_list_show'])->name('music-list-show');
+//おすすめ一覧
+Route::get('recommend_list', [RecommendController::class, 'recommend_list_show'])->name('recommend-list-show');
 
 //アルバム詳細
 Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');

@@ -94,6 +94,7 @@ class Home extends Model
         if ($recommend->isNotEmpty()) {
             // $recommend にデータがある場合の処理
             foreach ($recommend as $key => $item) {
+                $item->recom_id = $item->id;
                 $sql_cmd = DB::table('recommenddetail as dtl');
                 $sql_cmd = $sql_cmd->where('dtl.recom_id', '=', $item->id);
                 $detail_list = $sql_cmd->get();

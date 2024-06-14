@@ -64,7 +64,6 @@ class Music extends Model
             if($music->aff_id == null) $music->aff_id = $album->aff_id;
             if($music->release_date == null) $music->release_date = $album->release_date;
             //ログインしているユーザーはお気に入り情報も取得する
-            //ログインしているユーザーはお気に入り情報も取得する
             if (Auth::check()) {
                 $music->fav_flag = Favorite::chkFavorite(Auth::id(), 0, $music->mus_id);
             }else{

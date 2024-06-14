@@ -75,7 +75,7 @@
             </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_mus); $i++)
-                    <a href="{{ route('music-list-show', ['list' => $recommend_mus[$i]]) }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_mus[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                                 <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_mus[$i]->name}}</p>
@@ -94,7 +94,7 @@
             </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_alb); $i++)
-                    <a href="{{ route('album-list-show', ['list' => $recommend_alb[$i]]) }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_alb[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                                 <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_alb[$i]->name}}</p>
@@ -113,7 +113,7 @@
             </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_pl); $i++)
-                    <a href="{{ route('playlist-list-show', ['list' => $recommend_pl[$i]]) }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_pl[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
                         <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                                 <img src="{{ $recommend_pl[$i]->detail[0]->music[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                                 <p class="card-text">{{$recommend_pl[$i]->name}}</p>
