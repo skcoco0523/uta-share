@@ -42,3 +42,43 @@ function showNotification(message, type, sec) {
 function hideNotification() {
     document.getElementById('notification').style.display = 'none';
 }
+
+
+
+function openShareModal() {
+    document.getElementById('shareModal').style.display = 'block';
+}
+
+function closeShareModal(event) {
+    // オーバーレイまたは閉じるボタンがクリックされた場合にのみモーダルを閉じる
+    if (event.target.classList.contains('notification-overlay') || event.target.classList.contains('close')) {
+        document.getElementById('shareModal').style.display = 'none';
+    }
+}
+
+function shareToPlatform(platform, url) {
+
+    console.log(url);
+    let popupUrl;
+    const width = 600;
+    const height = 400;
+    const left = (screen.width / 2) - (width / 2);
+    const top = (screen.height / 2) - (height / 2);
+
+    switch(platform) {
+        case 'line':
+            popupUrl = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url);
+            break;
+        case 'twitter':
+            popupUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url);
+            break;
+        case 'facebook':
+            popupUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+            break;
+        default:
+            return;
+    }
+
+    window.open(popupUrl, platform + 'Share', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
+    closeShareModal({ target: document.querySelector('.notification-overlay') }); // モーダルを閉じる
+}

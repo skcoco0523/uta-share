@@ -11,8 +11,10 @@
 
     <title>{{ config('app.name', '歌Share') }}</title>
 
-    <!-- notification.js を読み込む -->
+    <!-- 通知関連JSを読み込む -->
     <script src="{{ asset('js/notification.js') }}"></script>
+    <!-- お気に入り関連JSを読み込む -->
+    <script src="{{ asset('js/favorite_change.js') }}"></script>
 
     <!-- Font Awesome CDN アイコン　　　https://fontawesome.com/　　　-->
     <script src="https://kit.fontawesome.com/46a805b165.js" crossorigin="anonymous"></script>

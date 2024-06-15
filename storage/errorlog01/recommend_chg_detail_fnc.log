@@ -526,3 +526,13 @@
 [2024-05-24 03:03:57] local.DEBUG: -------start-------  
 [2024-05-24 03:03:57] local.DEBUG: delete_pl_id=13  
 [2024-05-24 03:03:57] local.DEBUG: success  
+[2024-06-15 09:02:27] local.DEBUG: -----start-----  
+[2024-06-15 09:02:27] local.DEBUG: fnc=add recom_id=5 category= detail_id=83  
+[2024-06-15 09:02:27] local.DEBUG: -------start-------  
+[2024-06-15 09:02:27] local.DEBUG: delete_pl_id=83  
+[2024-06-15 09:02:27] local.DEBUG: success  
+[2024-06-15 09:02:33] local.DEBUG: -----start-----  
+[2024-06-15 09:02:33] local.DEBUG: fnc=add recom_id=5 category= detail_id=53  
+[2024-06-15 09:02:33] local.DEBUG: -------start-------  
+[2024-06-15 09:02:33] local.DEBUG: delete_pl_id=53  
+[2024-06-15 09:02:33] local.DEBUG: success  

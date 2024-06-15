@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 <div class="container">
     <div class="row justify-content-center">
     
@@ -27,15 +26,16 @@
             <tbody>
                 <tr>
                     <td class="col-1"></td>
-                    <th class="col-3" onclick="ShareToMusic({{ $music->mus_id }})">
+                    <th class="col-3" onclick="openShareModal('{{ request()->url()}}?id={{ $music->mus_id }}')">
                         <img src="{{ asset('img/icon/share_red1.png') }}" alt="アイコン" class="icon-20">
                     </th>
                     
-                    <td class="col-3" data-mus-id="{{ $music->mus_id }}">
+                    <td class="col-3" favorite-id="{{ $music->mus_id }}">
+                        
                         @if($music->fav_flag)
-                            <i id="favoriteIcon" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                            <i id="favoriteIcon-{{ $music->mus_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
                         @else
-                            <i id="favoriteIcon" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                            <i id="favoriteIcon-{{ $music->mus_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
                         @endif
                     </td>
                     <td class="col-3">
@@ -46,6 +46,9 @@
             </tbody>
         </table>
 
+        <!-- シェアポップアップモーダル -->
+        @include('modals.share-modal', ['title' => $music->name, 'url' => url()->current()])
+
         <?//ログインユーザーのみ表示させるナビ?>   
         @include('layouts.nav_menu')
 
@@ -55,61 +58,8 @@
 @endsection
 
 <script>
-    let action = '{{ $music->fav_flag ? "del" : "add" }}';
-    function chgToFavorite(detail_id, category) {
-        // クリックイベントを無効化する
-        document.getElementById('favoriteIcon').onclick = null;
-        
-        // お気に入りの状態を取得するためのHTTPリクエストを行う
-        $.ajax({
-            //POST通信
-            type: "post",
-            url: "/app01/favorite-chg",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: {detail_id: detail_id,category: category,type: action},
-        })
-        .done(response => {
-            if (response === "add") {
-                //切り替え通知
-                //showNotification('お気に入りに追加しました。',"loading",2000);
-                showNotification('お気に入りに追加しました。',"fav_add",2000);
-                const favoriteIcon = document.querySelector(`[data-mus-id="${detail_id}"] i`);
-                //アイコン切り替え
-                favoriteIcon.classList.remove("fa-regular");
-                favoriteIcon.classList.add("fa-solid");
-                action = "del";
-
-            } else if (response === "del") {
-                //切り替え通知
-                //showNotification('お気に入りに追加しました。',"loading",2000);
-                showNotification('お気に入りから削除しました。',"fav_del",2000);
-                const favoriteIcon = document.querySelector(`[data-mus-id="${detail_id}"] i`);
-                //アイコン切り替え
-                favoriteIcon.classList.remove("fa-solid");
-                favoriteIcon.classList.add("fa-regular");
-                action = "add";
-            } else {
-                showNotification(response,"",1000);
-            }
-        })
-        .always(() => {
-            // 一定時間後にクリックイベントを再度有効化する
-            setTimeout(() => {
-                document.getElementById('favoriteIcon').onclick = () => chgToFavorite(detail_id, category);
-            }, 2000); // 2000ミリ秒（2秒）後に再設定する例
-        })
-        .fail((xhr, status, error) => {
-            if (xhr.status === 401) {
-                // 認証エラーの場合の処理
-                alert('ログインが必要です。');
-                window.location.href = "/app01/login"; // ログインページにリダイレクト
-            } else {
-                // その他のエラーが発生した場合の処理
-                console.error('エラー:', error);
-                showNotification('エラーが発生しました。もう一度試してください。',"",2000);
-            }
-        });
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        // お気に入り状態初期値を定義
+        setFavoriteActions({{ $music->mus_id }}, {{$music->fav_flag}});
+    });
 </script>
