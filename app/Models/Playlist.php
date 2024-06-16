@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Music;
+use App\Models\Favorite;
 
 class Playlist extends Model
 {
@@ -53,13 +56,18 @@ class Playlist extends Model
             ->select('playlistdetail.id')
             ->get();
         */
-        $music = new Music();
         $detail_list = [];
         //dd($music_list);
         foreach ($music_list as $key => $item) {
-            $detail_list[$key] = $music->getMusic_detail($item->mus_id);
-        }        
-        $playlist->music = $detail_list;    
+            $detail_list[$key] = Music::getMusic_detail($item->mus_id);
+        }
+        //ログインしているユーザーはお気に入り情報も取得する
+        if (Auth::check()) {
+            $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), 3, $pl_id);
+        }else{
+            $playlist->fav_flag = 0;
+        }
+        $playlist->music = $detail_list;  
         //件数を取得
         $playlist->pl_cnt = count($detail_list);
     

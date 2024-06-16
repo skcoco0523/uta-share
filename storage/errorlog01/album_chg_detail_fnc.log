@@ -5166,3 +5166,41 @@
 [2024-05-22 19:13:42] local.DEBUG: -------start-------  
 [2024-05-22 19:13:42] local.DEBUG: delete_pl_id=11  
 [2024-05-22 19:13:42] local.DEBUG: success  
+[2024-06-16 01:21:22] local.DEBUG: -----start-----  
+[2024-06-16 01:21:22] local.DEBUG: fnc=chg alb_id=16 mus_id=136 name=曲12  
+[2024-06-16 01:21:22] local.DEBUG: -------start-------  
+[2024-06-16 01:21:22] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 136
+    [alb_id] => 16
+    [art_id] => 7
+    [name] => 曲1
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-04-02 22:42:00
+    [updated_at] => 2024-04-02 22:42:00
+)
+  
+[2024-06-16 01:21:22] local.DEBUG: after_data=Array
+(
+    [id] => 136
+    [alb_id] => 16
+    [art_id] => 7
+    [name] => 曲12
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-16 01:21:22] local.DEBUG: success  
+[2024-06-16 01:21:28] local.DEBUG: -----start-----  
+[2024-06-16 01:21:28] local.DEBUG: fnc=del alb_id=16 mus_id=137 name=曲2  
+[2024-06-16 01:21:28] local.DEBUG: -------start-------  
+[2024-06-16 01:21:28] local.DEBUG: delete_mus_id=137  
+[2024-06-16 01:21:28] local.DEBUG: success  
+[2024-06-16 01:22:11] local.DEBUG: -----start-----  
+[2024-06-16 01:22:11] local.DEBUG: fnc=add pl_id=11 detail_id=7  
+[2024-06-16 01:22:11] local.DEBUG: -------start-------  
+[2024-06-16 01:22:11] local.DEBUG: delete_pl_id=11  
+[2024-06-16 01:22:11] local.DEBUG: success  

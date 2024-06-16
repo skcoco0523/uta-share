@@ -191,3 +191,37 @@
   justify-content: space-around;
   margin-top: 20px;
 }
+
+/*赤ナビ------------------------------------------------------------------------*/
+.nav-item {
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* 通常のナビリンクの色 */
+.nav-link-red {
+  padding: 3px 0px !important;
+  color: #000 !important; /* 通常のテキストカラー */
+  background-color: #ffffff !important; /* 通常の背景カラー */
+  border: 1px solid #ff0000 !important; /* 非アクティブ時の赤枠 */
+}
+
+/* ホバー時のナビリンクの色 */
+.nav-link-red:hover {
+  color: #ff0000 !important; /* ホバー時のテキストカラー (赤) */
+  background-color: #ffffff !important; /* ホバー時の背景カラー (白) */
+}
+
+/* アクティブなナビリンクの色 */
+.nav-link-red.active {
+  color: #ffffff !important; /* アクティブ時のテキストカラー (白) */
+  background-color: #ff0000 !important; /* アクティブ時の背景カラー (赤) */
+}
+
+/* 具体的なセレクタを使用する場合 */
+ul.nav.nav-pills.nav-fill .nav-link-red.active {
+  color: #ffffff !important; /* アクティブ時のテキストカラー (白) */
+  background-color: #ff0000 !important; /* アクティブ時の背景カラー (赤) */
+}

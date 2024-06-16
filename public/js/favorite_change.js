@@ -1,13 +1,16 @@
-function setFavoriteActions(id,fav_flag) {
+function setFavoriteActions(category, id, fav_flag) {
     if (typeof favoriteActions === 'undefined') {
         window.favoriteActions = {}; // グローバルオブジェクトを定義
     }
-    favoriteActions[id] = fav_flag ? "del" : "add" ;
+    if (typeof favoriteActions[category] === 'undefined') {
+        favoriteActions[category] = {}; // カテゴリオブジェクトを定義
+    }
+    favoriteActions[category][id] = fav_flag ? "del" : "add";
 }
 
 function chgToFavorite(detail_id, category) {
     // アイコンのIDを取得
-    const favoriteIconId = `favoriteIcon-${detail_id}`;
+    const favoriteIconId = `favoriteIcon-${category}-${detail_id}`;
     // クリックイベントを無効化する
     document.getElementById(favoriteIconId).onclick = null;
     // お気に入りの状態を取得するためのHTTPリクエストを行う
@@ -18,7 +21,7 @@ function chgToFavorite(detail_id, category) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        data: {detail_id: detail_id,category: category,type: favoriteActions[detail_id]},
+        data: {detail_id: detail_id,category: category,type: favoriteActions[category][detail_id]},
     })
     .done(response => {
         if (response === "add") {
@@ -29,7 +32,7 @@ function chgToFavorite(detail_id, category) {
             //アイコン切り替え
             favoriteIcon.classList.remove("fa-regular");
             favoriteIcon.classList.add("fa-solid");
-            favoriteActions[detail_id] = "del";
+            favoriteActions[category][detail_id] = "del";
 
         } else if (response === "del") {
             //切り替え通知
@@ -39,7 +42,7 @@ function chgToFavorite(detail_id, category) {
             //アイコン切り替え
             favoriteIcon.classList.remove("fa-solid");
             favoriteIcon.classList.add("fa-regular");
-            favoriteActions[detail_id] = "add";
+            favoriteActions[category][detail_id] = "add";
         } else {
             showNotification(response,"お気に入りの切り替えに失敗しました。",1000);
         }

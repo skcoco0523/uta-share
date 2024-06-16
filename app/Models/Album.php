@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Music;
+use App\Models\Favorite;
 
 class Album extends Model
 {
@@ -53,7 +56,17 @@ class Album extends Model
         //アーティスト名を取得
         $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
         //収録数、収録曲を取得
-        $album->music = DB::table('musics')->where('alb_id', $album->id)->get();
+        $music = DB::table('musics')->where('alb_id', $album->id)->get();
+        foreach ($music as $key => $item) {
+            $detail_list[$key] = Music::getMusic_detail($item->id);
+        }
+        //ログインしているユーザーはお気に入り情報も取得する
+        if (Auth::check()) {
+            $album->fav_flag = Favorite::chkFavorite(Auth::id(), 2, $alb_id);
+        }else{
+            $album->fav_flag = 0;
+        }
+        $album->music = $detail_list;    
         //件数を取得
         $album->mus_cnt = count($album->music);
         //画像情報を付与

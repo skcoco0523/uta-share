@@ -25,7 +25,7 @@ class RecommendController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    //お気に入り一覧                                                        修正必須
+    //おすすめ一覧
     public function recommend_list_show(Request $request)
     {
         

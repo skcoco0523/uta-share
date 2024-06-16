@@ -163,6 +163,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     //ユーザー------------------------------------------------------------------------
+    //お気に入り表示
+    Route::get('favorite', [FavoriteController::class, 'favorite_show'])->name('favorite-show');
     //お気に入り変更
     Route::post('favorite-chg', [FavoriteController::class, 'favorite_chg'])->name('favorite-chg');
 

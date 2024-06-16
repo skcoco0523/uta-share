@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
     
     <div class="col-12 col-md-6">
-        <?//コンテンツ?>  
+        <?//コンテンツ　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　未使用ブレード?>  
         @section('content')
         <a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
         <div class="py-2 d-flex justify-content-center">
@@ -29,15 +29,6 @@
                 </tbody>
             </table>
         </div>
-        
-
-        <!--
-            一覧
-            共有　お気に入り　プレイリスト登録
-        -->
-
-        
-
         <?//ログインユーザーのみ表示させるナビ?>   
         @include('layouts.nav_menu')
 

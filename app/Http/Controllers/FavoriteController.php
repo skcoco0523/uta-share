@@ -24,6 +24,22 @@ class FavoriteController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+    //お気に入り表示
+    public function favorite_show()
+    {
+        $favorite_list = array();
+        for( $i=0; $i<4; $i++){
+            $favorite_list[$i] = Favorite::getFavorite(Auth::id(),$i);
+        }
+        $msg = null;
+
+        //dd($favorite_list);
+        if($favorite_list){
+            return view('favorite_show', compact('favorite_list', 'msg'));
+        }else{
+            return redirect()->route('home')->with('error', '該当のデータが存在しません');
+        }
+    }
     //お気に入り登録
     public function favorite_chg(Request $request)
     {

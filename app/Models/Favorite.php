@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use \App\Models\Favorite;
+use \App\Models\Music;
+use \App\Models\Album;
+use \App\Models\Playlist;
 
 class Favorite extends Model
 {
@@ -14,6 +17,43 @@ class Favorite extends Model
     protected $fillable = ['user_id', 'category', 'detail_id'];     //一括代入の許可
 
 
+    //お気に入り情報取得  カテゴリなしはすべて取得
+    public static function getFavorite($user_id, $category="")
+    {
+        try {
+            if (is_numeric($category)) {
+                $fav_chk = ["user_id"=>$user_id, "category"=>$category];
+            }else{
+                $fav_chk = ["user_id"=>$user_id];
+            }
+            $favorite = DB::table('favorite')->where($fav_chk)->get();
+
+            $favorite_detail = array();
+            foreach($favorite as $fav){
+                switch($fav->category){
+                    case 0:
+                        $favorite_detail[] = Music::getMusic_detail($fav->detail_id);
+                        break;
+                    case 1:
+                        //アーティストのお気に入り登録はなし
+                        break;
+                    case 2:
+                        $favorite_detail[] = Album::getAlbum_detail($fav->detail_id);
+                        break;
+                    case 3:
+                        $favorite_detail[] = Playlist::getPlaylist_detail($fav->detail_id);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return $favorite_detail;
+
+        } catch (\Exception $e) {
+            make_error_log("getFavorite.log","failure");
+            return "failure";
+        }
+    }
     //お気に入りチェック
     public static function chkFavorite($user_id, $category, $detail_id)
     {

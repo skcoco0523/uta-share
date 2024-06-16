@@ -18,31 +18,10 @@
         --}}
         <div class="text-center ">
             <p class="card-text">{{ $playlist->name }}</p>
-            <table class="table table-borderless">
-                <tbody>
-                    @for ($i=0; $i < $playlist->pl_cnt; $i++)
-                        <tr>
-                            <td class="col-1" onclick="redirectToMusicShow({{$playlist->music[$i]->id}})">{{$i+1}}</th>
-                            <td class="col-9" onclick="redirectToMusicShow({{$playlist->music[$i]->id}})">{{Str::limit($playlist->music[$i]->name, 30, '...')}}</td>
-                            <td class="col-1">
-                                <img src="{{ asset('img/icon/fav_red1.png') }}" alt="アイコン" class="icon-20">
-                            </td>
-                            <td class="col-1">
-                                <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
-                            </td>
-                        </tr>
-                    @endfor
-                </tbody>
-            </table>
         </div>
-        
 
-        <!--
-            一覧
-            共有　お気に入り　プレイリスト登録
-        -->
-
-        
+        <?//テーブルリストは別ファイルで管理?>   
+        @include('layouts.table', ['music_table' => $playlist->music])
 
         <?//ログインユーザーのみ表示させるナビ?>   
         @include('layouts.nav_menu')
@@ -51,9 +30,3 @@
 </div>
 </div>
 @endsection
-
-<script>
-    function redirectToMusicShow(id) {
-        window.location.href = "{{ route('music-show') }}?id=" + id;
-    }
-</script>
