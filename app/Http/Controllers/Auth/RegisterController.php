@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -56,6 +57,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            //会員情報追加
+            'gender' => ['required', 'in:0,1'],
+            'birth_year' => ['required', 'integer', 'min:1900', 'max:' . date('Y')],
+            'birth_month' => ['required', 'integer', 'min:1', 'max:12'],
+            'birth_day' => ['required', 'integer', 'min:1', 'max:31'],
         ]);
     }
 
@@ -67,11 +73,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // 重複しないフレンドコードを生成する
+        $friend_code = $this->generateUniqueFriendCode();
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            //会員情報追加
+            'friend_code' => $friend_code,
+            'gender' => $data['gender'],
+            'birthdate' => $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'],
         ]);
+    }
+
+    protected function generateUniqueFriendCode()
+    {
+        $friend_code = Str::random(8); // 8文字のランダムな文字列を生成
+        // 重複確認
+        while (User::where('friend_code', $friend_code)->exists()) {
+            $friend_code = Str::random(8); // 重複した場合は再度生成
+        }
+
+        return $friend_code;
     }
 
     protected function registered(Request $request, $user)

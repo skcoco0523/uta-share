@@ -12,5 +12,12 @@
     "Admin"                         : "管理者",
     "Profile"                       : "プロフィール",
     "Register"                      : "新規登録",
-    "Name"                          : "名前"
+    "Name"                          : "名前",
+    "Birthdate"                     : "生年月日",
+    "Gender"                        : "性別",
+    "Man"                           : "男性",
+    "Woman"                         : "女性",
+    "Year"                          : "年",
+    "Month"                         : "月",
+    "Day"                           : "日"
 }

@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        //会員情報追加
+        'friend_code',
+        'gender',
+        'birthdate',
     ];
 
     /**
@@ -41,5 +45,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        //会員情報追加
+        'birthdate' => 'date',
     ];
 }
