@@ -20,7 +20,7 @@
                         @endif
                     </td>
                     <td class="col-1">
-                        <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
+                        <i class="fa-regular fa-square-plus icon-20 red"></i>
                     </td>
                 </tr>
             @endforeach
@@ -44,7 +44,7 @@
                         @endif
                     </td>
                     <td class="col-1">
-                        <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
+                        <i class="fa-regular fa-square-plus icon-20 red"></i>
                     </td>
                 </tr>
             @endforeach
@@ -68,7 +68,7 @@
                         @endif
                     </td>
                     <td class="col-1">
-                        <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
+                        <i class="fa-regular fa-square-plus icon-20 red"></i>
                     </td>
                 </tr>
             @endforeach
@@ -92,7 +92,7 @@
                         @endif
                     </td>
                     <td class="col-1">
-                        <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
+                        <i class="fa-regular fa-square-plus icon-20 red"></i>
                     </td>
                 </tr>
             @endforeach

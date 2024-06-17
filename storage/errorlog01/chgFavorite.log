@@ -2333,3 +2333,48 @@
 [2024-06-16 09:07:13] local.DEBUG: -------start-------  
 [2024-06-16 09:07:13] local.DEBUG: user_id=1 category=0 detail_id=97 type=add  
 [2024-06-16 09:07:13] local.DEBUG: to add  
+[2024-06-16 15:21:25] local.DEBUG: -------start-------  
+[2024-06-16 15:21:25] local.DEBUG: user_id=1 category=3 detail_id=11 type=del  
+[2024-06-16 15:21:25] local.DEBUG: delete  
+[2024-06-16 15:21:28] local.DEBUG: -------start-------  
+[2024-06-16 15:21:28] local.DEBUG: user_id=1 category=3 detail_id=11 type=add  
+[2024-06-16 15:21:28] local.DEBUG: to add  
+[2024-06-16 15:22:08] local.DEBUG: -------start-------  
+[2024-06-16 15:22:08] local.DEBUG: user_id=1 category=0 detail_id=68 type=add  
+[2024-06-16 15:22:08] local.DEBUG: to add  
+[2024-06-16 17:39:29] local.DEBUG: -------start-------  
+[2024-06-16 17:39:29] local.DEBUG: user_id=11 category=0 detail_id=111 type=add  
+[2024-06-16 17:39:29] local.DEBUG: to add  
+[2024-06-16 17:39:30] local.DEBUG: -------start-------  
+[2024-06-16 17:39:30] local.DEBUG: user_id=11 category=0 detail_id=83 type=add  
+[2024-06-16 17:39:30] local.DEBUG: to add  
+[2024-06-16 17:39:31] local.DEBUG: -------start-------  
+[2024-06-16 17:39:31] local.DEBUG: user_id=11 category=0 detail_id=53 type=add  
+[2024-06-16 17:39:31] local.DEBUG: to add  
+[2024-06-17 13:27:02] local.DEBUG: -------start-------  
+[2024-06-17 13:27:02] local.DEBUG: user_id=1 category=0 detail_id=83 type=del  
+[2024-06-17 13:27:02] local.DEBUG: delete  
+[2024-06-17 13:27:04] local.DEBUG: -------start-------  
+[2024-06-17 13:27:04] local.DEBUG: user_id=1 category=0 detail_id=83 type=add  
+[2024-06-17 13:27:04] local.DEBUG: to add  
+[2024-06-17 13:27:22] local.DEBUG: -------start-------  
+[2024-06-17 13:27:22] local.DEBUG: user_id=1 category=0 detail_id=83 type=del  
+[2024-06-17 13:27:22] local.DEBUG: delete  
+[2024-06-17 13:27:25] local.DEBUG: -------start-------  
+[2024-06-17 13:27:25] local.DEBUG: user_id=1 category=0 detail_id=83 type=add  
+[2024-06-17 13:27:25] local.DEBUG: to add  
+[2024-06-17 13:27:35] local.DEBUG: -------start-------  
+[2024-06-17 13:27:35] local.DEBUG: user_id=1 category=0 detail_id=102 type=add  
+[2024-06-17 13:27:35] local.DEBUG: to add  
+[2024-06-17 13:27:42] local.DEBUG: -------start-------  
+[2024-06-17 13:27:42] local.DEBUG: user_id=1 category=0 detail_id=101 type=add  
+[2024-06-17 13:27:42] local.DEBUG: to add  
+[2024-06-17 13:27:45] local.DEBUG: -------start-------  
+[2024-06-17 13:27:45] local.DEBUG: user_id=1 category=0 detail_id=101 type=del  
+[2024-06-17 13:27:45] local.DEBUG: delete  
+[2024-06-17 13:27:55] local.DEBUG: -------start-------  
+[2024-06-17 13:27:55] local.DEBUG: user_id=1 category=0 detail_id=7 type=del  
+[2024-06-17 13:27:55] local.DEBUG: delete  
+[2024-06-17 13:27:57] local.DEBUG: -------start-------  
+[2024-06-17 13:27:57] local.DEBUG: user_id=1 category=0 detail_id=7 type=add  
+[2024-06-17 13:27:57] local.DEBUG: to add  

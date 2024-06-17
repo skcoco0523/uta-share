@@ -23,7 +23,7 @@
             <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'playlists')">プレイリスト</a></li>
         </ul>
 
-        @php $tab_name = ['曲', 'アルバム', 'アーティスト', 'プレイリスト']; @endphp
+        @php $tab_name = ['曲', 'アーティスト', 'アルバム', 'プレイリスト']; @endphp
         <div id="all" class="tab-content active">
             @foreach ($favorite_list as $key=> $table)
                 @if($table) 

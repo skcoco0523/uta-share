@@ -50,6 +50,15 @@
   .contents_box::-webkit-scrollbar{
   display: none;
 }
+.title-text {
+  position: relative;
+}
+.title-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 .card-text {
   margin: 0 !important;
 }

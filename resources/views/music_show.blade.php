@@ -27,19 +27,19 @@
                 <tr>
                     <td class="col-1"></td>
                     <th class="col-3" onclick="openShareModal('{{ request()->url()}}?id={{ $music->mus_id }}')">
-                        <img src="{{ asset('img/icon/share_red1.png') }}" alt="アイコン" class="icon-20">
+                        <i class="fa-regular fa-share-from-square icon-20 red"></i>
                     </th>
                     
                     <td class="col-3" favorite-id="{{ $music->mus_id }}">
                         
                         @if($music->fav_flag)
-                            <i id="favoriteIcon-{{ $music->mus_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                            <i id="favoriteIcon-0-{{ $music->mus_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
                         @else
-                            <i id="favoriteIcon-{{ $music->mus_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                            <i id="favoriteIcon-0-{{ $music->mus_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
                         @endif
                     </td>
                     <td class="col-3">
-                        <img src="{{ asset('img/icon/add.png') }}" alt="アイコン" class="icon-20">
+                        <i class="fa-regular fa-square-plus icon-20 red"></i>
                     </td>
                     <td class="col-1"></td>
                 </tr>
@@ -60,6 +60,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // お気に入り状態初期値を定義
-        setFavoriteActions({{ $music->mus_id }}, {{$music->fav_flag}});
+        setFavoriteActions(0,{{ $music->mus_id }}, {{$music->fav_flag}});
     });
 </script>

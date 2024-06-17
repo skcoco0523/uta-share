@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//HomeModelを追加 20240121 kanno
 use App\Models\Home;
+use App\Models\Ranking;
+use App\Models\Recommend;
 
 class HomeController extends Controller
 {
@@ -26,18 +27,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $homeModel = new Home();
         //ランキング
-        $ranking = $homeModel->getRankingData("test");
+        $ranking['fav_mus'] = Ranking::getRanking("favorite", 0);
         //プレイリスト
         //$playlist = $homeModel->getPlaylistData(auth()->id());              //追加開発必須
         //$playlist = $homeModel->getRankingData(NULL,"test");
         //$playlist = null;
         //おすすめ
-        $recommend_mus = $homeModel->getRecommendList(0);//カテゴリ指定
+        $recommend_mus = Recommend::getUserRecommendList(0);//カテゴリ指定
         //$recommend_art = $homeModel->getRecommendList(1);//カテゴリ指定   アーティストは現在画像情報なし
-        $recommend_alb = $homeModel->getRecommendList(2);//カテゴリ指定
-        $recommend_pl = $homeModel->getRecommendList(3);//カテゴリ指定
+        $recommend_alb = Recommend::getUserRecommendList(2);//カテゴリ指定
+        $recommend_pl = Recommend::getUserRecommendList(3);//カテゴリ指定
         //return view('home');
         //dd($recommend_mus);
         

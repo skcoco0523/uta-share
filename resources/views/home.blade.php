@@ -11,18 +11,21 @@
         @include('layouts.slider')
         
         <?//ランキング?>  
-        @if(isset($ranking))
+        @if(isset($ranking['fav_mus']))
             <div class="py-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5>週間閲覧ランキング</h5> <a href="#" class="text-danger ml-auto">もっと見る＞</a>
+                <div class="title-text">
+                    <h4>みんなのお気に入り</h4>
+                    <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
                 </div>
                 <div class="d-flex overflow-auto contents_box">
-                    @for ($i=0; $i < count($ranking); $i++)
-                    <div class="card card-mini" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $ranking[$i]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
-                        <p class="card-text text-truncate">{{$ranking[$i]->name}}</p>
-                        <p class="card-text text-truncate">{{$ranking[$i]->alb_name}}</p>
-                    </div>
+                    @for ($i=0; $i < count($ranking['fav_mus']); $i++)
+                    <a href="{{ route('music-show',['id' => $ranking['fav_mus'][$i]->id]) }}" style="text-decoration: none; color: inherit;">
+                        <div class="card card-mini" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
+                            <img src="{{ $ranking['fav_mus'][$i]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                            <p class="card-text text-truncate">{{$ranking['fav_mus'][$i]->name}}</p>
+                            <p class="card-text text-truncate">{{$ranking['fav_mus'][$i]->alb_name}}</p>
+                        </div>
+                    </a>
                     @endfor
                 </div>
             </div>
@@ -30,8 +33,9 @@
         <?//プレイリスト?>  
         @if(isset($playlist))
             <div class="py-2">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5>プレイリスト</h5> <a href="#" class="text-danger ml-auto">もっと見る＞</a>
+                <div class="title-text">
+                    <h4>プレイリスト</h4>
+                    <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
                 </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($playlist); $i++)
@@ -69,10 +73,10 @@
         <?//おすすめ：曲?> 
         @if(isset($recommend_mus))
             <div class="py-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5>おすすめ：曲</h5>
-                <a href="#" class="text-danger">もっと見る＞</a>
-            </div>
+                <div class="title-text">
+                    <h4>おすすめ：曲</h4>
+                    <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+                </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_mus); $i++)
                     <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_mus[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
@@ -88,10 +92,10 @@
         <?//おすすめ：アルバム?>
         @if(isset($recommend_alb))
             <div class="py-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5>おすすめ：アルバム</h5>
-                <a href="#" class="text-danger">もっと見る＞</a>
-            </div>
+                <div class="title-text">
+                    <h4>おすすめ：アルバム</h4>
+                    <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+                </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_alb); $i++)
                     <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_alb[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
@@ -107,10 +111,10 @@
         <?//おすすめ：プレイリスト?>
         @if(isset($recommend_pl))
             <div class="py-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5>おすすめ：プレイリスト</h5>
-                <a href="#" class="text-danger">もっと見る＞</a>
-            </div>
+                <div class="title-text">
+                    <h4>おすすめ：プレイリスト</h4>
+                    <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+                </div>
                 <div class="d-flex overflow-auto contents_box">
                     @for ($i=0; $i < count($recommend_pl); $i++)
                     <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_pl[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
