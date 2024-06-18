@@ -7,12 +7,16 @@
         <?//コンテンツ?>  
         @section('content')
         <a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
-        <ul class="nav nav-pills nav-fill">
-            <li class="nav-item nav-item-red"><a class="nav-link nav-link-red active" onclick="openTab(event, 'all')" aria-current="page" href="#">すべて</a></li>
-            <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'songs')">曲</a></li>
-            <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'albums')">アルバム</a></li>
-            <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'playlists')">プレイリスト</a></li>
-        </ul>
+        <div class="d-flex overflow-auto">
+            <ul class="nav nav-pills flex-nowrap">
+                <li class="nav-item nav-item-red"><a class="nav-link nav-link-red active" onclick="openTab(event, 'all')" aria-current="page" href="#">すべて</a></li>
+                <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'songs')">曲</a></li>
+                <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'albums')">アルバム</a></li>
+                <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'playlists')">プレイリスト</a></li>
+                <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'myplaylists')">マイプレイリスト</a></li>
+                <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'category')">カテゴリ別</a></li>
+            </ul>
+        </div>
 
         <div id="all" class="tab-content active">
             <?//テーブルリストは別ファイルで管理?>   
@@ -76,44 +80,4 @@
 </script>
 
 <style>
-    .nav-item-red {
-        padding: 10px;
-        cursor: pointer;
-        border: none;
-        outline: none;
-    }
-
-    /* 通常のナビリンクの色 */
-    .nav-link-red {
-        padding: 3px 0px !important;
-        color: #000 !important; /* 通常のテキストカラー */
-        background-color: #ffffff !important; /* 通常の背景カラー */
-        border: 1px solid #ff0000 !important; /* 非アクティブ時の赤枠 */
-    }
-
-    /* ホバー時のナビリンクの色 */
-    .nav-link-red:hover {
-        color: #ff0000 !important; /* ホバー時のテキストカラー (赤) */
-        background-color: #ffffff !important; /* ホバー時の背景カラー (白) */
-    }
-
-    /* アクティブなナビリンクの色 */
-    .nav-link-red.active {
-        color: #ffffff !important; /* アクティブ時のテキストカラー (白) */
-        background-color: #ff0000 !important; /* アクティブ時の背景カラー (赤) */
-    }
-
-    /* 具体的なセレクタを使用する場合 */
-    ul.nav.nav-pills.nav-fill .nav-link-red.active {
-        color: #ffffff !important; /* アクティブ時のテキストカラー (白) */
-        background-color: #ff0000 !important; /* アクティブ時の背景カラー (赤) */
-    }
-
-    .tab-content {
-        display: none;
-    }
-
-    .tab-content.active {
-        display: block;
-    }
 </style>

@@ -202,8 +202,21 @@
 }
 
 /*赤ナビ------------------------------------------------------------------------*/
-.nav-item {
-  padding: 10px;
+.d-flex {
+  display: flex;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.nav-item-red {
+  flex: 0 0 auto;
+  padding: 15px 8px;
   cursor: pointer;
   border: none;
   outline: none;
@@ -211,7 +224,8 @@
 
 /* 通常のナビリンクの色 */
 .nav-link-red {
-  padding: 3px 0px !important;
+  border-radius: 20px !important;
+  padding: 2px 10px !important;
   color: #000 !important; /* 通常のテキストカラー */
   background-color: #ffffff !important; /* 通常の背景カラー */
   border: 1px solid #ff0000 !important; /* 非アクティブ時の赤枠 */
@@ -233,4 +247,12 @@
 ul.nav.nav-pills.nav-fill .nav-link-red.active {
   color: #ffffff !important; /* アクティブ時のテキストカラー (白) */
   background-color: #ff0000 !important; /* アクティブ時の背景カラー (赤) */
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }
