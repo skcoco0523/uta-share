@@ -48,31 +48,37 @@ class Album extends Model
         $album=setAffData($album);
         return $album; 
     }
-    //詳細変更　収録曲変更
+    //取得
     public static function getAlbum_detail($alb_id)
     {
-        //アルバム情報を取得
-        $album = DB::table('albums')->where('id', $alb_id)->first();
-        //アーティスト名を取得
-        $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
-        //収録数、収録曲を取得
-        $music = DB::table('musics')->where('alb_id', $album->id)->get();
-        foreach ($music as $key => $item) {
-            $detail_list[$key] = Music::getMusic_detail($item->id);
+        try {
+            //アルバム情報を取得
+            $album = DB::table('albums')->where('id', $alb_id)->first();
+            //アーティスト名を取得
+            $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
+            //収録数、収録曲を取得
+            $music = DB::table('musics')->where('alb_id', $album->id)->get();
+            foreach ($music as $key => $item) {
+                $detail_list[$key] = Music::getMusic_detail($item->id);
+            }
+            //ログインしているユーザーはお気に入り情報も取得する
+            if (Auth::check()) {
+                $album->fav_flag = Favorite::chkFavorite(Auth::id(), "alb", $alb_id);
+            }else{
+                $album->fav_flag = 0;
+            }
+            //dd($alb_id,$album,$music);
+            $album->music = $detail_list;    
+            //件数を取得
+            $album->mus_cnt = count($album->music);
+            //画像情報を付与
+            $album=setAffData($album);
+            
+            return $album; 
+        } catch (\Exception $e) {
+            make_error_log("getAlbum_detail.log","failure");
+            return null; 
         }
-        //ログインしているユーザーはお気に入り情報も取得する
-        if (Auth::check()) {
-            $album->fav_flag = Favorite::chkFavorite(Auth::id(), "alb", $alb_id);
-        }else{
-            $album->fav_flag = 0;
-        }
-        $album->music = $detail_list;    
-        //件数を取得
-        $album->mus_cnt = count($album->music);
-        //画像情報を付与
-        $album=setAffData($album);
-        
-        return $album; 
     }
     //作成
     public static function createAlbum($data)

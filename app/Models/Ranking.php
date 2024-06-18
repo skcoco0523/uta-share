@@ -27,7 +27,7 @@ class Ranking extends Model
                 break;
             
             case "favorite"://お気に入り曲ランキング
-                if(is_numeric($table)){
+                if($table){
                     switch($table){
                         case "mus":
                             $sql_cmd = $favorite = DB::table('favorite_mus');
@@ -41,15 +41,13 @@ class Ranking extends Model
                         default:
                             break;
                     }
-                    $favorite = $sql_cmd
-                    ->select('fav_id', DB::raw('COUNT(*) as count'))
-                    ->groupBy('fav_id')
-                    ->orderByDesc('count')
-                    ->limit($disp_cnt)
-                    ->get();
+                    $sql_cmd = $sql_cmd->select('fav_id', DB::raw('COUNT(*) as count'));
+                    $sql_cmd = $sql_cmd->groupBy('fav_id')->orderByDesc('count');
+                    $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+                    $favorite = $sql_cmd;
                     //dd($fav);
                     foreach($favorite as $fav){
-                        $ranking[] = Music::getMusic_detail($fav->fav);
+                        $ranking[] = Music::getMusic_detail($fav->fav_id);
                     }
                 }
                 break;

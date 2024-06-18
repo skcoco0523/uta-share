@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
+use App\Models\Music;
+use App\Models\Album;
+use App\Models\Playlist;
 
 class Recommend extends Model
 {
@@ -255,9 +258,8 @@ class Recommend extends Model
                 //if (is_null($detail->detail_id)) continue;
                 switch($category){
                     case 0://曲
-                        $music = new Music();
                         foreach ($detail_list as $key => $detail) {
-                            $add_list[$key] = $music->getMusic_detail($detail->detail_id);
+                            $add_list[$key] = Music::getMusic_detail($detail->detail_id);
                         }
                         $item->detail = $add_list;
                         break;
@@ -271,16 +273,14 @@ class Recommend extends Model
                         //$item->detail = $add_list;
                         break;
                     case 2://アルバム
-                        $album = new Album();
                         foreach ($detail_list as $key => $detail) {
-                            $add_list[$key] = $album->getAlbum_detail($detail->detail_id);
+                            $add_list[$key] = Album::getAlbum_detail($detail->detail_id);
                         }
                         $item->detail = $add_list;
                         break;
                     case 3://プレイリスト          
-                        $playlist = new Playlist();
                         foreach ($detail_list as $key => $detail) {
-                            $add_list[$key] = $playlist->getPlaylist_detail($detail->detail_id);
+                            $add_list[$key] = Playlist::getPlaylist_detail($detail->detail_id);
                             //プレイリストの収録曲が０件の場合は除外
                             if (count($add_list[$key]->music) == 0) unset($add_list[$key]);
                         }     

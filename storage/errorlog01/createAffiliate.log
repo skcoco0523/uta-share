@@ -2963,3 +2963,21 @@
 )
   
 [2024-06-18 22:18:35] local.DEBUG: success  
+[2024-06-18 23:47:40] local.DEBUG: -------start-------  
+[2024-06-18 23:47:40] local.DEBUG: aff_link=  
+[2024-06-18 23:48:06] local.DEBUG: -------start-------  
+[2024-06-18 23:48:06] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3d4474f6.2748c10c.3d4474f7.53b73501/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffelista%2Faznxqls-1003%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d4474f6.2748c10c.3d4474f7.53b73501/?me_id=1245954&item_id=21660370&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Ffelista%2Fcabinet%2Fimgr0754%2Fxqls-1003.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-06-18 23:48:06] local.DEBUG: success  
+[2024-06-18 23:48:06] local.DEBUG: -------start-------  
+[2024-06-18 23:48:06] local.DEBUG: create_data=Array
+(
+    [name] => テスト
+    [art_id] => 3
+    [art_name] => BLUE ENCOUN
+    [release_date] => 
+    [link] => 
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/3d4474f6.2748c10c.3d4474f7.53b73501/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffelista%2Faznxqls-1003%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d4474f6.2748c10c.3d4474f7.53b73501/?me_id=1245954&item_id=21660370&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Ffelista%2Fcabinet%2Fimgr0754%2Fxqls-1003.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 9
+)
+  
+[2024-06-18 23:48:06] local.DEBUG: success  

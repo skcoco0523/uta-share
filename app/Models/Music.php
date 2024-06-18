@@ -19,9 +19,17 @@ class Music extends Model
     public static function getMusic_list($disp_cnt=null,$pageing=false,$keyword=null)
     {
         $sql_cmd = DB::table('musics')
-            ->orderBy('created_at', 'desc')
-            ->where('name', 'like', "%$keyword%");
-        
+        ->join('artists', 'musics.art_id', '=', 'artists.id')
+        ->leftJoin('albums', 'musics.alb_id', '=', 'albums.id')
+        ->where(function ($query) use ($keyword) {
+            $query->where('musics.name', 'like', "%{$keyword}%")
+                ->orWhere('artists.name', 'like', "%{$keyword}%")
+                ->orWhere('artists.name2', 'like', "%{$keyword}%")
+                ->orWhere('albums.name', 'like', "%{$keyword}%");
+        })
+        ->orderBy('musics.created_at', 'desc')
+        ->select('musics.*', 'artists.name as art_name', 'musics.id as mus_id', 'albums.name as alb_name');
+
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;
         // ページング・取得件数指定・全件で分岐
@@ -30,16 +38,8 @@ class Music extends Model
         else                                $sql_cmd = $sql_cmd->get();
 
         $music = $sql_cmd;
-        //アーティスト名・アルバム名を取得
-        foreach ($music as $mus) {
-            $mus->mus_id = $mus->id;
-            $mus->art_name = DB::table('artists')->where('id', $mus->art_id)->first()->name;
-            if($mus->alb_id==NULL){
-                $mus->alb_name = NULL;
-            }else{
-                $mus->alb_name = DB::table('albums')->where('id', $mus->alb_id)->first()->name;
-            }
-        }
+        //dd($music);
+        
         //画像情報を付与
         $music=setAffData($music);
         return $music; 
