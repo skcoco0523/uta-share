@@ -20,17 +20,14 @@
             <p>{{ $album->release_date }}：{{$album->mus_cnt }}曲</p>
         </div>
 
-        <?//テーブルリストは別ファイルで管理?>   
-        @include('layouts.table', ['music_table' => $album->music])
-
+        <!-- シェアポップアップモーダル -->
+        @include('modals.share-modal', ['title' => $album->name, 'url' => url()->current()])
         
+        <?//メニューは別ファイルで管理?>   
+        @include('layouts.menu_table', ['detail_id' => $album->id, 'table' => 'alb', 'fav_flag' => $album->fav_flag])
 
-        <!--
-            一覧
-            共有　お気に入り　プレイリスト登録
-        -->
-
-        
+        <?//テーブルリストは別ファイルで管理?>
+        @include('layouts.list_table', ['detail_table' => $album->music, 'table' => 'mus'])
 
         <?//ログインユーザーのみ表示させるナビ?>   
         @include('layouts.nav_menu')

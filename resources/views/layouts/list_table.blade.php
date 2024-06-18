@@ -50,21 +50,21 @@
             @endforeach
         @endif
 
-        <?//アルバム　　　アイコンの表示非表示を切り替える?>
-        @if(isset($album_table))
-            @foreach ($album_table as $key => $detail)   
+        <?//アルバム?>
+        @if(isset($detail_table) && isset($table))
+            @foreach ($detail_table as $key => $detail)   
                 <tr>
-                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},'alb')">
+                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
                         {{$key+1}}
                     </th>
-                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'alb')">
+                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
                         {{Str::limit($detail->name, 30, '...')}}
                     </td>
                     <td class="col-1" favorite-id="{{ $detail->id }}">
                         @if($detail->fav_flag)
-                            <i id="favoriteIcon-alb-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('alb',{{ $detail->id }})"></i>
+                            <i id="favoriteIcon-{{ $table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
                         @else
-                            <i id="favoriteIcon-alb-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('alb',{{ $detail->id }})"></i>
+                            <i id="favoriteIcon-{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
                         @endif
                     </td>
                     <td class="col-1">
@@ -74,7 +74,7 @@
             @endforeach
         @endif
 
-        <?//プレイリスト　　　アイコンの表示非表示を切り替える?>
+        <?//プレイリスト?>
         @if(isset($playlist_table))
             @foreach ($playlist_table as $key => $detail)   
                 <tr>
@@ -105,30 +105,30 @@
     
     document.addEventListener('DOMContentLoaded', function() {
         
+        // お気に入り状態初期値を定義
         <?php if(isset($recommnd_table)){ ?>
-            // お気に入り状態初期値を定義
             <?php foreach ($recommnd_table->detail as $detail): ?>
                 setFavoriteActions('{{ $recommnd_table->table }}', {{ $detail->detail_id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
-        <?php if(isset($music_table)){ ?>
-            // お気に入り状態初期値を定義
-            <?php foreach ($music_table as $detail): ?>
-                setFavoriteActions("mus",{{ $detail->id }}, {{$detail->fav_flag}});
+        <?php if(isset($detail_table)){ ?>
+            <?php foreach ($detail_table as $detail): ?>
+                setFavoriteActions('{{$table}}',{{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
+
+        
         <?php if(isset($album_table)){ ?>
-            // お気に入り状態初期値を定義
             <?php foreach ($album_table as $detail): ?>
                 setFavoriteActions("alb",{{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
         <?php if(isset($playlist_table)){ ?>
-            // お気に入り状態初期値を定義
             <?php foreach ($playlist_table as $detail): ?>
                 setFavoriteActions("pl",{{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
+
 
     });
 

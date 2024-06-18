@@ -1215,3 +1215,13 @@
 )
   
 [2024-06-18 17:46:36] local.DEBUG: success  
+[2024-06-19 00:50:37] local.DEBUG: ---------start----------  
+[2024-06-19 00:50:37] local.DEBUG: data=Array
+(
+    [id] => 3
+    [name] => テストお気に入りプレイリスト
+    [category] => 
+    [disp_flag] => 1
+)
+  
+[2024-06-19 00:50:37] local.DEBUG: success  

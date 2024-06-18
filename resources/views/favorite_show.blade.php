@@ -26,27 +26,27 @@
         <div id="all" class="tab-content active">
             <?//テーブルリストは別ファイルで管理?>   
             <h3>曲</h3>
-            @include('layouts.table', ['music_table' => $favorite_list["mus"]])
+            @include('layouts.list_table', ['music_table' => $favorite_list["mus"]])
             <h3>アルバム</h3>
-            @include('layouts.table', ['album_table' => $favorite_list["alb"]])
+            @include('layouts.list_table', ['album_table' => $favorite_list["alb"]])
             <h3>プレイリスト</h3>
-            @include('layouts.table', ['playlist_table' => $favorite_list["pl"]])
+            @include('layouts.list_table', ['playlist_table' => $favorite_list["pl"]])
         </div>
 
         <?//テーブルリストは別ファイルで管理?>   
         <div id="songs" class="tab-content">
             <h3>曲</h3>
-            @include('layouts.table', ['music_table' => $favorite_list["mus"]])
+            @include('layouts.list_table', ['music_table' => $favorite_list["mus"]])
         </div>
 
         <div id="albums" class="tab-content">
             <h3>アルバム</h3> 
-            @include('layouts.table', ['album_table' => $favorite_list["alb"]])
+            @include('layouts.list_table', ['album_table' => $favorite_list["alb"]])
         </div>
 
         <div id="playlists" class="tab-content">
             <h3>プレイリスト</h3>
-            @include('layouts.table', ['playlist_table' => $favorite_list["pl"]])
+            @include('layouts.list_table', ['playlist_table' => $favorite_list["pl"]])
         </div>
         
         <?//ログインユーザーのみ表示させるナビ?>   

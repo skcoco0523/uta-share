@@ -5204,3 +5204,43 @@
 [2024-06-16 01:22:11] local.DEBUG: -------start-------  
 [2024-06-16 01:22:11] local.DEBUG: delete_pl_id=11  
 [2024-06-16 01:22:11] local.DEBUG: success  
+[2024-06-19 00:52:02] local.DEBUG: -----start-----  
+[2024-06-19 00:52:02] local.DEBUG: fnc=add pl_id=2 detail_id=67  
+[2024-06-19 00:52:02] local.DEBUG: -------start-------  
+[2024-06-19 00:52:02] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:52:02] local.DEBUG: success  
+[2024-06-19 00:52:15] local.DEBUG: -----start-----  
+[2024-06-19 00:52:15] local.DEBUG: fnc=del pl_id=2 detail_id=67  
+[2024-06-19 00:52:15] local.DEBUG: -------start-------  
+[2024-06-19 00:52:15] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:52:15] local.DEBUG: success  
+[2024-06-19 00:52:25] local.DEBUG: -----start-----  
+[2024-06-19 00:52:25] local.DEBUG: fnc=add pl_id=2 detail_id=54  
+[2024-06-19 00:52:25] local.DEBUG: -------start-------  
+[2024-06-19 00:52:25] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:52:25] local.DEBUG: success  
+[2024-06-19 00:52:38] local.DEBUG: -----start-----  
+[2024-06-19 00:52:38] local.DEBUG: fnc=add pl_id=2 detail_id=52  
+[2024-06-19 00:52:38] local.DEBUG: -------start-------  
+[2024-06-19 00:52:38] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:52:38] local.DEBUG: success  
+[2024-06-19 00:52:43] local.DEBUG: -----start-----  
+[2024-06-19 00:52:43] local.DEBUG: fnc=del pl_id=2 detail_id=67  
+[2024-06-19 00:52:43] local.DEBUG: -------start-------  
+[2024-06-19 00:52:43] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:52:43] local.DEBUG: success  
+[2024-06-19 00:52:51] local.DEBUG: -----start-----  
+[2024-06-19 00:52:51] local.DEBUG: fnc=del pl_id=2 detail_id=67  
+[2024-06-19 00:52:51] local.DEBUG: -------start-------  
+[2024-06-19 00:52:51] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:52:51] local.DEBUG: success  
+[2024-06-19 00:53:25] local.DEBUG: -----start-----  
+[2024-06-19 00:53:25] local.DEBUG: fnc=add pl_id=2 detail_id=51  
+[2024-06-19 00:53:25] local.DEBUG: -------start-------  
+[2024-06-19 00:53:25] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:53:25] local.DEBUG: success  
+[2024-06-19 00:53:29] local.DEBUG: -----start-----  
+[2024-06-19 00:53:29] local.DEBUG: fnc=del pl_id=2 detail_id=67  
+[2024-06-19 00:53:29] local.DEBUG: -------start-------  
+[2024-06-19 00:53:29] local.DEBUG: delete_pl_id=2  
+[2024-06-19 00:53:29] local.DEBUG: success  

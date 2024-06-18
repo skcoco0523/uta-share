@@ -13,7 +13,7 @@
         </div>
             
         <?//テーブルリストは別ファイルで管理?>   
-        @include('layouts.table', ['recommnd_table' => $recommnd])
+        @include('layouts.list_table', ['recommnd_table' => $recommnd])
 
         <?//ログインユーザーのみ表示させるナビ?>   
         @include('layouts.nav_menu')

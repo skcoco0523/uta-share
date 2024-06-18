@@ -53,7 +53,8 @@ class Album extends Model
     {
         try {
             //アルバム情報を取得
-            $album = DB::table('albums')->where('id', $alb_id)->first();
+            $album = DB::table('albums')->where('id', $alb_id)->first();  
+            $album->alb_id = $album->id; 
             //アーティスト名を取得
             $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
             //収録数、収録曲を取得
