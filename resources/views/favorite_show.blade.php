@@ -7,15 +7,6 @@
         <?//コンテンツ?>  
         @section('content')
         <a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
-
-        <!--
-        <div class="tabs">
-            <button class="tab-link active" onclick="openTab(event, 'all')">すべて</button>
-            <button class="tab-link" onclick="openTab(event, 'songs')">曲</button>
-            <button class="tab-link" onclick="openTab(event, 'albums')">アルバム</button>
-            <button class="tab-link" onclick="openTab(event, 'playlists')">プレイリスト</button>
-        </div>  
-        -->
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item nav-item-red"><a class="nav-link nav-link-red active" onclick="openTab(event, 'all')" aria-current="page" href="#">すべて</a></li>
             <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'songs')">曲</a></li>
@@ -26,27 +17,27 @@
         <div id="all" class="tab-content active">
             <?//テーブルリストは別ファイルで管理?>   
             <h3>曲</h3>
-            @include('layouts.list_table', ['music_table' => $favorite_list["mus"]])
+            @include('layouts.list_table', ['detail_table' => $favorite_list["mus"], 'table' => 'mus'])
             <h3>アルバム</h3>
-            @include('layouts.list_table', ['album_table' => $favorite_list["alb"]])
+            @include('layouts.list_table', ['detail_table' => $favorite_list["alb"], 'table' => 'alb'])
             <h3>プレイリスト</h3>
-            @include('layouts.list_table', ['playlist_table' => $favorite_list["pl"]])
+            @include('layouts.list_table', ['detail_table' => $favorite_list["pl"], 'table' => 'pl'])
         </div>
 
         <?//テーブルリストは別ファイルで管理?>   
         <div id="songs" class="tab-content">
             <h3>曲</h3>
-            @include('layouts.list_table', ['music_table' => $favorite_list["mus"]])
+            @include('layouts.list_table', ['detail_table' => $favorite_list["mus"], 'table' => 'mus'])
         </div>
 
         <div id="albums" class="tab-content">
             <h3>アルバム</h3> 
-            @include('layouts.list_table', ['album_table' => $favorite_list["alb"]])
+            @include('layouts.list_table', ['detail_table' => $favorite_list["alb"], 'table' => 'alb'])
         </div>
 
         <div id="playlists" class="tab-content">
             <h3>プレイリスト</h3>
-            @include('layouts.list_table', ['playlist_table' => $favorite_list["pl"]])
+            @include('layouts.list_table', ['detail_table' => $favorite_list["pl"], 'table' => 'pl'])
         </div>
         
         <?//ログインユーザーのみ表示させるナビ?>   

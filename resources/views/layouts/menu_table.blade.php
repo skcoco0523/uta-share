@@ -8,11 +8,11 @@
             <th class="col-3" onclick="openShareModal('{{ request()->url()}}?id={{ $detail_id }}')">
                 <i class="fa-regular fa-share-from-square icon-20 red"></i>
             </th>
-            <td class="col-3" favorite-id="{{ $detail_id }}">
+            <td class="col-3" favorite-id="{{ $table }}-{{ $detail_id }}">
                 @if($fav_flag)
-                    <i id="favoriteIcon-{{ $table }}-{{ $detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail_id }})"></i>
+                    <i data-favorite-id="{{ $table }}-{{ $detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail_id }})"></i>
                 @else
-                    <i id="favoriteIcon-{{ $table }}-{{ $detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail_id }})"></i>
+                    <i data-favorite-id="{{ $table }}-{{ $detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail_id }})"></i>
                 @endif
             </td>
             <td class="col-3">
