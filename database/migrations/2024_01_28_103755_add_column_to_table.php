@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::table('artists', function (Blueprint $table) {
             $table->string('name2')->after('name')->nullable();
+            
+            // インデックスの追加
+            $table->index('name2');
         });
         
     }

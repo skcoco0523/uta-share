@@ -62,7 +62,7 @@ class Album extends Model
         }
         //ログインしているユーザーはお気に入り情報も取得する
         if (Auth::check()) {
-            $album->fav_flag = Favorite::chkFavorite(Auth::id(), 2, $alb_id);
+            $album->fav_flag = Favorite::chkFavorite(Auth::id(), "alb", $alb_id);
         }else{
             $album->fav_flag = 0;
         }

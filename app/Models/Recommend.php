@@ -54,6 +54,7 @@ class Recommend extends Model
             case 0: //曲
                 $item1   = "曲名";
                 $item2   = "";
+                $table   = "mus";
                 $sql_cmd = $sql_cmd->join('musics', 'recommenddetail.detail_id', '=', 'musics.id');
                 $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name')->get();
@@ -62,6 +63,7 @@ class Recommend extends Model
             case 1: //ｱｰﾃｨｽﾄ
                 $item1   = "アーティスト名";
                 $item2   = "";
+                $table   = "art";
                 $sql_cmd = $sql_cmd->join('artists', 'recommenddetail.detail_id', '=', 'artists.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name As art_name')->get();
                 $sql_cmd = $sql_cmd->select('recommenddetail.id','artists.id As detail_id','artists.name')->get();
@@ -69,6 +71,7 @@ class Recommend extends Model
             case 2: //ｱﾙﾊﾞﾑ
                 $item1   = "アルバム名";
                 $item2   = "";
+                $table   = "alb";
                 $sql_cmd = $sql_cmd->join('albums', 'recommenddetail.detail_id', '=', 'albums.id');
                 $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
                 $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.id As detail_id','albums.name','artists.name As art_name')->get();
@@ -76,6 +79,7 @@ class Recommend extends Model
             case 3: //ﾌﾟﾚｲﾘｽﾄ
                 $item1   = "プレイリスト名";
                 $item2   = "";
+                $table   = "pl";
                 $sql_cmd = $sql_cmd->join('playlist', 'recommenddetail.detail_id', '=', 'playlist.id');
                 $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.id As detail_id','playlist.name')->get();
                 break;
@@ -83,12 +87,13 @@ class Recommend extends Model
                 break;
         }
         $recommend->detail = $sql_cmd; 
+        $recommend->table = $table; 
 
 
         //ログインしているユーザーはお気に入り情報も取得する
         foreach ($recommend->detail as $item) {
             if (Auth::check()) {
-                $item->fav_flag = Favorite::chkFavorite(Auth::id(), $recommend->category, $item->detail_id);
+                $item->fav_flag = Favorite::chkFavorite(Auth::id(), $recommend->table, $item->detail_id);
             }else{
                 $item->fav_flag = 0;
             }

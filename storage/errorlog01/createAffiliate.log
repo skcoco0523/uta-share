@@ -2150,3 +2150,135 @@
 )
   
 [2024-04-02 22:42:00] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16788423%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20395480&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6697%2F4988013656697_1_2.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: name=Editorial art_id=1 release_date=2021-08-18 aff_id=1  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => Editorial
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => アポトーシス
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => I LOVE...
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => フィラメント
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => HELLO
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => Cry Baby
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => Shower
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => みどりの雨避け
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => パラボラ
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => ペンディング・マシーン
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => Bedroom Talk
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => Laughter
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => Universe
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  
+[2024-06-18 17:44:49] local.DEBUG: -------start-------  
+[2024-06-18 17:44:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 1
+    [alb_id] => 1
+    [name] => Lost In My Room
+)
+  
+[2024-06-18 17:44:49] local.DEBUG: success  

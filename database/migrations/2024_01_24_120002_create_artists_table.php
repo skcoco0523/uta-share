@@ -17,7 +17,11 @@ return new class extends Migration
             $table->boolean('sex')->nullable();
             $table->date('debut')->nullable();
             $table->timestamps();
+            
+            // インデックスの追加
+            $table->index('name');
         });
+        
     }
 
     /**

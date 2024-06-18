@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         //ランキング
-        $ranking['fav_mus'] = Ranking::getRanking("favorite", 0);
+        $ranking['fav_mus'] = Ranking::getRanking("favorite", "mus");
         //プレイリスト
         //$playlist = $homeModel->getPlaylistData(auth()->id());              //追加開発必須
         //$playlist = $homeModel->getRankingData(NULL,"test");

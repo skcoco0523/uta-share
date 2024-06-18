@@ -12,8 +12,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->tinyInteger('gender')->default('0')->after('password')->comment('0:男性,1:女性');
-            $table->date('birthdate')->default('1900-01-01')->after('gender');
+            $table->tinyInteger('gender')->after('password')->comment('0:男性,1:女性');
+            $table->date('birthdate')->after('gender');
         });
     }
     /**

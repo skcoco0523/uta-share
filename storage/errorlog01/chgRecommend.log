@@ -1195,3 +1195,23 @@
 )
   
 [2024-05-22 19:13:22] local.DEBUG: success  
+[2024-06-18 17:46:32] local.DEBUG: ---------start----------  
+[2024-06-18 17:46:32] local.DEBUG: data=Array
+(
+    [id] => 2
+    [name] => おすすめ　アルバム
+    [category] => 
+    [disp_flag] => 1
+)
+  
+[2024-06-18 17:46:32] local.DEBUG: success  
+[2024-06-18 17:46:36] local.DEBUG: ---------start----------  
+[2024-06-18 17:46:36] local.DEBUG: data=Array
+(
+    [id] => 1
+    [name] => おすすめ曲
+    [category] => 
+    [disp_flag] => 1
+)
+  
+[2024-06-18 17:46:36] local.DEBUG: success  

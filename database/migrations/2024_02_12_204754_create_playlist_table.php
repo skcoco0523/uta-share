@@ -19,7 +19,11 @@ return new class extends Migration
             $table->timestamps();
 
             // 外部キー制約
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            // インデックスの追加
+            $table->index('user_id');
+            $table->index('name');
 
         });
     }

@@ -6,17 +6,17 @@
         @if(isset($recommnd_table))
             @foreach ($recommnd_table->detail as $key => $detail)   
                 <tr>
-                    <td class="col-1" onclick="redirectToDetailShow({{ $detail->detail_id }}, {{ $recommnd->category }})">
+                    <td class="col-1" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommnd->table }}')">
                         {{ $key + 1 }}
                     </td>
-                    <td class="col-9" onclick="redirectToDetailShow({{ $detail->detail_id }}, {{ $recommnd->category }})">
+                    <td class="col-9" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommnd->table }}')">
                         {{ Str::limit($detail->name, 30, '...') }}
                     </td>
                     <td class="col-1" favorite-id="{{ $detail->detail_id }}">
                         @if($detail->fav_flag)
-                            <i id="favoriteIcon-{{ $recommnd->category }}-{{ $detail->detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->detail_id }}, {{ $recommnd->category }})"></i>
+                            <i id="favoriteIcon-{{ $recommnd->table }}-{{ $detail->detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommnd->table }}', {{ $detail->detail_id }})"></i>
                         @else
-                            <i id="favoriteIcon-{{ $recommnd->category }}-{{ $detail->detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->detail_id }}, {{ $recommnd->category }})"></i>
+                            <i id="favoriteIcon-{{ $recommnd->table }}-{{ $detail->detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommnd->table }}', {{ $detail->detail_id }})"></i>
                         @endif
                     </td>
                     <td class="col-1">
@@ -30,17 +30,17 @@
         @if(isset($music_table))
             @foreach ($music_table as $key => $detail)   
                 <tr>
-                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},0)">
+                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},'mus')">
                         {{$key+1}}
                     </th>
-                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},0)">
+                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'mus')">
                         {{Str::limit($detail->name, 30, '...')}}
                     </td>
                     <td class="col-1" favorite-id="{{ $detail->id }}">
                         @if($detail->fav_flag)
-                            <i id="favoriteIcon-0-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->id }}, 0)"></i>
+                            <i id="favoriteIcon-mus-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('mus', {{ $detail->id }})"></i>
                         @else
-                            <i id="favoriteIcon-0-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->id }}, 0)"></i>
+                            <i id="favoriteIcon-mus-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('mus', {{ $detail->id }})"></i>
                         @endif
                     </td>
                     <td class="col-1">
@@ -54,17 +54,17 @@
         @if(isset($album_table))
             @foreach ($album_table as $key => $detail)   
                 <tr>
-                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},2)">
+                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},'alb')">
                         {{$key+1}}
                     </th>
-                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},2)">
+                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'alb')">
                         {{Str::limit($detail->name, 30, '...')}}
                     </td>
                     <td class="col-1" favorite-id="{{ $detail->id }}">
                         @if($detail->fav_flag)
-                            <i id="favoriteIcon-2-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->id }}, 2)"></i>
+                            <i id="favoriteIcon-alb-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('alb',{{ $detail->id }})"></i>
                         @else
-                            <i id="favoriteIcon-2-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->id }}, 2)"></i>
+                            <i id="favoriteIcon-alb-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('alb',{{ $detail->id }})"></i>
                         @endif
                     </td>
                     <td class="col-1">
@@ -78,17 +78,17 @@
         @if(isset($playlist_table))
             @foreach ($playlist_table as $key => $detail)   
                 <tr>
-                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},3)">
+                    <td class="col-1" onclick="redirectToDetailShow({{$detail->id}},'pl')">
                         {{$key+1}}
                     </th>
-                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},3)">
+                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'pl')">
                         {{Str::limit($detail->name, 30, '...')}}
                     </td>
                     <td class="col-1" favorite-id="{{ $detail->id }}">
                         @if($detail->fav_flag)
-                            <i id="favoriteIcon-3-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->id }}, 3)"></i>
+                            <i id="favoriteIcon-pl-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('pl', {{ $detail->id }})"></i>
                         @else
-                            <i id="favoriteIcon-3-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $detail->id }}, 3)"></i>
+                            <i id="favoriteIcon-pl-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('pl', {{ $detail->id }})"></i>
                         @endif
                     </td>
                     <td class="col-1">
@@ -108,41 +108,41 @@
         <?php if(isset($recommnd_table)){ ?>
             // お気に入り状態初期値を定義
             <?php foreach ($recommnd_table->detail as $detail): ?>
-                setFavoriteActions({{ $recommnd_table->category }}, {{ $detail->detail_id }}, {{$detail->fav_flag}});
+                setFavoriteActions('{{ $recommnd_table->table }}', {{ $detail->detail_id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
         <?php if(isset($music_table)){ ?>
             // お気に入り状態初期値を定義
             <?php foreach ($music_table as $detail): ?>
-                setFavoriteActions(0,{{ $detail->id }}, {{$detail->fav_flag}});
+                setFavoriteActions("mus",{{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
         <?php if(isset($album_table)){ ?>
             // お気に入り状態初期値を定義
             <?php foreach ($album_table as $detail): ?>
-                setFavoriteActions(2,{{ $detail->id }}, {{$detail->fav_flag}});
+                setFavoriteActions("alb",{{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
         <?php if(isset($playlist_table)){ ?>
             // お気に入り状態初期値を定義
             <?php foreach ($playlist_table as $detail): ?>
-                setFavoriteActions(3,{{ $detail->id }}, {{$detail->fav_flag}});
+                setFavoriteActions("pl",{{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
 
     });
 
-    function redirectToDetailShow(detail_id,category) {
-        switch(category){
-            case 0:
+    function redirectToDetailShow(detail_id,table) {
+        switch(table){
+            case "mus":
                 window.location.href = "{{ route('music-show') }}?id=" + detail_id;
                 break;
             case 1:
                 break;
-            case 2:
+            case "alb":
                 window.location.href = "{{ route('album-show') }}?id=" + detail_id;
                 break;
-            case 3:
+            case "pl":
                 window.location.href = "{{ route('playlist-show') }}?id=" + detail_id;
                 break;
             default:

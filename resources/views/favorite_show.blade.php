@@ -23,40 +23,30 @@
             <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'playlists')">プレイリスト</a></li>
         </ul>
 
-        @php $tab_name = ['曲', 'アーティスト', 'アルバム', 'プレイリスト']; @endphp
         <div id="all" class="tab-content active">
-            @foreach ($favorite_list as $key=> $table)
-                @if($table) 
-                    <h3>{{$tab_name[$key]}}</h3>
-                    @if($key==0)
-                        @include('layouts.table', ['music_table' => $table])
-                    @elseif($key==1)
-
-                    @elseif($key==2)
-                        @include('layouts.table', ['album_table' => $table])
-                    @elseif($key==3)
-                        @include('layouts.table', ['playlist_table' => $table])
-                    @endif
-                @endif
-            @endforeach
+            <?//テーブルリストは別ファイルで管理?>   
+            <h3>曲</h3>
+            @include('layouts.table', ['music_table' => $favorite_list["mus"]])
+            <h3>アルバム</h3>
+            @include('layouts.table', ['album_table' => $favorite_list["alb"]])
+            <h3>プレイリスト</h3>
+            @include('layouts.table', ['playlist_table' => $favorite_list["pl"]])
         </div>
 
+        <?//テーブルリストは別ファイルで管理?>   
         <div id="songs" class="tab-content">
-            <h3>{{$tab_name[0]}}</h3>
-            <?//テーブルリストは別ファイルで管理?>   
-            @include('layouts.table', ['music_table' => $favorite_list[0]])
+            <h3>曲</h3>
+            @include('layouts.table', ['music_table' => $favorite_list["mus"]])
         </div>
 
         <div id="albums" class="tab-content">
-            <h3>{{$tab_name[1]}}</h3>
-            <?//テーブルリストは別ファイルで管理?>   
-            @include('layouts.table', ['album_table' => $favorite_list[2]])
+            <h3>アルバム</h3> 
+            @include('layouts.table', ['album_table' => $favorite_list["alb"]])
         </div>
 
         <div id="playlists" class="tab-content">
-            <h3>{{$tab_name[3]}}</h3>
-            <?//テーブルリストは別ファイルで管理?>   
-            @include('layouts.table', ['playlist_table' => $favorite_list[3]])
+            <h3>プレイリスト</h3>
+            @include('layouts.table', ['playlist_table' => $favorite_list["pl"]])
         </div>
         
         <?//ログインユーザーのみ表示させるナビ?>   

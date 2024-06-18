@@ -23,7 +23,12 @@ return new class extends Migration
     
             // 外部キー制約の追加なども可能
             //$table->foreign('alb_id')->references('id')->on('albums');
-            $table->foreign('art_id')->references('id')->on('artists');
+            $table->foreign('art_id')->references('id')->on('artists')->onDelete('cascade');
+            
+            // インデックスの追加
+            $table->index('alb_id');
+            $table->index('art_id');
+            $table->index('name');
         });
     }
 

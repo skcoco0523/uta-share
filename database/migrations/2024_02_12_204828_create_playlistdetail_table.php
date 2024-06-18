@@ -18,7 +18,10 @@ return new class extends Migration
             $table->timestamps();
 
             // 外部キー制約
-            $table->foreign('pl_id')->references('id')->on('playlist');
+            $table->foreign('pl_id')->references('id')->on('playlist')->onDelete('cascade');
+            
+            // インデックスの追加
+            $table->index('pl_id');
         });
     }
 

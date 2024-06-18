@@ -63,7 +63,7 @@ class Playlist extends Model
         }
         //ログインしているユーザーはお気に入り情報も取得する
         if (Auth::check()) {
-            $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), 3, $pl_id);
+            $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $pl_id);
         }else{
             $playlist->fav_flag = 0;
         }

@@ -27,13 +27,14 @@ class FavoriteController extends Controller
     //お気に入り表示
     public function favorite_show()
     {
+        $table = ["mus","alb","pl"];
         $favorite_list = array();
-        for( $i=0; $i<4; $i++){
-            $favorite_list[$i] = Favorite::getFavorite(Auth::id(),$i);
+        for( $i=0; $i<3; $i++){
+            $favorite_list[$table[$i]] = Favorite::getFavorite(Auth::id(),$table[$i]);
         }
-        $msg = null;
-
         //dd($favorite_list);
+        $msg = null;
+        
         if($favorite_list){
             return view('favorite_show', compact('favorite_list', 'msg'));
         }else{
@@ -43,10 +44,10 @@ class FavoriteController extends Controller
     //お気に入り登録
     public function favorite_chg(Request $request)
     {
-        $category = $request->input('category');
+        $table = $request->input('table');
         $detail_id = $request->input('detail_id');
         $type = $request->input('type');    //add or del
-        $ret = Favorite::chgFavorite(Auth::id(),$category,$detail_id,$type);
+        $ret = Favorite::chgFavorite(Auth::id(),$table,$detail_id,$type);
         
         return $ret;
         }

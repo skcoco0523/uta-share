@@ -33,9 +33,9 @@
                     <td class="col-3" favorite-id="{{ $music->mus_id }}">
                         
                         @if($music->fav_flag)
-                            <i id="favoriteIcon-0-{{ $music->mus_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                            <i id="favoriteIcon-mus-{{ $music->mus_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('mus',{{ $music->mus_id }})"></i>
                         @else
-                            <i id="favoriteIcon-0-{{ $music->mus_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite({{ $music->mus_id }}, 0)"></i>
+                            <i id="favoriteIcon-mus-{{ $music->mus_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('mus',{{ $music->mus_id }})"></i>
                         @endif
                     </td>
                     <td class="col-3">
@@ -48,7 +48,6 @@
 
         <!-- シェアポップアップモーダル -->
         @include('modals.share-modal', ['title' => $music->name, 'url' => url()->current()])
-
         <?//ログインユーザーのみ表示させるナビ?>   
         @include('layouts.nav_menu')
 
@@ -60,6 +59,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // お気に入り状態初期値を定義
-        setFavoriteActions(0,{{ $music->mus_id }}, {{$music->fav_flag}});
+        setFavoriteActions("mus",{{ $music->mus_id }}, {{$music->fav_flag}});
     });
 </script>

@@ -12,7 +12,7 @@ class Ranking extends Model
     use HasFactory;
     
     //ランキング取得
-    public static function getRanking($rank_type, $category=null, $disp_cnt=10) {
+    public static function getRanking($rank_type, $table=null, $disp_cnt=10) {
         //ランキングタイプごとに分岐
         switch($rank_type){
             case "7week_acc"://直近7週間のアクセス件数ランキング
@@ -27,17 +27,29 @@ class Ranking extends Model
                 break;
             
             case "favorite"://お気に入り曲ランキング
-                if(is_numeric($category)){
-                    $favorite = DB::table('favorite')
-                    ->select('detail_id', DB::raw('COUNT(*) as count'))
-                    ->where('category', $category)
-                    ->groupBy('detail_id')
+                if(is_numeric($table)){
+                    switch($table){
+                        case "mus":
+                            $sql_cmd = $favorite = DB::table('favorite_mus');
+                            break;
+                        case "alb":
+                            $sql_cmd = $favorite = DB::table('favorite_alb');
+                            break;
+                        case "pl":
+                            $sql_cmd = $favorite = DB::table('favorite_pl');
+                            break;
+                        default:
+                            break;
+                    }
+                    $favorite = $sql_cmd
+                    ->select('fav_id', DB::raw('COUNT(*) as count'))
+                    ->groupBy('fav_id')
                     ->orderByDesc('count')
                     ->limit($disp_cnt)
                     ->get();
                     //dd($fav);
                     foreach($favorite as $fav){
-                        $ranking[] = Music::getMusic_detail($fav->detail_id);
+                        $ranking[] = Music::getMusic_detail($fav->fav);
                     }
                 }
                 break;

@@ -18,7 +18,10 @@ return new class extends Migration
             $table->timestamps();
 
             // 外部キー制約
-            $table->foreign('recom_id')->references('id')->on('recommend');
+            $table->foreign('recom_id')->references('id')->on('recommend')->onDelete('cascade');
+            
+            // インデックスの追加
+            $table->index('recom_id');
         });
     }
 

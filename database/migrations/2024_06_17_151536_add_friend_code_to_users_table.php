@@ -9,7 +9,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('friend_code')->unique()->nullable()->after('email');
+            $table->string('friend_code')->unique()->after('email');
+            
+            // インデックスの追加
+            $table->index('friend_code');
         });
     }
 
