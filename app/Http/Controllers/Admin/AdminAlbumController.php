@@ -99,7 +99,7 @@ class AdminAlbumController extends Controller
         else                                    $input = $request->only(['keyword']);
         if (empty($input['keyword']))           $input['keyword']=null;
 
-        $album = Album::getAlbum_list(5,true,$input['keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
+        $album = Album::getAlbum_list(10,true,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
         $artist = Artist::getArtist();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $album === null) ? "検索結果が0件です。" : $msg;

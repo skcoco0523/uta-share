@@ -5,7 +5,7 @@
         @csrf
         <div class="row g-3 align-items-end" >
             <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-            <input type="hidden" name="admin_flg" value="{{$input['admin_flg'] ?? ''}}">
+            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
             <input type="hidden" name="id" value="{{$select->id ?? ''}}">
             <div class="col-sm">
                 <label for="inputname" class="form-label">登録名</label>
@@ -66,6 +66,15 @@
 
 {{--おすすめ一覧--}}
 @if(isset($recommend))
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = [
+            'keyword' => $input['keyword'] ?? '',
+            'id' => $recommend_detail->id ?? '',
+        ];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('admin.layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
     <table class="table table-striped table-hover table-bordered fs-6 ">
         <thead>
         <tr>
@@ -74,7 +83,7 @@
             <th scope="col" class="fw-light">カテゴリ</th>
             <th scope="col" class="fw-light">登録数</th>
             <th scope="col" class="fw-light">表示順</th>
-            <th scope="col" class="fw-light">表示状態</th>              {{--表示状態追加！！！！--}}
+            <th scope="col" class="fw-light">表示状態</th>
             <th scope="col" class="fw-light">登録者</th>
             <th scope="col" class="fw-light">データ登録日</th>
             <th scope="col" class="fw-light">データ更新日</th>
@@ -125,7 +134,7 @@
                         <input type="hidden" name="recom_id" value="{{$recom->id}}">
                         <input type="hidden" name="recom_name" value="{{$recom->name}}">
                         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                        <input type="hidden" name="admin_flg" value="{{$input['admin_flg'] ?? ''}}">
+                        <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
                         <input type="submit" value="削除" class="btn btn-danger">
                     </form>
                 </td>
@@ -133,26 +142,8 @@
         @endforeach
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item {{ $recommend->currentPage() == 1 ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $recommend->previousPageUrl() }}" aria-label="Previous">
-                    <span aria-hidden="true">Previous</span>
-                </a>
-            </li>
-            @for ($i = 1; $i <= $recommend->lastPage(); $i++)
-                <li class="page-item {{ $recommend->currentPage() == $i ? 'active' : '' }}">
-                    <a class="page-link" href="{{ $recommend->url($i) }}&keyword={{$input['keyword'] ?? ''}}&admin_flg={{$input['admin_flg'] ?? ''}}">{{ $i }}</a>
-                    
-                </li>
-            @endfor
-            <li class="page-item {{ $recommend->currentPage() == $recommend->lastPage() ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $recommend->nextPageUrl() }}" aria-label="Next">
-                    <span aria-hidden="true">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    @include('admin.layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
+
     {{--表示順変更--}}
     <form name="recom_sort_chg_form" method="POST" action="{{ route('admin-recommend-sort-chg') }}">
         @csrf
@@ -164,6 +155,14 @@
 
 {{--収録曲変更--}}
 @if(isset($recommend_detail))
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = [
+            'keyword' => $input['keyword'] ?? '',
+            'id' => $recommend_detail->id ?? '',
+            'category' => $recommend_detail->category ?? '',
+        ];
+    @endphp
     <div class="row g-3 align-items-end">
         <div class="col-sm">
             <label for="inputname" class="form-label">プレイリスト名</label>
@@ -214,6 +213,8 @@
                 </form>
                 {{--追加用テーブル--}}
                 @if(isset($detail) && is_iterable($detail))
+                    {{--ﾍﾟｰｼﾞｬｰ--}}
+                    @include('admin.layouts.pagination', ['paginator' => $detail,'additionalParams' => $additionalParams,])
                     <table class="table table-striped table-hover table-bordered fs-6 ">
                         <thead>
                         <tr>
@@ -243,26 +244,8 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item {{ $detail->currentPage() == 1 ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $detail->previousPageUrl() }}" aria-label="Previous">
-                                    <span aria-hidden="true">Previous</span>
-                                </a>
-                            </li>
-                            @for ($i = 1; $i <= $detail->lastPage(); $i++)
-                                <li class="page-item {{ $detail->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $detail->url($i) }}&del_keyword={{$input['del_keyword'] ?? ''}}&id={{$recommend_detail->id}}">{{ $i }}</a>
-                                    
-                                </li>
-                            @endfor
-                            <li class="page-item {{ $detail->currentPage() == $detail->lastPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $detail->nextPageUrl() }}" aria-label="Next">
-                                    <span aria-hidden="true">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{--ﾍﾟｰｼﾞｬｰ--}}
+                    @include('admin.layouts.pagination', ['paginator' => $detail,'additionalParams' => $additionalParams,])
                 @endif 
             </div>
         </div>

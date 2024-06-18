@@ -869,3 +869,21 @@
 )
   
 [2024-05-22 18:19:39] local.DEBUG: success  
+[2024-06-18 23:12:04] local.DEBUG: ---------start----------  
+[2024-06-18 23:12:04] local.DEBUG: data=Array
+(
+    [name] => プレイリスト　テスト
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-18 23:12:04] local.DEBUG: success  
+[2024-06-18 23:12:16] local.DEBUG: ---------start----------  
+[2024-06-18 23:12:16] local.DEBUG: data=Array
+(
+    [name] => プレイリスト　テスト2
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-18 23:12:16] local.DEBUG: success  

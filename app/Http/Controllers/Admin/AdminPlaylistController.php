@@ -26,7 +26,7 @@ class AdminPlaylistController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['name']);
         
-        $playlist = Playlist::getPlaylist_list(5,false,null,1);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flag
+        $playlist = Playlist::getPlaylist_list(5,false,null,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flag
         $msg = request('msg');
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist', 'input', 'msg'));
     }
@@ -69,7 +69,7 @@ class AdminPlaylistController extends Controller
 
         $input['chg_flg'] = 0;
         //dd($input);
-        $playlist = Playlist::getPlaylist_list(5,true,$input['keyword'],$input['admin_flag']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flag
+        $playlist = Playlist::getPlaylist_list(10,true,$input['keyword'],$input['admin_flag']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flag
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($playlist) === 0) ? "検索結果が0件です。" : $msg;
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist', 'input', 'msg'));
@@ -131,7 +131,7 @@ class AdminPlaylistController extends Controller
         $playlist = null;
         
         //楽曲検索
-        $music = Music::getMusic_list(5,true,$input['mus_keyword']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+        $music = Music::getMusic_list(10,true,$input['mus_keyword']);  //件数,なし,ｷｰﾜｰﾄﾞ　リスト用
 
         $msg = request('msg');
         $msg = ($msg===NULL && $input['mus_keyword'] !==null && $music === null) ? "検索結果が0件です。" : $msg;

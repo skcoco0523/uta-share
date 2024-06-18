@@ -77,7 +77,7 @@ class AdminMusicController extends Controller
         else                                    $input = $request->only(['keyword']);
         if (empty($input['keyword']))           $input['keyword']=null;
 
-        $musics = Music::getMusic_list(5,true,$input['keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
+        $musics = Music::getMusic_list(10,true,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
         $artists = Artist::getArtist();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $musics === null) ? "検索結果が0件です。" : $msg;

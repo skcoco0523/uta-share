@@ -71,9 +71,9 @@ class AdminRecommendController extends Controller
         //$sort_flag = ($input['category']!=null) ?       1:0;
         if($input['category']!=null){
             //カテゴリ検索時は表示順を切り替えるため件数を15に増やす
-            $recommend = Recommend::getRecommend_list(15,true,$input['keyword'],$input['category'],1);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,category,表示順ソート
+            $recommend = Recommend::getRecommend_list(15,true,$input['keyword'],$input['category'],1);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,category,表示順ソート
         }else{
-            $recommend = Recommend::getRecommend_list(null,true,$input['keyword'],$input['category'],0);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,category,
+            $recommend = Recommend::getRecommend_list(10,true,$input['keyword'],$input['category'],0);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,category,
         }
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($recommend) === 0) ? "検索結果が0件です。" : $msg;

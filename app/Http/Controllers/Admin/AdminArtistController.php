@@ -51,7 +51,7 @@ class AdminArtistController extends Controller
         else                                    $input = $request->only(['keyword']);
         if (empty($input['keyword']))           $input['keyword']=null;
 
-        $artists = Artist::getArtist(5,true,$input['keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
+        $artists = Artist::getArtist(10,true,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($artists) === 0) ? "検索結果が0件です。" : $msg;
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'input', 'msg'));

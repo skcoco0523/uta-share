@@ -50,6 +50,15 @@
 
 {{--プレイリスト一覧--}}
 @if(isset($playlist))
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = [
+            'keyword' => $input['keyword'] ?? '',
+            'admin_flag' => $input['admin_flag'] ?? '',
+        ];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('admin.layouts.pagination', ['paginator' => $playlist,'additionalParams' => $additionalParams,])
     <table class="table table-striped table-hover table-bordered fs-6 ">
         <thead>
         <tr>
@@ -97,26 +106,8 @@
         @endforeach
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item {{ $playlist->currentPage() == 1 ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $playlist->previousPageUrl() }}&keyword={{$input['keyword'] ?? ''}}&admin_flag={{$input['admin_flag'] ?? ''}}" aria-label="Previous">
-                    <span aria-hidden="true">Previous</span>
-                </a>
-            </li>
-            @for ($i = 1; $i <= $playlist->lastPage(); $i++)
-                <li class="page-item {{ $playlist->currentPage() == $i ? 'active' : '' }}">
-                    <a class="page-link" href="{{ $playlist->url($i) }}&keyword={{$input['keyword'] ?? ''}}&admin_flag={{$input['admin_flag'] ?? ''}}">{{ $i }}</a>
-                    
-                </li>
-            @endfor
-            <li class="page-item {{ $playlist->currentPage() == $playlist->lastPage() ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $playlist->nextPageUrl() }}&keyword={{$input['keyword'] ?? ''}}&admin_flag={{$input['admin_flag'] ?? ''}}" aria-label="Next">
-                    <span aria-hidden="true">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('admin.layouts.pagination', ['paginator' => $playlist,'additionalParams' => $additionalParams,])
 @endif
 
 {{--収録曲変更--}}
@@ -169,6 +160,15 @@
                 </form>
                 {{--追加用テーブル--}}
                 @if(isset($music) && is_iterable($music))
+                    {{--ﾊﾟﾗﾒｰﾀ--}}
+                    @php
+                        $additionalParams = [
+                            'keyword' => $input['keyword'] ?? '',
+                            'id' => $playlist_detail->id ?? '',
+                        ];
+                    @endphp
+                    {{--ﾍﾟｰｼﾞｬｰ--}}
+                    @include('admin.layouts.pagination', ['paginator' => $music,'additionalParams' => $additionalParams,])
                     <table class="table table-striped table-hover table-bordered fs-6 ">
                         <thead>
                         <tr>
@@ -194,26 +194,8 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item {{ $music->currentPage() == 1 ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $music->previousPageUrl() }}" aria-label="Previous">
-                                    <span aria-hidden="true">Previous</span>
-                                </a>
-                            </li>
-                            @for ($i = 1; $i <= $music->lastPage(); $i++)
-                                <li class="page-item {{ $music->currentPage() == $i ? 'active' : '' }}">
-                                    <a class="page-link" href="{{ $music->url($i) }}&mus_keyword={{$input['mus_keyword'] ?? ''}}&id={{$playlist_detail->id}}">{{ $i }}</a>
-                                    
-                                </li>
-                            @endfor
-                            <li class="page-item {{ $music->currentPage() == $music->lastPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $music->nextPageUrl() }}" aria-label="Next">
-                                    <span aria-hidden="true">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{--ﾍﾟｰｼﾞｬｰ--}}
+                    @include('admin.layouts.pagination', ['paginator' => $music,'additionalParams' => $additionalParams,])
                 @endif 
             </div>
         </div>

@@ -54,6 +54,12 @@
 
 {{--アーティスト一覧--}}
 @if(isset($artists))
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['keyword' => $input['keyword'] ?? '',];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('admin.layouts.pagination', ['paginator' => $artists,'additionalParams' => $additionalParams,])
     <table class="table table-striped table-hover table-bordered fs-6 ">
         <thead>
         <tr>
@@ -93,26 +99,8 @@
         @endforeach
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item {{ $artists->currentPage() == 1 ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $artists->previousPageUrl() }}" aria-label="Previous">
-                    <span aria-hidden="true">Previous</span>
-                </a>
-            </li>
-            @for ($i = 1; $i <= $artists->lastPage(); $i++)
-                <li class="page-item {{ $artists->currentPage() == $i ? 'active' : '' }}">
-                    <a class="page-link" href="{{ $artists->url($i) }}&keyword={{$input['keyword'] ?? ''}}">{{ $i }}</a>
-                    
-                </li>
-            @endfor
-            <li class="page-item {{ $artists->currentPage() == $artists->lastPage() ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $artists->nextPageUrl() }}" aria-label="Next">
-                    <span aria-hidden="true">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('admin.layouts.pagination', ['paginator' => $artists,'additionalParams' => $additionalParams,])
 @endif
 
 <script>

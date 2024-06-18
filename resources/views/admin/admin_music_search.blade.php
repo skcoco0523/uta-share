@@ -75,6 +75,12 @@
 {{--曲一覧--}}
 @if(isset($musics))
     ｱﾌｨﾘｴｲﾄﾘﾝｸ(ｲﾒｰｼﾞ&ﾘﾝｸ)はアルバムの情報が優先されます
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['keyword' => $input['keyword'] ?? '',];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('admin.layouts.pagination', ['paginator' => $musics,'additionalParams' => $additionalParams,])
     <table class="table table-striped table-hover table-bordered fs-6 ">
         <thead>
         <tr>
@@ -117,26 +123,8 @@
         @endforeach
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item {{ $musics->currentPage() == 1 ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $musics->previousPageUrl() }}" aria-label="Previous">
-                    <span aria-hidden="true">Previous</span>
-                </a>
-            </li>
-            @for ($i = 1; $i <= $musics->lastPage(); $i++)
-                <li class="page-item {{ $musics->currentPage() == $i ? 'active' : '' }}">
-                    <a class="page-link" href="{{ $musics->url($i) }}&keyword={{$input['keyword'] ?? ''}}">{{ $i }}</a>
-                    
-                </li>
-            @endfor
-            <li class="page-item {{ $musics->currentPage() == $musics->lastPage() ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $musics->nextPageUrl() }}" aria-label="Next">
-                    <span aria-hidden="true">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('admin.layouts.pagination', ['paginator' => $musics,'additionalParams' => $additionalParams,])
 @endif
 
 <script>
