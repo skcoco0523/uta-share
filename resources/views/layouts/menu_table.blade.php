@@ -15,7 +15,7 @@
                     <i data-favorite-id="{{ $table }}-{{ $detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail_id }})"></i>
                 @endif
             </td>
-            <td class="col-3">
+            <td class="col-3 mus_only">
                 <i class="fa-regular fa-square-plus icon-20 red"></i>
             </td>
             <td class="col-1"></td>
@@ -31,6 +31,16 @@
         <?php if(isset($detail_id) && isset($table)){ ?>
             setFavoriteActions('{{$table}}',{{ $detail_id }}, {{$fav_flag}});
         <?php } ?>
+
+        // mus以外はプレイリストメニューは無し
+        const table = '{{ $table }}';
+        if (table !== 'mus') {
+            const musOnlyElements = document.querySelectorAll('.mus_only');
+            musOnlyElements.forEach(element => {
+                element.style.display = 'none';
+            });
+        }
+
     });
 
 </script>

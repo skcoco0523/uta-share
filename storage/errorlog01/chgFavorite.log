@@ -624,3 +624,19 @@
 [2024-06-19 03:44:53] local.DEBUG: user_id=1 table=pl fav_id=1 type=add  
 [2024-06-19 03:44:53] local.DEBUG: fav_chk=0  
 [2024-06-19 03:44:53] local.DEBUG: to add  
+[2024-06-19 08:54:49] local.DEBUG: -------start-------  
+[2024-06-19 08:54:49] local.DEBUG: user_id=1 table=mus fav_id=2 type=add  
+[2024-06-19 08:54:49] local.DEBUG: fav_chk=0  
+[2024-06-19 08:54:49] local.DEBUG: to add  
+[2024-06-19 08:54:51] local.DEBUG: -------start-------  
+[2024-06-19 08:54:51] local.DEBUG: user_id=1 table=mus fav_id=2 type=del  
+[2024-06-19 08:54:51] local.DEBUG: fav_chk=1  
+[2024-06-19 08:54:51] local.DEBUG: delete  
+[2024-06-19 09:58:19] local.DEBUG: -------start-------  
+[2024-06-19 09:58:19] local.DEBUG: user_id=1 table=pl fav_id=2 type=del  
+[2024-06-19 09:58:19] local.DEBUG: fav_chk=1  
+[2024-06-19 09:58:19] local.DEBUG: delete  
+[2024-06-19 09:58:22] local.DEBUG: -------start-------  
+[2024-06-19 09:58:22] local.DEBUG: user_id=1 table=pl fav_id=2 type=add  
+[2024-06-19 09:58:22] local.DEBUG: fav_chk=0  
+[2024-06-19 09:58:22] local.DEBUG: to add  

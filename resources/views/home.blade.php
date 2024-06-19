@@ -14,7 +14,7 @@
         @if(isset($ranking['fav_mus']))
             <div class="py-3">
                 <div class="title-text">
-                    <h4>みんなのお気に入り</h4>
+                    <h3>みんなのお気に入り</h3>
                     <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
                 </div>
                 <div class="d-flex overflow-auto contents_box">
@@ -34,7 +34,7 @@
         @if(isset($playlist))
             <div class="py-2">
                 <div class="title-text">
-                    <h4>プレイリスト</h4>
+                    <h3>プレイリスト</h3>
                     <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
                 </div>
                 <div class="d-flex overflow-auto contents_box">
@@ -74,7 +74,7 @@
         @if(isset($recommend_mus))
             <div class="py-2">
                 <div class="title-text">
-                    <h4>おすすめ：曲</h4>
+                    <h3>曲</h3>
                     <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
                 </div>
                 <div class="d-flex overflow-auto contents_box">
@@ -93,7 +93,7 @@
         @if(isset($recommend_alb))
             <div class="py-2">
                 <div class="title-text">
-                    <h4>おすすめ：アルバム</h4>
+                    <h3>アルバム</h3>
                     <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
                 </div>
                 <div class="d-flex overflow-auto contents_box">
@@ -112,7 +112,7 @@
         @if(isset($recommend_pl))
             <div class="py-2">
                 <div class="title-text">
-                    <h4>おすすめ：プレイリスト</h4>
+                    <h3>プレイリスト</h3>
                     <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
                 </div>
                 <div class="d-flex overflow-auto contents_box">
