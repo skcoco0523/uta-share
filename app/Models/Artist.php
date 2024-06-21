@@ -11,7 +11,7 @@ class Artist extends Model
     use HasFactory;
     protected $fillable = ['name', 'name2', 'debut', 'sex'];
     //取得
-    public static function getArtist($disp_cnt=null,$pageing=false,$keyword=null)
+    public static function getArtist($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
         $sql_cmd = DB::table('artists')->orderBy('created_at', 'desc')
             ->where('name', 'like', "%$keyword%")
@@ -20,7 +20,7 @@ class Artist extends Model
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;
         // ページング・取得件数指定・全件で分岐
-        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
         elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
         else                                $sql_cmd = $sql_cmd->get();
 

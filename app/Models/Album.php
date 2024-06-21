@@ -14,7 +14,7 @@ class Album extends Model
     use HasFactory;
     protected $fillable = ['name', 'art_id', 'release_date', 'aff_id'];     //一括代入の許可
     //アルバム一覧取得
-    public static function getAlbum_list($disp_cnt=null,$pageing=false,$keyword=null)
+    public static function getAlbum_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
         $sql_cmd = DB::table('albums')
             ->orderBy('created_at', 'desc')

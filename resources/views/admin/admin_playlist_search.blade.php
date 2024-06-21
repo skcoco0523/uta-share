@@ -7,6 +7,7 @@
             <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
             <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
             <input type="hidden" name="id" value="{{$select->id ?? ''}}">
+            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
             <div class="col-sm">
                 <label for="inputname" class="form-label">ﾌﾟﾚｲﾘｽﾄ名</label>
                 <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
@@ -99,6 +100,7 @@
                         <input type="hidden" name="pl_name" value="{{$pl->name}}">
                         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
                         <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
+                        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                         <input type="submit" value="削除" class="btn btn-danger">
                     </form>
                 </td>
@@ -163,7 +165,7 @@
                     {{--ﾊﾟﾗﾒｰﾀ--}}
                     @php
                         $additionalParams = [
-                            'keyword' => $input['keyword'] ?? '',
+                            'mus_keyword' => $input['mus_keyword'] ?? '',
                             'id' => $playlist_detail->id ?? '',
                         ];
                     @endphp
@@ -208,6 +210,8 @@
     <input type="hidden" name="fnc" value="">
     <input type="hidden" name="pl_id" value="{{$playlist_detail->id}}">
     <input type="hidden" name="detail_id" value="">
+    <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+    <input type="hidden" name="mus_keyword" value="{{$input['mus_keyword'] ?? ''}}">
 </form>
 
 @endif

@@ -887,3 +887,148 @@
 )
   
 [2024-06-18 23:12:16] local.DEBUG: success  
+[2024-06-20 18:15:07] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:07] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:07] local.DEBUG: success  
+[2024-06-20 18:15:12] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:12] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:12] local.DEBUG: success  
+[2024-06-20 18:15:13] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:13] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:13] local.DEBUG: success  
+[2024-06-20 18:15:15] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:15] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:15] local.DEBUG: success  
+[2024-06-20 18:15:16] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:16] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:16] local.DEBUG: success  
+[2024-06-20 18:15:17] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:17] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:17] local.DEBUG: success  
+[2024-06-20 18:15:19] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:19] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:19] local.DEBUG: success  
+[2024-06-20 18:15:20] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:20] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:20] local.DEBUG: success  
+[2024-06-20 18:15:26] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:26] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:26] local.DEBUG: success  
+[2024-06-20 18:15:27] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:27] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:27] local.DEBUG: success  
+[2024-06-20 18:15:29] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:29] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:29] local.DEBUG: success  
+[2024-06-20 18:15:30] local.DEBUG: ---------start----------  
+[2024-06-20 18:15:30] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:15:30] local.DEBUG: success  
+[2024-06-20 18:52:51] local.DEBUG: ---------start----------  
+[2024-06-20 18:52:51] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 18:52:51] local.DEBUG: success  
+[2024-06-20 18:54:44] local.DEBUG: ---------start----------  
+[2024-06-20 19:07:06] local.DEBUG: ---------start----------  
+[2024-06-20 19:07:06] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 19:07:06] local.DEBUG: success  
+[2024-06-20 19:07:07] local.DEBUG: ---------start----------  
+[2024-06-20 19:07:07] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 19:07:07] local.DEBUG: success  
+[2024-06-20 19:07:08] local.DEBUG: ---------start----------  
+[2024-06-20 19:07:08] local.DEBUG: data=Array
+(
+    [name] => test
+    [user_id] => 1
+    [admin_flag] => 1
+)
+  
+[2024-06-20 19:07:08] local.DEBUG: success  

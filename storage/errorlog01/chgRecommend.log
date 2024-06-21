@@ -1225,3 +1225,154 @@
 )
   
 [2024-06-19 00:50:37] local.DEBUG: success  
+[2024-06-19 15:38:02] local.DEBUG: ---------start----------  
+[2024-06-19 15:38:02] local.DEBUG: data=Array
+(
+    [id] => 5
+    [name] => test
+    [category] => 
+    [disp_flag] => 0
+)
+  
+[2024-06-19 15:38:02] local.DEBUG: success  
+[2024-06-19 15:38:28] local.DEBUG: ---------start----------  
+[2024-06-19 15:38:28] local.DEBUG: data=Array
+(
+    [id] => 7
+    [name] => test
+    [category] => 
+    [disp_flag] => 0
+)
+  
+[2024-06-19 15:38:28] local.DEBUG: success  
+[2024-06-19 15:39:19] local.DEBUG: ---------start----------  
+[2024-06-19 15:39:19] local.DEBUG: data=Array
+(
+    [id] => 7
+    [name] => test
+    [category] => 
+    [disp_flag] => 0
+)
+  
+[2024-06-19 15:39:19] local.DEBUG: success  
+[2024-06-19 15:40:43] local.DEBUG: ---------start----------  
+[2024-06-19 15:40:43] local.DEBUG: data=Array
+(
+    [id] => 7
+    [name] => test
+    [category] => 
+    [disp_flag] => 0
+)
+  
+[2024-06-19 15:40:43] local.DEBUG: success  
+[2024-06-20 17:10:05] local.DEBUG: ---------start----------  
+[2024-06-20 17:10:05] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 1
+    [name] => おすすめ曲
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 17:10:05] local.DEBUG: success  
+[2024-06-20 17:10:09] local.DEBUG: ---------start----------  
+[2024-06-20 17:10:09] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 29
+    [name] => test
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 17:10:09] local.DEBUG: success  
+[2024-06-20 17:11:15] local.DEBUG: ---------start----------  
+[2024-06-20 17:11:15] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 29
+    [page] => 2
+    [name] => test
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 17:11:15] local.DEBUG: success  
+[2024-06-20 17:11:23] local.DEBUG: ---------start----------  
+[2024-06-20 17:11:23] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 29
+    [page] => 
+    [name] => test_edit
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 17:11:23] local.DEBUG: success  
+[2024-06-20 17:11:41] local.DEBUG: ---------start----------  
+[2024-06-20 17:11:41] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 29
+    [page] => 2
+    [name] => test_edit2
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 17:11:41] local.DEBUG: success  
+[2024-06-20 17:11:50] local.DEBUG: ---------start----------  
+[2024-06-20 17:11:50] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 29
+    [page] => 
+    [name] => test_edit2
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 17:11:50] local.DEBUG: success  
+[2024-06-20 17:12:10] local.DEBUG: ---------start----------  
+[2024-06-20 17:12:10] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 29
+    [page] => 2
+    [name] => test_edit3
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 17:12:10] local.DEBUG: success  
+[2024-06-20 17:12:28] local.DEBUG: ---------start----------  

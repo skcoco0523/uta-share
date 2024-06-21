@@ -55,3 +55,37 @@
 [2024-05-18 17:26:10] local.DEBUG: ---------start----------  
 [2024-05-18 17:26:10] local.DEBUG: sort_chg id=13-up  
 [2024-05-18 17:26:10] local.DEBUG: success  
+[2024-06-20 16:56:53] local.DEBUG: -----start-----  
+[2024-06-20 16:56:53] local.DEBUG: fnc=down recom_id=15  
+[2024-06-20 16:56:53] local.DEBUG: ---------start----------  
+[2024-06-20 16:56:53] local.DEBUG: sort_chg id=15-down  
+[2024-06-20 16:56:53] local.DEBUG: success  
+[2024-06-20 17:07:51] local.DEBUG: -----start-----  
+[2024-06-20 17:07:51] local.DEBUG: fnc=up recom_id=28  
+[2024-06-20 17:07:51] local.DEBUG: ---------start----------  
+[2024-06-20 17:07:51] local.DEBUG: sort_chg id=28-up  
+[2024-06-20 17:07:51] local.DEBUG: success  
+[2024-06-20 17:08:07] local.DEBUG: -----start-----  
+[2024-06-20 17:08:07] local.DEBUG: fnc=up recom_id=30  
+[2024-06-20 17:08:07] local.DEBUG: ---------start----------  
+[2024-06-20 17:08:07] local.DEBUG: sort_chg id=30-up  
+[2024-06-20 17:08:07] local.DEBUG: success  
+[2024-06-20 17:18:14] local.DEBUG: -----start-----  
+[2024-06-20 17:18:14] local.DEBUG: fnc=down recom_id=16  
+[2024-06-20 17:18:14] local.DEBUG: ---------start----------  
+[2024-06-20 17:18:14] local.DEBUG: sort_chg id=16-down  
+[2024-06-20 17:18:14] local.DEBUG: success  
+[2024-06-20 17:18:41] local.DEBUG: -----start-----  
+[2024-06-20 17:18:41] local.DEBUG: fnc=down recom_id=29  
+[2024-06-20 17:18:41] local.DEBUG: ---------start----------  
+[2024-06-20 17:18:41] local.DEBUG: sort_chg id=29-down  
+[2024-06-20 17:18:53] local.DEBUG: -----start-----  
+[2024-06-20 17:18:53] local.DEBUG: fnc=down recom_id=15  
+[2024-06-20 17:18:53] local.DEBUG: ---------start----------  
+[2024-06-20 17:18:53] local.DEBUG: sort_chg id=15-down  
+[2024-06-20 17:18:53] local.DEBUG: success  
+[2024-06-20 17:18:57] local.DEBUG: -----start-----  
+[2024-06-20 17:18:57] local.DEBUG: fnc=down recom_id=16  
+[2024-06-20 17:18:57] local.DEBUG: ---------start----------  
+[2024-06-20 17:18:57] local.DEBUG: sort_chg id=16-down  
+[2024-06-20 17:18:57] local.DEBUG: success  

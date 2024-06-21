@@ -7,6 +7,7 @@
             <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
             <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
             <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
+            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
             <div class="col-sm">
                 <label for="inputname" class="form-label">ｱﾙﾊﾞﾑ名</label>
                 <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['alb_name'] ?? '') }}">
@@ -123,6 +124,7 @@
                         <input type="hidden" name="aff_id" value="{{$alb->aff_id}}">
                         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
                         <input type="hidden" name="music_list" value="{{$alb->music_list}}">
+                        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                         <input type="submit" value="削除" class="btn btn-danger">
                     </form>
                 </td>
@@ -191,6 +193,7 @@
         <input type="hidden" name="alb_id" value="{{$album_detail->id}}">
         <input type="hidden" name="mus_id" value="">
         <input type="hidden" name="name" value="">
+        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
     </form>
 
 @endif

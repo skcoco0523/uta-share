@@ -258,3 +258,211 @@
 )
   
 [2024-03-19 22:38:34] local.DEBUG: success  
+[2024-06-19 15:11:11] local.DEBUG: -------start-------  
+[2024-06-19 15:11:11] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 74
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => ユメミグサ
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:12:12
+    [updated_at] => 2024-06-18 22:12:12
+)
+  
+[2024-06-19 15:11:11] local.DEBUG: after_data=Array
+(
+    [id] => 74
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => ユメミグサ
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-19 15:11:11] local.DEBUG: success  
+[2024-06-19 15:15:56] local.DEBUG: -------start-------  
+[2024-06-19 15:15:56] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 74
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => ユメミグサ
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:12:12
+    [updated_at] => 2024-06-19 15:11:11
+)
+  
+[2024-06-19 15:15:56] local.DEBUG: after_data=Array
+(
+    [id] => 74
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => ユメミグサ
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-19 15:15:56] local.DEBUG: success  
+[2024-06-20 18:20:10] local.DEBUG: -------start-------  
+[2024-06-20 18:20:10] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 70
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => 棘
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:12:12
+    [updated_at] => 2024-06-18 22:12:12
+)
+  
+[2024-06-20 18:20:10] local.DEBUG: after_data=Array
+(
+    [id] => 70
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => 棘
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-20 18:20:10] local.DEBUG: success  
+[2024-06-20 18:20:16] local.DEBUG: -------start-------  
+[2024-06-20 18:20:16] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 77
+    [alb_id] => 8
+    [art_id] => 3
+    [name] => VS
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:18:35
+    [updated_at] => 2024-06-18 22:18:35
+)
+  
+[2024-06-20 18:20:16] local.DEBUG: after_data=Array
+(
+    [id] => 77
+    [alb_id] => 8
+    [art_id] => 3
+    [name] => VS
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-20 18:20:16] local.DEBUG: success  
+[2024-06-20 18:22:17] local.DEBUG: -------start-------  
+[2024-06-20 18:22:17] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 64
+    [alb_id] => 6
+    [art_id] => 3
+    [name] => HEEEY！
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:09:11
+    [updated_at] => 2024-06-18 22:09:11
+)
+  
+[2024-06-20 18:22:17] local.DEBUG: after_data=Array
+(
+    [id] => 64
+    [alb_id] => 6
+    [art_id] => 3
+    [name] => HEEEY！
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-20 18:22:17] local.DEBUG: success  
+[2024-06-20 18:23:08] local.DEBUG: -------start-------  
+[2024-06-20 18:23:08] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 70
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => 棘
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:12:12
+    [updated_at] => 2024-06-20 18:20:10
+)
+  
+[2024-06-20 18:23:08] local.DEBUG: after_data=Array
+(
+    [id] => 70
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => 棘
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-20 18:23:08] local.DEBUG: success  
+[2024-06-20 18:23:20] local.DEBUG: -------start-------  
+[2024-06-20 18:23:21] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 76
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => 喝采
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:12:12
+    [updated_at] => 2024-06-18 22:12:12
+)
+  
+[2024-06-20 18:23:21] local.DEBUG: after_data=Array
+(
+    [id] => 76
+    [alb_id] => 7
+    [art_id] => 3
+    [name] => 喝采
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-20 18:23:21] local.DEBUG: success  
+[2024-06-20 19:12:04] local.DEBUG: -------start-------  
+[2024-06-20 19:12:04] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 50
+    [alb_id] => 5
+    [art_id] => 2
+    [name] => インターネットの海を越えて
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:00:06
+    [updated_at] => 2024-06-18 22:00:06
+)
+  
+[2024-06-20 19:12:04] local.DEBUG: after_data=Array
+(
+    [id] => 50
+    [alb_id] => 5
+    [art_id] => 2
+    [name] => インターネットの海を越えて
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-06-20 19:12:04] local.DEBUG: success  

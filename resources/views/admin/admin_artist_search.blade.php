@@ -5,6 +5,7 @@
     <div class="row g-3 align-items-end" >
         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
         <input type="hidden" name="id" value="{{$select->id ?? ''}}">
+        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
         <div class="col-sm">
             <label for="inputname" class="form-label">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
@@ -92,6 +93,7 @@
                         @csrf
                         <input type="hidden" name="id" value="{{$artist->id}}">
                         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+                        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                         <input type="submit" value="削除" class="btn btn-danger">
                     </form>
                 </td>

@@ -29,7 +29,7 @@ class AdminMusicController extends Controller
         
         //追加からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['name', 'art_name', 'release_date', 'link']);
+        else                                    $input = $request->all();
         
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'musics', 'artists', 'input', 'msg'));
     }
@@ -74,10 +74,11 @@ class AdminMusicController extends Controller
         $ope_type="music_search";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['keyword']);
+        else                                    $input = $request->all();
         if (empty($input['keyword']))           $input['keyword']=null;
-
-        $musics = Music::getMusic_list(10,true,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
+        // 現在のページ番号を取得。指定がない場合は1を使用
+        if (empty($input['page']))              $input['page'] = 1;
+        $musics = Music::getMusic_list(10,true,$input['page'],$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $artists = Artist::getArtist();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $musics === null) ? "検索結果が0件です。" : $msg;
@@ -86,19 +87,19 @@ class AdminMusicController extends Controller
     //削除
     public function music_del(Request $request)
     {
-        $input = $request->only(['id','name']);
+        $input = $request->all();
         //$msg = Music::delMusic($data['id']);
         $ret = Music::delMusic($input['id']);
         if($ret['error_code']==0)     $msg = "曲：". $input['name']. "を削除しました。";
         if($ret['error_code']==-1)    $msg = "曲の削除に失敗しました。";
 
-        $input = $request->only(['keyword']);
         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
     }
     //変更
     public function music_chg(Request $request)
     {
-        $input = $request->only(['id', 'alb_name', 'art_id', 'alb_id', 'art_name', 'release_date', 'link', 'aff_id', 'aff_link', 'keyword']);
+        //$input = $request->only(['id', 'alb_name', 'art_id', 'alb_id', 'art_name', 'release_date', 'link', 'aff_id', 'aff_link', 'keyword','page']);
+        $input = $request->all();
         $msg=null;
         //music,Affiliate,Musicを一括で登録するため、事前にデータ確認
         //if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
@@ -109,7 +110,8 @@ class AdminMusicController extends Controller
         if($msg!==null)         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
 
         //affiliate変更
-        $input = $request->only(['aff_link', 'aff_id']);
+        //$input = $request->only(['aff_link', 'aff_id','page']);
+        $input = $request->all();
         if($input['aff_link']){
             $ret = Affiliate::chgAffiliate($input);
             if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
@@ -120,7 +122,8 @@ class AdminMusicController extends Controller
         }
         
         //music変更
-        $input = $request->only(['id', 'alb_name', 'art_id','release_date', 'link']);
+        //$input = $request->only(['id', 'alb_name', 'art_id','release_date', 'link','page']);
+        $input = $request->all();
         $input['name'] = $input['alb_name'];    //musicのカラム名に合わせる
         if($input){
             $ret = Music::chgMusic($input);
@@ -131,7 +134,8 @@ class AdminMusicController extends Controller
         
         }
         //収録曲は詳細変更でのみ可能
-        $input = $request->only(['keyword']);
+        //$input = $request->only(['keyword','page']);
+        $input = $request->all();
         $msg = "アルバム：" . $request->input('alb_name') . " を更新しました。";
         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
     }

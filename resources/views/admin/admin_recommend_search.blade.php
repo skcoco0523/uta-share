@@ -7,6 +7,7 @@
             <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
             <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
             <input type="hidden" name="id" value="{{$select->id ?? ''}}">
+            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
             <div class="col-sm">
                 <label for="inputname" class="form-label">登録名</label>
                 <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
@@ -71,6 +72,7 @@
         $additionalParams = [
             'keyword' => $input['keyword'] ?? '',
             'id' => $recommend_detail->id ?? '',
+            'category' => $input['category'] ?? '',
         ];
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
@@ -133,8 +135,10 @@
                         @csrf
                         <input type="hidden" name="recom_id" value="{{$recom->id}}">
                         <input type="hidden" name="recom_name" value="{{$recom->name}}">
+                        <input type="hidden" name="category" value="{{$input['category'] ?? ''}}">
                         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
                         <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
+                        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                         <input type="submit" value="削除" class="btn btn-danger">
                     </form>
                 </td>
@@ -158,7 +162,7 @@
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = [
-            'keyword' => $input['keyword'] ?? '',
+            'dtl_keyword' => $input['dtl_keyword'] ?? '',
             'id' => $recommend_detail->id ?? '',
             'category' => $recommend_detail->category ?? '',
         ];
@@ -202,6 +206,7 @@
 
                 <input type="hidden" name="id" value="{{$recommend_detail->id}}">
                 <input type="hidden" name="category" value="{{$input['category']}}">
+                <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                     <div class="row g-3 align-items-end">
                         <div class="col-sm-6">
                             <input type="text" id="keyword" name="dtl_keyword" class="form-control" value="{{$input['dtl_keyword'] ?? ''}}" placeholder="検索({{$recommend_detail->item1}})">
@@ -258,6 +263,8 @@
     <input type="hidden" name="fnc" value="">
     <input type="hidden" name="recom_id" value="{{$recommend_detail->id}}">
     <input type="hidden" name="category" value="{{$input['category']}}">
+    <input type="hidden" name="dtl_keyword" value="{{$input['dtl_keyword'] ?? ''}}">
+    <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
     <input type="hidden" name="detail_id" value="">
 </form>
 

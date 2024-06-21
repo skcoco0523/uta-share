@@ -16,7 +16,7 @@ class Music extends Model
     protected $fillable = ['alb_id', 'art_id', 'name', 'release_date', 'link', 'aff_id'];     //一括代入の許可
 
     //楽曲一覧取得
-    public static function getMusic_list($disp_cnt=null,$pageing=false,$keyword=null)
+    public static function getMusic_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
         $sql_cmd = DB::table('musics')
         ->join('artists', 'musics.art_id', '=', 'artists.id')
@@ -33,7 +33,7 @@ class Music extends Model
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;
         // ページング・取得件数指定・全件で分岐
-        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
         elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
         else                                $sql_cmd = $sql_cmd->get();
 

@@ -30,7 +30,7 @@ class AdminAlbumController extends Controller
         
         //追加からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['alb_name', 'art_name', 'release_date', 'sex']);
+        else                                    $input = $request->all();
         
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'albums', 'input', 'msg'));
     }
@@ -96,10 +96,12 @@ class AdminAlbumController extends Controller
         $ope_type="album_search";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['keyword']);
+        else                                    $input = $request->all();
         if (empty($input['keyword']))           $input['keyword']=null;
+        // 現在のページ番号を取得。指定がない場合は1を使用
+        if (empty($input['page']))              $input['page'] = 1;
 
-        $album = Album::getAlbum_list(10,true,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ
+        $album = Album::getAlbum_list(10,true,$input['page'],$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $artist = Artist::getArtist();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $album === null) ? "検索結果が0件です。" : $msg;
@@ -110,13 +112,14 @@ class AdminAlbumController extends Controller
     {
         $data = $request->only(['id']);
         $msg = Album::delAlbum($data['id']);
-        $input = $request->only(['keyword']);
+        $input = $request->all();
         return redirect()->route('admin-album-search', ['input' => $input, 'msg' => $msg]);
     }
     //変更
     public function album_chg(Request $request)
     {
-        $input = $request->only(['id', 'alb_name', 'art_id', 'art_name', 'release_date', 'aff_id', 'aff_link', 'keyword']);
+        //$input = $request->only(['id', 'alb_name', 'art_id', 'art_name', 'release_date', 'aff_id', 'aff_link', 'keyword']);
+        $input = $request->all();
         $msg=null;
         //Album,Affiliate,Musicを一括で登録するため、事前にデータ確認
         //if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
@@ -127,7 +130,7 @@ class AdminAlbumController extends Controller
         if($msg!==null)         return redirect()->route('admin-album-search', ['input' => $input, 'msg' => $msg]);
 
         //affiliate変更
-        $input = $request->only(['aff_link', 'aff_id']);
+        //$input = $request->only(['aff_link', 'aff_id']);
         if($input['aff_link']){
             $ret = Affiliate::chgAffiliate($input);
             if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
@@ -138,7 +141,7 @@ class AdminAlbumController extends Controller
         }
         
         //Album変更
-        $input = $request->only(['id', 'alb_name', 'art_id','release_date']);
+        //$input = $request->only(['id', 'alb_name', 'art_id','release_date']);
         $input['name'] = $input['alb_name'];    //albumのカラム名に合わせる
         if($input){
             $ret = Album::chgAlbum($input);
@@ -149,7 +152,7 @@ class AdminAlbumController extends Controller
         
         }
         //収録曲は詳細変更でのみ可能
-        $input = $request->only(['keyword']);
+        //$input = $request->only(['keyword']);
         $msg = "アルバム：" . $request->input('alb_name') . " を更新しました。";
         return redirect()->route('admin-album-search', ['input' => $input, 'msg' => $msg]);
     }
@@ -161,7 +164,7 @@ class AdminAlbumController extends Controller
         //$ope_type="album_chg_detail";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['id', 'keyword']);
+        else                                    $input = $request->all();
         if (empty($input['keyword']))           $input['keyword']=null;
         if (empty($input['id']))            $input['id']=null;
 
@@ -180,7 +183,8 @@ class AdminAlbumController extends Controller
     public function album_chg_detail_fnc(Request $request)
     {
         make_error_log("album_chg_detail_fnc.log","-----start-----");
-        $input = $request->only(['fnc', 'alb_id', 'mus_id','name']);
+        //$input = $request->only(['fnc', 'alb_id', 'mus_id','name']);
+        $input = $request->all();
         $msg=null;
         make_error_log("album_chg_detail_fnc.log","fnc=".$input['fnc']." alb_id=".$input['alb_id']." mus_id=".$input['mus_id']." name=".$input['name']);
         $input['id']=$input['mus_id'];

@@ -2981,3 +2981,24 @@
 )
   
 [2024-06-18 23:48:06] local.DEBUG: success  
+[2024-06-20 18:23:55] local.DEBUG: -------start-------  
+[2024-06-20 18:23:55] local.DEBUG: aff_link=  
+[2024-06-20 18:24:01] local.DEBUG: -------start-------  
+[2024-06-20 18:24:01] local.DEBUG: aff_link=test  
+[2024-06-20 18:24:01] local.DEBUG: fraudulent data  
+[2024-06-20 18:28:01] local.DEBUG: -------start-------  
+[2024-06-20 18:28:01] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3d500d1e.c15e460f.3d500d1f.353363e0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbungubin%2Fe17184%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d500d1e.c15e460f.3d500d1f.353363e0/?me_id=1308215&item_id=10017185&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbungubin%2Fcabinet%2F104%2F693922.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-06-20 18:28:01] local.DEBUG: success  
+[2024-06-20 18:28:01] local.DEBUG: -------start-------  
+[2024-06-20 18:28:01] local.DEBUG: create_data=Array
+(
+    [name] => test
+    [art_id] => 3
+    [art_name] => BLUE ENCOUN
+    [release_date] => 
+    [link] => https://XXXXXX
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/3d500d1e.c15e460f.3d500d1f.353363e0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbungubin%2Fe17184%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d500d1e.c15e460f.3d500d1f.353363e0/?me_id=1308215&item_id=10017185&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbungubin%2Fcabinet%2F104%2F693922.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [aff_id] => 10
+)
+  
+[2024-06-20 18:28:01] local.DEBUG: success  

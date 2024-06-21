@@ -6,6 +6,7 @@
         <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
         <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
         <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
+        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
         <div class="col-sm">
             <label for="inputname" class="form-label">曲名</label>
             <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['mus_name'] ?? '') }}">

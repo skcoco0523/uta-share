@@ -144,3 +144,6 @@
 [2024-06-18 23:50:48] local.DEBUG: -------start-------  
 [2024-06-18 23:50:48] local.DEBUG: delete_mus_id=80  
 [2024-06-18 23:50:48] local.DEBUG: success  
+[2024-06-20 18:28:24] local.DEBUG: -------start-------  
+[2024-06-20 18:28:24] local.DEBUG: delete_mus_id=81  
+[2024-06-20 18:28:24] local.DEBUG: success  

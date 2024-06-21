@@ -72,3 +72,13 @@
 [2024-04-02 23:06:20] local.DEBUG: -------start-------  
 [2024-04-02 23:06:20] local.DEBUG: id=16 art_id=7 name=アルバム新規登録  
 [2024-04-02 23:06:20] local.DEBUG: change:musics.art_id  
+[2024-06-20 18:41:47] local.DEBUG: -------start-------  
+[2024-06-20 18:41:47] local.DEBUG: id=8 art_id=3 name=VS  
+[2024-06-20 18:42:10] local.DEBUG: -------start-------  
+[2024-06-20 18:42:10] local.DEBUG: id=7 art_id=3 name=Q.E.D  
+[2024-06-20 18:42:18] local.DEBUG: -------start-------  
+[2024-06-20 18:42:18] local.DEBUG: id=8 art_id=3 name=VS  
+[2024-06-20 18:42:48] local.DEBUG: -------start-------  
+[2024-06-20 18:42:48] local.DEBUG: id=8 art_id=3 name=VS  
+[2024-06-20 19:12:39] local.DEBUG: -------start-------  
+[2024-06-20 19:12:39] local.DEBUG: id=8 art_id=3 name=VS  

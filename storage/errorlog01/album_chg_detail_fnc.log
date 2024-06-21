@@ -5244,3 +5244,210 @@
 [2024-06-19 00:53:29] local.DEBUG: -------start-------  
 [2024-06-19 00:53:29] local.DEBUG: delete_pl_id=2  
 [2024-06-19 00:53:29] local.DEBUG: success  
+[2024-06-19 13:57:26] local.DEBUG: -----start-----  
+[2024-06-19 13:57:26] local.DEBUG: fnc=add pl_id=2 detail_id=76  
+[2024-06-19 13:57:26] local.DEBUG: -------start-------  
+[2024-06-19 13:57:26] local.DEBUG: delete_pl_id=2  
+[2024-06-19 13:57:26] local.DEBUG: success  
+[2024-06-19 14:03:47] local.DEBUG: -----start-----  
+[2024-06-19 14:03:47] local.DEBUG: fnc=add pl_id=2 detail_id=76  
+[2024-06-19 14:03:47] local.DEBUG: -------start-------  
+[2024-06-19 14:03:47] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:03:47] local.DEBUG: success  
+[2024-06-19 14:07:22] local.DEBUG: -----start-----  
+[2024-06-19 14:07:22] local.DEBUG: fnc=add pl_id=2 detail_id=65  
+[2024-06-19 14:07:22] local.DEBUG: -------start-------  
+[2024-06-19 14:07:22] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:07:22] local.DEBUG: success  
+[2024-06-19 14:09:56] local.DEBUG: -----start-----  
+[2024-06-19 14:09:56] local.DEBUG: fnc=add pl_id=2 detail_id=76  
+[2024-06-19 14:09:56] local.DEBUG: -------start-------  
+[2024-06-19 14:09:56] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:09:56] local.DEBUG: success  
+[2024-06-19 14:13:01] local.DEBUG: -----start-----  
+[2024-06-19 14:13:01] local.DEBUG: fnc=add pl_id=2 detail_id=76  
+[2024-06-19 14:13:01] local.DEBUG: -------start-------  
+[2024-06-19 14:13:01] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:13:01] local.DEBUG: success  
+[2024-06-19 14:25:56] local.DEBUG: -----start-----  
+[2024-06-19 14:25:56] local.DEBUG: fnc=add pl_id=2 detail_id=76  
+[2024-06-19 14:25:56] local.DEBUG: -------start-------  
+[2024-06-19 14:25:56] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:25:56] local.DEBUG: success  
+[2024-06-19 14:27:04] local.DEBUG: -----start-----  
+[2024-06-19 14:27:27] local.DEBUG: -----start-----  
+[2024-06-19 14:36:05] local.DEBUG: -----start-----  
+[2024-06-19 14:36:05] local.DEBUG: fnc=add pl_id=2 detail_id=76  
+[2024-06-19 14:36:05] local.DEBUG: -------start-------  
+[2024-06-19 14:36:05] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:36:05] local.DEBUG: success  
+[2024-06-19 14:36:40] local.DEBUG: -----start-----  
+[2024-06-19 14:37:17] local.DEBUG: -----start-----  
+[2024-06-19 14:37:17] local.DEBUG: fnc=add pl_id=2 detail_id=76  
+[2024-06-19 14:37:17] local.DEBUG: -------start-------  
+[2024-06-19 14:37:17] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:37:17] local.DEBUG: success  
+[2024-06-19 14:42:23] local.DEBUG: -----start-----  
+[2024-06-19 14:42:23] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:42:23] local.DEBUG: -------start-------  
+[2024-06-19 14:42:23] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:42:23] local.DEBUG: success  
+[2024-06-19 14:42:25] local.DEBUG: -----start-----  
+[2024-06-19 14:42:25] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:42:25] local.DEBUG: -------start-------  
+[2024-06-19 14:42:25] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:42:25] local.DEBUG: success  
+[2024-06-19 14:42:27] local.DEBUG: -----start-----  
+[2024-06-19 14:42:27] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:42:27] local.DEBUG: -------start-------  
+[2024-06-19 14:42:27] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:42:27] local.DEBUG: success  
+[2024-06-19 14:42:29] local.DEBUG: -----start-----  
+[2024-06-19 14:42:29] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:42:29] local.DEBUG: -------start-------  
+[2024-06-19 14:42:29] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:42:29] local.DEBUG: success  
+[2024-06-19 14:42:48] local.DEBUG: -----start-----  
+[2024-06-19 14:43:06] local.DEBUG: -----start-----  
+[2024-06-19 14:43:06] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:43:06] local.DEBUG: -------start-------  
+[2024-06-19 14:43:06] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:43:06] local.DEBUG: success  
+[2024-06-19 14:43:10] local.DEBUG: -----start-----  
+[2024-06-19 14:43:10] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:43:10] local.DEBUG: -------start-------  
+[2024-06-19 14:43:10] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:43:10] local.DEBUG: success  
+[2024-06-19 14:43:15] local.DEBUG: -----start-----  
+[2024-06-19 14:43:15] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:43:15] local.DEBUG: -------start-------  
+[2024-06-19 14:43:15] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:43:15] local.DEBUG: success  
+[2024-06-19 14:43:18] local.DEBUG: -----start-----  
+[2024-06-19 14:43:18] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:43:18] local.DEBUG: -------start-------  
+[2024-06-19 14:43:18] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:43:18] local.DEBUG: success  
+[2024-06-19 14:43:48] local.DEBUG: -----start-----  
+[2024-06-19 14:43:48] local.DEBUG: fnc=add pl_id=2 detail_id=57  
+[2024-06-19 14:43:48] local.DEBUG: -------start-------  
+[2024-06-19 14:43:48] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:43:48] local.DEBUG: success  
+[2024-06-19 14:46:36] local.DEBUG: -----start-----  
+[2024-06-19 14:46:36] local.DEBUG: fnc=del pl_id=2 detail_id=57  
+[2024-06-19 14:46:36] local.DEBUG: -------start-------  
+[2024-06-19 14:46:36] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:46:36] local.DEBUG: success  
+[2024-06-19 14:46:43] local.DEBUG: -----start-----  
+[2024-06-19 14:46:43] local.DEBUG: fnc=del pl_id=2 detail_id=57  
+[2024-06-19 14:46:43] local.DEBUG: -------start-------  
+[2024-06-19 14:46:43] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:46:43] local.DEBUG: success  
+[2024-06-19 14:46:45] local.DEBUG: -----start-----  
+[2024-06-19 14:46:45] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:46:45] local.DEBUG: -------start-------  
+[2024-06-19 14:46:45] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:46:45] local.DEBUG: success  
+[2024-06-19 14:48:13] local.DEBUG: -----start-----  
+[2024-06-19 14:48:13] local.DEBUG: fnc=del pl_id=2 detail_id=51  
+[2024-06-19 14:48:13] local.DEBUG: -------start-------  
+[2024-06-19 14:48:13] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:48:13] local.DEBUG: success  
+[2024-06-19 14:49:13] local.DEBUG: -----start-----  
+[2024-06-19 14:49:13] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:49:13] local.DEBUG: -------start-------  
+[2024-06-19 14:49:13] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:49:13] local.DEBUG: success  
+[2024-06-19 14:49:33] local.DEBUG: -----start-----  
+[2024-06-19 14:49:33] local.DEBUG: fnc=add pl_id=2 detail_id=66  
+[2024-06-19 14:49:33] local.DEBUG: -------start-------  
+[2024-06-19 14:49:33] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:49:33] local.DEBUG: success  
+[2024-06-19 14:49:40] local.DEBUG: -----start-----  
+[2024-06-19 14:49:40] local.DEBUG: fnc=del pl_id=2 detail_id=66  
+[2024-06-19 14:49:40] local.DEBUG: -------start-------  
+[2024-06-19 14:49:40] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:49:40] local.DEBUG: success  
+[2024-06-19 14:51:46] local.DEBUG: -----start-----  
+[2024-06-19 14:51:46] local.DEBUG: fnc=del pl_id=2 detail_id=66  
+[2024-06-19 14:51:46] local.DEBUG: -------start-------  
+[2024-06-19 14:51:46] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:51:46] local.DEBUG: success  
+[2024-06-19 14:51:51] local.DEBUG: -----start-----  
+[2024-06-19 14:51:51] local.DEBUG: fnc=del pl_id=2 detail_id=57  
+[2024-06-19 14:51:51] local.DEBUG: -------start-------  
+[2024-06-19 14:51:51] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:51:51] local.DEBUG: success  
+[2024-06-19 14:51:53] local.DEBUG: -----start-----  
+[2024-06-19 14:51:53] local.DEBUG: fnc=del pl_id=2 detail_id=65  
+[2024-06-19 14:51:53] local.DEBUG: -------start-------  
+[2024-06-19 14:51:53] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:51:53] local.DEBUG: success  
+[2024-06-19 14:51:55] local.DEBUG: -----start-----  
+[2024-06-19 14:51:55] local.DEBUG: fnc=del pl_id=2 detail_id=65  
+[2024-06-19 14:51:55] local.DEBUG: -------start-------  
+[2024-06-19 14:51:55] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:51:55] local.DEBUG: success  
+[2024-06-19 14:51:56] local.DEBUG: -----start-----  
+[2024-06-19 14:51:56] local.DEBUG: fnc=del pl_id=2 detail_id=65  
+[2024-06-19 14:51:56] local.DEBUG: -------start-------  
+[2024-06-19 14:51:56] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:51:56] local.DEBUG: success  
+[2024-06-19 14:51:57] local.DEBUG: -----start-----  
+[2024-06-19 14:51:57] local.DEBUG: fnc=del pl_id=2 detail_id=65  
+[2024-06-19 14:51:57] local.DEBUG: -------start-------  
+[2024-06-19 14:51:57] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:51:57] local.DEBUG: success  
+[2024-06-19 14:52:07] local.DEBUG: -----start-----  
+[2024-06-19 14:52:07] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:52:07] local.DEBUG: -------start-------  
+[2024-06-19 14:52:07] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:52:07] local.DEBUG: success  
+[2024-06-19 14:52:14] local.DEBUG: -----start-----  
+[2024-06-19 14:52:14] local.DEBUG: fnc=del pl_id=2 detail_id=57  
+[2024-06-19 14:52:14] local.DEBUG: -------start-------  
+[2024-06-19 14:52:14] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:52:14] local.DEBUG: success  
+[2024-06-19 14:54:36] local.DEBUG: -----start-----  
+[2024-06-19 14:54:36] local.DEBUG: fnc=del pl_id=2 detail_id=66  
+[2024-06-19 14:54:36] local.DEBUG: -------start-------  
+[2024-06-19 14:54:36] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:56:24] local.DEBUG: -----start-----  
+[2024-06-19 14:56:24] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:56:24] local.DEBUG: -------start-------  
+[2024-06-19 14:56:24] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:56:47] local.DEBUG: -----start-----  
+[2024-06-19 14:56:47] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:56:47] local.DEBUG: -------start-------  
+[2024-06-19 14:56:47] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:58:34] local.DEBUG: -----start-----  
+[2024-06-19 14:58:34] local.DEBUG: fnc=del pl_id=2 detail_id=76  
+[2024-06-19 14:58:34] local.DEBUG: -------start-------  
+[2024-06-19 14:58:34] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:58:49] local.DEBUG: -----start-----  
+[2024-06-19 14:58:49] local.DEBUG: fnc=add pl_id=2 detail_id=73  
+[2024-06-19 14:58:49] local.DEBUG: -------start-------  
+[2024-06-19 14:58:49] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:58:49] local.DEBUG: success  
+[2024-06-19 14:59:47] local.DEBUG: -----start-----  
+[2024-06-19 14:59:47] local.DEBUG: fnc=add pl_id=2 detail_id=72  
+[2024-06-19 14:59:47] local.DEBUG: -------start-------  
+[2024-06-19 14:59:47] local.DEBUG: delete_pl_id=2  
+[2024-06-19 14:59:47] local.DEBUG: success  
+[2024-06-19 15:00:41] local.DEBUG: -----start-----  
+[2024-06-19 15:00:41] local.DEBUG: fnc=add pl_id=2 detail_id=72  
+[2024-06-19 15:00:41] local.DEBUG: -------start-------  
+[2024-06-19 15:00:41] local.DEBUG: delete_pl_id=2  
+[2024-06-19 15:00:41] local.DEBUG: success  
+[2024-06-19 15:01:22] local.DEBUG: -----start-----  
+[2024-06-19 15:01:22] local.DEBUG: fnc=del pl_id=2 detail_id=73  
+[2024-06-19 15:01:22] local.DEBUG: -------start-------  
+[2024-06-19 15:01:22] local.DEBUG: delete_pl_id=2  
+[2024-06-19 15:02:35] local.DEBUG: -----start-----  
+[2024-06-19 15:02:35] local.DEBUG: fnc=del pl_id=2 detail_id=57  
+[2024-06-19 15:02:35] local.DEBUG: -------start-------  
+[2024-06-19 15:02:35] local.DEBUG: delete_pl_id=2  
+[2024-06-19 15:05:34] local.DEBUG: -----start-----  
+[2024-06-19 15:05:34] local.DEBUG: fnc=del pl_id=2 detail_id=72  
+[2024-06-19 15:05:34] local.DEBUG: -------start-------  
+[2024-06-19 15:05:34] local.DEBUG: delete_pl_id=2  

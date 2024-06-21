@@ -15,7 +15,7 @@ class Playlist extends Model
     protected $table = 'playlist';    //playlistsテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['name', 'user_id', 'admin_flag'];
     //取得
-    public static function getPlaylist_list($disp_cnt=null,$pageing=false,$keyword=null,$admin_flag=0)
+    public static function getPlaylist_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$admin_flag=0)
     {
         $sql_cmd = DB::table('playlist')
             ->orderBy('created_at', 'desc')
@@ -25,7 +25,7 @@ class Playlist extends Model
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;
         // ページング・取得件数指定・全件で分岐
-        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
         elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
         else                                $sql_cmd = $sql_cmd->get();
 
@@ -45,37 +45,32 @@ class Playlist extends Model
     {
         //プレイリスト情報を取得
         $playlist = DB::table('playlist')->where('id', $pl_id)->first();
+        if($playlist){
+            //収録数、収録曲を取得
+            $music_list = DB::table('playlistdetail')->where('pl_id', $pl_id)->get();
+            $detail_list = [];
+            //dd($music_list);
+            foreach ($music_list as $key => $item) {
+                $detail_list[$key] = Music::getMusic_detail($item->mus_id);
+            }
+            //ログインしているユーザーはお気に入り情報も取得する
+            if (Auth::check()) {
+                $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $pl_id);
+            }else{
+                $playlist->fav_flag = 0;
+            }
+            $playlist->music = $detail_list;  
+            //件数を取得
+            $playlist->pl_cnt = count($detail_list);
+            //dd($playlist);
+            //画像情報を付与 getMusic_detailで取得
+            //$playlist=setAffData($playlist);  
+            return $playlist; 
 
-        //収録数、収録曲を取得
-        $music_list = DB::table('playlistdetail')->where('pl_id', $pl_id)
-        ->get();
-        /*
-        $playlist->music = DB::table('playlistdetail')->where('pl_id', $pl_id)
-            ->join('musics', 'playlistdetail.mus_id', '=', 'musics.id')
-            ->join('artists', 'musics.art_id', '=', 'artists.id')
-            ->select('playlistdetail.id')
-            ->get();
-        */
-        $detail_list = [];
-        //dd($music_list);
-        foreach ($music_list as $key => $item) {
-            $detail_list[$key] = Music::getMusic_detail($item->mus_id);
+        }else{ 
+            return null; 
+
         }
-        //ログインしているユーザーはお気に入り情報も取得する
-        if (Auth::check()) {
-            $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $pl_id);
-        }else{
-            $playlist->fav_flag = 0;
-        }
-        $playlist->music = $detail_list;  
-        //件数を取得
-        $playlist->pl_cnt = count($detail_list);
-    
-        //dd($playlist);
-        //画像情報を付与 getMusic_detailで取得
-        //$playlist=setAffData($playlist);
-        
-        return $playlist; 
     }
     //作成
     public static function createPlaylist($data)
@@ -123,7 +118,7 @@ class Playlist extends Model
     public static function delPlaylist($data)//-------------------------------------------ﾌﾟﾚｲﾘｽﾄ削除機能　開発必須
     {
         make_error_log("delPlaylist.log","---------start----------");
-        try {
+        //try {
             if(!$data['pl_id'])  return ['id' => null, 'error_code' => 1];   //データ不足
             make_error_log("delPlaylist.log","delete_pl_id=".$data['pl_id']);
 
@@ -131,12 +126,20 @@ class Playlist extends Model
             DB::table('playlistdetail')->where('pl_id', $data['pl_id'])->delete();
             DB::table('playlist')->where('id', $data['pl_id'])->delete();
 
+            //おすすめからも削除する
+            $chk_recom = DB::table('recommenddetail AS dtl')
+            ->leftJoin('recommend AS recom', 'dtl.recom_id', '=', 'recom.id')
+            ->where('dtl.detail_id', $data['pl_id'])->where('recom.category', 3)
+            ->select('recom.*','dtl.id As delete_id')
+            ->first();
+            if($chk_recom) DB::table('recommenddetail')->where('id', $chk_recom->delete_id)->delete();
+
             make_error_log("delPlaylist.log","success");
             return ['id' => null, 'error_code' => 0];   //削除成功
-        } catch (\Exception $e) {
+        //} catch (\Exception $e) {
             make_error_log("delPlaylist.log","failure");
             return ['id' => null, 'error_code' => -1];   //削除失敗
-        }
+        //}
     }
     //プレイリスト収録曲　追加・削除
     public static function chgPlaylist_detail($data)
@@ -152,15 +155,20 @@ class Playlist extends Model
                     $pl_id = DB::table('playlistdetail')->insert(['pl_id' => $data['pl_id'],'mus_id' => $data['detail_id']]);
                     break;
                 case "del":
-                    DB::table('playlistdetail')->where('pl_id', $data['pl_id'])->where('id', $data['detail_id'])->delete();
+                    $deletedRows = DB::table('playlistdetail')->where(['pl_id'=>$data['pl_id'],'mus_id'=>$data['detail_id']])->delete();
+                    if ($deletedRows > 0) return ['id' => null, 'error_code' => 0];   //成功
+                    else return ['id' => null, 'error_code' => -1];   //失敗
                     break;
                 default:
+                    return ['id' => null, 'error_code' => -1];   //失敗
+                    break;
+                    
             }
             make_error_log("chgPlaylist_detail.log","success");
-            return ['id' => null, 'error_code' => 0];   //削除成功
+            return ['id' => null, 'error_code' => 0];   //成功
         } catch (\Exception $e) {
             make_error_log("chgPlaylist_detail.log","failure");
-            return ['id' => null, 'error_code' => -1];   //削除失敗
+            return ['id' => null, 'error_code' => -1];   //失敗
         }
     }
 }

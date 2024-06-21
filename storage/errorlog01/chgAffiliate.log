@@ -321,3 +321,9 @@
 )
   
 [2024-03-19 22:44:47] local.DEBUG: success  
+[2024-06-20 18:42:27] local.DEBUG: -------start-------  
+[2024-06-20 18:42:27] local.DEBUG: aff_link=test  
+[2024-06-20 18:42:27] local.DEBUG: fraudulent data  
+[2024-06-20 18:42:41] local.DEBUG: -------start-------  
+[2024-06-20 18:42:41] local.DEBUG: aff_link=test  
+[2024-06-20 18:42:41] local.DEBUG: fraudulent data  

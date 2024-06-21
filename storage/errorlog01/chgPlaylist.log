@@ -366,3 +366,186 @@
   
 [2024-03-30 15:06:31] local.DEBUG: success  
 [2024-03-30 15:13:46] local.DEBUG: ---------start----------  
+[2024-06-19 15:17:11] local.DEBUG: ---------start----------  
+[2024-06-19 15:17:11] local.DEBUG: data=Array
+(
+    [id] => 1
+    [name] => プレイリスト　テスト
+)
+  
+[2024-06-19 15:17:11] local.DEBUG: success  
+[2024-06-20 19:09:52] local.DEBUG: ---------start----------  
+[2024-06-20 19:09:52] local.DEBUG: data=Array
+(
+    [id] => 6
+    [name] => test
+)
+  
+[2024-06-20 19:09:52] local.DEBUG: success  
+[2024-06-20 19:10:31] local.DEBUG: ---------start----------  
+[2024-06-20 19:10:31] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 6
+    [page] => 2
+    [name] => test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 19:10:31] local.DEBUG: success  
+[2024-06-20 19:11:00] local.DEBUG: ---------start----------  
+[2024-06-20 19:11:00] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 6
+    [page] => 2
+    [name] => test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 19:11:00] local.DEBUG: success  
+[2024-06-20 19:11:45] local.DEBUG: ---------start----------  
+[2024-06-20 19:11:45] local.DEBUG: data=Array
+(
+    [_token] => 6Cg9hG21MHlPPZ7Ag29nPuZOfnCqoEkwR3VVpbjG
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 6
+    [page] => 2
+    [name] => test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-20 19:11:45] local.DEBUG: success  
+[2024-06-21 17:34:58] local.DEBUG: ---------start----------  
+[2024-06-21 17:34:58] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 17
+    [page] => 1
+    [name] => recom_delete_test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:34:58] local.DEBUG: success  
+[2024-06-21 17:35:14] local.DEBUG: ---------start----------  
+[2024-06-21 17:35:14] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 16
+    [page] => 1
+    [name] => test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:35:14] local.DEBUG: success  
+[2024-06-21 17:38:26] local.DEBUG: ---------start----------  
+[2024-06-21 17:38:26] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 16
+    [page] => 1
+    [name] => test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:38:37] local.DEBUG: ---------start----------  
+[2024-06-21 17:38:37] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 16
+    [page] => 1
+    [name] => test_edit
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:39:09] local.DEBUG: ---------start----------  
+[2024-06-21 17:39:09] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 16
+    [page] => 1
+    [name] => test_edit
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:39:09] local.DEBUG: success  
+[2024-06-21 17:39:13] local.DEBUG: ---------start----------  
+[2024-06-21 17:39:13] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 16
+    [page] => 1
+    [name] => test_edit
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:39:13] local.DEBUG: success  
+[2024-06-21 17:39:17] local.DEBUG: ---------start----------  
+[2024-06-21 17:39:17] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 16
+    [page] => 1
+    [name] => test_edit2
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:39:17] local.DEBUG: success  
+[2024-06-21 17:39:30] local.DEBUG: ---------start----------  
+[2024-06-21 17:39:30] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 16
+    [page] => 1
+    [name] => recom_delete_test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:39:30] local.DEBUG: success  
+[2024-06-21 17:49:32] local.DEBUG: ---------start----------  
+[2024-06-21 17:49:32] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 11
+    [page] => 1
+    [name] => recom_test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:49:32] local.DEBUG: success  
+[2024-06-21 17:52:04] local.DEBUG: ---------start----------  
+[2024-06-21 17:52:04] local.DEBUG: data=Array
+(
+    [_token] => 8SkniPXrMSLAJl6GP0szdC5XQxGHBmbD6wwDix2B
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 10
+    [page] => 1
+    [name] => recom_test
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-21 17:52:04] local.DEBUG: success  

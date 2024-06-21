@@ -17,7 +17,7 @@ class Recommend extends Model
     protected $table = 'recommend';    //recommendsテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['name', 'user_id', 'category', 'disp_flag', 'sort_num'];
     //取得
-    public static function getRecommend_list($disp_cnt=null,$pageing=false,$keyword=null,$category=null,$sort_flag=0)
+    public static function getRecommend_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$category=null,$sort_flag=false)
     {
         $sql_cmd = DB::table('recommend')
             ->where('name', 'like', "%$keyword%");
@@ -30,7 +30,7 @@ class Recommend extends Model
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;
         // ページング・取得件数指定・全件で分岐
-        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt);
+        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
         elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
         else                                $sql_cmd = $sql_cmd->get();
         
@@ -260,42 +260,39 @@ class Recommend extends Model
                     case 0://曲
                         foreach ($detail_list as $key => $detail) {
                             $add_list[$key] = Music::getMusic_detail($detail->detail_id);
+                            if(!$add_list[$key]) unset($add_list[$key]);
                         }
                         $item->detail = $add_list;
                         break;
-                    
+
                     case 1://アーティスト
-                        //現在はアーティストに画像情報がない
-                        //$artist = new Artist();
-                        //foreach ($detail_list as $key => $detail) {
-                            //$add_list[$key] = $artist->getMusic_detail($detail->detail_id);
-                        //}
-                        //$item->detail = $add_list;
                         break;
+
                     case 2://アルバム
                         foreach ($detail_list as $key => $detail) {
                             $add_list[$key] = Album::getAlbum_detail($detail->detail_id);
+                            if(!$add_list[$key]) unset($add_list[$key]);
                         }
                         $item->detail = $add_list;
                         break;
+
                     case 3://プレイリスト          
                         foreach ($detail_list as $key => $detail) {
                             $add_list[$key] = Playlist::getPlaylist_detail($detail->detail_id);
-                            //プレイリストの収録曲が０件の場合は除外
-                            if (count($add_list[$key]->music) == 0) unset($add_list[$key]);
+                            if(!$add_list[$key]) {
+                                unset($add_list[$key]);
+                            }else{
+                                //プレイリストの収録曲が０件の場合は除外
+                                if (count($add_list[$key]->music) == 0) unset($add_list[$key]);
+                            }
                         }     
                         if (count($add_list) == 0) unset($recommend[$key]);
                         //dd($add_list);     
                         $item->detail = $add_list;
                         break;
                     default:
-                        $recommend = DB::table('musics')
-                        ->select('musics.id', 'musics.name', 'albums.name AS alb_name',
-                                DB::raw('GROUP_CONCAT(COALESCE(musics.aff_id, albums.aff_id)) AS aff_id'))
-                        ->leftJoin('albums', 'albums.id', '=', 'musics.alb_id')
-                        ->groupBy('musics.id', 'musics.name', 'albums.name')
-                        ->limit($disp_cnt)
-                        ->get();
+                        
+                        break;
                     
                 }
                 
