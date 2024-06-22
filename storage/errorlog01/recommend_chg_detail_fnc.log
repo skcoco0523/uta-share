@@ -1123,3 +1123,38 @@
 [2024-06-21 17:52:13] local.DEBUG: -------start-------  
 [2024-06-21 17:52:13] local.DEBUG: delete_pl_id=10  
 [2024-06-21 17:52:13] local.DEBUG: success  
+[2024-06-22 11:07:55] local.DEBUG: -----start-----  
+[2024-06-22 11:07:55] local.DEBUG: fnc=add recom_id=38 category=3 detail_id=9  
+[2024-06-22 11:07:55] local.DEBUG: -------start-------  
+[2024-06-22 11:07:55] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:07:55] local.DEBUG: success  
+[2024-06-22 11:09:20] local.DEBUG: -----start-----  
+[2024-06-22 11:09:20] local.DEBUG: fnc=add recom_id=39 category=2 detail_id=7  
+[2024-06-22 11:09:20] local.DEBUG: -------start-------  
+[2024-06-22 11:09:20] local.DEBUG: delete_pl_id=7  
+[2024-06-22 11:09:20] local.DEBUG: success  
+[2024-06-22 11:09:28] local.DEBUG: -----start-----  
+[2024-06-22 11:09:28] local.DEBUG: fnc=add recom_id=39 category=2 detail_id=4  
+[2024-06-22 11:09:28] local.DEBUG: -------start-------  
+[2024-06-22 11:09:28] local.DEBUG: delete_pl_id=4  
+[2024-06-22 11:09:28] local.DEBUG: success  
+[2024-06-22 11:09:35] local.DEBUG: -----start-----  
+[2024-06-22 11:09:35] local.DEBUG: fnc=del recom_id=39 category=2 detail_id=39  
+[2024-06-22 11:09:35] local.DEBUG: -------start-------  
+[2024-06-22 11:09:35] local.DEBUG: delete_pl_id=39  
+[2024-06-22 11:09:35] local.DEBUG: success  
+[2024-06-22 11:09:38] local.DEBUG: -----start-----  
+[2024-06-22 11:09:38] local.DEBUG: fnc=add recom_id=39 category=2 detail_id=7  
+[2024-06-22 11:09:38] local.DEBUG: -------start-------  
+[2024-06-22 11:09:38] local.DEBUG: delete_pl_id=7  
+[2024-06-22 11:09:38] local.DEBUG: success  
+[2024-06-22 11:09:41] local.DEBUG: -----start-----  
+[2024-06-22 11:09:41] local.DEBUG: fnc=add recom_id=39 category=2 detail_id=6  
+[2024-06-22 11:09:41] local.DEBUG: -------start-------  
+[2024-06-22 11:09:41] local.DEBUG: delete_pl_id=6  
+[2024-06-22 11:09:41] local.DEBUG: success  
+[2024-06-22 11:09:46] local.DEBUG: -----start-----  
+[2024-06-22 11:09:46] local.DEBUG: fnc=add recom_id=39 category=2 detail_id=5  
+[2024-06-22 11:09:46] local.DEBUG: -------start-------  
+[2024-06-22 11:09:46] local.DEBUG: delete_pl_id=5  
+[2024-06-22 11:09:46] local.DEBUG: success  

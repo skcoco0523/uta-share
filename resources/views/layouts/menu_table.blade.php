@@ -8,7 +8,7 @@
             <th class="col-3" onclick="openShareModal('{{ request()->url()}}?id={{ $detail_id }}')">
                 <i class="fa-regular fa-share-from-square icon-20 red"></i>
             </th>
-            <td class="col-3" favorite-id="{{ $table }}-{{ $detail_id }}">
+            <td class="col-3 art_hidden" favorite-id="{{ $table }}-{{ $detail_id }}">
                 @if($fav_flag)
                     <i data-favorite-id="{{ $table }}-{{ $detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail_id }})"></i>
                 @else
@@ -33,13 +33,22 @@
         <?php } ?>
 
         // mus以外はプレイリストメニューは無し
-        const table = '{{ $table }}';
-        if (table !== 'mus') {
+        const pl_table = '{{ $table }}';
+        if (pl_table !== 'mus') {
             const musOnlyElements = document.querySelectorAll('.mus_only');
             musOnlyElements.forEach(element => {
                 element.style.display = 'none';
             });
         }
+        // artはお気に入り機能なし
+        const fav_table = '{{ $table }}';
+        if (fav_table == 'art') {
+            const musOnlyElements = document.querySelectorAll('.art_hidden');
+            musOnlyElements.forEach(element => {
+                element.style.display = 'none';
+            });
+        }
+
 
     });
 

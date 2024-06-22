@@ -1182,3 +1182,25 @@
 )
   
 [2024-06-21 17:51:46] local.DEBUG: success  
+[2024-06-22 11:05:20] local.DEBUG: ---------start----------  
+[2024-06-22 11:05:20] local.DEBUG: data=Array
+(
+    [_token] => L28rQDrgegELI6s3w1n8g3H1DhE3EJss9rTsTcWu
+    [name] => アーティスト別　TOP5
+    [user_id] => 1
+    [category] => 3
+    [sort_num] => 1
+)
+  
+[2024-06-22 11:05:20] local.DEBUG: success  
+[2024-06-22 11:08:55] local.DEBUG: ---------start----------  
+[2024-06-22 11:08:55] local.DEBUG: data=Array
+(
+    [_token] => L28rQDrgegELI6s3w1n8g3H1DhE3EJss9rTsTcWu
+    [name] => おすすめのアルバム
+    [user_id] => 1
+    [category] => 2
+    [sort_num] => 1
+)
+  
+[2024-06-22 11:08:55] local.DEBUG: success  

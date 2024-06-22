@@ -640,3 +640,29 @@
 [2024-06-19 09:58:22] local.DEBUG: user_id=1 table=pl fav_id=2 type=add  
 [2024-06-19 09:58:22] local.DEBUG: fav_chk=0  
 [2024-06-19 09:58:22] local.DEBUG: to add  
+[2024-06-22 18:47:20] local.DEBUG: -------start-------  
+[2024-06-22 18:47:20] local.DEBUG: user_id=1 table=art fav_id=3 type=add  
+[2024-06-22 18:47:20] local.DEBUG: failure  
+[2024-06-22 18:47:20] local.DEBUG: fav_chk=failure  
+[2024-06-22 18:47:20] local.DEBUG: already added  
+[2024-06-22 18:47:24] local.DEBUG: -------start-------  
+[2024-06-22 18:47:24] local.DEBUG: user_id=1 table=mus fav_id=78 type=add  
+[2024-06-22 18:47:24] local.DEBUG: fav_chk=0  
+[2024-06-22 18:47:24] local.DEBUG: to add  
+[2024-06-22 18:47:34] local.DEBUG: -------start-------  
+[2024-06-22 18:47:34] local.DEBUG: user_id=1 table=mus fav_id=78 type=del  
+[2024-06-22 18:47:34] local.DEBUG: fav_chk=1  
+[2024-06-22 18:47:34] local.DEBUG: delete  
+[2024-06-22 18:58:39] local.DEBUG: -------start-------  
+[2024-06-22 18:58:39] local.DEBUG: user_id=1 table=art fav_id=3 type=add  
+[2024-06-22 18:58:39] local.DEBUG: failure  
+[2024-06-22 18:58:39] local.DEBUG: fav_chk=failure  
+[2024-06-22 18:58:39] local.DEBUG: already added  
+[2024-06-22 19:21:44] local.DEBUG: -------start-------  
+[2024-06-22 19:21:44] local.DEBUG: user_id=1 table=alb fav_id=6 type=add  
+[2024-06-22 19:21:44] local.DEBUG: fav_chk=0  
+[2024-06-22 19:21:44] local.DEBUG: to add  
+[2024-06-22 19:21:48] local.DEBUG: -------start-------  
+[2024-06-22 19:21:48] local.DEBUG: user_id=1 table=mus fav_id=77 type=add  
+[2024-06-22 19:21:48] local.DEBUG: fav_chk=0  
+[2024-06-22 19:21:48] local.DEBUG: to add  

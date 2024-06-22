@@ -36,6 +36,9 @@ class Playlist extends Model
             $item->mus_cnt = DB::table('playlistdetail')->where('pl_id', $item->id)->count();
             $user = DB::table('users')->where('id', $item->user_id)->select('name')->first();
             $item->user_name = $user->name ?? null;
+            //ログインしているユーザーはお気に入り情報も取得する
+            if (Auth::check())  $item->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $item->id);
+            else                $item->fav_flag = 0;
         }
 
         return $playlist; 
@@ -54,11 +57,8 @@ class Playlist extends Model
                 $detail_list[$key] = Music::getMusic_detail($item->mus_id);
             }
             //ログインしているユーザーはお気に入り情報も取得する
-            if (Auth::check()) {
-                $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $pl_id);
-            }else{
-                $playlist->fav_flag = 0;
-            }
+            if (Auth::check())  $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $pl_id);
+            else                $playlist->fav_flag = 0;
             $playlist->music = $detail_list;  
             //件数を取得
             $playlist->pl_cnt = count($detail_list);

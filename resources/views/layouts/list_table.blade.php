@@ -19,7 +19,7 @@
                             <i data-favorite-id="{{ $recommnd->table }}-{{ $detail->detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommnd->table }}', {{ $detail->detail_id }})"></i>
                         @endif
                     </td>
-                    <td class="col-1 mus_only">
+                    <td class="col-1" pl-menu-id="{{ $recommnd->table }}-{{ $detail->detail_id }}">
                         <i class="fa-regular fa-square-plus icon-20 red"></i>
                     </td>
                 </tr>
@@ -43,7 +43,7 @@
                             <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
                         @endif
                     </td>
-                    <td class="col-1" mus-only-id="{{ $table }}-{{ $detail->id }}">
+                    <td class="col-1" pl-menu-id="{{ $table }}-{{ $detail->id }}">
                         <i class="fa-regular fa-square-plus icon-20 red"></i>
                     </td>
                 </tr>
@@ -57,7 +57,6 @@
 <script>
     
     document.addEventListener('DOMContentLoaded', function() {
-        const allMusOnlyElements = document.querySelectorAll('.mus_only');
         // お気に入り状態初期値を定義
         <?php if(isset($recommnd_table)){ ?>
             <?php foreach ($recommnd_table->detail as $detail): ?>
@@ -72,10 +71,19 @@
         <?php } ?>
         
         // mus以外はプレイリストメニューは無し
-        let tables = document.querySelectorAll("[mus-only-id]");
-        tables.forEach(table => {
-            let tableType = table.getAttribute("mus-only-id").split("-")[0];
+        let pl_table = document.querySelectorAll("[pl-menu-id]");
+        pl_table.forEach(table => {
+            let tableType = table.getAttribute("pl-menu-id").split("-")[0];
             if (tableType !== 'mus') {
+                table.style.display = 'none';
+            }
+        });
+        // artはメニューなし
+        let fav_table = document.querySelectorAll("[favorite-id]");
+        fav_table.forEach(table => {
+            let tableType = table.getAttribute("favorite-id").split("-")[0];
+            if (tableType === 'art') {
+                console.log("Hiding element:", table); // デバッグ用にログを出力
                 table.style.display = 'none';
             }
         });
@@ -84,10 +92,11 @@
 
     function redirectToDetailShow(detail_id,table) {
         switch(table){
+            case "art":
+                window.location.href = "{{ route('artist-show') }}?id=" + detail_id;
+                break;
             case "mus":
                 window.location.href = "{{ route('music-show') }}?id=" + detail_id;
-                break;
-            case 1:
                 break;
             case "alb":
                 window.location.href = "{{ route('album-show') }}?id=" + detail_id;

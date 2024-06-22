@@ -24,7 +24,7 @@ class AdminAlbumController extends Controller
     {
         $tab_name="アルバム";
         $ope_type="album_reg";
-        $artists = Artist::getArtist();  //全件　リスト用
+        $artists = Artist::getArtist_list();  //全件　リスト用
         $albums = Album::getAlbum_list(5);  //5件
         $msg = request('msg');
         
@@ -102,7 +102,7 @@ class AdminAlbumController extends Controller
         if (empty($input['page']))              $input['page'] = 1;
 
         $album = Album::getAlbum_list(10,true,$input['page'],$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $artist = Artist::getArtist();  //全件　リスト用
+        $artist = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $album === null) ? "検索結果が0件です。" : $msg;
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'artist', 'album', 'input', 'msg'));

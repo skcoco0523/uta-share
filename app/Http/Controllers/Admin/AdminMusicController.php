@@ -23,7 +23,7 @@ class AdminMusicController extends Controller
     {
         $tab_name="音楽";
         $ope_type="music_reg";
-        $artists = Artist::getArtist();  //全件　リスト用
+        $artists = Artist::getArtist_list();  //全件　リスト用
         $musics = Music::getMusic_list(5);  //5件
         $msg = request('msg');
         
@@ -79,7 +79,7 @@ class AdminMusicController extends Controller
         // 現在のページ番号を取得。指定がない場合は1を使用
         if (empty($input['page']))              $input['page'] = 1;
         $musics = Music::getMusic_list(10,true,$input['page'],$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $artists = Artist::getArtist();  //全件　リスト用
+        $artists = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $musics === null) ? "検索結果が0件です。" : $msg;
         return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'musics', 'input', 'msg'));

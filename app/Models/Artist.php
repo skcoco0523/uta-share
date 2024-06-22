@@ -11,7 +11,7 @@ class Artist extends Model
     use HasFactory;
     protected $fillable = ['name', 'name2', 'debut', 'sex'];
     //取得
-    public static function getArtist($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
+    public static function getArtist_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
         $sql_cmd = DB::table('artists')->orderBy('created_at', 'desc')
             ->where('name', 'like', "%$keyword%")
@@ -25,8 +25,37 @@ class Artist extends Model
         else                                $sql_cmd = $sql_cmd->get();
 
         $artist = $sql_cmd;
+        //アーティストはお気に入り登録なし
+        foreach($artist as $art){
+            $art->fav_flag = 0;
+        }
 
         return $artist; 
+    }
+    //取得
+    public static function getArtist_detail($art_id)
+    {
+        try {
+            //アルバム情報を取得
+            $artist = DB::table('artists')
+                ->where('artists.id', $art_id)
+                ->select('artists.*','artists.id as art_id','artists.name as art_name')
+                ->first();
+            //アーティストは固定でfalse
+            $artist->fav_flag = 0;
+            //dd($artist);
+            
+            //曲取得
+
+            //アルバム取得
+
+
+            
+            return $artist; 
+        } catch (\Exception $e) {
+            make_error_log("getArtist_detail.log","failure");
+            return null; 
+        }
     }
     //作成
     public static function createArtist($data)

@@ -42,6 +42,9 @@ class Album extends Model
         //アーティスト名を取得
         foreach ($album as $alb) {
             $alb->art_name = DB::table('artists')->where('id', $alb->art_id)->first()->name;
+            //ログインしているユーザーはお気に入り情報も取得する
+            if (Auth::check())      $alb->fav_flag = Favorite::chkFavorite(Auth::id(), "alb", $alb->id);
+            else                    $alb->fav_flag = 0;
         }
 
         //画像情報を付与
@@ -52,26 +55,29 @@ class Album extends Model
     public static function getAlbum_detail($alb_id)
     {
         try {
+            
             //アルバム情報を取得
-            $album = DB::table('albums')->where('id', $alb_id)->first();  
-            $album->alb_id = $album->id; 
-            //アーティスト名を取得
-            $album->art_name = DB::table('artists')->where('id', $album->art_id)->first()->name;
-            //収録数、収録曲を取得
-            $music = DB::table('musics')->where('alb_id', $album->id)->get();
-            foreach ($music as $key => $item) {
-                $detail_list[$key] = Music::getMusic_detail($item->id);
+            $album = DB::table('albums')
+                ->join('artists', 'albums.art_id', '=', 'artists.id')
+                ->leftJoin('musics', 'albums.id', '=', 'musics.alb_id')
+                ->where('albums.id', $alb_id)
+                ->select('albums.*','albums.id as alb_id','artists.name as art_name')
+                ->first();
+            
+            if ($album) {
+                // 収録曲の詳細情報を取得
+                $music = DB::table('musics')->where('alb_id', $album->alb_id)->get();
+                $detail_list = [];
+                foreach ($music as $key => $item) {
+                    $detail_list[$key] = Music::getMusic_detail($item->id);
+                }
+                $album->music = $detail_list;
+                $album->mus_cnt = count($album->music);
+            
+                // ログインしているユーザーはお気に入り情報も取得する
+                $album->fav_flag = Auth::check() ? Favorite::chkFavorite(Auth::id(), "alb", $alb_id) : 0;
             }
-            //ログインしているユーザーはお気に入り情報も取得する
-            if (Auth::check()) {
-                $album->fav_flag = Favorite::chkFavorite(Auth::id(), "alb", $alb_id);
-            }else{
-                $album->fav_flag = 0;
-            }
-            //dd($alb_id,$album,$music);
-            $album->music = $detail_list;    
-            //件数を取得
-            $album->mus_cnt = count($album->music);
+            
             //画像情報を付与
             $album=setAffData($album);
             

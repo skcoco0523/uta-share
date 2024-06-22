@@ -5451,3 +5451,37 @@
 [2024-06-19 15:05:34] local.DEBUG: fnc=del pl_id=2 detail_id=72  
 [2024-06-19 15:05:34] local.DEBUG: -------start-------  
 [2024-06-19 15:05:34] local.DEBUG: delete_pl_id=2  
+[2024-06-22 11:06:58] local.DEBUG: -----start-----  
+[2024-06-22 11:06:58] local.DEBUG: fnc=add pl_id=9 detail_id=67  
+[2024-06-22 11:06:58] local.DEBUG: -------start-------  
+[2024-06-22 11:06:58] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:06:58] local.DEBUG: success  
+[2024-06-22 11:07:00] local.DEBUG: -----start-----  
+[2024-06-22 11:07:00] local.DEBUG: fnc=add pl_id=9 detail_id=79  
+[2024-06-22 11:07:00] local.DEBUG: -------start-------  
+[2024-06-22 11:07:00] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:07:00] local.DEBUG: success  
+[2024-06-22 11:07:07] local.DEBUG: -----start-----  
+[2024-06-22 11:07:07] local.DEBUG: fnc=del pl_id=9 detail_id=79  
+[2024-06-22 11:07:07] local.DEBUG: -------start-------  
+[2024-06-22 11:07:07] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:07:11] local.DEBUG: -----start-----  
+[2024-06-22 11:07:11] local.DEBUG: fnc=add pl_id=9 detail_id=77  
+[2024-06-22 11:07:11] local.DEBUG: -------start-------  
+[2024-06-22 11:07:11] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:07:11] local.DEBUG: success  
+[2024-06-22 11:07:16] local.DEBUG: -----start-----  
+[2024-06-22 11:07:16] local.DEBUG: fnc=add pl_id=9 detail_id=68  
+[2024-06-22 11:07:16] local.DEBUG: -------start-------  
+[2024-06-22 11:07:16] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:07:16] local.DEBUG: success  
+[2024-06-22 11:07:30] local.DEBUG: -----start-----  
+[2024-06-22 11:07:30] local.DEBUG: fnc=add pl_id=9 detail_id=75  
+[2024-06-22 11:07:30] local.DEBUG: -------start-------  
+[2024-06-22 11:07:30] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:07:30] local.DEBUG: success  
+[2024-06-22 11:07:34] local.DEBUG: -----start-----  
+[2024-06-22 11:07:34] local.DEBUG: fnc=add pl_id=9 detail_id=74  
+[2024-06-22 11:07:34] local.DEBUG: -------start-------  
+[2024-06-22 11:07:34] local.DEBUG: delete_pl_id=9  
+[2024-06-22 11:07:34] local.DEBUG: success  

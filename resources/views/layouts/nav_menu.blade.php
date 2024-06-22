@@ -1,7 +1,4 @@
 <?//ナビ追加 20240118 kanno?>
-@guest
-@else
-
     <div class="fixed-bottom">
         <div class="fixed-bottom-menu">
             <nav class="nav nav-pills nav-justified">
@@ -15,7 +12,7 @@
                     <span style="font-size: 0.75rem;">ランキング</span>
                 </a>
                 <div class="border-right"></div>
-                <a class="flex-sm-fill text-sm-center nav-link p-2 d-flex flex-column align-items-center" href="#">
+                <a href="{{ route('search-show') }}" class="flex-sm-fill text-sm-center nav-link p-2 d-flex flex-column align-items-center" href="#">
                     <img src="{{ asset('img/icon/search.png') }}" alt="アイコン" class="icon-top">
                     <span style="font-size: 0.75rem;">検索</span>
                 </a>
@@ -34,8 +31,6 @@
         </div>
     </div>
 
-
-@endguest
 
 
 

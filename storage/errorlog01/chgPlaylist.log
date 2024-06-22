@@ -549,3 +549,29 @@
 )
   
 [2024-06-21 17:52:04] local.DEBUG: success  
+[2024-06-22 11:06:18] local.DEBUG: ---------start----------  
+[2024-06-22 11:06:18] local.DEBUG: data=Array
+(
+    [_token] => L28rQDrgegELI6s3w1n8g3H1DhE3EJss9rTsTcWu
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 9
+    [page] => 1
+    [name] => BLUE
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-22 11:06:18] local.DEBUG: success  
+[2024-06-22 11:06:46] local.DEBUG: ---------start----------  
+[2024-06-22 11:06:46] local.DEBUG: data=Array
+(
+    [_token] => L28rQDrgegELI6s3w1n8g3H1DhE3EJss9rTsTcWu
+    [keyword] => 
+    [admin_flag] => 1
+    [id] => 9
+    [page] => 1
+    [name] => BLUE ENCOUN　TOP5
+    [user_name] => skcoco　admin
+)
+  
+[2024-06-22 11:06:46] local.DEBUG: success  

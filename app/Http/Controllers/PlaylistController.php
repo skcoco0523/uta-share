@@ -33,21 +33,10 @@ class PlaylistController extends Controller
         if($playlist){
             return view('playlist_show', compact('playlist', 'msg'));
         }else{
-            return redirect()->route('home')->with('error', '該当のアルバムが存在しません');
+            return redirect()->route('home')->with('error', '該当のプレイリストが存在しません');
         }
     }
-    //プレイリスト一覧                                                        修正必須
-    public function playlist_list_show(Request $request)
-    {
-        $playlist = $request->only(['list']);
-        $msg = null;
-        //dd($playlist);
-        if($playlist){
-            return view('playlist_list_show', compact('playlist', 'msg'));
-        }else{
-            return redirect()->route('home')->with('error', '該当のアルバムが存在しません');
-        }
-    }
+    
     //マイプレイリストは分ける
 
     

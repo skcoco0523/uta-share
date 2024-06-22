@@ -15,11 +15,13 @@ use App\Http\Controllers\Admin\AdminRecommendController;
 
 //ユーザー
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\RecommendController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,22 +51,26 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //ユーザー------------------------------------------------------------------------
 //パスワードリセット
 Route::post('password/reset/mailsend', [UserController::class, 'password_reset_mailsend'])->name('password-reset');
+
+//アーティスト詳細
+Route::get('artist', [ArtistController::class, 'artist_show'])->name('artist-show');
+
 //曲詳細
 Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
-//曲一覧
-Route::get('music_list', [MusicController::class, 'music_list_show'])->name('music-list-show');
+
 //おすすめ一覧
-Route::get('recommend_list', [RecommendController::class, 'recommend_list_show'])->name('recommend-list-show');
+Route::get('recommend', [RecommendController::class, 'recommend_list_show'])->name('recommend-list-show');
 
 //アルバム詳細
 Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');
-//アルバム一覧
-Route::get('album_list', [AlbumController::class, 'album_list_show'])->name('album-list-show');
 
 //プレイリスト詳細
 Route::get('playlist', [PlaylistController::class, 'playlist_show'])->name('playlist-show');
-//プレイリスト一覧
-Route::get('playlist_list', [PlaylistController::class, 'playlist_list_show'])->name('playlist-list-show');
+
+//検索
+Route::get('search', [SearchController::class, 'search_show'])->name('search-show');
+Route::get('search-list', [SearchController::class, 'search_list_show'])->name('search-list-show');
+
 
 
 // 認証済みユーザー向け

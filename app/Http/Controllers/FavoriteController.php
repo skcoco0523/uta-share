@@ -29,7 +29,7 @@ class FavoriteController extends Controller
     {
         $table = ["mus","alb","pl"];
         $favorite_list = array();
-        for( $i=0; $i<3; $i++){
+        for( $i=0; $i<count($table); $i++){
             $favorite_list[$table[$i]] = Favorite::getFavorite(Auth::id(),$table[$i]);
         }
         //dd($favorite_list);

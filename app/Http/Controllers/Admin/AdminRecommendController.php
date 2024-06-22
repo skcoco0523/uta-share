@@ -143,7 +143,7 @@ class AdminRecommendController extends Controller
                 $detail = Music::getMusic_list(5,true,$input['page'],$input['dtl_keyword']);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 1: //ｱｰﾃｨｽﾄ
-                $detail = Artist::getArtist(5,true,$input['page'],$input['dtl_keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Artist::getArtist_list(5,true,$input['page'],$input['dtl_keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 2: //ｱﾙﾊﾞﾑ
                 $detail = Album::getAlbum_list(5,true,$input['page'],$input['dtl_keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
