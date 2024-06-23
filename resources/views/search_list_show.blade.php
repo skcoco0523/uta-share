@@ -10,7 +10,7 @@
         <form action="{{ route('search-list-show') }}" method="GET">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <input type="search" name="keyword" class="form-control" placeholder="曲、アーティスト、アルバムなど" aria-describedby="basic-addon1">
+                <input type="search" id="searchInput" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="曲、アーティスト、アルバムなど" aria-describedby="basic-addon1">
             </div>
         </form>
 
@@ -65,31 +65,18 @@
 @endsection
 
 <script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-
-        // 全てのタブコンテンツを非表示にする
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-
-        // 全てのタブリンクからactiveクラスを削除する
-        tablinks = document.getElementsByClassName("nav-link");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // 現在のタブコンテンツを表示し、タブリンクにactiveクラスを追加する
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
     // 初期表示設定
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('all').style.display = 'block';
+
+        // 検索フォームにフォーカスが当たったらリダイレクトする
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('focus', function() {
+            const keyword = searchInput.value.trim(); // 検索フォームの値を取得
+            const url = "{{ route('search-show') }}" + "?keyword=" + encodeURIComponent(keyword);
+            window.location.href = url;
+        });
+
     });
 </script>
-
-<style>
-</style>

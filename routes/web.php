@@ -69,6 +69,9 @@ Route::get('playlist', [PlaylistController::class, 'playlist_show'])->name('play
 
 //検索
 Route::get('search', [SearchController::class, 'search_show'])->name('search-show');
+//検索補足
+Route::get('suggestions', [SearchController::class, 'search_suggestions'])->name('search-suggestions');
+//検索結果
 Route::get('search-list', [SearchController::class, 'search_list_show'])->name('search-list-show');
 
 
