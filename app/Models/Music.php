@@ -18,17 +18,19 @@ class Music extends Model
     //楽曲一覧取得
     public static function getMusic_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
-        $sql_cmd = DB::table('musics')
-        ->join('artists', 'musics.art_id', '=', 'artists.id')
-        ->leftJoin('albums', 'musics.alb_id', '=', 'albums.id')
-        ->where(function ($query) use ($keyword) {
-            $query->where('musics.name', 'like', "%{$keyword}%")
-                ->orWhere('artists.name', 'like', "%{$keyword}%")
-                ->orWhere('artists.name2', 'like', "%{$keyword}%")
-                ->orWhere('albums.name', 'like', "%{$keyword}%");
-        })
-        ->orderBy('musics.created_at', 'desc')
-        ->select('musics.*', 'artists.name as art_name', 'musics.id as mus_id', 'albums.name as alb_name', 'albums.aff_id as alb_aff_id');
+        $sql_cmd = DB::table('musics');
+        $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
+        $sql_cmd = $sql_cmd->leftJoin('albums', 'musics.alb_id', '=', 'albums.id');
+        if($keyword){
+            $sql_cmd = $sql_cmd->where(function ($query) use ($keyword) {
+                                $query->where('musics.name', 'like', "%{$keyword}%")
+                                    ->orWhere('artists.name', 'like', "%{$keyword}%")
+                                    ->orWhere('artists.name2', 'like', "%{$keyword}%")
+                                    ->orWhere('albums.name', 'like', "%{$keyword}%");});
+        }
+        $sql_cmd = $sql_cmd->orderBy('musics.created_at', 'desc');
+        $sql_cmd = $sql_cmd->select('musics.*', 'artists.name as art_name', 'musics.id as mus_id', 
+                                    'albums.name as alb_name', 'albums.aff_id as alb_aff_id');
 
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;

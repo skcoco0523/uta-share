@@ -16,10 +16,29 @@ class Album extends Model
     //アルバム一覧取得
     public static function getAlbum_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
-        $sql_cmd = DB::table('albums')
-            ->orderBy('created_at', 'desc')
-            ->where('name', 'like', "%$keyword%");
+        $subquery = DB::table('albums');
+        if($keyword){
+            $subquery = $subquery->join('artists', 'albums.art_id', '=', 'artists.id');
+            $subquery = $subquery->Join('musics', 'albums.id', '=', 'musics.alb_id' );
+            $subquery = $subquery->where(function ($query) use ($keyword) {
+                                $query->where('musics.name', 'like', "%{$keyword}%")
+                                        ->orWhere('artists.name', 'like', "%{$keyword}%")
+                                        ->orWhere('artists.name2', 'like', "%{$keyword}%")
+                                        ->orWhere('albums.name', 'like', "%{$keyword}%");});
+        }
+        //groupbyのエラーになるため
+        //$sql_cmd = $sql_cmd->groupBy('albums.name', 'albums.aff_id', 'artists.name');
+        //$sql_cmd = $sql_cmd->select('albums.*','albums.name as alb_name', 'albums.aff_id as alb_aff_id','artists.name as art_name');
+        $subquery = $subquery->groupBy('albums.id');
+        $subquery = $subquery->orderBy('albums.created_at', 'desc');
+        $subquery = $subquery->select('albums.id');
         
+        $sql_cmd = DB::table('albums');
+        $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
+        $sql_cmd = $sql_cmd->whereIn('albums.id', $subquery->pluck('albums.id'));
+        $sql_cmd = $sql_cmd->select('albums.*','albums.id as alb_id','albums.name as alb_name','artists.name as art_name');
+        $sql_cmd = $sql_cmd->orderBy('albums.created_at', 'desc');
+
         // デフォルト5件
         if ($disp_cnt === null)             $disp_cnt=5;
         // ページング・取得件数指定・全件で分岐
