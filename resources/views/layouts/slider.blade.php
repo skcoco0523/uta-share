@@ -1,9 +1,7 @@
 <?//ホーム用スライダー追加 20240118 kanno?>
-@guest
-@else
 
 <?//画像情報はDBから参照するように改修予定?>
-
+@auth
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
 <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="5000">
@@ -25,7 +23,10 @@
     <span class="visually-hidden">Next</span>
 </button>
 </div>
-@endguest
+@else
+
+
+@endauth
 
 
 

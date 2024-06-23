@@ -176,5 +176,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('favorite', [FavoriteController::class, 'favorite_show'])->name('favorite-show');
     //お気に入り変更
     Route::post('favorite-chg', [FavoriteController::class, 'favorite_chg'])->name('favorite-chg');
-
+    
+    //検索履歴削除
+    Route::post('history-delete', [SearchController::class, 'del_search_history'])->name('history-delete');
+    
 });

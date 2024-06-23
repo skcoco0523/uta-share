@@ -10,6 +10,7 @@ use App\Models\Artist;
 use App\Models\Music;
 use App\Models\Album;
 use App\Models\Playlist;
+use App\Models\SearchHistory;
 
 class SearchController extends Controller
 {
@@ -39,7 +40,7 @@ class SearchController extends Controller
 
         //ログインしているユーザーは検索履歴を表示
         if(Auth::check()){
-            $history = collect();
+            $history = SearchHistory::getSearchHistory(20);
         }else{
             $history = collect();
         }
@@ -62,6 +63,8 @@ class SearchController extends Controller
         $search_list["alb"] = Album::getAlbum_list(5,false,1,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $search_list["pl"] = Playlist::getPlaylist_list(5,false,1,$input['keyword'],1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,管理者登録フラグ
 
+        //検索履歴の登録
+        if($input['keyword']) SearchHistory::createSearchHistory($input['keyword']);
         $msg = null;
         //dd($playlist);
         
@@ -91,5 +94,13 @@ class SearchController extends Controller
 
         //検索補足データを返す
         return response()->json($suggestions);
+    }
+    //検索履歴削除
+    public function del_search_history(Request $request)
+    {
+        //ログインしているユーザーは検索履歴を表示
+        $this->middleware('auth');
+        $ret = SearchHistory::delSearchHistory();
+        return $ret;
     }
 }

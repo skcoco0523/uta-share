@@ -11,12 +11,21 @@
 
     <title>{{ config('app.name', '歌Share') }}</title>
 
+    <!-- JS用ルーティングの定義 -->
+    <script>
+        const loginUrl              = "{{ route('login') }}";
+        const historyDeleteUrl      = "{{ route('history-delete') }}";
+        const favoriteChangeUrl     = "{{ route('favorite-chg') }}";
+        const searchListShowUrl     = "{{ route('search-list-show') }}";
+    </script>
     <!-- 通知関連JSを読み込む -->
     <script src="{{ asset('js/notification.js') }}"></script>
     <!-- お気に入り関連JSを読み込む -->
     <script src="{{ asset('js/favorite_change.js') }}"></script>
     <!-- tab操作関連JSを読み込む -->
     <script src="{{ asset('js/tab.js') }}"></script>
+    <!-- 検索履歴関連JSを読み込む -->
+    <script src="{{ asset('js/search_history.js') }}"></script>
 
     <!-- Font Awesome CDN アイコン　　　https://fontawesome.com/　　　-->
     <script src="https://kit.fontawesome.com/46a805b165.js" crossorigin="anonymous"></script>
@@ -56,17 +65,11 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', '歌Share') }}
                 </a>
-                <!--
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'KareShare') }}
-                    </a>
-                -->
                 @auth
                     <span style="margin-left: auto;">{{ Auth::user()->name }}</span>&nbsp;
-                @endauth
-                @guest
+                @else
                     <span style="margin-left: auto;">ゲストユーザー</span>&nbsp;
-                @endguest
+                @endauth
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -81,23 +84,12 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item dropdown">
-                        @guest
-                            @if (Route::has('login'))
-                                <!--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>-->
-                                <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <!--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>-->
-                                <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
-                        @else
+                        @auth
                                 <a class="dropdown-item" href=""
                                     onclick="event.preventDefault();
-                                                    document.getElementById('').submit();">
+                                    document.getElementById('').submit();">
                                     {{ __('Profile') }}
                                 </a>
-                                
                             @if (Auth::user()->admin_flag)
                                 <a class="dropdown-item" href="{{ route('admin-home') }}">
                                     {{ __('Admin') }}
@@ -105,15 +97,20 @@
                             @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            <!--</div>-->
-                        @endguest
+                        @else
+                            @if (Route::has('login'))
+                                <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @endif
+                            @if (Route::has('register'))
+                                <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        @endauth
                         </li>
                     </ul>
                 </div>

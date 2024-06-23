@@ -23,7 +23,7 @@ function chgToFavorite(table, detail_id) {
     $.ajax({
         //POST通信
         type: "post",
-        url: "/app01/favorite-chg",
+        url: favoriteChangeUrl,
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -47,7 +47,7 @@ function chgToFavorite(table, detail_id) {
             });
             favoriteActions[table][detail_id] = "add";
         } else {
-            showNotification(response, "お気に入りの切り替えに失敗しました。", 1000);
+            showNotification("お気に入りの切り替えに失敗しました。", "", 1000);
         }
         console.log(favoriteActions[table][detail_id]);
     })
@@ -62,12 +62,13 @@ function chgToFavorite(table, detail_id) {
     .fail((xhr, status, error) => {
         if (xhr.status === 401) {
             // 認証エラーの場合の処理
-            alert('ログインが必要です。');
-            window.location.href = "/app01/login"; // ログインページにリダイレクト
+            showNotification('ログインが必要です。', "", 1000);
+            // 1秒後にログインページにリダイレクト
+            setTimeout(() => {window.location.href = loginUrl;}, 1000);
         } else {
             // その他のエラーが発生した場合の処理
             console.error('エラー:', error);
-            showNotification('エラーが発生しました。もう一度試してください。', "", 2000);
+            showNotification('エラーが発生しました。もう一度試してください。', "", 1000);
         }
     });
 }

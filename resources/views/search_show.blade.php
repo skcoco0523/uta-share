@@ -23,14 +23,23 @@
             </table>
         </div>
         <?//入力時は以下を非表示にする?>
-        <div id="historyList">
-            <h4>履歴</h4>
-            <ul>
+        @auth
+            <div id="historyList">
+                <h4>履歴</h4>
                 @foreach ($history as $his)
-                    <li>{{ $his->search_query }} ({{ $his->created_at->format('Y-m-d H:i:s') }})</li>
+                    <table class="table table-borderless table-center">
+                        <tbody>
+                        <tr><td>
+                            <span onclick="redirectToSearch('{{ $his->search_word }}');">{{ $his->search_word }}</span>
+                            <i class="fa-solid fa-magnifying-glass" style="float: right; cursor: pointer;"></i>
+                        </td></tr>
+                        </tbody>
+                    </table>
                 @endforeach
-            </ul>
-        </div>
+                <div class="d-flex overflow-auto justify-content-center contents_box">
+                    <a class="nav-link nav-link-red" onclick="delete_history()">検索履歴を削除</a>
+                </div>
+        @endauth
 
         <?//ログインユーザーのみ表示させるナビ?>   
         @include('layouts.nav_menu')
@@ -46,6 +55,8 @@
         const searchForm = document.getElementById('searchForm');       // 検索フォーム
         const suggestionsList = document.getElementById('suggestionsList');
         const historyList = document.getElementById('historyList');
+
+        const historyDeleteUrl = "{{ route('history-delete') }}";       //search_history.jsで利用するurl
 
         function showSuggestions() {
             searchSuggestions.style.display = 'block';

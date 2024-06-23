@@ -50,5 +50,5 @@ class FavoriteController extends Controller
         $ret = Favorite::chgFavorite(Auth::id(),$table,$detail_id,$type);
         
         return $ret;
-        }
+    }
 }

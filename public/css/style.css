@@ -226,7 +226,7 @@
 .nav-link-red {
   border-radius: 20px !important;
   padding: 2px 10px !important;
-  color: #000 !important; /* 通常のテキストカラー */
+  color: #ff0000  !important; /* 通常のテキストカラー */
   background-color: #ffffff !important; /* 通常の背景カラー */
   border: 1px solid #ff0000 !important; /* 非アクティブ時の赤枠 */
 }
