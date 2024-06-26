@@ -58,19 +58,12 @@ class User extends Authenticatable
             
             // 更新対象となるカラムと値を連想配列に追加
             $updateData = [];
-            //dd($data);
-            
             if(isset($data['name']))        $updateData['name']         = $data['name'];
             if(isset($data['email']))       $updateData['email']        = $data['email'];
             if(isset($data['birthdate']))   $updateData['birthdate']    = $data['birthdate'];
             if(isset($data['name']))        $updateData['name']         = $data['name'];
-            //dd($updateData);
-        
+            
             make_error_log("chgProfile.log","after_data=".print_r($data,1));
-            // musicデータ更新
-            /*  クエリビルダではupdated_atが自動更新されない
-            DB::table('musics')->where('id', $updateData['id'])->update($updateData);
-            */
             User::where('id', $data['id'])->update($updateData);
 
             make_error_log("chgProfile.log","success");

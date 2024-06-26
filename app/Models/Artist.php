@@ -79,23 +79,17 @@ class Artist extends Model
 
         $artist = DB::table('artists')->where('id', $data['id'])->first();
         if ($artist !== null) {
-            /*  クエリビルダではupdated_atが自動更新されない
-            DB::table('artists')->where('id', $data['id'])
-            ->update([
-                'name' => $data['name'], 
-                'name2' => $data['name2'], 
-                'debut' => $data['debut'], 
-                'sex' => $data['sex'], 
-            ]);
-            */
             
-            Artist::where('id', $data['id'])
-                ->update([
-                    'name' => $data['name'],
-                    'name2' => $data['name2'],
-                    'debut' => $data['debut'],
-                    'sex' => $data['sex'],
-                ]);
+            // 更新対象となるカラムと値を連想配列に追加
+            $updateData = [];
+            if(isset($data['name']))    $updateData['name']     = $data['name'];
+            if(isset($data['name2']))   $updateData['name2']    = $data['name2'];
+            if(isset($data['debut']))   $updateData['debut']    = $data['debut'];
+            if(isset($data['sex']))     $updateData['sex']      = $data['sex'];
+        
+            make_error_log("chgArtist.log","after_data=".print_r($updateData,1));
+            
+            Artist::where('id', $data['id'])->update($updateData);
 
             $msg = "更新しました。";
         } else {

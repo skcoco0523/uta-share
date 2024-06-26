@@ -144,20 +144,16 @@ class Album extends Model
         
         $album = DB::table('albums')->where('id', $data['id'])->first();
         if ($album !== null) {
-            /*  クエリビルダではupdated_atが自動更新されない
-                DB::table('albums')->where('id', $data['id'])
-                ->update([
-                    'name' => $data['name'], 
-                    'art_id' => $data['art_id'], 
-                    'release_date' => $data['release_date'], 
-            ]);
-            */
-            Album::where('id', $data['id'])
-            ->update([
-                'name' => $data['name'], 
-                'art_id' => $data['art_id'], 
-                'release_date' => $data['release_date'], 
-            ]);
+            
+            // 更新対象となるカラムと値を連想配列に追加
+            $updateData = [];
+            if(isset($data['name']))    $updateData['name']     = $data['name'];
+            if(isset($data['art_id']))   $updateData['art_id']    = $data['art_id'];
+            if(isset($data['release_date']))   $updateData['release_date']    = $data['release_date'];
+        
+            make_error_log("chgAlbum.log","after_data=".print_r($updateData,1));
+            
+            Album::where('id', $data['id'])->update($updateData);
 
             //アーティストが変更された場合、曲のart_idも更新する
             if($album->art_id != $data['art_id']){

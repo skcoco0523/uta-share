@@ -561,3 +561,36 @@
 )
   
 [2024-06-26 21:02:05] local.DEBUG: success  
+[2024-06-26 21:19:31] local.DEBUG: -------start-------  
+[2024-06-26 21:19:31] local.DEBUG: after_data=Array
+(
+    [_token] => MN8lxkmJCtiCOiFxA0iodOyaH6BmP6gjraPkISSk
+    [name] => skcoco　admin
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-26 21:19:31] local.DEBUG: success  
+[2024-06-26 21:19:40] local.DEBUG: -------start-------  
+[2024-06-26 21:19:40] local.DEBUG: after_data=Array
+(
+    [_token] => MN8lxkmJCtiCOiFxA0iodOyaH6BmP6gjraPkISSk
+    [name] => skcoco　admin
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-26 21:19:40] local.DEBUG: success  
+[2024-06-26 21:20:53] local.DEBUG: -------start-------  
+[2024-06-26 21:20:53] local.DEBUG: after_data=Array
+(
+    [_token] => MN8lxkmJCtiCOiFxA0iodOyaH6BmP6gjraPkISSk
+    [name] => skcoco　admin2
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-26 21:20:53] local.DEBUG: success  

@@ -466,3 +466,63 @@
 )
   
 [2024-06-20 19:12:04] local.DEBUG: success  
+[2024-06-26 21:25:20] local.DEBUG: -------start-------  
+[2024-06-26 21:25:20] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 79
+    [alb_id] => 8
+    [art_id] => 3
+    [name] => らしく
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-06-18 22:18:35
+    [updated_at] => 2024-06-18 22:18:35
+)
+  
+[2024-06-26 21:25:20] local.DEBUG: after_data=Array
+(
+    [art_id] => 3
+    [name] => らしく2
+    [aff_id] => 8
+)
+  
+[2024-06-26 21:25:20] local.DEBUG: success  
+[2024-06-26 21:25:25] local.DEBUG: -------start-------  
+[2024-06-26 21:25:25] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 79
+    [alb_id] => 8
+    [art_id] => 3
+    [name] => らしく2
+    [release_date] => 
+    [link] => 
+    [aff_id] => 8
+    [created_at] => 2024-06-18 22:18:35
+    [updated_at] => 2024-06-26 21:25:20
+)
+  
+[2024-06-26 21:25:25] local.DEBUG: after_data=Array
+(
+    [art_id] => 3
+    [name] => らしく
+    [aff_id] => 8
+)
+  
+[2024-06-26 21:25:25] local.DEBUG: success  
+[2024-06-26 21:28:40] local.DEBUG: after_data=Array
+(
+    [name] => BLUE ENCOUN2
+    [name2] => ブルーエンカウント
+    [debut] => 2014-09-10
+    [sex] => 0
+)
+  
+[2024-06-26 21:28:43] local.DEBUG: after_data=Array
+(
+    [name] => BLUE ENCOUN
+    [name2] => ブルーエンカウント
+    [debut] => 2014-09-10
+    [sex] => 0
+)
+  

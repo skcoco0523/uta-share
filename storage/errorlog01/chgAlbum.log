@@ -82,3 +82,21 @@
 [2024-06-20 18:42:48] local.DEBUG: id=8 art_id=3 name=VS  
 [2024-06-20 19:12:39] local.DEBUG: -------start-------  
 [2024-06-20 19:12:39] local.DEBUG: id=8 art_id=3 name=VS  
+[2024-06-26 21:31:17] local.DEBUG: -------start-------  
+[2024-06-26 21:31:17] local.DEBUG: id=8 art_id=3 name=VS2  
+[2024-06-26 21:31:17] local.DEBUG: after_data=Array
+(
+    [name] => VS2
+    [art_id] => 3
+    [release_date] => 2017-11-29
+)
+  
+[2024-06-26 21:31:21] local.DEBUG: -------start-------  
+[2024-06-26 21:31:21] local.DEBUG: id=8 art_id=3 name=VS  
+[2024-06-26 21:31:21] local.DEBUG: after_data=Array
+(
+    [name] => VS
+    [art_id] => 3
+    [release_date] => 2017-11-29
+)
+  

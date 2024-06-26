@@ -141,20 +141,19 @@ class Music extends Model
             make_error_log("chgMusic.log","before_data=".print_r($music,1));
             // 更新対象となるカラムと値を連想配列に追加
             $updateData = [];
-            $updateData['id'] =             $data['id'];
-            $updateData['alb_id'] =         (isset($data['alb_id']))        ? $data['alb_id'] : $music->alb_id;
-            $updateData['art_id'] =         (isset($data['art_id']))        ? $data['art_id'] : $music->art_id;
-            $updateData['name'] =           (isset($data['name']))          ? $data['name'] : $music->name;
-            $updateData['release_date'] =   (isset($data['release_date']))  ? $data['release_date'] : $music->release_date;
-            $updateData['link'] =           (isset($data['link']))          ? $data['link'] : $music->link;
-            $updateData['aff_id'] =         (isset($data['aff_id']))        ? $data['aff_id'] : $music->aff_id;
+            if(isset($data['alb_id']))          $updateData['alb_id']        = $data['alb_id'];
+            if(isset($data['art_id']))          $updateData['art_id']        = $data['art_id'];
+            if(isset($data['name']))            $updateData['name']          = $data['name'];
+            if(isset($data['release_date']))    $updateData['release_date']  = $data['release_date'];
+            if(isset($data['link']))            $updateData['link']          = $data['link'];
+            if(isset($data['aff_id']))          $updateData['aff_id']        = $data['aff_id'];
         
             make_error_log("chgMusic.log","after_data=".print_r($updateData,1));
             // musicデータ更新
             /*  クエリビルダではupdated_atが自動更新されない
             DB::table('musics')->where('id', $updateData['id'])->update($updateData);
             */
-            Music::where('id', $updateData['id'])->update($updateData);
+            Music::where('id', $data['id'])->update($updateData);
 
             make_error_log("chgMusic.log","success");
             return ['id' => $music->id, 'error_code' => 0];   //更新成功
