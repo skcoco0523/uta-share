@@ -1,6 +1,7 @@
 {
     "Email"                         : "メールアドレス",
     "Email Address"                 : "メールアドレス",
+    "Friend_code"                   : "フレンドコード",
     "Password"                      : "パスワード",
     "Confirm Password"              : "パスワード(確認用)",
     "Reset Password"                : "パスワードリセット",
@@ -12,6 +13,7 @@
     "Admin"                         : "管理者",
     "Profile"                       : "プロフィール",
     "Register"                      : "新規登録",
+    "Update"                        : "更新",
     "Name"                          : "名前",
     "Birthdate"                     : "生年月日",
     "Gender"                        : "性別",
@@ -19,5 +21,6 @@
     "Woman"                         : "女性",
     "Year"                          : "年",
     "Month"                         : "月",
-    "Day"                           : "日"
+    "Day"                           : "日",
+    "":""
 }

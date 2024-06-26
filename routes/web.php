@@ -172,6 +172,10 @@ Route::middleware(['auth'])->group(function () {
     });
 
     //ユーザー------------------------------------------------------------------------
+    //プロフィール
+    Route::get('profile-show', [UserController::class, 'profile_show'])->name('profile-show');
+    Route::post('profile-change', [UserController::class, 'profile_change'])->name('profile-change');
+
     //お気に入り表示
     Route::get('favorite', [FavoriteController::class, 'favorite_show'])->name('favorite-show');
     //お気に入り変更

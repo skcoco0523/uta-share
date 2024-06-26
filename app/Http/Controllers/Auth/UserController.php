@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\User;
 
 use Illuminate\Support\Str;
 
@@ -54,4 +57,39 @@ class UserController extends Controller
         // リダイレクト
         return redirect()->back();
     }
+    //プロフィール情報取得
+    public function profile_show(Request $request)
+    {
+        $profile = Auth::user();
+        $msg = null;
+        //dd($profile);
+        if($profile){
+            return view('profile_show', compact('profile', 'msg'));
+        }else{
+            $message = ['message' => 'プロフィール情報を取得に失敗しました。','type' => '','sec' => '2000'];
+            return redirect()->route('home')->with($message);
+        }
+    }
+    //プロフィール情報変更
+    public function profile_change(Request $request)
+    {
+        $profile = $request->all();
+        $profile['id'] = Auth::id();
+        if(!$profile['id']) return redirect()->route('login');
+        //dd($profile);
+        $ret = User::chgProfile($profile);
+        $msg = null;
+        if($ret['error_code'] == 0){        
+            //$profile = Auth::user();
+            //dd($profile);
+            $message = ['message' => 'プロフィール情報を更新しました。','type' => 'profile','sec' => '2000'];
+            return redirect()->route('profile-show')->with($message);
+        }else{
+            $message = ['message' => 'プロフィール情報の更新に失敗しました。','type' => '','sec' => '2000'];
+            return redirect()->route('home')->with($message);
+        }
+    }
+
+    
+
 }

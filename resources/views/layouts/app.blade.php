@@ -49,15 +49,18 @@
 <div class="header"></div>
 
 <body>
-    @if (session('error'))
-        <script>
-            alert('{{ session('error') }}');
-        </script>
-    @endif
     
     <div id="notification">
-        <img src="{{ asset('img/icon/defo.gif') }}" alt="通知GIF">
+        <img src="" alt="通知GIF">
     </div>
+
+    @if (session('message'))
+    <script>
+        showNotification('{{ session('message') }}', '{{ session('type') }}', '{{ session('sec') }}');
+        //alert('{{ session('error') }}');
+    </script>
+    @endif
+
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
@@ -85,9 +88,7 @@
                         <!-- Authentication Links -->
                         <li class="nav-item dropdown">
                         @auth
-                                <a class="dropdown-item" href=""
-                                    onclick="event.preventDefault();
-                                    document.getElementById('').submit();">
+                                <a class="dropdown-item" href="{{ route('profile-show') }}">
                                     {{ __('Profile') }}
                                 </a>
                             @if (Auth::user()->admin_flag)

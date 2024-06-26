@@ -14,11 +14,15 @@ function showNotification(message, type, sec) {
             break;
         case "fav_add":    //お気に入り追加
             notification.innerHTML = `<i class="fa-solid fa-heart-circle-plus fa-bounce red icon-50"></i>
-            <p>${message}</p>`;
+                                        <p>${message}</p>`;
             break;
         case "fav_del":    //お気に入り削除
             notification.innerHTML = `<i class="fa-solid fa-heart-circle-xmark fa-shake red icon-50"></i>
-            <p>${message}</p>`;
+                                        <p>${message}</p>`;
+            break;
+        case "profile":    //プロフィール変更
+            notification.innerHTML = `<i class="fa-solid fa-address-card fa-fade icon-50""></i>
+                                        <p>${message}</p>`;
             break;
         default:            //メッセージのみ
             notification.innerHTML = `<p>${message}</p>`;
