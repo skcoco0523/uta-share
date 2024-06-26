@@ -20,15 +20,20 @@ function showNotification(message, type, sec) {
             notification.innerHTML = `<i class="fa-solid fa-heart-circle-xmark fa-shake red icon-50"></i>
                                         <p>${message}</p>`;
             break;
-        case "profile":    //プロフィール変更
-            notification.innerHTML = `<i class="fa-solid fa-address-card fa-fade icon-50""></i>
+        case "fav_del":    //プロフィール変更
+            notification.innerHTML = `<i class="fa-solid fa-address-card fa-fade icon-50"></i>
                                         <p>${message}</p>`;
-            break;
+            break; 
+        case "419":    //419エラー
+        notification.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-shake icon-50"></i>
+                                    <p>${message}</p>`;
+        break;
+
         default:            //メッセージのみ
             notification.innerHTML = `<p>${message}</p>`;
             break;
     }
-
+    console.log(message);
     notification.style.display = 'block';
 
     if (type === "loading") {
