@@ -1,4 +1,5 @@
 function showNotification(message, type, sec) {
+    console.log(message);
     const notification = document.getElementById('notification');
     //アイコン情報：https://fontawesome.com/
     switch(type){
@@ -20,11 +21,11 @@ function showNotification(message, type, sec) {
             notification.innerHTML = `<i class="fa-solid fa-heart-circle-xmark fa-shake red icon-50"></i>
                                         <p>${message}</p>`;
             break;
-        case "fav_del":    //プロフィール変更
+        case "profile":    //プロフィール変更
             notification.innerHTML = `<i class="fa-solid fa-address-card fa-fade icon-50"></i>
                                         <p>${message}</p>`;
             break; 
-        case "419":    //419エラー
+        case "error":    //エラー
         notification.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-shake icon-50"></i>
                                     <p>${message}</p>`;
         break;

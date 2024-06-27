@@ -82,10 +82,14 @@ class UserController extends Controller
         if($ret['error_code'] == 0){        
             //$profile = Auth::user();
             //dd($profile);
-            $message = ['message' => 'プロフィール情報を更新しました。','type' => 'profile','sec' => '2000'];
+            $message = ['message' => 'プロフィール情報を更新しました。',
+                        'type' => 'profile',
+                        'sec' => '2000'];
             return redirect()->route('profile-show')->with($message);
         }else{
-            $message = ['message' => 'プロフィール情報の更新に失敗しました。','type' => '','sec' => '2000'];
+            $message = ['message' => 'プロフィール情報の更新に失敗しました。',
+                        'type' => 'error',
+                        'sec' => '2000'];
             return redirect()->route('home')->with($message);
         }
     }

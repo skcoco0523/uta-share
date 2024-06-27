@@ -616,3 +616,58 @@
 )
   
 [2024-06-26 23:36:34] local.DEBUG: success  
+[2024-06-27 23:19:58] local.DEBUG: -------start-------  
+[2024-06-27 23:19:59] local.DEBUG: after_data=Array
+(
+    [_token] => mIjoRtXqghEU4jXsXOLtUERBtzIM6zlbW9vGeZfi
+    [name] => skcoco　admin2
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-27 23:19:59] local.DEBUG: success  
+[2024-06-27 23:21:05] local.DEBUG: -------start-------  
+[2024-06-27 23:21:05] local.DEBUG: after_data=Array
+(
+    [_token] => NDsKKK2JSj4FBYPKFZA3sx8DLvCZ4ImozqFhxUMx
+    [name] => skcoco　admin2
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-27 23:21:05] local.DEBUG: success  
+[2024-06-27 23:21:11] local.DEBUG: -------start-------  
+[2024-06-27 23:21:11] local.DEBUG: after_data=Array
+(
+    [_token] => NDsKKK2JSj4FBYPKFZA3sx8DLvCZ4ImozqFhxUMx
+    [name] => skcoco　admin2
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-27 23:21:11] local.DEBUG: success  
+[2024-06-27 23:22:19] local.DEBUG: -------start-------  
+[2024-06-27 23:22:19] local.DEBUG: after_data=Array
+(
+    [_token] => NDsKKK2JSj4FBYPKFZA3sx8DLvCZ4ImozqFhxUMx
+    [name] => skcoco　admin2
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-27 23:22:19] local.DEBUG: success  
+[2024-06-27 23:22:45] local.DEBUG: -------start-------  
+[2024-06-27 23:22:45] local.DEBUG: after_data=Array
+(
+    [_token] => YvRrmpsn32lxzbZMmda1KwmA0qcxZ2ntzaRIrdLf
+    [name] => skcoco　admin2
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-27 23:22:45] local.DEBUG: success  
