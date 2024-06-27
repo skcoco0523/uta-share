@@ -671,3 +671,14 @@
 )
   
 [2024-06-27 23:22:45] local.DEBUG: success  
+[2024-06-28 00:06:16] local.DEBUG: -------start-------  
+[2024-06-28 00:06:16] local.DEBUG: after_data=Array
+(
+    [_token] => HIdl3noTg82BrOiDasbNDbGvmoW14qwVnZidNbbX
+    [name] => skcoco　admin
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [id] => 1
+)
+  
+[2024-06-28 00:06:16] local.DEBUG: success  

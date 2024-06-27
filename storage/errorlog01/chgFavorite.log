@@ -682,3 +682,7 @@
 [2024-06-24 02:58:29] local.DEBUG: user_id=1 table=mus fav_id=1 type=add  
 [2024-06-24 02:58:29] local.DEBUG: fav_chk=0  
 [2024-06-24 02:58:29] local.DEBUG: to add  
+[2024-06-28 00:02:31] local.DEBUG: -------start-------  
+[2024-06-28 00:02:31] local.DEBUG: user_id=1 table=mus fav_id=45 type=add  
+[2024-06-28 00:02:31] local.DEBUG: fav_chk=0  
+[2024-06-28 00:02:31] local.DEBUG: to add  

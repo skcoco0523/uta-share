@@ -28,7 +28,10 @@ class SearchHistory extends Model
     public static function getSearchHistory($cnt)
     {
         try {
-            $history = DB::table('search_histories')->where(["user_id"=>Auth::id(), "del_flag" => 0])->Limit($cnt)->get();
+            $history = DB::table('search_histories')
+                        ->where(["user_id"=>Auth::id(), "del_flag" => 0])
+                        ->orderBy('created_at', 'desc')
+                        ->Limit($cnt)->get();
             return $history; 
         } catch (\Exception $e) {
             make_error_log("getSearchHistory.log","failure");

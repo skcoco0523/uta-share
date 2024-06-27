@@ -7,7 +7,6 @@ function setFavoriteActions(table, id, fav_flag) {
     }
     favoriteActions[table][id] = fav_flag ? "del" : "add";
 
-    console.log(favoriteActions[table][id]);
 }
 
 function chgToFavorite(table, detail_id) {
@@ -49,7 +48,7 @@ function chgToFavorite(table, detail_id) {
         } else {
             showNotification("お気に入りの切り替えに失敗しました。", "", 1000);
         }
-        console.log(favoriteActions[table][detail_id]);
+        
     })
     .always(() => {
         // 一定時間後にクリックイベントを再度有効化する
