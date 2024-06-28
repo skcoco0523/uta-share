@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\Friendlist;
 
 class User extends Authenticatable
 {
@@ -74,4 +75,18 @@ class User extends Authenticatable
             return ['error_code' => -1];   //更新失敗
         }
     }
+    public static function findByFriendCode($friendCode,$user_id)
+    {
+        $user = self::where('friend_code', $friendCode)->select('id', 'name')->first();
+        if($user && ($user_id != $user->id)){
+            //フレンド申請状態を確認
+            $user->status = Friendlist::getFriendStatus(Auth::id(), $user->id);
+            return $user;
+
+        }else{
+            return null;
+        }
+    }
+
+
 }

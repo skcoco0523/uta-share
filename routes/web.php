@@ -20,6 +20,7 @@ use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\FriendlistController;
 use App\Http\Controllers\RecommendController;
 use App\Http\Controllers\SearchController;
 /*
@@ -180,6 +181,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('favorite', [FavoriteController::class, 'favorite_show'])->name('favorite-show');
     //お気に入り変更
     Route::post('favorite-chg', [FavoriteController::class, 'favorite_chg'])->name('favorite-chg');
+
+    //フレンドリスト表示
+    Route::get('friendlist', [FriendlistController::class, 'friendlist_show'])->name('friendlist-show');
+    //フレンド申請
+    Route::post('friend-request', [FriendlistController::class, 'friend_request'])->name('friend-request');
+    //フレンド承認
+    Route::post('friend-accept', [FriendlistController::class, 'friend_accept'])->name('friend-accept');
+    //フレンド申請拒否
+    Route::post('friend-decline', [FriendlistController::class, 'friend_decline'])->name('friend-decline');
+    //フレンド申請キャンセル
+    Route::post('friend-cancel', [FriendlistController::class, 'friend_cancel'])->name('friend-cancel');
     
     //検索履歴削除
     Route::post('history-delete', [SearchController::class, 'del_search_history'])->name('history-delete');

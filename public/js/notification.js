@@ -28,7 +28,13 @@ function showNotification(message, type, sec) {
         case "error":    //エラー
         notification.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-shake icon-50"></i>
                                     <p>${message}</p>`;
-        break;
+            break;
+        case "friend":    //フレンド関連
+        notification.innerHTML = `<i class="fa-solid fa-user-group fa-fade icon-50"></i>
+                                    <p>${message}</p>`;
+            break;
+
+            
 
         default:            //メッセージのみ
             notification.innerHTML = `<p>${message}</p>`;
