@@ -118,9 +118,9 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </nav>
                     </div>
-                </nav>
+                </div>
 
                 <main class="py-4">
                     <div class="container-fluid" style="max-width: 600px;">
