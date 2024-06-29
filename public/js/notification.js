@@ -59,10 +59,17 @@ function hideNotification() {
     document.getElementById('notification').style.display = 'none';
 }
 
+//モーダル(シェアポップアップ)-----------------------------
+function openShareModal(url) {
+    var modal = document.getElementById('shareModal');
+    var shareButtons = modal.querySelectorAll('.share-button');
 
+    shareButtons.forEach(function(button) {
+        var platform = button.getAttribute('data-platform');
+        button.setAttribute('onclick', "shareToPlatform('" + platform + "', '" + url + "')");
+    });
 
-function openShareModal() {
-    document.getElementById('shareModal').style.display = 'block';
+    modal.style.display = 'block';
 }
 
 function closeShareModal(event) {

@@ -27,10 +27,14 @@
             </div>
 
             <div class="row mb-3">
-                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Friend_code') }}</label>
-
+                <div style="display: flex; align-items: center;">
+                    <label for="friend_code" class="col-md-4 col-form-label text-md-end">{{ __('Friend_code') }}　</label>
+                    <p onclick="openShareModal('{{ route('friendlist-show', ['friend_code' => $profile->friend_code]) }}')" class="mb-0">
+                        <i class="fa-regular fa-share-from-square icon-20"></i>
+                    </p>
+                </div>
                 <div class="col-md-6">
-                    <input id="friend_code" type="text" class="form-control" name="friend_code" value="{{ $profile->friend_code}}" disabled autocomplete="friend_code" autofocus>
+                    <input id="friend_code" type="text" class="form-control" name="friend_code" value="{{ $profile->friend_code }}" disabled autocomplete="friend_code" autofocus>
                 </div>
             </div>
 
@@ -54,4 +58,8 @@
         </form>
     </div>
 </div>
+
+<?//ェアポップアップモーダル?>  
+@include('modals.share-modal')
+
 @endsection
