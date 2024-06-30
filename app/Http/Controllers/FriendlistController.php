@@ -33,7 +33,7 @@ class FriendlistController extends Controller
         $search_user=null;
         $friend_code = $request->input('friend_code');
         if($friend_code){
-            $search_user = User::findByFriendCode($friend_code,Auth::id());
+            $search_user = Friendlist::findByFriendCode($friend_code,Auth::id());
             if(!$search_user){
                 //ユーザー検索で一致しなかった場合は場合はリダイレクトする
                 $message = ['message' => 'ユーザーが見つかりませんでした。',

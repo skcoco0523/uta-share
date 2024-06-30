@@ -27,8 +27,8 @@
             </div>
 
             <div class="row mb-3">
-                <div style="display: flex; align-items: center;">
-                    <label for="friend_code" class="col-md-4 col-form-label text-md-end">{{ __('Friend_code') }}　</label>
+                <div class="col-md-4" style="display: flex; align-items: center;">
+                    <label for="friend_code" class="col-form-label text-md-end">{{ __('Friend_code') }}　</label>
                     <p onclick="openShareModal('{{ route('friendlist-show', ['friend_code' => $profile->friend_code]) }}')" class="mb-0">
                         <i class="fa-regular fa-share-from-square icon-20"></i>
                     </p>
@@ -44,6 +44,32 @@
                 <div class="col-md-6">
                     <input id="birthdate" type="date" class="form-control" name="birthdate" value="{{ \Carbon\Carbon::parse($profile->birthdate)->format('Y-m-d')  }}"  required autocomplete="birthdate" autofocus>
 
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-6 offset-md-4">
+                    <div class="form-check">
+                        <input type="hidden" name="release_flag" value="0"> <!-- デフォルト値 -->
+                        <input class="form-check-input" type="checkbox" name="release_flag" value="1" {{ $profile->release_flag ? 'checked' : '' }}>
+
+                        <label class="form-check-label" for="release_flag">
+                            {{ __('Restrict disclosure to friends') }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6 offset-md-4">
+                    <div class="form-check">
+                        <input type="hidden" name="mail_flag" value="0"> <!-- デフォルト値 -->
+                        <input class="form-check-input" type="checkbox" name="mail_flag" value="1" {{ $profile->mail_flag ? 'checked' : '' }}>
+
+                        <label class="form-check-label" for="mail_flag">
+                            {{ __('Restricting email delivery') }}
+                        </label>
+                    </div>
                 </div>
             </div>
 

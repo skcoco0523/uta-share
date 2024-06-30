@@ -24,10 +24,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        //会員情報追加
-        'friend_code',
-        'gender',
-        'birthdate',
+        'friend_code',          //会員情報追加
+        'gender',               //会員情報追加
+        'birthdate',            //会員情報追加
+        'release_flag',         //フレンドへの公開規制、
+        'mail_flag',            //メール送信規制
     ];
 
     /**
@@ -59,10 +60,11 @@ class User extends Authenticatable
             
             // 更新対象となるカラムと値を連想配列に追加
             $updateData = [];
-            if(isset($data['name']))        $updateData['name']         = $data['name'];
-            if(isset($data['email']))       $updateData['email']        = $data['email'];
-            if(isset($data['birthdate']))   $updateData['birthdate']    = $data['birthdate'];
-            if(isset($data['name']))        $updateData['name']         = $data['name'];
+            if(isset($data['name']))            $updateData['name']         = $data['name'];
+            if(isset($data['email']))           $updateData['email']        = $data['email'];
+            if(isset($data['birthdate']))       $updateData['birthdate']    = $data['birthdate'];
+            if(isset($data['release_flag']))    $updateData['release_flag'] = $data['release_flag'];
+            if(isset($data['mail_flag']))       $updateData['mail_flag']    = $data['mail_flag'];
             
             make_error_log("chgProfile.log","after_data=".print_r($data,1));
             User::where('id', $data['id'])->update($updateData);
@@ -73,18 +75,6 @@ class User extends Authenticatable
         } catch (\Exception $e) {
             make_error_log("chgProfile.log","failure");
             return ['error_code' => -1];   //更新失敗
-        }
-    }
-    public static function findByFriendCode($friendCode,$user_id)
-    {
-        $user = self::where('friend_code', $friendCode)->select('id', 'name')->first();
-        if($user && ($user_id != $user->id)){
-            //フレンド申請状態を確認
-            $user->status = Friendlist::getFriendStatus(Auth::id(), $user->id);
-            return $user;
-
-        }else{
-            return null;
         }
     }
 

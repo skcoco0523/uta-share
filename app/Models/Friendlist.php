@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Auth;
+
 class Friendlist extends Model
 {
     use HasFactory;
     protected $fillable = ['user_id', 'friend_id', 'status'];     //一括代入の許可
     //0:承認待ち,1:承認済み,2:拒否
 
-    //フレンド情報取得
+    //フレンドリスト取得
     public static function getFriendlist($user_id)
     {
         try {
@@ -95,7 +97,19 @@ class Friendlist extends Model
                 return 'declined'; 
             }
         }
+    }
+    //フレンド検索
+    public static function findByFriendCode($friendCode,$user_id)
+    {
+        $user = User::where('friend_code', $friendCode)->select('id', 'name')->first();
+        if($user && ($user_id != $user->id)){
+            //フレンド申請状態を確認
+            $user->status = Friendlist::getFriendStatus(Auth::id(), $user->id);
+            return $user;
 
+        }else{
+            return null;
+        }
     }
     //フレンド申請
     public static function requestFriend($user_id, $friend_id)
