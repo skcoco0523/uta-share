@@ -17,4 +17,16 @@ function openTab(evt, tabName) {
     // 現在のタブコンテンツを表示し、タブリンクにactiveクラスを追加する
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+
+    // アクティブなタブをセッションストレージに保存
+    sessionStorage.setItem('activeTab', tabName);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const activeTab = sessionStorage.getItem('activeTab');
+    if (activeTab) {
+        document.querySelector(`.nav-link[onclick="openTab(event, '${activeTab}')"]`).click();
+    } else {
+        document.querySelector('.nav-link.active').click();
+    }
+});

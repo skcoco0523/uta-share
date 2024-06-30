@@ -12,7 +12,46 @@
   max-width: 600px;
 }
 
-/*slider------------------------------------------------------------------------*/
+/*button------------------------------------------------------------------------*/
+a.btn {
+  font-size: 10px; /* 文字サイズを小さく設定 */
+}
+a.btn-red {
+  width     : 100%;  /* 親要素（<td>）の幅に合わせる */
+  color     : #000000;  /* テキストカラー */
+  background: #f00000;  /*グラデーションがサポートされていない場合*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff0000), to(#fe8d8d));  /*古いバージョンのWebkit*/
+  background: -webkit-linear-gradient(top, #ff0000 0%, #fe8d8d 100%); /*新しいバージョンのWebkit*/
+  background: linear-gradient(to bottom, #ff0000 0%, #fe8d8d 100%);   /*標準的な線形グラデーション*/
+  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5);                          /* 左下に影を作成 */
+}
+a.btn-blue {
+  width     : 100%;  /* 親要素（<td>）の幅に合わせる */
+  color     : #ffffff;  /* テキストカラー */
+  background: #0000f0;  /*グラデーションがサポートされていない場合*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#0000f0), to(#8080ff));  /*古いバージョンのWebkit*/
+  background: -webkit-linear-gradient(top, #0000f0 0%, #8080ff 100%); /*新しいバージョンのWebkit*/
+  background: linear-gradient(to bottom, #0000f0 0%, #8080ff 100%);   /*標準的な線形グラデーション*/
+  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5);                          /* 左下に影を作成 */
+}
+a.btn-gray {
+  width     : 100%;  /* 親要素（<td>）の幅に合わせる */
+  color     : #ffffff;  /* テキストカラー */
+  background: #494949;  /*グラデーションがサポートされていない場合*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#494949), to(#949494));  /*古いバージョンのWebkit*/
+  background: -webkit-linear-gradient(top, #494949 0%, #949494 100%); /*新しいバージョンのWebkit*/
+  background: linear-gradient(to bottom, #494949 0%, #949494 100%);   /*標準的な線形グラデーション*/
+  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5);                          /* 左下に影を作成 */
+}
+
+.button-group {
+  display: flex;
+  gap: 10px; /* ボタン間の隙間を設定 */
+}
+
+
+
+/*-----------------------------------------------------------------------------*/
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
