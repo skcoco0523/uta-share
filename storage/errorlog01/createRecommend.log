@@ -1204,3 +1204,14 @@
 )
   
 [2024-06-22 11:08:55] local.DEBUG: success  
+[2024-07-01 02:08:05] local.DEBUG: ---------start----------  
+[2024-07-01 02:08:06] local.DEBUG: data=Array
+(
+    [_token] => y9WYJH1xRAxo5YSHSfjLe6GfhYLlZd2kVw8yQPvQ
+    [name] => おすすめ　曲　テスト
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 1
+)
+  
+[2024-07-01 02:08:06] local.DEBUG: success  

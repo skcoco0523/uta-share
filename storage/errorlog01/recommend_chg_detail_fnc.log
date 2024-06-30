@@ -1158,3 +1158,28 @@
 [2024-06-22 11:09:46] local.DEBUG: -------start-------  
 [2024-06-22 11:09:46] local.DEBUG: delete_pl_id=5  
 [2024-06-22 11:09:46] local.DEBUG: success  
+[2024-07-01 02:09:16] local.DEBUG: -----start-----  
+[2024-07-01 02:09:16] local.DEBUG: fnc=add recom_id=40 category=0 detail_id=77  
+[2024-07-01 02:09:16] local.DEBUG: -------start-------  
+[2024-07-01 02:09:16] local.DEBUG: delete_pl_id=77  
+[2024-07-01 02:09:16] local.DEBUG: success  
+[2024-07-01 02:09:24] local.DEBUG: -----start-----  
+[2024-07-01 02:09:24] local.DEBUG: fnc=add recom_id=40 category=0 detail_id=58  
+[2024-07-01 02:09:24] local.DEBUG: -------start-------  
+[2024-07-01 02:09:24] local.DEBUG: delete_pl_id=58  
+[2024-07-01 02:09:24] local.DEBUG: success  
+[2024-07-01 02:09:30] local.DEBUG: -----start-----  
+[2024-07-01 02:09:30] local.DEBUG: fnc=add recom_id=40 category=0 detail_id=67  
+[2024-07-01 02:09:30] local.DEBUG: -------start-------  
+[2024-07-01 02:09:30] local.DEBUG: delete_pl_id=67  
+[2024-07-01 02:09:30] local.DEBUG: success  
+[2024-07-01 02:09:38] local.DEBUG: -----start-----  
+[2024-07-01 02:09:38] local.DEBUG: fnc=add recom_id=40 category=0 detail_id=6  
+[2024-07-01 02:09:38] local.DEBUG: -------start-------  
+[2024-07-01 02:09:38] local.DEBUG: delete_pl_id=6  
+[2024-07-01 02:09:38] local.DEBUG: success  
+[2024-07-01 02:09:42] local.DEBUG: -----start-----  
+[2024-07-01 02:09:42] local.DEBUG: fnc=add recom_id=40 category=0 detail_id=28  
+[2024-07-01 02:09:42] local.DEBUG: -------start-------  
+[2024-07-01 02:09:42] local.DEBUG: delete_pl_id=28  
+[2024-07-01 02:09:42] local.DEBUG: success  

@@ -56,16 +56,15 @@ class Recommend extends Model
         switch($recommend->category){
             case 0: //曲
                 $item1   = "曲名";
-                $item2   = "";
                 $table   = "mus";
                 $sql_cmd = $sql_cmd->join('musics', 'recommenddetail.detail_id', '=', 'musics.id');
                 $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
+                $sql_cmd = $sql_cmd->join('albums', 'musics.alb_id', '=', 'albums.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name','aff_id')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name','albums.aff_id','musics.aff_id As m_aff_id')->get();
                 break;
             case 1: //ｱｰﾃｨｽﾄ
                 $item1   = "アーティスト名";
-                $item2   = "";
                 $table   = "art";
                 $sql_cmd = $sql_cmd->join('artists', 'recommenddetail.detail_id', '=', 'artists.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name As art_name')->get();
@@ -73,7 +72,6 @@ class Recommend extends Model
                 break;
             case 2: //ｱﾙﾊﾞﾑ
                 $item1   = "アルバム名";
-                $item2   = "";
                 $table   = "alb";
                 $sql_cmd = $sql_cmd->join('albums', 'recommenddetail.detail_id', '=', 'albums.id');
                 $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
@@ -81,7 +79,6 @@ class Recommend extends Model
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
                 $item1   = "プレイリスト名";
-                $item2   = "";
                 $table   = "pl";
                 $sql_cmd = $sql_cmd->join('playlist', 'recommenddetail.detail_id', '=', 'playlist.id');
                 $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.id As detail_id','playlist.name')->get();
@@ -91,13 +88,9 @@ class Recommend extends Model
         }
         $recommend->detail = $sql_cmd; 
         $recommend->table = $table; 
-
         //ログインしているユーザーはお気に入り情報も取得する
         foreach ($recommend->detail as $item) {
-            if($recommend->category == 0 || $recommend->category == 2){
-                //画像情報を付与
-                $item=setAffData($item);
-            }
+            if($item->m_aff_id) $item->aff_id = $item->m_aff_id;
             if (Auth::check()) {
                 $item->fav_flag = Favorite::chkFavorite(Auth::id(), $recommend->table, $item->detail_id);
             }else{
@@ -105,8 +98,13 @@ class Recommend extends Model
             }
         }
 
-        $recommend->item1 = $item1; 
-        $recommend->item2 = $item2;    
+        if($recommend->category == 0 || $recommend->category == 2){
+            //画像情報を付与
+            $item=setAffData($recommend->detail);
+        }
+
+
+        $recommend->item1 = $item1;   
         return $recommend; 
     }
     //作成
