@@ -90,7 +90,7 @@ class Recommend extends Model
         $recommend->table = $table; 
         //ログインしているユーザーはお気に入り情報も取得する
         foreach ($recommend->detail as $item) {
-            if($item->m_aff_id) $item->aff_id = $item->m_aff_id;
+            if($recommend->category == 0 && $item->m_aff_id) $item->aff_id = $item->m_aff_id;
             if (Auth::check()) {
                 $item->fav_flag = Favorite::chkFavorite(Auth::id(), $recommend->table, $item->detail_id);
             }else{
