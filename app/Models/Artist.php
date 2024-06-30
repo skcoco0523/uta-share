@@ -42,14 +42,8 @@ class Artist extends Model
                 ->select('artists.*','artists.id as art_id','artists.name as art_name')
                 ->first();
             //アーティストは固定でfalse
-            $artist->fav_flag = 0;
+            if($artist)$artist->fav_flag = 0;
             //dd($artist);
-            
-            //曲取得
-
-            //アルバム取得
-
-
             
             return $artist; 
         } catch (\Exception $e) {

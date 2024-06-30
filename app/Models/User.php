@@ -52,6 +52,20 @@ class User extends Authenticatable
         //会員情報追加
         'birthdate' => 'date',
     ];
+    
+    //プロフィール情報取得
+    public static function profile_get($user_id)
+    {
+        $myprofile = Auth::user();          //ログインしているユーザー
+        $profile = User::find($user_id);    //確認対象のユーザー
+
+        if(!$profile) return null;
+        //ログインユーザーと異なる場合、フレンド状態等を取得する
+        if($myprofile->id != $profile->id){
+            $profile->friend_status = Friendlist::getFriendStatus($myprofile->id, $user_id);
+        }
+        return $profile;
+    }
     //プロフィール情報変更
     public static function chgProfile($data)
     {

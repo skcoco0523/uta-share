@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Friendlist;
+use App\Models\Favorite;
 use App\Models\User;
 
 class FriendlistController extends Controller
@@ -28,13 +29,12 @@ class FriendlistController extends Controller
     //フレンドリスト表示
     public function friendlist_show(Request $request)
     {
-
         //ユーザー検索
-        $search_user=null;
         $friend_code = $request->input('friend_code');
+        $search_user = array();
         if($friend_code){
-            $search_user = Friendlist::findByFriendCode($friend_code,Auth::id());
-            if(!$search_user){
+            $search_user[] = Friendlist::findByFriendCode($friend_code,Auth::id());
+            if(!$search_user[0]){
                 //ユーザー検索で一致しなかった場合は場合はリダイレクトする
                 $message = ['message' => 'ユーザーが見つかりませんでした。',
                             'type' => 'error',
@@ -49,6 +49,41 @@ class FriendlistController extends Controller
         //dd($friendlist);
         if($friendlist){
             return view('friendlist_show', compact('friendlist', 'search_user', 'msg'));
+        }else{
+            return redirect()->route('home')->with('error', 'エラーが発生しました');
+        }
+    }    
+    //フレンド情報表示
+    public function friend_show(Request $request)
+    {
+        //ユーザー検索
+        $friend_id = $request->input('friend_id');
+        //公開フラグ確認
+        $friend_profile = User::profile_get($friend_id);
+        
+        
+        if(!isset($friend_profile) || $friend_profile->friend_status!="accepted"){
+            // フレンドリストにリダイレクト\
+            $message = ['message' => 'フレンド以外のデータは閲覧できません。', 'type' => 'error', 'sec' => '2000'];
+            return redirect()->route('friendlist-show')->with($message);
+        }
+
+        $table = ["mus"];
+        $favorite_list = array();
+            //フレンド承認済みで相手の公開制限無し
+        if($friend_profile->release_flag!=1 && $friend_profile->friend_status=="accepted"){
+            for( $i=0; $i<count($table); $i++){
+                $favorite_list[$table[$i]] = Favorite::getFavorite($friend_id, $table[$i]);
+            }
+        }else{
+            for( $i=0; $i<count($table); $i++){
+                $favorite_list[$table[$i]] = null;
+            }
+        }
+
+        $msg = null;
+        if($favorite_list){
+            return view('friend_show', compact('friend_profile', 'favorite_list', 'msg'));
         }else{
             return redirect()->route('home')->with('error', 'エラーが発生しました');
         }

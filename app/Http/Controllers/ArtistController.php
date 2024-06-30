@@ -31,21 +31,22 @@ class ArtistController extends Controller
     public function artist_show(Request $request)
     {
         $artist     = Artist::getartist_detail($request->only(['id']));  //mus_id
-        $album      = Album::getAlbum_list(10,false,null,$artist->name);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $music      = Music::getMusic_list(10,false,null,$artist->name);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $playlist   = Playlist::getPlaylist_list(10,false,null,$artist->name,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ  
-
-        // art_idが一致するデータのみに加工 念のため
-        $filter_Albums = [];
-        $filter_Music = [];
-        foreach ($album as $alb) {
-            if ($alb->art_id == $artist->art_id) $filter_Albums[] = $alb;
+        if($artist){
+            $album      = Album::getAlbum_list(10,false,null,$artist->name);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $music      = Music::getMusic_list(10,false,null,$artist->name);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $playlist   = Playlist::getPlaylist_list(10,false,null,$artist->name,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ  
+            // art_idが一致するデータのみに加工 念のため
+            $filter_Albums = [];
+            $filter_Music = [];
+            foreach ($album as $alb) {
+                if ($alb->art_id == $artist->art_id) $filter_Albums[] = $alb;
+            }
+            foreach ($music as $mus) {
+                if ($mus->art_id == $artist->art_id) $filter_Music[] = $mus;
+            }
+            $album = $filter_Albums;
+            $music = $filter_Music;
         }
-        foreach ($music as $mus) {
-            if ($mus->art_id == $artist->art_id) $filter_Music[] = $mus;
-        }
-        $album = $filter_Albums;
-        $music = $filter_Music;
 
         $msg = null;
         if($artist){

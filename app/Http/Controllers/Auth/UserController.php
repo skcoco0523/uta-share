@@ -60,24 +60,27 @@ class UserController extends Controller
     //プロフィール情報取得
     public function profile_show(Request $request)
     {
-        $profile = Auth::user();
+        $this->middleware('auth');
+
+        $profile = User::profile_get(Auth::id());;
         $msg = null;
         //dd($profile);
         if($profile){
             return view('profile_show', compact('profile', 'msg'));
         }else{
-            $message = ['message' => 'プロフィール情報を取得に失敗しました。','type' => '','sec' => '2000'];
+            $message = ['message' => 'プロフィール情報の取得に失敗しました。','type' => '','sec' => '2000'];
             return redirect()->route('home')->with($message);
         }
     }
     //プロフィール情報変更
     public function profile_change(Request $request)
     {
-        $profile = $request->all();
+        $this->middleware('auth');
+
+        $after_profile = $request->all();
         $profile['id'] = Auth::id();
-        if(!$profile['id']) return redirect()->route('login');
         //dd($profile);
-        $ret = User::chgProfile($profile);
+        $ret = User::chgProfile($after_profile);
         $msg = null;
         if($ret['error_code'] == 0){        
             //$profile = Auth::user();

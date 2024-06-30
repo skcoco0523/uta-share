@@ -4,11 +4,7 @@
 @section('content')
 <a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
 <a href="{{$music->href }}">
-    <div class="py-2 d-flex justify-content-center">
-        <div class="card" style="width: 80%; height: calc(80% * 1);">
-            <img src="{{ $music->src }}" class="card-img-top" alt="pic" style="object-fit: cover; ">
-        </div>
-    </div>
+    <img src="{{ $music->src }}" class="icon-80p" alt="pic">
 </a>
 <div class="text-center">
     <p class="detail-title">{{ $music->name }}</p>

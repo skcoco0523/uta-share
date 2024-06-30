@@ -61,7 +61,7 @@ class Recommend extends Model
                 $sql_cmd = $sql_cmd->join('musics', 'recommenddetail.detail_id', '=', 'musics.id');
                 $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name','aff_id')->get();
                 break;
             case 1: //ｱｰﾃｨｽﾄ
                 $item1   = "アーティスト名";
@@ -77,7 +77,7 @@ class Recommend extends Model
                 $table   = "alb";
                 $sql_cmd = $sql_cmd->join('albums', 'recommenddetail.detail_id', '=', 'albums.id');
                 $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.id As detail_id','albums.name','artists.name As art_name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.id As detail_id','albums.name','artists.name As art_name','aff_id')->get();
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
                 $item1   = "プレイリスト名";
@@ -92,9 +92,12 @@ class Recommend extends Model
         $recommend->detail = $sql_cmd; 
         $recommend->table = $table; 
 
-
         //ログインしているユーザーはお気に入り情報も取得する
         foreach ($recommend->detail as $item) {
+            if($recommend->category == 0 || $recommend->category == 2){
+                //画像情報を付与
+                $item=setAffData($item);
+            }
             if (Auth::check()) {
                 $item->fav_flag = Favorite::chkFavorite(Auth::id(), $recommend->table, $item->detail_id);
             }else{
@@ -102,7 +105,6 @@ class Recommend extends Model
             }
         }
 
-        //dd($recommend->detail );
         $recommend->item1 = $item1; 
         $recommend->item2 = $item2;    
         return $recommend; 

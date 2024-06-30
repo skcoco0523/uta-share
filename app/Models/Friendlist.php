@@ -59,7 +59,7 @@ class Friendlist extends Model
             return "failure";
         }
     }
-    //フレンド状態取得      0:承認待ち,1:承認済み,2:拒否
+    //フレンド状態取得  none:データなし  request:承認待ち  pending:未承認  accepted:承認済  declined:拒否
     public static function getFriendStatus($user_id, $friend_id)
     {
         $friendships = Friendlist::where(function ($query) use ($user_id, $friend_id) {

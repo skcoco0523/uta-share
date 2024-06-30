@@ -19,7 +19,6 @@
     <h3>フレンド</h3>
     @include('layouts.friend_table', ['friendlist_table' => $friendlist["accepted"], 'status' => 'accepted'])
 </div>
-
 <div id="search" class="tab-content">
     <h3>検索</h3>
     <form action="{{ route('friendlist-show') }}" method="GET">
@@ -28,8 +27,8 @@
             <input type="search" name="friend_code" class="form-control" placeholder="フレンドコード">
         </div>
     </form>
-    @if($search_user)
-        @include('layouts.friend_table', ['search_user_table' => $search_user, 'status' => $search_user->status])
+    @if(count($search_user))
+        @include('layouts.friend_table', ['friendlist_table' => $search_user, 'status' => $search_user[0]->status])
     @endif
 </div>
 
@@ -56,6 +55,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('accepted').style.display = 'block';
     });
+
 </script>
 
 <style>

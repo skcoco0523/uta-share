@@ -192,6 +192,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('friend-decline', [FriendlistController::class, 'friend_decline'])->name('friend-decline');
     //フレンド申請キャンセル
     Route::post('friend-cancel', [FriendlistController::class, 'friend_cancel'])->name('friend-cancel');
+    //フレンド情報表示
+    Route::get('friend-show', [FriendlistController::class, 'friend_show'])->name('friend-show');
     
     //検索履歴削除
     Route::post('history-delete', [SearchController::class, 'del_search_history'])->name('history-delete');

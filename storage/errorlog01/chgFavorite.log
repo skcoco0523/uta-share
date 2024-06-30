@@ -710,3 +710,7 @@
 [2024-06-28 17:41:22] local.DEBUG: user_id=2 table=pl fav_id=9 type=add  
 [2024-06-28 17:41:22] local.DEBUG: fav_chk=0  
 [2024-06-28 17:41:22] local.DEBUG: to add  
+[2024-06-30 22:10:32] local.DEBUG: -------start-------  
+[2024-06-30 22:10:32] local.DEBUG: user_id=2 table=mus fav_id=74 type=add  
+[2024-06-30 22:10:32] local.DEBUG: fav_chk=0  
+[2024-06-30 22:10:32] local.DEBUG: to add  
