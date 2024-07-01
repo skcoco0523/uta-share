@@ -5485,3 +5485,26 @@
 [2024-06-22 11:07:34] local.DEBUG: -------start-------  
 [2024-06-22 11:07:34] local.DEBUG: delete_pl_id=9  
 [2024-06-22 11:07:34] local.DEBUG: success  
+[2024-07-01 19:47:32] local.DEBUG: -----start-----  
+[2024-07-01 19:47:32] local.DEBUG: fnc=add alb_id=8 mus_id= name=  
+[2024-07-01 19:47:50] local.DEBUG: -----start-----  
+[2024-07-01 19:47:50] local.DEBUG: fnc=add alb_id=8 mus_id= name=テスト  
+[2024-07-01 19:47:50] local.DEBUG: -------start-------  
+[2024-07-01 19:47:50] local.DEBUG: create_data=Array
+(
+    [_token] => HKoFHcvOL4W8Nl4qpNs1mFU2PPLnJwiRGfE0TBSJ
+    [fnc] => add
+    [alb_id] => 8
+    [mus_id] => 
+    [name] => テスト
+    [page] => 
+    [id] => 
+    [art_id] => 3
+)
+  
+[2024-07-01 19:47:50] local.DEBUG: success  
+[2024-07-01 19:47:57] local.DEBUG: -----start-----  
+[2024-07-01 19:47:57] local.DEBUG: fnc=del alb_id=8 mus_id=82 name=テスト  
+[2024-07-01 19:47:57] local.DEBUG: -------start-------  
+[2024-07-01 19:47:57] local.DEBUG: delete_mus_id=82  
+[2024-07-01 19:47:57] local.DEBUG: success  

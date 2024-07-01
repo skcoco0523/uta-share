@@ -11,6 +11,9 @@
 
     <title>{{ config('app.name', '歌Share') }}</title>
 
+    <!-- jQueryの読み込み -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- JS用ルーティングの定義 -->
     <script>
         const loginUrl              = "{{ route('login') }}";
@@ -30,9 +33,6 @@
     <!-- Font Awesome CDN アイコン　　　https://fontawesome.com/　　　-->
     <script src="https://kit.fontawesome.com/46a805b165.js" crossorigin="anonymous"></script>
 
-    <!-- jQueryの読み込み -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -43,8 +43,9 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    
-    
+    <!-- google広告 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1093408896428535"
+    crossorigin="anonymous"></script>
 </head>
 <div class="header"></div>
 

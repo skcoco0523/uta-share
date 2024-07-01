@@ -46,11 +46,12 @@ class Recommend extends Model
         return $recommend; 
     }
     //おすすめ詳細情報を取得
-    public static function getRecommend_detail($recom_id)
+    //public static function getRecommend_detail($recom_id)
+    public static function getRecommend_detail($disp_cnt=null,$pageing=false,$page=1,$recom_id)
     {
         //おすすめ情報を取得
         $recommend = DB::table('recommend')->where('id', $recom_id)->first();
-
+        //make_error_log("getRecommend_detail","-------start------");
         //登録情報を取得
         $sql_cmd = DB::table('recommenddetail')->where('recom_id', $recom_id);
         switch($recommend->category){
@@ -61,31 +62,39 @@ class Recommend extends Model
                 $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
                 $sql_cmd = $sql_cmd->join('albums', 'musics.alb_id', '=', 'albums.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name','albums.aff_id','musics.aff_id As m_aff_id')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name','albums.aff_id','musics.aff_id As m_aff_id');
                 break;
             case 1: //ｱｰﾃｨｽﾄ
                 $item1   = "アーティスト名";
                 $table   = "art";
                 $sql_cmd = $sql_cmd->join('artists', 'recommenddetail.detail_id', '=', 'artists.id');
                 //$sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','artists.id As detail_id','artists.name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','artists.id As detail_id','artists.name');
                 break;
             case 2: //ｱﾙﾊﾞﾑ
                 $item1   = "アルバム名";
                 $table   = "alb";
                 $sql_cmd = $sql_cmd->join('albums', 'recommenddetail.detail_id', '=', 'albums.id');
                 $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.id As detail_id','albums.name','artists.name As art_name','aff_id')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.id As detail_id','albums.name','artists.name As art_name','aff_id');
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
                 $item1   = "プレイリスト名";
                 $table   = "pl";
                 $sql_cmd = $sql_cmd->join('playlist', 'recommenddetail.detail_id', '=', 'playlist.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.id As detail_id','playlist.name')->get();
+                $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.id As detail_id','playlist.name');
                 break;
             default:
                 break;
         }
+        // ページング・取得件数指定・全件で分岐
+        if ($pageing){
+            if ($disp_cnt === null) $disp_cnt=5;
+            $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
+        }                       
+        elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+        else                                $sql_cmd = $sql_cmd->get();
+
         $recommend->detail = $sql_cmd; 
         $recommend->table = $table; 
         //ログインしているユーザーはお気に入り情報も取得する
@@ -103,7 +112,7 @@ class Recommend extends Model
             $item=setAffData($recommend->detail);
         }
 
-
+        //dd($recommend);
         $recommend->item1 = $item1;   
         return $recommend; 
     }

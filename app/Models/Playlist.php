@@ -22,10 +22,11 @@ class Playlist extends Model
             ->where('name', 'like', "%$keyword%")
             ->where('admin_flag', $admin_flag);
         
-        // デフォルト5件
-        if ($disp_cnt === null)             $disp_cnt=5;
         // ページング・取得件数指定・全件で分岐
-        if ($pageing)                       $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
+        if ($pageing){
+            if ($disp_cnt === null) $disp_cnt=5;
+            $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
+        }                       
         elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
         else                                $sql_cmd = $sql_cmd->get();
 

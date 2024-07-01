@@ -110,7 +110,7 @@ class AdminRecommendController extends Controller
         if (!isset($input['category']))         $input['category'] = null;
 
         //収録曲変更
-        $recommend_detail = Recommend::getRecommend_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+        $recommend_detail = Recommend::getRecommend_detail(null,false,null,$input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
         $recommend = null;
             
         $msg = request('msg');
@@ -134,7 +134,7 @@ class AdminRecommendController extends Controller
         if (empty($input['page']))              $input['page'] = 1;
 
         //収録曲変更　現在の収録曲
-        $recommend_detail = Recommend::getRecommend_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
+        $recommend_detail = Recommend::getRecommend_detail(null,false,null,$input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
         $recommend = null;
         
         //カテゴリに応じて分岐

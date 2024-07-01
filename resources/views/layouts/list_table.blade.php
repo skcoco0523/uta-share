@@ -1,99 +1,93 @@
 
-<table class="table table-borderless table-center">
-    <tbody>
-    
-        <?//おすすめテーブル?>
-        @if(isset($recommnd_table))
-            @foreach ($recommnd_table->detail as $key => $detail)   
-                <tr>
-                    <td class="col-2" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommnd->table }}')">
-                    @if(isset($detail->src))
-                    <img src="{{ $detail->src }}" class="icon-55">
-                    @else
-                    <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
-                    @endif
-                    </td>
-                    <td class="col-9" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommnd->table }}')">
-                        {{ Str::limit($detail->name, 30, '...') }}
-                        @if(isset($detail->art_name))
-                            <br>
-                            <p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
-                        @endif
-                    </td>
-                    </td>
-                    <td class="col-1" favorite-id="{{ $recommnd->table }}-{{ $detail->detail_id }}">
-                        @if($detail->fav_flag)
-                            <i data-favorite-id="{{ $recommnd->table }}-{{ $detail->detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommnd->table }}', {{ $detail->detail_id }})"></i>
-                        @else
-                            <i data-favorite-id="{{ $recommnd->table }}-{{ $detail->detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommnd->table }}', {{ $detail->detail_id }})"></i>
-                        @endif
-                    </td>
-                    <td class="col-1" pl-menu-id="{{ $recommnd->table }}-{{ $detail->detail_id }}">
-                        <i class="fa-regular fa-square-plus icon-20 red"></i>
-                    </td>
-                </tr>
-            @endforeach
+
+<?//おすすめテーブル?>
+@if(isset($recommnd_table))
+                            <table id="recommend-list" class="table table-borderless table-center">
+                                <tbody>
+    @foreach ($recommnd_table->detail as $key => $detail)   
+                                    <tr>
+                                        <td class="col-2" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommnd->table }}')">
+        @if(isset($detail->src))            <img src="{{ $detail->src }}" class="icon-55">
+        @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
-
-        <?//曲　アルバム　プレイリスト?>
-        @if(isset($detail_table) && isset($table))
-            @foreach ($detail_table as $key => $detail)   
-                <tr>
-                    <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
-                    @if(isset($detail->src))
-                    <img src="{{ $detail->src }}" class="icon-55">
-                    @else
-                    <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
-                    @endif
-                    </th>
-                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
-                        {{Str::limit($detail->name, 30, '...')}}
-                        @if(isset($detail->art_name))
-                            <br>
-                            <p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
-                        @endif
-                    </td>
-                    </td>
-                    <td class="col-1" favorite-id="{{ $table }}-{{ $detail->id }}">
-                        @if($detail->fav_flag)
-                            <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
-                        @else
-                            <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
-                        @endif
-                    </td>
-                    <td class="col-1" pl-menu-id="{{ $table }}-{{ $detail->id }}">
-                        <i class="fa-regular fa-square-plus icon-20 red"></i>
-                    </td>
-                </tr>
-            @endforeach
+                                        </td>
+                                        <td class="col-9" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommnd->table }}')">
+                                            {{ Str::limit($detail->name, 30, '...') }}
+        @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
         @endif
-
-        <?//フレンド情報表示用?>
-        @if(isset($friend_table) && isset($table))
-            @foreach ($friend_table as $key => $detail)   
-                <tr>
-                    <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
-                    @if(isset($detail->src))
-                    <img src="{{ $detail->src }}" class="icon-55">
-                    @else
-                    <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
-                    @endif
-                    </th>
-                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
-                        {{Str::limit($detail->name, 30, '...')}}
-                        @if(isset($detail->art_name))
-                            <br>
-                            <p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
-                        @endif
-                    </td>
-                    
-                </tr>
-            @endforeach
+                                        </td>
+                                        <td class="col-1" favorite-id="{{ $recommnd->table }}-{{ $detail->detail_id }}">
+        @if($detail->fav_flag)              <i data-favorite-id="{{ $recommnd->table }}-{{ $detail->detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommnd->table }}', {{ $detail->detail_id }})"></i>
+        @else                               <i data-favorite-id="{{ $recommnd->table }}-{{ $detail->detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommnd->table }}', {{ $detail->detail_id }})"></i>
         @endif
+                                        </td>
+                                        <td class="col-1" pl-menu-id="{{ $recommnd->table }}-{{ $detail->detail_id }}">
+                                            <i class="fa-regular fa-square-plus icon-20 red"></i>
+                                        </td>
+                                    </tr>
+    @endforeach
+                                </tbody>
+                            </table>
+                            
+@endif
+
+<?//曲　アルバム　プレイリスト?>
+@if(isset($detail_table) && isset($table))
+                        <table class="table table-borderless table-center">
+                            <tbody>
+    @foreach ($detail_table as $key => $detail)   
+                                <tr>
+                                    <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
+        @if(isset($detail->src))         <img src="{{ $detail->src }}" class="icon-55">
+        @else                            <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
+        @endif
+                                    </th>
+                                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
+                                        {{Str::limit($detail->name, 30, '...')}}
+        @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
+        @endif
+                                    </td>
+                                    <td class="col-1" favorite-id="{{ $table }}-{{ $detail->id }}">
+        @if($detail->fav_flag)          <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
+        @else                           <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
+        @endif
+                                    </td>
+                                    <td class="col-1" pl-menu-id="{{ $table }}-{{ $detail->id }}">
+                                        <i class="fa-regular fa-square-plus icon-20 red"></i>
+                                    </td>
+                                </tr>
+    @endforeach
+                            </tbody>
+                        </table>
+@endif
 
 
-    </tbody>
-</table>
+<?//フレンド情報表示用?>
+@if(isset($friend_table) && isset($table))
+                        <table class="table table-borderless table-center">
+                            <tbody>
+    @foreach ($friend_table as $key => $detail)   
+                                <tr>
+                                    <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
+    @if(isset($detail->src))            <img src="{{ $detail->src }}" class="icon-55">
+    @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
+    @endif
+                                    </th>
+                                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
+                                        {{Str::limit($detail->name, 30, '...')}}
+    @if(isset($detail->art_name))       <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
+    @endif
+                                    </td>
+                                </tr>
+    @endforeach
+                            </tbody>
+                        </table>
+@endif
+
+
+
+
+
 
 <script>
     

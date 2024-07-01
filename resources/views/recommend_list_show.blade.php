@@ -11,4 +11,19 @@
 <?//テーブルリストは別ファイルで管理?>   
 @include('layouts.list_table', ['recommnd_table' => $recommnd])
 
+
+{{--ﾊﾟﾗﾒｰﾀ--}}
+@php
+    $additionalParams = [
+        'recom_id' => $recommnd->id ?? '',
+        'category' => $recommnd->category ?? '',
+    ];
+@endphp
+{{--ﾍﾟｰｼﾞｬｰ--}}
+@include('layouts.pagination', ['paginator' => $recommnd->detail,'additionalParams' => $additionalParams,])
+
 @endsection
+
+
+<script>
+</script>

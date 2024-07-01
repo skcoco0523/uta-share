@@ -28,9 +28,10 @@ class RecommendController extends Controller
     //おすすめ一覧
     public function recommend_list_show(Request $request)
     {
-        
-        $recom_id = $request->only(['recom_id']);
-        $recommnd = Recommend::getRecommend_detail($recom_id);
+        $recom_id = $request->input('recom_id');
+        $page = $request->input('page', 1);
+        //$recommnd = Recommend::getRecommend_detail($recom_id);
+        $recommnd = Recommend::getRecommend_detail(10,true,$page,$recom_id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         //dd($recommnd);
         $msg = null;
         //dd($music);
@@ -40,6 +41,5 @@ class RecommendController extends Controller
             return redirect()->route('home')->with('error', '該当のデータが存在しません');
         }
     }
-
     
 }

@@ -1,5 +1,4 @@
 function showNotification(message, type, sec) {
-    console.log(message);
     const notification = document.getElementById('notification');
     //アイコン情報：https://fontawesome.com/
     switch(type){
@@ -40,7 +39,6 @@ function showNotification(message, type, sec) {
             notification.innerHTML = `<p>${message}</p>`;
             break;
     }
-    console.log(message);
     notification.style.display = 'block';
 
     if (type === "loading") {
@@ -81,7 +79,6 @@ function closeShareModal(event) {
 
 function shareToPlatform(platform, url) {
 
-    console.log(url);
     let popupUrl;
     const width = 600;
     const height = 400;
