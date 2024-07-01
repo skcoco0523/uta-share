@@ -26,17 +26,14 @@
 
 <?//テーブルリストは別ファイルで管理?>   
 <div id="songs" class="tab-content">
-    <h3>曲</h3>
     @include('layouts.list_table', ['detail_table' => $favorite_list["mus"], 'table' => 'mus'])
 </div>
 
 <div id="albums" class="tab-content">
-    <h3>アルバム</h3> 
     @include('layouts.list_table', ['detail_table' => $favorite_list["alb"], 'table' => 'alb'])
 </div>
 
 <div id="playlists" class="tab-content">
-    <h3>プレイリスト</h3>
     @include('layouts.list_table', ['detail_table' => $favorite_list["pl"], 'table' => 'pl'])
 </div>
 
