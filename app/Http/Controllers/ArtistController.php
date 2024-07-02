@@ -27,13 +27,13 @@ class ArtistController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    //アーチスト詳細
+    //アーティスト詳細
     public function artist_show(Request $request)
     {
         $artist     = Artist::getartist_detail($request->only(['id']));  //mus_id
         if($artist){
-            $album      = Album::getAlbum_list(10,false,null,$artist->name);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-            $music      = Music::getMusic_list(10,false,null,$artist->name);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $album      = Album::getAlbum_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
+            $music      = Music::getMusic_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
             $playlist   = Playlist::getPlaylist_list(10,false,null,$artist->name,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ  
             // art_idが一致するデータのみに加工 念のため
             $filter_Albums = [];

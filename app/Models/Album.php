@@ -14,7 +14,7 @@ class Album extends Model
     use HasFactory;
     protected $fillable = ['name', 'art_id', 'release_date', 'aff_id'];     //一括代入の許可
     //アルバム一覧取得
-    public static function getAlbum_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
+    public static function getAlbum_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$art_id=null)
     {
         $subquery = DB::table('albums');
         if($keyword){
@@ -25,6 +25,9 @@ class Album extends Model
                                         ->orWhere('artists.name', 'like', "%{$keyword}%")
                                         ->orWhere('artists.name2', 'like', "%{$keyword}%")
                                         ->orWhere('albums.name', 'like', "%{$keyword}%");});
+        }
+        if($art_id){
+            $subquery = $subquery->where('albums.art_id', '=', $art_id);
         }
         //groupbyのエラーになるため
         //$sql_cmd = $sql_cmd->groupBy('albums.name', 'albums.aff_id', 'artists.name');

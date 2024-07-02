@@ -16,7 +16,7 @@ class Music extends Model
     protected $fillable = ['alb_id', 'art_id', 'name', 'release_date', 'link', 'aff_id'];     //一括代入の許可
 
     //楽曲一覧取得
-    public static function getMusic_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
+    public static function getMusic_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$art_id=null)
     {
         $sql_cmd = DB::table('musics');
         $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
@@ -27,6 +27,9 @@ class Music extends Model
                                     ->orWhere('artists.name', 'like', "%{$keyword}%")
                                     ->orWhere('artists.name2', 'like', "%{$keyword}%")
                                     ->orWhere('albums.name', 'like', "%{$keyword}%");});
+        }
+        if($art_id){
+            $sql_cmd = $sql_cmd->where('musics.art_id', '=', $art_id);
         }
         $sql_cmd = $sql_cmd->orderBy('musics.created_at', 'desc');
         $sql_cmd = $sql_cmd->select('musics.*', 'artists.name as art_name', 'musics.id as mus_id', 
