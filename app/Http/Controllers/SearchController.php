@@ -56,12 +56,18 @@ class SearchController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         if (empty($input['keyword']))           $input['keyword']=null;
+        if (empty($input['table']))             $input['table']=null;
+        //選択しているタブのﾍﾟｰｼﾞｬｰのみページを指定する
+        $art_page = ($input['table'] == "art") ? $input['page'] :1;
+        $mus_page = ($input['table'] == "mus") ? $input['page'] :1;
+        $alb_page = ($input['table'] == "alb") ? $input['page'] :1;
+        $pl_page  = ($input['table'] == "pl")  ? $input['page'] :1;
 
         //$table = ["art","mus","alb","pl"];
-        $search_list["art"] = Artist::getArtist_list(5,false,1,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["mus"] = Music::getMusic_list(5,false,1,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["alb"] = Album::getAlbum_list(5,false,1,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["pl"] = Playlist::getPlaylist_list(5,false,1,$input['keyword'],1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,管理者登録フラグ
+        $search_list["art"] = Artist::getArtist_list(20,true,$art_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $search_list["mus"] = Music::getMusic_list(10,true,$mus_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $search_list["alb"] = Album::getAlbum_list(10,true,$alb_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input['keyword'],1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,管理者登録フラグ
 
         //検索履歴の登録
         if($input['keyword']) SearchHistory::createSearchHistory($input['keyword']);

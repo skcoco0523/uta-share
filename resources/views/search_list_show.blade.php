@@ -24,6 +24,7 @@
     <?//テーブルリストは別ファイルで管理?>   
     <h3>アーティスト</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["art"], 'table' => 'art'])
+
     <h3>曲</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["mus"], 'table' => 'mus'])
     <h3>アルバム</h3>
@@ -36,20 +37,44 @@
 <div id="artists" class="tab-content">
     <h3>アーティスト</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["art"], 'table' => 'art'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['keyword' => $input['keyword'] ?? '' ,'table' => 'art' ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $search_list["art"],'additionalParams' => $additionalParams,])
 </div>
 <div id="songs" class="tab-content">
     <h3>曲</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["mus"], 'table' => 'mus'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['keyword' => $input['keyword'] ?? '' ,'table' => 'mus' ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $search_list["mus"],'additionalParams' => $additionalParams,])
 </div>
 
 <div id="albums" class="tab-content">
     <h3>アルバム</h3> 
     @include('layouts.list_table', ['detail_table' => $search_list["alb"], 'table' => 'alb'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['keyword' => $input['keyword'] ?? '' ,'table' => 'alb' ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $search_list["alb"],'additionalParams' => $additionalParams,])
 </div>
 
 <div id="playlists" class="tab-content">
     <h3>プレイリスト</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["pl"], 'table' => 'pl'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['keyword' => $input['keyword'] ?? '' ,'table' => 'pl' ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $search_list["pl"],'additionalParams' => $additionalParams,])
 </div>
 
 @endsection
