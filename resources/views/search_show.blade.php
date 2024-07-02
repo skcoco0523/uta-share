@@ -68,34 +68,35 @@
         });
 
         function fetchSuggestions(query) {
-            fetch(`{{ route('search-suggestions') }}?keyword=${query}`)
-                .then(response => response.json())
-                .then(data => {
-                    suggestionsList.innerHTML = '';
-                    if (data.length > 0) {
-                        data.forEach(item => {
-                            const suggestionItem = document.createElement('tr');
-                            suggestionItem.innerHTML = `
-                                <td class="col-12">
-                                    <span>${item}</span>
-                                    <i class="fa-solid fa-magnifying-glass" style="float: right;"></i>
-                                </td>`;
-                            suggestionItem.addEventListener('click', function() {
-                                searchInput.value = item;
-                                searchForm.submit(); // フォームを送信
-                            });
-                            suggestionsList.appendChild(suggestionItem);
-                        });
-                        showSuggestions();
-                    } else {
-                        suggestionsList.innerHTML = '<tr><td class="col-12">一致する結果がありません。</td></tr>';
-                        showSuggestions();
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching suggestions:', error);
+    fetch(`{{ route('search-suggestions') }}?keyword=${query}`)
+        .then(response => response.json())
+        .then(data => {
+            suggestionsList.innerHTML = '';
+            const keys = Object.keys(data);
+            if (keys.length > 0) {
+                keys.forEach(key => {
+                    const item = data[key]; // キーを使って値を取得
+                    const suggestionItem = document.createElement('tr');
+                    suggestionItem.innerHTML = `
+                        <td class="col-12">
+                            <span>${item}</span>
+                            <i class="fa-solid fa-magnifying-glass" style="float: right;"></i>
+                        </td>`;
+                    suggestionItem.addEventListener('click', function() {
+                        searchInput.value = item;
+                        searchForm.submit(); // フォームを送信
+                    });
+                    suggestionsList.appendChild(suggestionItem);
                 });
-        }
+                showSuggestions();
+            } else {
+                suggestionsList.innerHTML = '<tr><td class="col-12">一致する結果がありません。</td></tr>';
+                showSuggestions();
+            }
+        })
+        .catch(error => {
+        });
+}
     });
 </script>
 
