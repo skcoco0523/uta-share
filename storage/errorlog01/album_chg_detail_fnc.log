@@ -5508,3 +5508,72 @@
 [2024-07-01 19:47:57] local.DEBUG: -------start-------  
 [2024-07-01 19:47:57] local.DEBUG: delete_mus_id=82  
 [2024-07-01 19:47:57] local.DEBUG: success  
+[2024-07-02 16:09:39] local.DEBUG: -----start-----  
+[2024-07-02 16:09:39] local.DEBUG: fnc=chg alb_id=21 mus_id=267 name=願い  
+[2024-07-02 16:09:39] local.DEBUG: -------start-------  
+[2024-07-02 16:09:39] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 267
+    [alb_id] => 21
+    [art_id] => 10
+    [name] => 願い[7:42]
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:08:25
+    [updated_at] => 2024-07-02 16:08:25
+)
+  
+[2024-07-02 16:09:39] local.DEBUG: after_data=Array
+(
+    [alb_id] => 21
+    [name] => 願い
+)
+  
+[2024-07-02 16:09:39] local.DEBUG: success  
+[2024-07-02 16:38:44] local.DEBUG: -----start-----  
+[2024-07-02 16:38:44] local.DEBUG: fnc=chg alb_id=27 mus_id=379 name=鬼よ  
+[2024-07-02 16:38:44] local.DEBUG: -------start-------  
+[2024-07-02 16:38:44] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 379
+    [alb_id] => 27
+    [art_id] => 6
+    [name] => 鬼よ[
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:37:30
+    [updated_at] => 2024-07-02 16:37:30
+)
+  
+[2024-07-02 16:38:44] local.DEBUG: after_data=Array
+(
+    [alb_id] => 27
+    [name] => 鬼よ
+)
+  
+[2024-07-02 16:38:44] local.DEBUG: success  
+[2024-07-02 16:38:48] local.DEBUG: -----start-----  
+[2024-07-02 16:38:48] local.DEBUG: fnc=chg alb_id=27 mus_id=378 name=断面  
+[2024-07-02 16:38:48] local.DEBUG: -------start-------  
+[2024-07-02 16:38:48] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 378
+    [alb_id] => 27
+    [art_id] => 6
+    [name] => 断面[
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:37:30
+    [updated_at] => 2024-07-02 16:37:30
+)
+  
+[2024-07-02 16:38:48] local.DEBUG: after_data=Array
+(
+    [alb_id] => 27
+    [name] => 断面
+)
+  
+[2024-07-02 16:38:48] local.DEBUG: success  

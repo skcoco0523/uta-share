@@ -3002,3 +3002,3174 @@
 )
   
 [2024-06-20 18:28:01] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3d439e1b.94f4d148.3d439e1c.3bf6329e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fneowing-r%2Ftfcc-81042%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d439e1b.94f4d148.3d439e1c.3bf6329e/?me_id=1220950&item_id=14827356&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fneowing-r%2Fcabinet%2Fitem_img_1871%2Ftfcc-81042.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: name=大人の涙 art_id=4 release_date=2023-08-30 aff_id=11  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => 悲しみはバスに乗って
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => PRAY.
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => たましいの�
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: failure  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => 場所
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => ペパーミント
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => ネクタリン
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => 愛の波
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => リンジュー・ラヴ
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => 嵐の番い鳥
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => Frozen My Love
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => だれもわるくない
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => TIME.
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => 星が泳ぐ
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: success  
+[2024-07-02 15:18:49] local.DEBUG: -------start-------  
+[2024-07-02 15:18:49] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 9
+    [name] => ありあまる日�
+)
+  
+[2024-07-02 15:18:49] local.DEBUG: failure  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3b072e9f.197d677c.3b072ea0.4c317123/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhmvjapan%2F12370788%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3b072e9f.197d677c.3b072ea0.4c317123/?me_id=1251035&item_id=21241581&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fhmvjapan%2Fcabinet%2Fa23%2F72000%2F12370788.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: name=ハッピーエンドへの期待は art_id=4 release_date=2022-01-12 aff_id=12  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => なんでもないよ
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => 生きるをする
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => mother
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => はしりがき
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => メレンゲ
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => 裸の�
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: failure  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => 人
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => �
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: failure  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => �月の陽炎
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: failure  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => トマソン
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => 好きだった（はずだった）
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => ハッピーエンドへの期�
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: failure  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => は
+)
+  
+[2024-07-02 15:26:57] local.DEBUG: success  
+[2024-07-02 15:26:57] local.DEBUG: -------start-------  
+[2024-07-02 15:26:57] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => ワルツのレター
+)
+  
+[2024-07-02 15:26:58] local.DEBUG: success  
+[2024-07-02 15:26:58] local.DEBUG: -------start-------  
+[2024-07-02 15:26:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => キスをしよう
+)
+  
+[2024-07-02 15:26:58] local.DEBUG: success  
+[2024-07-02 15:26:58] local.DEBUG: -------start-------  
+[2024-07-02 15:26:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => 僕らが強く。
+)
+  
+[2024-07-02 15:26:58] local.DEBUG: success  
+[2024-07-02 15:26:58] local.DEBUG: -------start-------  
+[2024-07-02 15:26:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 10
+    [name] => TONTUU
+)
+  
+[2024-07-02 15:26:58] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/39822639.76e52d7a.3982263a.68b931aa/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjoshin-cddvd%2F4589892489446%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/39822639.76e52d7a.3982263a.68b931aa/?me_id=1229477&item_id=10931181&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fjoshin-cddvd%2Fcabinet%2F446%2Ftlto-22.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: name=hope art_id=4 release_date=2020-04-01 aff_id=13  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => レモンパイ
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => 遠心
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => ボーイズ・ミーツ・ワールド
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => ブルーベリー・ナイツ
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => hope
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => この度の恥は掻き捨て
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => Supernova
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => 愛のレンタル
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => 嘘なき
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => Mr.ウォーター
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => たしかなことは
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => 恋人ごっこ
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => ヤングアダルト
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:29:27] local.DEBUG: -------start-------  
+[2024-07-02 15:29:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 4
+    [alb_id] => 11
+    [name] => ⻘春と一瞬(Strings ver.)
+)
+  
+[2024-07-02 15:29:27] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3da83d8c.a1d6727c.3da83d8d.15018aea/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsurprise-2%2Faznavcd-63535%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3da83d8c.a1d6727c.3da83d8d.15018aea/?me_id=1275395&item_id=12561516&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fsurprise-2%2Fcabinet%2Fimgr0782%2Favcd-63535.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: name=ケツノポリス13 art_id=10 release_date=2024-01-31 aff_id=14  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => 奇想天外な商店街
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => We GO
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => 脳�
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: failure  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => サンバ
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => SWEET BABY(Album Version)
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => 自分が思っていたよりも
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => もう既に君が好き
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => ちょっとGPT
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => GENKI DESUKA?
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => おじさんの取説
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => YESか?農家?
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => UTAGE
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => 海外駐在員への唄
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => 友�
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: failure  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => ってやつは
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => 夜空を翔ける
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:38:44] local.DEBUG: -------start-------  
+[2024-07-02 15:38:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 12
+    [name] => 普通ってなんだよ
+)
+  
+[2024-07-02 15:38:44] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/39822639.76e52d7a.3982263a.68b931aa/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjoshin-cddvd%2F4988064968787%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/39822639.76e52d7a.3982263a.68b931aa/?me_id=1229477&item_id=10924189&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fjoshin-cddvd%2Fcabinet%2F687%2Favcd-96878-b.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: name=ケツノポリス12 art_id=10 release_date=2021-12-01 aff_id=15  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => ALL SET
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => イェイ イェイ イェイ
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => ヨクワラエ
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => とわねな夜
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => Hello
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => パーリーピーポー
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => サンシャインガール -AL Mix
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 青空
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 小さな幸せ
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 雨のいたずら
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 鏡の中で
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 譲れない事
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 走り続けた日�
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: failure  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 青い空
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => 行け
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:42:11] local.DEBUG: -------start-------  
+[2024-07-02 15:42:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 13
+    [name] => スーパースター
+)
+  
+[2024-07-02 15:42:11] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3da84878.fda13d90.3da84879.5b136ab0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Febest-dvd%2F0000001511234%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3da84878.fda13d90.3da84879.5b136ab0/?me_id=1208133&item_id=14922068&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Febest-dvd%2Fcabinet%2F1200%2F0000001511234.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: name=ケツノポリス11 art_id=10 release_date=2018-10-24 aff_id=16  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 人生劇場
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 夏のプリンス
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => はじまりの予感
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => つながって
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 風は吹いている
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 僕らの暮らしっく
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 飲みニケーション
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => シェイク　No.1
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 夢中
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 覚悟はいいか
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => 大東京
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => ライフ
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => なみだ川
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => �
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: failure  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => に出よう
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:44:37] local.DEBUG: -------start-------  
+[2024-07-02 15:44:37] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 14
+    [name] => カンパイの唄
+)
+  
+[2024-07-02 15:44:37] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/39822639.76e52d7a.3982263a.68b931aa/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjoshin-cddvd%2F4988064934997%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/39822639.76e52d7a.3982263a.68b931aa/?me_id=1229477&item_id=10599554&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fjoshin-cddvd%2Fcabinet%2F897%2Favcd-93499-b.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: name=KETSUNOPOLIS 10 art_id=10 release_date=2016-10-16 aff_id=17  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => ヤシの木のように
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => いい感じ
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => ボサノBAR
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => 人間交差点
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => 僕らのために...
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => カラーバリエーション
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => ディスコ☆部長
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => パッション!!!!
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => エターナリー
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => 手紙 ～ あれから
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => さらば涙
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => 友よ ～ この�
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: failure  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => �もずっと…
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: failure  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => ほら行こう
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => テイクオフ
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => 君と出逢って
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:55:05] local.DEBUG: -------start-------  
+[2024-07-02 15:55:05] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 15
+    [name] => 君とワンピース
+)
+  
+[2024-07-02 15:55:05] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3d439e1b.94f4d148.3d439e1c.3bf6329e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fneowing-r%2Favcd-38930%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d439e1b.94f4d148.3d439e1c.3bf6329e/?me_id=1220950&item_id=11323804&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fneowing-r%2Fcabinet%2Fitem_img_830%2Favcd-38930.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:57:31] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: name=KETSUNOPOLIS 9 art_id=10 release_date=2014-07-23 aff_id=18  
+[2024-07-02 15:57:31] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => カリフォルニー
+)
+  
+[2024-07-02 15:57:31] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => FUTARIDAY
+)
+  
+[2024-07-02 15:57:31] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => 逆転の発魂
+)
+  
+[2024-07-02 15:57:31] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => Made in JAPAN
+)
+  
+[2024-07-02 15:57:31] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => RHYTHM OF THE SUN
+)
+  
+[2024-07-02 15:57:31] local.DEBUG: success  
+[2024-07-02 15:57:31] local.DEBUG: -------start-------  
+[2024-07-02 15:57:31] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => Make & Break
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => リアリティー
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => EMERGENCY
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => 中年あるある
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => Just for...
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => 親父のメール
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => それぞれのライフ
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => 少年と花火
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => 月と太陽
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:57:32] local.DEBUG: -------start-------  
+[2024-07-02 15:57:32] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 16
+    [name] => 嵐が去るまで
+)
+  
+[2024-07-02 15:57:32] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3d439e1b.94f4d148.3d439e1c.3bf6329e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fneowing-r%2Favcd-38613%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d439e1b.94f4d148.3d439e1c.3bf6329e/?me_id=1220950&item_id=10851709&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fneowing-r%2Fcabinet%2Fitem_img_665%2Favcd-38613.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: name=KETSUNOPOLIS 8 art_id=10 release_date=2012-12-12 aff_id=19  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => 脳�
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: failure  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => 開放
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => LOVE LOVE Summer
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => guruguru
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => ASIA
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => GOKON Queen
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => moyamoya
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => ボラーレ
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => papamama syndrome
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => 愛に恋して
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => Dearest our...
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => Running man
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => 合わせた手のひらの間
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 15:59:46] local.DEBUG: -------start-------  
+[2024-07-02 15:59:46] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 17
+    [name] => YOUR WAY
+)
+  
+[2024-07-02 15:59:46] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3da85c11.1aff069a.3da85c12.e0ab2260/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fguruguru-ds%2Favcd-38550%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3da85c11.1aff069a.3da85c12.e0ab2260/?me_id=1262790&item_id=11487515&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fguruguru-ds%2Fcabinet%2F508%2Favcd-38550.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: name=ケツノポリス7 art_id=10 release_date=2012-07-11 aff_id=20  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 出会いは成長の種
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => お二人Summer
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 現実は戦場
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 君とつくる未来
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 流れ星
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => リディムドライバー
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 叫び
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 仲間
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 君と僕の季節
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => ランジェリーパブ
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 闘え!サラリーマン
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => フューチャートラックス
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => バラード
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 『S.O.S』
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:01:45] local.DEBUG: -------start-------  
+[2024-07-02 16:01:45] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 18
+    [name] => 伝えたいこと
+)
+  
+[2024-07-02 16:01:45] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3d43c942.973eb86a.3d43c943.95a7c993/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsurprise-web%2Faznavcd-38549%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d43c942.973eb86a.3d43c943.95a7c993/?me_id=1244163&item_id=12305672&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fsurprise-web%2Fcabinet%2Fimgr0758%2Favcd-38549.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: name=ケツノポリス6 art_id=10 release_date=2012-07-11 aff_id=21  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => マジでライブする5秒前
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 流れ
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 出会いのかけら
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 空
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 何�
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: failure  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 歌う
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => カーニバル
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 儚し
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 想い
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 冬物語
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => We love music
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => オレの道オマエの道
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 街並
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 心の声
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 伝承
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:03:21] local.DEBUG: -------start-------  
+[2024-07-02 16:03:21] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 19
+    [name] => 子供たちの未来へ
+)
+  
+[2024-07-02 16:03:21] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F11765789%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=15944675&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F5485%2F4988064385485.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: name=ケツノポリス5 art_id=10 release_date=2012-07-11 aff_id=22  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => スタート
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => また君に会える
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => 歌謡い
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => 男女6人夏物語
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => サマーデイズ
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => ケツメイシ工場
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => 恋の終わりは意外と静かに
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => ハッピーバースデー
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => 夢の中
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => トレイン
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => VS
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => ライフ イズ ビューティフル
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => �
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: failure  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => 人
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => 君色
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:06:13] local.DEBUG: -------start-------  
+[2024-07-02 16:06:13] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 20
+    [name] => さよならまたね
+)
+  
+[2024-07-02 16:06:13] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F11765788%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=15944676&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F5478%2F4988064385478.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: name=ケツノポリス4 art_id=10 release_date=2012-07-11 aff_id=23  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => ドライブ
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 歩いてく
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => さくら
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => そばにいて
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 上がる
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 朝日
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => o Lady No Life
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 君にBUMP
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => ケツメンサンバ
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 三十路ボンバイエ
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 涙
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 東京
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => 願い[7:42]
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:08:25] local.DEBUG: -------start-------  
+[2024-07-02 16:08:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 21
+    [name] => アウトロ
+)
+  
+[2024-07-02 16:08:25] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F11765787%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=15944667&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F5461%2F4988064385461.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: name=ケツノポリス3 art_id=10 release_date=2012-07-11 aff_id=24  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => はじまりの合図
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 夏の思い出
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 1日
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 家に帰ろう
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 明日の少年
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => (マブーハイ)
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 夜の天使
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 失恋
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 門限やぶり
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 痔持ち一代
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 幸せをありがとう
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 太陽
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => (カントゥータンタンヨー)
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:19:27] local.DEBUG: -------start-------  
+[2024-07-02 16:19:27] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 22
+    [name] => 花鳥風月
+)
+  
+[2024-07-02 16:19:27] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F11765786%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=15944668&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F5454%2F4988064385454.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: name=ケツノポリス2 art_id=10 release_date=2012-07-11 aff_id=25  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 手紙 過去～
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => ビルの谷間
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 高値の花
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 人は
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 侍ジャポン
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 中出し
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 手紙 ～現在～
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 雲の上から
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => ア・セッションプリーズ
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => ケツメの作り方
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => よる☆かぜ
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 手紙 ～未来
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => わすれもの
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => トモダチ
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:21:17] local.DEBUG: -------start-------  
+[2024-07-02 16:21:17] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 23
+    [name] => 後出し
+)
+  
+[2024-07-02 16:21:17] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F11765785%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=15944669&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F5447%2F4988064385447.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: name=ケツノポリス1 art_id=10 release_date=2012-07-11 aff_id=26  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => intro
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => こっちおいで
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => CLUBへ
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => もっと
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => 力 mix
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => ビールボーイ
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => 言技
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => 雨
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => S/S
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => ポエムンベース
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => �
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: failure  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => 夕日
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => 男男
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => outro
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:24:58] local.DEBUG: -------start-------  
+[2024-07-02 16:24:58] local.DEBUG: create_data=Array
+(
+    [art_id] => 10
+    [alb_id] => 24
+    [name] => CLUBへ ～熱帯夜 mix～
+)
+  
+[2024-07-02 16:24:58] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17844735%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=21243334&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6403%2F4988031646403_1_2.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: name=STORY ～HY BEST～ art_id=5 release_date=2018-08-22 aff_id=27  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => ホワイトビーチ
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 革命
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => Ocean
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => �
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: failure  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 立ち[
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => AM11:00
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 隆福丸
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => あなた
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => さあ行こう
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => Street Story
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => てがみ[6:00]
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => そこにあるべきではないもの
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => Song for…
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => モノクロ
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => canvas
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => NAO
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 未来
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 366日
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 時をこえ
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => ガジュマルビート
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 南風
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => いちばん近くに
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 帰る場所
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => エール
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => あなたを想う風
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => my friend
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 風になって花になって
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => スマイル
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => HAPPY
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => 三月の陽炎
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:25] local.DEBUG: -------start-------  
+[2024-07-02 16:32:25] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 25
+    [name] => Fortune
+)
+  
+[2024-07-02 16:32:25] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17844735%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=21243334&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F6403%2F4988031646403_1_2.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: name=STORY ～HY BEST～ art_id=5 release_date=2018-08-22 aff_id=28  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => ホワイトビーチ
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 革命
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => Ocean
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => �
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: failure  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 立ち[
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => AM11:00
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 隆福丸
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => あなた
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => さあ行こう
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => Street Story
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => てがみ[6:00]
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => そこにあるべきではないもの
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => Song for…
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => モノクロ
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => canvas
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => NAO
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 未来
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 366日
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 時をこえ
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => ガジュマルビート
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 南風
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => いちばん近くに
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 帰る場所
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => エール
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => あなたを想う風
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => my friend
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 風になって花になって
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => スマイル
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => HAPPY
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => 三月の陽炎
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:32:26] local.DEBUG: -------start-------  
+[2024-07-02 16:32:26] local.DEBUG: create_data=Array
+(
+    [art_id] => 5
+    [alb_id] => 26
+    [name] => Fortune
+)
+  
+[2024-07-02 16:32:26] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/391491f7.14cbe979.391491f8.285a1313/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17141054%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/391491f7.14cbe979.391491f8.285a1313/?me_id=1213310&item_id=20660643&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F3565%2F4943566313565_1_2.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: name=CASTLE art_id=6 release_date=2022-06-29 aff_id=29  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => ダークルーム
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => Virtual Castle
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 天国
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 試作機
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 残像
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => Bloom
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 断面[
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 鬼よ[
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => Misery
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 逃避行
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 紙飛行機
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:37:30] local.DEBUG: -------start-------  
+[2024-07-02 16:37:30] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 27
+    [name] => 劇場
+)
+  
+[2024-07-02 16:37:30] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3d439e1b.94f4d148.3d439e1c.3bf6329e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fneowing-r%2Fdddr-1004%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3d439e1b.94f4d148.3d439e1c.3bf6329e/?me_id=1220950&item_id=14896024&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fneowing-r%2Fcabinet%2Fitem_img_1871%2Fdddr-1004.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: name=&疾走 art_id=6 release_date=2023-09-06 aff_id=30  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 自由
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => アンダーグラウンド
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => &疾走
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 渦
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => また来世
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 花束
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => Struggle
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => ラブレス
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 裏切りについて
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 王
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 自由
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => アンダーグラウンド
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => &疾走
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 渦
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => また来世
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 花束
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => Struggle
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => ラブレス
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 裏切りについて
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  
+[2024-07-02 16:41:02] local.DEBUG: -------start-------  
+[2024-07-02 16:41:02] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 28
+    [name] => 王
+)
+  
+[2024-07-02 16:41:02] local.DEBUG: success  

@@ -5,7 +5,9 @@
 <a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
 <div class="text-center ">
     <p class="card-text">{{ $artist->art_name }}</p>
-    <p>デビュー：{{ \Carbon\Carbon::parse($artist->debut)->format('Y-m') }}</p>
+    @if($artist->debut)
+        <p>デビュー：{{ \Carbon\Carbon::parse($artist->debut)->format('Y-m') }}</p>
+    @endif
 </div>
 
 <!-- シェアポップアップモーダル -->
