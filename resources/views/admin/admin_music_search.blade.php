@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-3">
             <label for="inputbirth" class="form-label">ﾘﾘｰｽ</label>
-            <input type="date" name="release_date" class="form-control" value="{{$select->release_date ?? ($input['release_date'] ?? '') }}">
+            <input type="date" max="9999-12-31" name="release_date" class="form-control" value="{{$select->release_date ?? ($input['release_date'] ?? '') }}">
         </div>
     </div>
 

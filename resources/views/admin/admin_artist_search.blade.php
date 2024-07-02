@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-3">
             <label for="inputbirth" class="form-label">デビュー</label>
-            <input type="date" name="debut" class="form-control" value="{{$select->debut ?? ''}}">
+            <input type="date" max="9999-12-31" name="debut" class="form-control" value="{{$select->debut ?? ''}}">
         </div>
         <div class="col-md-2">
             <label for="inputsex" class="form-label">その他</label>
