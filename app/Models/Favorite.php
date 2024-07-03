@@ -19,33 +19,50 @@ class Favorite extends Model
 
 
     //お気に入り情報取得
-    public static function getFavorite($user_id, $table)
+    public static function getFavorite($disp_cnt=null,$pageing=false,$page=1,$user_id, $table)
     {
         try {
+
+            // table: mus alb pl 引数のテーブルに合わせて取得
+            $sql_cmd = DB::table("favorite_$table")->where('user_id', $user_id);
+
+            // ページング・取得件数指定・全件で分岐
+            if ($pageing){
+                if ($disp_cnt === null) $disp_cnt=5;
+                $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
+            }                       
+            elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+            else                                $sql_cmd = $sql_cmd->get();
+
+            $favorite = $sql_cmd;
+
             $favorite_detail = null;
             if($table=="mus"){
-                $favorite = DB::table('favorite_mus')->where(["user_id"=>$user_id])->get();
                 foreach($favorite as $fav){
                     $favorite_detail[] = Music::getMusic_detail($fav->fav_id);
                 }
             }
             if($table=="alb"){
-                $favorite = DB::table('favorite_alb')->where(["user_id"=>$user_id])->get();
                 foreach($favorite as $fav){
                     $favorite_detail[] = Album::getAlbum_detail($fav->fav_id);
                 }
             }
             if($table=="pl"){
-                $favorite = DB::table('favorite_pl')->where(["user_id"=>$user_id])->get();
                 foreach($favorite as $fav){
                     $favorite_detail[] = Playlist::getPlaylist_detail($fav->fav_id);
                 }
             }
-            return $favorite_detail;
+            //ページングでは戻り値を加工する
+            if ($pageing) {
+                //ﾍﾟｰｼﾞｬｰ情報も合わせて返す
+                return $favorite->setCollection(collect($favorite_detail));
+            } else {
+                return $favorite_detail;
+            }
 
         } catch (\Exception $e) {
             make_error_log("getFavorite.log","failure");
-            return "failure";
+            return null;
         }
     }
     //お気に入りチェック
@@ -61,7 +78,7 @@ class Favorite extends Model
             return ($favorite) ? 1 : 0;
         } catch (\Exception $e) {
             make_error_log("chkFavorite.log","failure");
-            return "failure";
+            return null;
         }
     }
 

@@ -25,16 +25,27 @@ class FavoriteController extends Controller
      */
 
     //お気に入り表示
-    public function favorite_show()
+    public function favorite_show(Request $request)
     {
-        $table = ["mus","alb","pl"];
+        //リダイレクトの場合、inputを取得
+        if($request->input('input')!==null)     $input = request('input');
+        else                                    $input = $request->all();
+        if (empty($input['table']))             $input['table']=null;
+        //選択しているタブのﾍﾟｰｼﾞｬｰのみページを指定する
+        //$art_page = ($input['table'] == "art") ? $input['page'] :1;
+        $mus_page = ($input['table'] == "mus") ? $input['page'] :1;
+        $alb_page = ($input['table'] == "alb") ? $input['page'] :1;
+        $pl_page  = ($input['table'] == "pl")  ? $input['page'] :1;
+
         $favorite_list = array();
-        for( $i=0; $i<count($table); $i++){
-            $favorite_list[$table[$i]] = Favorite::getFavorite(Auth::id(),$table[$i]);
-        }
+        $favorite_list["mus"] = Favorite::getFavorite(10,true,$mus_page,Auth::id(),"mus");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
+        $favorite_list["alb"] = Favorite::getFavorite(10,true,$alb_page,Auth::id(),"alb");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
+        $favorite_list["pl"]  = Favorite::getFavorite(10,true,$pl_page ,Auth::id(),"pl" );  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
+        
+
         //dd($favorite_list);
         $msg = null;
-        
+        //dd($favorite_list);
         if($favorite_list){
             return view('favorite_show', compact('favorite_list', 'msg'));
         }else{

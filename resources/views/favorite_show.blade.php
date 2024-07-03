@@ -27,14 +27,32 @@
 <?//テーブルリストは別ファイルで管理?>   
 <div id="songs" class="tab-content">
     @include('layouts.list_table', ['detail_table' => $favorite_list["mus"], 'table' => 'mus'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['table' => 'mus' ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $favorite_list["mus"],'additionalParams' => $additionalParams,])
 </div>
 
 <div id="albums" class="tab-content">
     @include('layouts.list_table', ['detail_table' => $favorite_list["alb"], 'table' => 'alb'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['table' => 'alb' ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $favorite_list["alb"],'additionalParams' => $additionalParams,])
 </div>
 
 <div id="playlists" class="tab-content">
     @include('layouts.list_table', ['detail_table' => $favorite_list["pl"], 'table' => 'pl'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['table' => 'pl' ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $favorite_list["pl"],'additionalParams' => $additionalParams,])
 </div>
 
 <div id="myplaylists" class="tab-content">
