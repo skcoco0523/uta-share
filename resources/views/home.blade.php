@@ -71,11 +71,13 @@
     <div class="py-2">
         <div class="title-text">
             <h3>曲</h3>
-            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            <a href="{{ route('recommend-list-show', ['category' => 0]) }}">
+                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
             @for ($i=0; $i < count($recommend_mus); $i++)
-            <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_mus[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('recommend-show', ['id' => $recommend_mus[$i]->id]) }}" style="text-decoration: none; color: inherit;">
                 <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                         <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                         <p class="card-text">{{$recommend_mus[$i]->name}}</p>
@@ -90,11 +92,13 @@
     <div class="py-2">
         <div class="title-text">
             <h3>アルバム</h3>
-            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            <a href="{{ route('recommend-list-show', ['category' => 2]) }}">
+                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
             @for ($i=0; $i < count($recommend_alb); $i++)
-            <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_alb[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('recommend-show', ['recom_id' => $recommend_alb[$i]->id]) }}" style="text-decoration: none; color: inherit;">
                 <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                         <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                         <p class="card-text">{{$recommend_alb[$i]->name}}</p>
@@ -109,11 +113,13 @@
     <div class="py-2">
         <div class="title-text">
             <h3>プレイリスト</h3>
-            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            <a href="{{ route('recommend-list-show', ['category' => 3]) }}">
+                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
             @for ($i=0; $i < count($recommend_pl); $i++)
-            <a href="{{ route('recommend-list-show', ['recom_id' => $recommend_pl[$i]->recom_id]) }}" style="text-decoration: none; color: inherit;">
+            <a href="{{ route('recommend-show', ['recom_id' => $recommend_pl[$i]->id]) }}" style="text-decoration: none; color: inherit;">
                 <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
                         <img src="{{ $recommend_pl[$i]->detail[0]->music[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
                         <p class="card-text">{{$recommend_pl[$i]->name}}</p>

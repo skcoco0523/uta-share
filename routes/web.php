@@ -60,7 +60,9 @@ Route::get('artist', [ArtistController::class, 'artist_show'])->name('artist-sho
 Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
 
 //おすすめ一覧
-Route::get('recommend', [RecommendController::class, 'recommend_list_show'])->name('recommend-list-show');
+Route::get('recommend-list', [RecommendController::class, 'recommend_list_show'])->name('recommend-list-show');
+//おすすめ詳細
+Route::get('recommend', [RecommendController::class, 'recommend_show'])->name('recommend-show');
 
 //アルバム詳細
 Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');

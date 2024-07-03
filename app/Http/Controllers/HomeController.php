@@ -34,10 +34,15 @@ class HomeController extends Controller
         //$playlist = $homeModel->getRankingData(NULL,"test");
         //$playlist = null;
         //おすすめ
-        $recommend_mus = Recommend::getUserRecommendList(0);//カテゴリ指定
-        //$recommend_art = $homeModel->getRecommendList(1);//カテゴリ指定   アーティストは現在画像情報なし
-        $recommend_alb = Recommend::getUserRecommendList(2);//カテゴリ指定
-        $recommend_pl = Recommend::getUserRecommendList(3);//カテゴリ指定
+        //$recommend_mus = Recommend::getUserRecommendList(10,false,null,0);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
+        //$recommend_art = $homeModel->getRecommendList(1);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ  アーティストは現在画像情報なし
+        //$recommend_alb = Recommend::getUserRecommendList(10,false,null,2);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
+        //$recommend_pl = Recommend::getUserRecommendList(10,false,null,3);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
+
+        $recommend_mus = Recommend::getRecommend_list(10,false,null,null,0,true,true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ｿｰﾄ,ユーザー用フラグ
+        $recommend_alb = Recommend::getRecommend_list(10,false,null,null,2,true,true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ｿｰﾄ,ユーザー用フラグ
+        $recommend_pl = Recommend::getRecommend_list(10,false,null,null,3,true,true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ｿｰﾄ,ユーザー用フラグ
+
         //return view('home');
         //dd($recommend_mus);
         

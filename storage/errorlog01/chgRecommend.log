@@ -1440,3 +1440,19 @@
 )
   
 [2024-07-01 02:24:33] local.DEBUG: success  
+[2024-07-03 23:22:17] local.DEBUG: ---------start----------  
+[2024-07-03 23:22:17] local.DEBUG: data=Array
+(
+    [_token] => MvFk8ciNysaLKMBPUo8y5limtrGKsZhFmbjJ300b
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 41
+    [page] => 1
+    [name] => おすすめ　曲　テスト2
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-03 23:22:17] local.DEBUG: success  

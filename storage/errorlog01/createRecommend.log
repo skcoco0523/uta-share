@@ -1215,3 +1215,14 @@
 )
   
 [2024-07-01 02:08:06] local.DEBUG: success  
+[2024-07-03 23:22:06] local.DEBUG: ---------start----------  
+[2024-07-03 23:22:06] local.DEBUG: data=Array
+(
+    [_token] => MvFk8ciNysaLKMBPUo8y5limtrGKsZhFmbjJ300b
+    [name] => おすすめ　曲　テスト2
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 2
+)
+  
+[2024-07-03 23:22:06] local.DEBUG: success  
