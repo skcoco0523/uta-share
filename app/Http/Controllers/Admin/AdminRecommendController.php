@@ -180,9 +180,9 @@ class AdminRecommendController extends Controller
     {
         make_error_log("recommend_chg_detail_fnc.log","-----start-----");
         $input = $request->all();
-        $input['id'] = $input['recom_id'];
+        $input['id'] = $input['id'];
         $msg=null;
-        make_error_log("recommend_chg_detail_fnc.log","fnc=".$input['fnc']." recom_id=".$input['recom_id']." category=".$input['category']." detail_id=".$input['detail_id']);
+        make_error_log("recommend_chg_detail_fnc.log","fnc=".$input['fnc']." recom_id=".$input['id']." category=".$input['category']." detail_id=".$input['detail_id']);
         $ret = Recommend::chgRecommend_detail($input);
         switch($input['fnc']){
             case "del":

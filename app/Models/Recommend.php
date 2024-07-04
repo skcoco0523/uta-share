@@ -20,18 +20,14 @@ class Recommend extends Model
     public static function getRecommend_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$category=null,$sort_flag=false,$user_flag=false)
     {
         $sql_cmd = DB::table('recommend');
-        if($keyword)                         $sql_cmd = $sql_cmd->where('name', 'like', "%$keyword%");
-        if($category !== null)             $sql_cmd = $sql_cmd->where('category', '=', $category);
+        if($keyword)                        $sql_cmd = $sql_cmd->where('name', 'like', "%$keyword%");
+        if($category !== null)              $sql_cmd = $sql_cmd->where('category', '=', $category);
         if($user_flag)                      $sql_cmd = $sql_cmd->where('disp_flag', 1);
         //ソート条件を判定
         if ($sort_flag)                     $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
         else                                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
-            
-        
-        $sql_cmd = $sql_cmd->where('disp_flag', 1);
-        $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
 
-
+        //dd($user_flag);
         // ページング・取得件数指定・全件で分岐
         if ($pageing){
             if ($disp_cnt === null) $disp_cnt=5;
@@ -41,7 +37,6 @@ class Recommend extends Model
         else                                $sql_cmd = $sql_cmd->get();
         
         $recommend = $sql_cmd;
-
         // 登録数、登録者名を取得
         foreach ($recommend as $key => $item) {
             $item->detail = DB::table('recommenddetail')->where('recom_id', $item->id)->get();
@@ -63,6 +58,10 @@ class Recommend extends Model
                             if(!$add_list[$key]) unset($add_list[$key]);
                         }
                     }elseif($category==1){//アーティスト
+                        foreach ($item->detail as $key => $detail_data) {
+                            $add_list[$key] = Artist::getArtist_detail($detail_data->detail_id);
+                            if(!$add_list[$key]) unset($add_list[$key]);
+                        }
                     }elseif($category==2){//アルバム
                         foreach ($item->detail as $key => $detail_data) {
                             $add_list[$key] = Album::getAlbum_detail($detail_data->detail_id);
@@ -94,42 +93,8 @@ class Recommend extends Model
     {
         //おすすめ情報を取得
         $recommend = DB::table('recommend')->where('id', $recom_id)->first();
-        //make_error_log("getRecommend_detail","-------start------");
-        //登録情報を取得
-        $sql_cmd = DB::table('recommenddetail')->where('recom_id', $recom_id);
-        switch($recommend->category){
-            case 0: //曲
-                $item1   = "曲名";
-                $table   = "mus";
-                $sql_cmd = $sql_cmd->join('musics', 'recommenddetail.detail_id', '=', 'musics.id');
-                $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
-                $sql_cmd = $sql_cmd->join('albums', 'musics.alb_id', '=', 'albums.id');
-                //$sql_cmd = $sql_cmd->select('recommenddetail.id','musics.name As mus_name','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','musics.id As detail_id','musics.name','artists.name As art_name','albums.aff_id','musics.aff_id As m_aff_id');
-                break;
-            case 1: //ｱｰﾃｨｽﾄ
-                $item1   = "アーティスト名";
-                $table   = "art";
-                $sql_cmd = $sql_cmd->join('artists', 'recommenddetail.detail_id', '=', 'artists.id');
-                //$sql_cmd = $sql_cmd->select('recommenddetail.id','artists.name As art_name')->get();
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','artists.id As detail_id','artists.name');
-                break;
-            case 2: //ｱﾙﾊﾞﾑ
-                $item1   = "アルバム名";
-                $table   = "alb";
-                $sql_cmd = $sql_cmd->join('albums', 'recommenddetail.detail_id', '=', 'albums.id');
-                $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','albums.id As detail_id','albums.name','artists.name As art_name','aff_id');
-                break;
-            case 3: //ﾌﾟﾚｲﾘｽﾄ
-                $item1   = "プレイリスト名";
-                $table   = "pl";
-                $sql_cmd = $sql_cmd->join('playlist', 'recommenddetail.detail_id', '=', 'playlist.id');
-                $sql_cmd = $sql_cmd->select('recommenddetail.id','playlist.id As detail_id','playlist.name');
-                break;
-            default:
-                break;
-        }
+
+        $sql_cmd = DB::table('recommenddetail')->where('recom_id', $recommend->id);
         // ページング・取得件数指定・全件で分岐
         if ($pageing){
             if ($disp_cnt === null) $disp_cnt=5;
@@ -138,26 +103,61 @@ class Recommend extends Model
         elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
         else                                $sql_cmd = $sql_cmd->get();
 
-        $recommend->detail = $sql_cmd; 
-        $recommend->table = $table; 
-        //ログインしているユーザーはお気に入り情報も取得する
-        foreach ($recommend->detail as $item) {
-            if($recommend->category == 0 && $item->m_aff_id) $item->aff_id = $item->m_aff_id;
-            if (Auth::check()) {
-                $item->fav_flag = Favorite::chkFavorite(Auth::id(), $recommend->table, $item->detail_id);
-            }else{
-                $item->fav_flag = 0;
+        $detail_list = $sql_cmd;
+        $recommend2 = $detail_list;
+        //if ($detail_list->isNotEmpty()) {
+            $add_list = [];
+            $item1 = "";
+            $table = "";
+            if($recommend->category==0){          //曲
+                $item1   = "曲名";
+                $table   = "mus";
+                foreach ($detail_list as $key => $detail_data) {
+                    $add_list[$key] = Music::getMusic_detail($detail_data->detail_id);
+                    if(!$add_list[$key]) unset($add_list[$key]);
+                }
+            }elseif($recommend->category==1){//アーティスト
+                $item1   = "アーティスト名";
+                $table   = "art";
+            }elseif($recommend->category==2){//アルバム
+                $item1   = "アルバム名";
+                $table   = "alb";
+                foreach ($detail_list as $key => $detail_data) {
+                    $add_list[$key] = Album::getAlbum_detail($detail_data->detail_id);
+                    if(!$add_list[$key]) unset($add_list[$key]);
+                }
+
+            }elseif($recommend->category==3){//プレイリスト  
+                $item1   = "プレイリスト名";
+                $table   = "pl";
+                foreach ($detail_list as $key => $detail_data) {       
+                    $add_list[$key] = Playlist::getPlaylist_detail($detail_data->detail_id);
+                    if(!$add_list[$key]) {
+                        unset($add_list[$key]);
+                    }else{
+                        //プレイリストの収録曲が０件の場合は除外
+                        if (count($add_list[$key]->music) == 0) unset($add_list[$key]);
+                    }
+                }
             }
-        }
+            $detail = $add_list; 
+            
+            //dd($recommend2,$detail);
+            if($pageing){
+                $recommend2->setCollection(collect($detail));
+            }else{
+                $recommend2 = $recommend2->replace($detail);
+                //dd($recommend2,$detail);
 
-        if($recommend->category == 0 || $recommend->category == 2){
-            //画像情報を付与
-            $item=setAffData($recommend->detail);
-        }
-
-        //dd($recommend);
-        $recommend->item1 = $item1;   
-        return $recommend; 
+            }
+        //}
+        $recommend2->item1      = $item1;
+        $recommend2->table      = $table; 
+        $recommend2->id         = $recommend->id;
+        $recommend2->name       = $recommend->name;
+        $recommend2->category   = $recommend->category;
+        //dd($recommend2);
+        return $recommend2; 
     }
     //作成
     public static function createRecommend($data)
@@ -210,11 +210,11 @@ class Recommend extends Model
     {
         make_error_log("delRecommend.log","---------start----------");
         try {
-            if(!$data['recom_id'])  return ['id' => null, 'error_code' => -1];   //データ不足
-            make_error_log("delRecommend.log","delete_recom_id=".$data['recom_id']);
+            if(!$data['id'])  return ['id' => null, 'error_code' => -1];   //データ不足
+            make_error_log("delRecommend.log","delete_recom_id=".$data['id']);
 
-            DB::table('recommenddetail')->where('recom_id', $data['recom_id'])->delete();
-            DB::table('recommend')->where('id', $data['recom_id'])->delete();
+            DB::table('recommenddetail')->where('recom_id', $data['id'])->delete();
+            DB::table('recommend')->where('id', $data['id'])->delete();
 
             make_error_log("delRecommend.log","success");
             return ['id' => null, 'error_code' => 0];   //削除成功
@@ -264,16 +264,16 @@ class Recommend extends Model
     {
         make_error_log("chgRecommend_detail.log","-------start-------");
         //try {
-            if(!$data['recom_id'])     return ['id' => null, 'error_code' => 1];   //データ不足
+            if(!$data['id'])     return ['id' => null, 'error_code' => 1];   //データ不足
             if(!$data['detail_id'])    return ['id' => null, 'error_code' => 2];   //データ不足
             
-            make_error_log("chgRecommend_detail.log","delete_pl_id=".$data['detail_id']);
+            make_error_log("chgRecommend_detail.log","delete_id=".$data['detail_id']);
             switch($data['fnc']){
                 case "add":
-                    $detail_id = DB::table('recommenddetail')->insert(['recom_id' => $data['recom_id'],'detail_id' => $data['detail_id']]);
+                    $detail_id = DB::table('recommenddetail')->insert(['recom_id' => $data['id'],'detail_id' => $data['detail_id']]);
                     break;
                 case "del":
-                    DB::table('recommenddetail')->where('recom_id', $data['recom_id'])->where('id', $data['detail_id'])->delete();
+                    DB::table('recommenddetail')->where('recom_id', $data['id'])->where('detail_id', $data['detail_id'])->delete();
                     break;
                 default:
             }

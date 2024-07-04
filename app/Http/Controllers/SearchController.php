@@ -67,8 +67,8 @@ class SearchController extends Controller
         $search_list["art"] = Artist::getArtist_list(20,true,$art_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $search_list["mus"] = Music::getMusic_list(10,true,$mus_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $search_list["alb"] = Album::getAlbum_list(10,true,$alb_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input['keyword'],1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,管理者登録フラグ
-
+        $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input['keyword'],true);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,管理者登録フラグ
+        //dd($search_list["pl"]);
         //検索履歴の登録
         if($input['keyword']) SearchHistory::createSearchHistory($input['keyword']);
         $msg = null;

@@ -17,11 +17,11 @@ class Playlist extends Model
     //取得
     public static function getPlaylist_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$admin_flag=0)
     {
-        $sql_cmd = DB::table('playlist')
-            ->orderBy('created_at', 'desc')
-            ->where('name', 'like', "%$keyword%")
-            ->where('admin_flag', $admin_flag);
-        
+        $sql_cmd = DB::table('playlist');
+        if($keyword) $sql_cmd   = $sql_cmd->where('name', 'like', "%$keyword%");
+        $sql_cmd                = $sql_cmd->where('admin_flag', $admin_flag);
+        $sql_cmd                = $sql_cmd->orderBy('created_at', 'desc');
+
         // ページング・取得件数指定・全件で分岐
         if ($pageing){
             if ($disp_cnt === null) $disp_cnt=5;

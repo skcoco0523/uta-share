@@ -858,3 +858,11 @@
 [2024-07-03 16:06:02] local.DEBUG: user_id=1 table=alb fav_id=7 type=add  
 [2024-07-03 16:06:02] local.DEBUG: fav_chk=0  
 [2024-07-03 16:06:02] local.DEBUG: to add  
+[2024-07-04 20:55:25] local.DEBUG: -------start-------  
+[2024-07-04 20:55:25] local.DEBUG: user_id=1 table=pl fav_id=6 type=add  
+[2024-07-04 20:55:25] local.DEBUG: fav_chk=0  
+[2024-07-04 20:55:25] local.DEBUG: to add  
+[2024-07-04 20:55:28] local.DEBUG: -------start-------  
+[2024-07-04 20:55:28] local.DEBUG: user_id=1 table=pl fav_id=6 type=del  
+[2024-07-04 20:55:28] local.DEBUG: fav_chk=1  
+[2024-07-04 20:55:28] local.DEBUG: delete  

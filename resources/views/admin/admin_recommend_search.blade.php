@@ -180,7 +180,7 @@
             <span class="form-label" style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_chg()">変更</span>
             
             <div id="detail_chg">
-                @foreach($recommend_detail->detail as $dtl)
+                @foreach($recommend_detail as $dtl)
                 <div class="row">
                     <div class="col-sm-9 mb-2"> <!-- フォームの列 -->
                     
@@ -261,7 +261,7 @@
 <form name="detail_form" method="POST" action="{{ route('admin-recommend-chgdetail-fnc') }}">
     @csrf
     <input type="hidden" name="fnc" value="">
-    <input type="hidden" name="recom_id" value="{{$recommend_detail->id}}">
+    <input type="hidden" name="id" value="{{$recommend_detail->id}}">
     <input type="hidden" name="category" value="{{$input['category']}}">
     <input type="hidden" name="dtl_keyword" value="{{$input['dtl_keyword'] ?? ''}}">
     <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">

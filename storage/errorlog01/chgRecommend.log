@@ -1456,3 +1456,115 @@
 )
   
 [2024-07-03 23:22:17] local.DEBUG: success  
+[2024-07-04 19:26:36] local.DEBUG: ---------start----------  
+[2024-07-04 19:26:36] local.DEBUG: data=Array
+(
+    [_token] => WuKcTVPvN57bAUcBw82x5YZ4UK3AdczJyUGn7GpB
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 41
+    [page] => 1
+    [name] => おすすめ　曲　テスト2
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-04 19:26:36] local.DEBUG: success  
+[2024-07-04 19:26:45] local.DEBUG: ---------start----------  
+[2024-07-04 19:26:45] local.DEBUG: data=Array
+(
+    [_token] => WuKcTVPvN57bAUcBw82x5YZ4UK3AdczJyUGn7GpB
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 41
+    [page] => 1
+    [name] => おすすめ　曲　テスト2
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-04 19:26:45] local.DEBUG: success  
+[2024-07-04 19:26:53] local.DEBUG: ---------start----------  
+[2024-07-04 19:26:53] local.DEBUG: data=Array
+(
+    [_token] => WuKcTVPvN57bAUcBw82x5YZ4UK3AdczJyUGn7GpB
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 40
+    [page] => 1
+    [name] => おすすめ　曲　テスト
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-04 19:26:53] local.DEBUG: success  
+[2024-07-04 19:34:04] local.DEBUG: ---------start----------  
+[2024-07-04 19:34:04] local.DEBUG: data=Array
+(
+    [_token] => WuKcTVPvN57bAUcBw82x5YZ4UK3AdczJyUGn7GpB
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 41
+    [page] => 1
+    [name] => おすすめ　曲　テスト2
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-04 19:34:04] local.DEBUG: success  
+[2024-07-04 19:47:22] local.DEBUG: ---------start----------  
+[2024-07-04 19:47:22] local.DEBUG: data=Array
+(
+    [_token] => WuKcTVPvN57bAUcBw82x5YZ4UK3AdczJyUGn7GpB
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 42
+    [page] => 1
+    [name] => recommend_add_test
+    [category_name] => アーティスト
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-04 19:47:22] local.DEBUG: success  
+[2024-07-04 19:47:42] local.DEBUG: ---------start----------  
+[2024-07-04 19:47:42] local.DEBUG: data=Array
+(
+    [_token] => WuKcTVPvN57bAUcBw82x5YZ4UK3AdczJyUGn7GpB
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 42
+    [page] => 1
+    [name] => recommend_add_test
+    [category_name] => アーティスト
+    [category] => 
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-04 19:47:42] local.DEBUG: success  
+[2024-07-04 19:59:30] local.DEBUG: ---------start----------  
+[2024-07-04 19:59:30] local.DEBUG: data=Array
+(
+    [_token] => WuKcTVPvN57bAUcBw82x5YZ4UK3AdczJyUGn7GpB
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 40
+    [page] => 1
+    [name] => おすすめ　曲　テスト
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-07-04 19:59:30] local.DEBUG: success  

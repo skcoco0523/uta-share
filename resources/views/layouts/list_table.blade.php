@@ -8,6 +8,8 @@
                                     <tr>
                                         <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, 'recom')">
         @if(isset($detail->detail[0]->src)) <img src="{{ $detail->detail[0]->src }}" class="icon-55">
+        @elseif(isset($detail->detail[0]->music[0]->src))
+                                            <img src="{{ $detail->detail[0]->music[0]->src }}" class="icon-55">
         @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
                                         </td>
@@ -22,26 +24,27 @@
 
 <?//おすすめテーブル?>
 @if(isset($recommend_table))
+                                                    
                             <table id="recommend-list" class="table table-borderless table-center">
                                 <tbody>
-    @foreach ($recommend_table->detail as $key => $detail)   
+    @foreach ($recommend_table as $key => $detail)   
                                     <tr>
-                                        <td class="col-2" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommend->table }}')">
+                                        <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, '{{ $recommend->table }}')">
         @if(isset($detail->src))            <img src="{{ $detail->src }}" class="icon-55">
         @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
                                         </td>
-                                        <td class="col-9" onclick="redirectToDetailShow({{ $detail->detail_id }}, '{{ $recommend->table }}')">
+                                        <td class="col-9" onclick="redirectToDetailShow({{ $detail->id }}, '{{ $recommend->table }}')">
                                             {{ Str::limit($detail->name, 30, '...') }}
         @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
         @endif
                                         </td>
-                                        <td class="col-1" favorite-id="{{ $recommend->table }}-{{ $detail->detail_id }}">
-        @if($detail->fav_flag)              <i data-favorite-id="{{ $recommend->table }}-{{ $detail->detail_id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend->table }}', {{ $detail->detail_id }})"></i>
-        @else                               <i data-favorite-id="{{ $recommend->table }}-{{ $detail->detail_id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend->table }}', {{ $detail->detail_id }})"></i>
+                                        <td class="col-1" favorite-id="{{ $recommend->table }}-{{ $detail->id }}">
+        @if($detail->fav_flag)              <i data-favorite-id="{{ $recommend->table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend->table }}', {{ $detail->id }})"></i>
+        @else                               <i data-favorite-id="{{ $recommend->table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend->table }}', {{ $detail->id }})"></i>
         @endif
                                         </td>
-                                        <td class="col-1" pl-menu-id="{{ $recommend->table }}-{{ $detail->detail_id }}">
+                                        <td class="col-1" pl-menu-id="{{ $recommend->table }}-{{ $detail->id }}">
                                             <i class="fa-regular fa-square-plus icon-20 red"></i>
                                         </td>
                                     </tr>
@@ -54,11 +57,13 @@
 @if(isset($detail_table) && isset($table))
                         <table class="table table-borderless table-center">
                             <tbody>
-    @foreach ($detail_table as $key => $detail)   
+    @foreach ($detail_table as $key => $detail)         
                                 <tr>
                                     <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
-        @if(isset($detail->src))         <img src="{{ $detail->src }}" class="icon-55">
-        @else                            <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
+        @if(isset($detail->src))        <img src="{{ $detail->src }}" class="icon-55">
+        @elseif(isset($detail->src))         
+                                        <img src="{{ $detail->src }}" class="icon-55">
+        @else                           <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
                                     </th>
                                     <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">

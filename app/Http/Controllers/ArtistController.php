@@ -33,19 +33,9 @@ class ArtistController extends Controller
         $artist     = Artist::getartist_detail($request->only(['id']));  //mus_id
         if($artist){
             $album      = Album::getAlbum_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
-            $music      = Music::getMusic_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-            $playlist   = Playlist::getPlaylist_list(10,false,null,$artist->name,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ  
-            // art_idが一致するデータのみに加工 念のため
-            $filter_Albums = [];
-            $filter_Music = [];
-            foreach ($album as $alb) {
-                if ($alb->art_id == $artist->art_id) $filter_Albums[] = $alb;
-            }
-            foreach ($music as $mus) {
-                if ($mus->art_id == $artist->art_id) $filter_Music[] = $mus;
-            }
-            $album = $filter_Albums;
-            $music = $filter_Music;
+            $music      = Music::getMusic_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
+            $playlist   = Playlist::getPlaylist_list(10,false,null,$artist->name,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰ
+            
         }
 
         $msg = null;

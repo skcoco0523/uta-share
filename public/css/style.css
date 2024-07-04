@@ -78,6 +78,13 @@ a.btn-gray {
   display: block; /* 画像をブロックレベル要素に変更 */
   margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
 }
+.icon-25 {        /*詳細リンクで使用*/
+  width: 25px;
+  height: 25px;
+  font-size: 25px;/*　フォント用*/
+  display: block; /* 画像をブロックレベル要素に変更 */
+  margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
+}
 .icon-50 {        /*通知で利用*/
   width: 50px;
   height: 50px;

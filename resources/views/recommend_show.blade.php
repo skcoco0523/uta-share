@@ -20,7 +20,7 @@
     ];
 @endphp
 {{--ﾍﾟｰｼﾞｬｰ--}}
-@include('layouts.pagination', ['paginator' => $recommend->detail,'additionalParams' => $additionalParams,])
+@include('layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
 
 @endsection
 

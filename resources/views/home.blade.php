@@ -11,7 +11,7 @@
     <div class="py-3">
         <div class="title-text">
             <h3>みんなのお気に入り</h3>
-            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
         </div>
         <div class="d-flex overflow-auto contents_box">
             @for ($i=0; $i < count($ranking['fav_mus']); $i++)
@@ -31,7 +31,7 @@
     <div class="py-2">
         <div class="title-text">
             <h3>プレイリスト</h3>
-            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
         </div>
         <div class="d-flex overflow-auto contents_box">
             @for ($i=0; $i < count($playlist); $i++)
@@ -72,7 +72,7 @@
         <div class="title-text">
             <h3>曲</h3>
             <a href="{{ route('recommend-list-show', ['category' => 0]) }}">
-                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
             </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
@@ -93,7 +93,7 @@
         <div class="title-text">
             <h3>アルバム</h3>
             <a href="{{ route('recommend-list-show', ['category' => 2]) }}">
-                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
             </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
@@ -114,7 +114,7 @@
         <div class="title-text">
             <h3>プレイリスト</h3>
             <a href="{{ route('recommend-list-show', ['category' => 3]) }}">
-                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-20 red title-right"></i>
+                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
             </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
