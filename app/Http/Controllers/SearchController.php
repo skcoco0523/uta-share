@@ -72,7 +72,7 @@ class SearchController extends Controller
         //検索履歴の登録
         if($input['keyword']) SearchHistory::createSearchHistory($input['keyword']);
         $msg = null;
-        dd($search_list);
+        //dd($search_list);
         
         return view('search_list_show', compact('search_list','input', 'msg'));
     }

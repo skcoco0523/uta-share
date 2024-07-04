@@ -2,7 +2,7 @@
 
 <?//コンテンツ?>  
 @section('content')
-<a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
+<a href="{{ url()->previous() }}" class="no-decoration">＜＜</a>
 <div class="d-flex overflow-auto contents_box">
     <ul class="nav nav-pills flex-nowrap">
         <li class="nav-item nav-item-red"><a class="nav-link nav-link-red active" onclick="openTab(event, 'accepted')">フレンド</a></li>

@@ -197,14 +197,20 @@ a.btn-gray {
 }
 
 .detail-title {
+  font-size: 20px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
 .detail-txt {
+  font-size: 15px;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
+}
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
 }
 
 .list-title {

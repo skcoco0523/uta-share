@@ -2,15 +2,15 @@
 
 <?//コンテンツ?>  
 @section('content')
-<a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
+<a href="{{ url()->previous() }}" class="no-decoration">＜＜</a>
 <a href="{{$album->href }}">
     <img src="{{ $album->src }}" class="icon-80p" alt="pic">
 </a>
 <div class="text-center">
     <p class="detail-title">{{ $album->name }}</p>
     <p class="detail-txt">
-        <a href="{{ route('artist-show',  ['id' => $album->art_id]) }}" style="text-decoration: none; color: inherit;">
-            {{ $album->art_name }}
+        <a class="no-decoration" href="{{ route('artist-show',  ['id' => $album->art_id]) }}">
+            アーティスト：{{ $album->art_name }}
         </a>
     </p>   
     <p>{{ $album->release_date }}：{{$album->mus_cnt }}曲</p>

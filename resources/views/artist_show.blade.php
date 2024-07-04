@@ -2,7 +2,7 @@
 
 <?//コンテンツ?>  
 @section('content')
-<a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
+<a href="{{ url()->previous() }}" class="no-decoration">＜＜</a>
 <div class="text-center ">
     <p class="card-text">{{ $artist->art_name }}</p>
     @if($artist->debut)

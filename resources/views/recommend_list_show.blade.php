@@ -2,7 +2,7 @@
 
 <?//コンテンツ?>  
 @section('content')
-<a href="{{ url()->previous() }}" style="text-decoration: none; color: inherit;">＜＜</a>
+<a href="{{ url()->previous() }}" class="no-decoration">＜＜</a>
 <div class="py-2 d-flex justify-content-center">
     <p class="card-text">{{ $recommend_list->name }}</p>
 </div>
