@@ -7,6 +7,7 @@
     @foreach ($recommend_list_table as $key => $detail)
                                     <tr>
                                         <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, 'recom')">
+                                            {{--曲、アルバム、プレイリストで画像参照を切り替える--}}
         @if(isset($detail->detail[0]->src)) <img src="{{ $detail->detail[0]->src }}" class="icon-55">
         @elseif(isset($detail->detail[0]->music[0]->src))
                                             <img src="{{ $detail->detail[0]->music[0]->src }}" class="icon-55">
@@ -27,10 +28,13 @@
                                                     
                             <table id="recommend-list" class="table table-borderless table-center">
                                 <tbody>
-    @foreach ($recommend_table as $key => $detail)   
+    @foreach ($recommend_table as $key => $detail)
                                     <tr>
                                         <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, '{{ $recommend->table }}')">
+                                            {{--曲、アルバム、プレイリストで画像参照を切り替える--}}
         @if(isset($detail->src))            <img src="{{ $detail->src }}" class="icon-55">
+        @elseif(isset($detail->music[0]->src))
+                                            <img src="{{ $detail->music[0]->src }}" class="icon-55">
         @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
                                         </td>
