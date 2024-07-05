@@ -56,8 +56,19 @@ class FriendlistController extends Controller
     //フレンド情報表示
     public function friend_show(Request $request)
     {
+        //リダイレクトの場合、inputを取得
+        if($request->input('input')!==null)     $input = request('input');
+        else                                    $input = $request->all();
+        if (empty($input['table']))             $input['table']=null;
+        //選択しているタブのﾍﾟｰｼﾞｬｰのみページを指定する
+        //$art_page = ($input['table'] == "art") ? $input['page'] :1;
+        $mus_page = ($input['table'] == "mus") ? $input['page'] :1;
+        $alb_page = ($input['table'] == "alb") ? $input['page'] :1;
+        $pl_page  = ($input['table'] == "pl")  ? $input['page'] :1;
+
         //ユーザー検索
-        $friend_id = $request->input('friend_id');
+        //dd($input);
+        $friend_id = $input['friend_id'] ;
         //公開フラグ確認
         $friend_profile = User::profile_get($friend_id);
         
@@ -68,17 +79,17 @@ class FriendlistController extends Controller
             return redirect()->route('friendlist-show')->with($message);
         }
 
-        $table = ["mus"];
         $favorite_list = array();
-            //フレンド承認済みで相手の公開制限無し
+        //フレンド承認済みで相手の公開制限無し
         if($friend_profile->release_flag!=1 && $friend_profile->friend_status=="accepted"){
-            for( $i=0; $i<count($table); $i++){
-                $favorite_list[$table[$i]] = Favorite::getFavorite($friend_id, $table[$i]);
-            }
+            //$favorite_list["art"] = Favorite::getFavorite(10,true,$mus_page,$friend_id,"art");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
+            $favorite_list["mus"] = Favorite::getFavorite(10,true,$mus_page,$friend_id,"mus");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
+            //$favorite_list["alb"] = Favorite::getFavorite(10,true,$alb_page,$friend_id,"alb");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
+            //$favorite_list["pl"]  = Favorite::getFavorite(10,true,$pl_page ,$friend_id,"pl" );  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
         }else{
-            for( $i=0; $i<count($table); $i++){
-                $favorite_list[$table[$i]] = null;
-            }
+            $favorite_list["mus"] = null;
+            //$favorite_list["alb"] = null;
+            //$favorite_list["pl"]  = null;
         }
 
         $msg = null;

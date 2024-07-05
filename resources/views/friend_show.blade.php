@@ -18,6 +18,12 @@
 <?//テーブルリストは別ファイルで管理?>   
 <div id="songs" class="tab-content active">
     @include('layouts.list_table', ['friend_table' => $favorite_list["mus"], 'table' => 'mus'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
+    @php
+        $additionalParams = ['table' => 'mus', 'friend_id' => $friend_profile->id ,];
+    @endphp
+    {{--ﾍﾟｰｼﾞｬｰ--}}
+    @include('layouts.pagination', ['paginator' => $favorite_list["mus"],'additionalParams' => $additionalParams,])
 </div>
 
 <div id="category" class="tab-content">
