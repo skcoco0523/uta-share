@@ -12,66 +12,46 @@ class Ranking extends Model
     use HasFactory;
     
     //ランキング取得
-    public static function getRanking($rank_type, $table=null, $disp_cnt=10) {
-        //ランキングタイプごとに分岐
-        switch($rank_type){
-            case "7week_acc"://直近7週間のアクセス件数ランキング
-                $sevenDaysAgo = now()->subDays(7);
-                $ranking = DB::table('musics')
-                ->select('artists.name', 'musics.name', DB::raw('COALESCE(musics.aff_id, albums.aff_id) AS aff_id'))
-                ->leftJoin('artists', 'artists.id', '=', 'musics.art_id')
-                ->leftJoin('albums', 'albums.art_id', '=', 'artists.id')
-                ->groupBy('musics.name', 'artists.name', 'musics.aff_id', 'albums.aff_id')
-                ->limit($disp_cnt)
-                ->get();
-                break;
-            
-            case "favorite"://お気に入り曲ランキング
-                if($table){
-                    switch($table){
-                        case "mus":
-                            $sql_cmd = $favorite = DB::table('favorite_mus');
-                            break;
-                        case "alb":
-                            $sql_cmd = $favorite = DB::table('favorite_alb');
-                            break;
-                        case "pl":
-                            $sql_cmd = $favorite = DB::table('favorite_pl');
-                            break;
-                        default:
-                            break;
-                    }
-                    $sql_cmd = $sql_cmd->select('fav_id', DB::raw('COUNT(*) as count'));
-                    $sql_cmd = $sql_cmd->groupBy('fav_id')->orderByDesc('count');
-                    $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
-                    $favorite = $sql_cmd;
-                    //dd($fav);
-                    foreach($favorite as $fav){
-                        $ranking[] = Music::getMusic_detail($fav->fav_id);
-                    }
-                }
-                break;
-        
-            case "want_to_sing"://歌いたい曲ランキング
-                break;
-            default:
-                /*
-                $ranking = DB::table('musics')
-                ->select('musics.id', 'musics.name', 'albums.name AS alb_name',
-                        DB::raw('GROUP_CONCAT(COALESCE(musics.aff_id, albums.aff_id)) AS aff_id'))
-                ->leftJoin('albums', 'albums.id', '=', 'musics.alb_id')
-                ->groupBy('musics.id', 'musics.name', 'albums.name')
-                ->limit($disp_cnt)
-                ->get();
-                */
-        }
+    public static function getFavoriteRanking($disp_cnt=null,$pageing=false,$page=1,$table=null) {
 
-        if(isset($ranking)){
-            //画像情報を付与
-            return $ranking=setAffData($ranking);
-        }else{
-            return null;
+        if($table){
+            if    ($table=="mus") $sql_cmd = DB::table('favorite_mus');
+            elseif($table=="alb") $sql_cmd = DB::table('favorite_mus');
+            elseif($table=="pl")  $sql_cmd = DB::table('favorite_pl');
+            //ユーザーがtableを修正して引き渡した場合の対応
+            else return null;
+
+            $sql_cmd = $sql_cmd->select('fav_id', DB::raw('COUNT(*) as count'));
+            $sql_cmd = $sql_cmd->groupBy('fav_id')->orderByDesc('count');
+
+            // ページング・取得件数指定・全件で分岐
+            if ($pageing){
+                if ($disp_cnt === null) $disp_cnt=5;
+                $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
+            }                       
+            elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+            else                                $sql_cmd = $sql_cmd->get();       
+            $favorite = $sql_cmd;
+            
+            if($table=="mus") {
+                foreach($favorite as $fav){
+                    $ranking[] = Music::getMusic_detail($fav->fav_id);
+                }
+            }
+            if($table=="alb") {
+            }
+            if($table=="pl") {
+            }
+
+            if($pageing){
+                $favorite->setCollection(collect($ranking));
+            }else{
+                $favorite = $favorite->replace($ranking);
+                //dd($recommend2,$detail);
+            }
+            //dd($favorite);
         }
+        return $favorite;
     }
 }
 

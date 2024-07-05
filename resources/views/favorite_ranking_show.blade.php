@@ -4,20 +4,20 @@
 @section('content')
 <a href="{{ url()->previous() }}" class="no-decoration">＜＜</a>
 <div class="py-2 d-flex justify-content-center">
-    <p class="card-text">{{ $recommend_list->name }}</p>
+    <p class="card-text">{{ $fav_ranking->name }}</p>
+
 </div>
-
 <?//テーブルリストは別ファイルで管理?>   
-@include('layouts.list_table', ['non_menu_table' => $recommend_list])
-
+@include('layouts.list_table', ['detail_table' => $fav_ranking, 'table' => $fav_ranking->table])
 
 {{--ﾊﾟﾗﾒｰﾀ--}}
 @php
     $additionalParams = [
+        'table' => $fav_ranking->table ?? '',
     ];
 @endphp
 {{--ﾍﾟｰｼﾞｬｰ--}}
-@include('layouts.pagination', ['paginator' => $recommend_list,'additionalParams' => $additionalParams,])
+@include('layouts.pagination', ['paginator' => $fav_ranking,'additionalParams' => $additionalParams,])
 
 @endsection
 

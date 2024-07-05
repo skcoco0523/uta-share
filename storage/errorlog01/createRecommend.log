@@ -1237,3 +1237,14 @@
 )
   
 [2024-07-04 19:35:13] local.DEBUG: success  
+[2024-07-05 12:58:50] local.DEBUG: ---------start----------  
+[2024-07-05 12:58:50] local.DEBUG: data=Array
+(
+    [_token] => WgaymFZFEZM44m6Z5HKLYQq6b5LD1QJEgDlRbday
+    [name] => test
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 3
+)
+  
+[2024-07-05 12:58:50] local.DEBUG: success  

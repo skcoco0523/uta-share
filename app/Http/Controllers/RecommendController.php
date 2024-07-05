@@ -15,7 +15,7 @@ class RecommendController extends Controller
      */
     public function __construct()
     {
-        //ホームはゲストも表示可能に
+        //ゲストも表示可能に
         //$this->middleware('auth');
     }
 
@@ -42,7 +42,8 @@ class RecommendController extends Controller
 
         //dd($recommend_list);
 
-        if($recommend_list){
+        //ユーザーがcategory番号を修正して引き渡した場合の対応
+        if($recommend_list && !($recommend_list->isEmpty())){
             return view('recommend_list_show', compact('recommend_list', 'msg'));
         }else{
             return redirect()->route('home')->with('error', '該当のデータが存在しません');
@@ -59,7 +60,8 @@ class RecommendController extends Controller
         //dd($recommnd);
         $msg = null;
         //dd($music);
-        if($recommend){
+        //ユーザーがidを修正して引き渡した場合の対応
+        if($recommend && !($recommend->isEmpty())){
             return view('recommend_show', compact('recommend', 'msg'));
         }else{
             return redirect()->route('home')->with('error', '該当のデータが存在しません');

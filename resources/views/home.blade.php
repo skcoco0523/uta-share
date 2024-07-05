@@ -6,12 +6,14 @@
 <?//スライダー?>  
 @include('layouts.slider')
 
-<?//ランキング?>  
+<?//お気に入りランキング?>  
 @if(isset($ranking['fav_mus']))
     <div class="py-3">
         <div class="title-text">
-            <h3>みんなのお気に入り</h3>
-            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
+            <h3>お気に入りの曲　TOP10</h3>
+            <a href="{{ route('favorite-ranking', ['table' => 'mus']) }}">
+                <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
+            </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
             @for ($i=0; $i < count($ranking['fav_mus']); $i++)
@@ -22,45 +24,6 @@
                     <p class="card-text text-truncate">{{$ranking['fav_mus'][$i]->art_name}}</p>
                 </div>
             </a>
-            @endfor
-        </div>
-    </div>
-@endif
-<?//プレイリスト?>  
-@if(isset($playlist))
-    <div class="py-2">
-        <div class="title-text">
-            <h3>プレイリスト</h3>
-            <i class="fa-solid fa-chevron-up fa-rotate-90 icon-25 red title-right"></i>
-        </div>
-        <div class="d-flex overflow-auto contents_box">
-            @for ($i=0; $i < count($playlist); $i++)
-            <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                <!--<img src="..." class="card-img-top" alt="pic" style="object-fit: cover; height: 70%;">-->
-                <div class="image-container" style="display: flex; flex-wrap: wrap; width: 100%; height: 75%;">
-                @if(isset($playlist[$i]->pic_dir[0]))
-                    <div class="image-part" style="width: 50%; height: 50%;">
-                        <img src="{{ $ranking[$i]->src[0] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
-                    </div>
-                @endif
-                @if(isset($playlist[$i]->pic_dir[1]))
-                    <div class="image-part" style="width: 50%; height: 50%;">
-                        <img src="{{ $ranking[$i]->src[1] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
-                    </div>
-                @endif
-                @if(isset($playlist[$i]->pic_dir[2]))
-                    <div class="image-part" style="width: 50%; height: 50%;">
-                        <img src="{{ $ranking[$i]->src[2] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
-                    </div>
-                @endif
-                @if(isset($playlist[$i]->pic_dir[3]))
-                    <div class="image-part" style="width: 50%; height: 50%;">
-                        <img src="{{ $ranking[$i]->src[3] }}" class="card-img-mini" alt="pic" style="object-fit: cover; width: 100%; height: 100%;">
-                    </div>
-                @endif
-                </div>
-                <p class="card-text">{{$playlist[$i]->name}} ({{$playlist[$i]->cnt}})</p>
-            </div>
             @endfor
         </div>
     </div>

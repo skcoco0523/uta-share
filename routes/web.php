@@ -23,6 +23,8 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\FriendlistController;
 use App\Http\Controllers\RecommendController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\RankingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,16 +61,24 @@ Route::get('artist', [ArtistController::class, 'artist_show'])->name('artist-sho
 //曲詳細
 Route::get('music', [MusicController::class, 'music_show'])->name('music-show');
 
-//おすすめ一覧
-Route::get('recommend-list', [RecommendController::class, 'recommend_list_show'])->name('recommend-list-show');
-//おすすめ詳細
-Route::get('recommend', [RecommendController::class, 'recommend_show'])->name('recommend-show');
-
 //アルバム詳細
 Route::get('album', [AlbumController::class, 'album_show'])->name('album-show');
 
 //プレイリスト詳細
 Route::get('playlist', [PlaylistController::class, 'playlist_show'])->name('playlist-show');
+
+
+
+//おすすめ一覧
+Route::get('recommend-list', [RecommendController::class, 'recommend_list_show'])->name('recommend-list-show');
+//おすすめ詳細
+Route::get('recommend', [RecommendController::class, 'recommend_show'])->name('recommend-show');
+
+//ランキング　おすすめ
+Route::get('favorite-ranking', [RankingController::class, 'favorite_ranking'])->name('favorite-ranking');
+
+
+
 
 //検索
 Route::get('search', [SearchController::class, 'search_show'])->name('search-show');

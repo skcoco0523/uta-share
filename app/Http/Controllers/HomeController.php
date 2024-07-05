@@ -28,17 +28,8 @@ class HomeController extends Controller
     public function index()
     {
         //ランキング
-        $ranking['fav_mus'] = Ranking::getRanking("favorite", "mus");
-        //プレイリスト
-        //$playlist = $homeModel->getPlaylistData(auth()->id());              //追加開発必須
-        //$playlist = $homeModel->getRankingData(NULL,"test");
-        //$playlist = null;
+        $ranking['fav_mus'] = Ranking::getFavoriteRanking(10,false,null,"mus");
         //おすすめ
-        //$recommend_mus = Recommend::getUserRecommendList(10,false,null,0);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
-        //$recommend_art = $homeModel->getRecommendList(1);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ  アーティストは現在画像情報なし
-        //$recommend_alb = Recommend::getUserRecommendList(10,false,null,2);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
-        //$recommend_pl = Recommend::getUserRecommendList(10,false,null,3);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
-
         $recommend_mus = Recommend::getRecommend_list(10,false,null,null,0,true,true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ｿｰﾄ,ユーザー用フラグ
         $recommend_alb = Recommend::getRecommend_list(10,false,null,null,2,true,true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ｿｰﾄ,ユーザー用フラグ
         $recommend_pl = Recommend::getRecommend_list(10,false,null,null,3,true,true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ｿｰﾄ,ユーザー用フラグ

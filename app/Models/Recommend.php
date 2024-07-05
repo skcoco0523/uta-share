@@ -93,6 +93,8 @@ class Recommend extends Model
     {
         //おすすめ情報を取得
         $recommend = DB::table('recommend')->where('id', $recom_id)->first();
+        //ユーザーが適当なidを引き渡した場合
+        if(!$recommend) return null; 
 
         $sql_cmd = DB::table('recommenddetail')->where('recom_id', $recommend->id);
         // ページング・取得件数指定・全件で分岐
@@ -148,7 +150,6 @@ class Recommend extends Model
             }else{
                 $recommend2 = $recommend2->replace($detail);
                 //dd($recommend2,$detail);
-
             }
         //}
         $recommend2->item1      = $item1;

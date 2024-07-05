@@ -89,3 +89,13 @@
 [2024-06-20 17:18:57] local.DEBUG: ---------start----------  
 [2024-06-20 17:18:57] local.DEBUG: sort_chg id=16-down  
 [2024-06-20 17:18:57] local.DEBUG: success  
+[2024-07-05 12:59:15] local.DEBUG: -----start-----  
+[2024-07-05 12:59:15] local.DEBUG: fnc=down recom_id=40  
+[2024-07-05 12:59:15] local.DEBUG: ---------start----------  
+[2024-07-05 12:59:15] local.DEBUG: sort_chg id=40-down  
+[2024-07-05 12:59:15] local.DEBUG: success  
+[2024-07-05 12:59:25] local.DEBUG: -----start-----  
+[2024-07-05 12:59:25] local.DEBUG: fnc=down recom_id=41  
+[2024-07-05 12:59:25] local.DEBUG: ---------start----------  
+[2024-07-05 12:59:25] local.DEBUG: sort_chg id=41-down  
+[2024-07-05 12:59:25] local.DEBUG: success  

@@ -1,14 +1,17 @@
 
 
-<?//一覧テーブル?>
-@if(isset($recommend_list_table))
+<?//メニューなしテーブル?>
+@if(isset($non_menu_table))
                             <table id="recommend-list" class="table table-borderless table-center">
                                 <tbody>
-    @foreach ($recommend_list_table as $key => $detail)
+    @foreach ($non_menu_table as $key => $detail)
                                     <tr>
                                         <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, 'recom')">
-                                            {{--曲、アルバム、プレイリストで画像参照を切り替える--}}
-        @if(isset($detail->detail[0]->src)) <img src="{{ $detail->detail[0]->src }}" class="icon-55">
+                                            {{--ランキング、曲アルバム、プレイリストで画像参照を切り替える--}}
+        @if(isset($detail->src)) 
+                                            <img src="{{ $detail->src }}" class="icon-55">
+        @elseif(isset($detail->detail[0]->src)) 
+                                            <img src="{{ $detail->detail[0]->src }}" class="icon-55">
         @elseif(isset($detail->detail[0]->music[0]->src))
                                             <img src="{{ $detail->detail[0]->music[0]->src }}" class="icon-55">
         @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
@@ -22,6 +25,40 @@
                                 </tbody>
                             </table>
 @endif
+
+
+<?//メニューありテーブル　曲　アルバム　プレイリスト?>
+@if(isset($detail_table) && isset($table))
+                        <table class="table table-borderless table-center">
+                            <tbody>
+    @foreach ($detail_table as $key => $detail)         
+                                <tr>
+                                    <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
+        @if(isset($detail->src))        <img src="{{ $detail->src }}" class="icon-55">
+        @elseif(isset($detail->src))         
+                                        <img src="{{ $detail->src }}" class="icon-55">
+        @else                           <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
+        @endif
+                                    </th>
+                                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
+                                        {{Str::limit($detail->name, 30, '...')}}
+        @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
+        @endif
+                                    </td>
+                                    <td class="col-1" favorite-id="{{ $table }}-{{ $detail->id }}">
+        @if($detail->fav_flag)          <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
+        @else                           <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
+        @endif
+                                    </td>
+                                    <td class="col-1" pl-menu-id="{{ $table }}-{{ $detail->id }}">
+                                        <i class="fa-regular fa-square-plus icon-20 red"></i>
+                                    </td>
+                                </tr>
+    @endforeach
+                            </tbody>
+                        </table>
+@endif
+
 
 <?//おすすめテーブル?>
 @if(isset($recommend_table))
@@ -55,38 +92,6 @@
     @endforeach
                                 </tbody>
                             </table>
-@endif
-
-<?//曲　アルバム　プレイリスト?>
-@if(isset($detail_table) && isset($table))
-                        <table class="table table-borderless table-center">
-                            <tbody>
-    @foreach ($detail_table as $key => $detail)         
-                                <tr>
-                                    <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
-        @if(isset($detail->src))        <img src="{{ $detail->src }}" class="icon-55">
-        @elseif(isset($detail->src))         
-                                        <img src="{{ $detail->src }}" class="icon-55">
-        @else                           <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
-        @endif
-                                    </th>
-                                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
-                                        {{Str::limit($detail->name, 30, '...')}}
-        @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
-        @endif
-                                    </td>
-                                    <td class="col-1" favorite-id="{{ $table }}-{{ $detail->id }}">
-        @if($detail->fav_flag)          <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
-        @else                           <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
-        @endif
-                                    </td>
-                                    <td class="col-1" pl-menu-id="{{ $table }}-{{ $detail->id }}">
-                                        <i class="fa-regular fa-square-plus icon-20 red"></i>
-                                    </td>
-                                </tr>
-    @endforeach
-                            </tbody>
-                        </table>
 @endif
 
 
