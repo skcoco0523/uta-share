@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminAlbumController;
 use App\Http\Controllers\Admin\AdminArtistController;
 use App\Http\Controllers\Admin\AdminPlaylistController;
 use App\Http\Controllers\Admin\AdminRecommendController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 
 //ユーザー
 use App\Http\Controllers\Auth\UserController;
@@ -113,7 +114,14 @@ Route::middleware(['auth'])->group(function () {
             Route::post('music/search/chg', [AdminMusicController::class, 'music_chg'])->name('admin-music-chg');
             //曲検索>削除
             Route::post('music/search/del', [AdminMusicController::class, 'music_del'])->name('admin-music-del');
-    
+        //------------------------------------------------------------------------
+            //カテゴリー設定
+            Route::get('music/category/setting', [AdminCategoryController::class, 'custom_category_setting'])->name('admin-custom-category-setting');
+            Route::post('music/category/reg', [AdminCategoryController::class, 'custom_category_reg'])->name('admin-custom-category-reg');
+            //カテゴリー設定>変更
+            Route::post('music/category/chg', [AdminCategoryController::class, 'custom_category_chg'])->name('admin-custom-category-change');
+            //カテゴリー設定>並び順変更
+            Route::post('music/category/chgsort', [AdminCategoryController::class, 'custom_category_chg_sort'])->name('admin-custom-category-sort-chg');
         //------------------------------------------------------------------------
             //アルバム登録
             Route::get('album/reg', [AdminAlbumController::class, 'album_regist'])->name('admin-album-reg');

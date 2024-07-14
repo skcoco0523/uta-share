@@ -8,6 +8,9 @@
         @case("music_search")
             @include('admin.admin_music_search')
             @break
+        @case("category_setting")
+            @include('admin.admin_category_setting')
+            @break
         {{---------------- アルバムメニュー ------------------}}
         @case("album_reg")
             @include('admin.admin_album_reg')
