@@ -25,6 +25,7 @@ use App\Http\Controllers\FriendlistController;
 use App\Http\Controllers\RecommendController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\RankingController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,28 +195,29 @@ Route::middleware(['auth'])->group(function () {
 
     //ユーザー------------------------------------------------------------------------
     //プロフィール
-    Route::get('profile-show', [UserController::class, 'profile_show'])->name('profile-show');
-    Route::post('profile-change', [UserController::class, 'profile_change'])->name('profile-change');
+    Route::get('profile/show', [UserController::class, 'profile_show'])->name('profile-show');
+    Route::post('profile/change', [UserController::class, 'profile_change'])->name('profile-change');
 
     //お気に入り表示
     Route::get('favorite', [FavoriteController::class, 'favorite_show'])->name('favorite-show');
     //お気に入り変更
-    Route::post('favorite-chg', [FavoriteController::class, 'favorite_chg'])->name('favorite-chg');
-
+    Route::post('favorite/chg', [FavoriteController::class, 'favorite_chg'])->name('favorite-chg');
+    //カテゴリ登録変更
+    Route::post('custom/category/chg', [CategoryController::class, 'custom_category_chg'])->name('custom-category-chg');
     //フレンドリスト表示
     Route::get('friendlist', [FriendlistController::class, 'friendlist_show'])->name('friendlist-show');
     //フレンド申請
-    Route::post('friend-request', [FriendlistController::class, 'friend_request'])->name('friend-request');
+    Route::post('friend/request', [FriendlistController::class, 'friend_request'])->name('friend-request');
     //フレンド承認
-    Route::post('friend-accept', [FriendlistController::class, 'friend_accept'])->name('friend-accept');
+    Route::post('friend/accept', [FriendlistController::class, 'friend_accept'])->name('friend-accept');
     //フレンド申請拒否
-    Route::post('friend-decline', [FriendlistController::class, 'friend_decline'])->name('friend-decline');
+    Route::post('friend/decline', [FriendlistController::class, 'friend_decline'])->name('friend-decline');
     //フレンド申請キャンセル
-    Route::post('friend-cancel', [FriendlistController::class, 'friend_cancel'])->name('friend-cancel');
+    Route::post('friend/cancel', [FriendlistController::class, 'friend_cancel'])->name('friend-cancel');
     //フレンド情報表示
-    Route::get('friend-show', [FriendlistController::class, 'friend_show'])->name('friend-show');
+    Route::get('friend/show', [FriendlistController::class, 'friend_show'])->name('friend-show');
     
     //検索履歴削除
-    Route::post('history-delete', [SearchController::class, 'del_search_history'])->name('history-delete');
+    Route::post('history/delete', [SearchController::class, 'del_search_history'])->name('history-delete');
     
 });

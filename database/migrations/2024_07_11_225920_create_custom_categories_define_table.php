@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('custom_categories_define', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->tinyInteger('bit_num')->unique();
+            $table->unsignedBigInteger('bit_num')->unique();
             $table->tinyInteger('sort_num');
             $table->boolean('disp_flag')->default(false)->comment('表示フラグ');
             $table->timestamps();

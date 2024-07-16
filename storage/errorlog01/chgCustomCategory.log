@@ -249,3 +249,90 @@
 )
   
 [2024-07-14 23:21:32] local.DEBUG: success  
+[2024-07-15 09:46:00] local.DEBUG: ---------start----------  
+[2024-07-15 09:46:00] local.DEBUG: data=Array
+(
+    [_token] => imYhK9e879rNYzmEBCk4tO6M8Rz4nemgJI7BL5AV
+    [id] => 3
+    [name] => 盛り上がる
+    [disp_flag] => 1
+)
+  
+[2024-07-15 09:46:00] local.DEBUG: success  
+[2024-07-15 11:54:25] local.DEBUG: -------start-------  
+[2024-07-15 11:54:25] local.DEBUG: user_id=1 music_id= type=add  
+[2024-07-15 11:54:25] local.DEBUG: failure  
+[2024-07-15 11:54:32] local.DEBUG: -------start-------  
+[2024-07-15 11:54:32] local.DEBUG: user_id=1 music_id= type=add  
+[2024-07-15 11:54:32] local.DEBUG: failure  
+[2024-07-15 11:54:35] local.DEBUG: -------start-------  
+[2024-07-15 11:54:35] local.DEBUG: user_id=1 music_id= type=  
+[2024-07-15 11:54:35] local.DEBUG: failure  
+[2024-07-15 11:54:37] local.DEBUG: -------start-------  
+[2024-07-15 11:54:37] local.DEBUG: user_id=1 music_id= type=  
+[2024-07-15 11:54:37] local.DEBUG: failure  
+[2024-07-15 11:54:39] local.DEBUG: -------start-------  
+[2024-07-15 11:54:39] local.DEBUG: user_id=1 music_id= type=  
+[2024-07-15 11:54:39] local.DEBUG: failure  
+[2024-07-15 11:57:06] local.DEBUG: -------start-------  
+[2024-07-15 11:57:06] local.DEBUG: user_id=1 music_id=1 category_id= type=  
+[2024-07-15 11:57:06] local.DEBUG: failure  
+[2024-07-15 11:57:11] local.DEBUG: -------start-------  
+[2024-07-15 11:57:11] local.DEBUG: user_id=1 music_id=74 category_id=3 type=add  
+[2024-07-15 11:57:11] local.DEBUG: failure  
+[2024-07-15 11:57:13] local.DEBUG: -------start-------  
+[2024-07-15 11:57:13] local.DEBUG: user_id=1 music_id=3 category_id= type=  
+[2024-07-15 11:57:13] local.DEBUG: failure  
+[2024-07-15 11:57:14] local.DEBUG: -------start-------  
+[2024-07-15 11:57:14] local.DEBUG: user_id=1 music_id=74 category_id=1 type=add  
+[2024-07-15 11:57:14] local.DEBUG: failure  
+[2024-07-15 12:56:49] local.DEBUG: ---------start----------  
+[2024-07-15 12:56:49] local.DEBUG: data=Array
+(
+    [_token] => r08eJ6JfBlXJ5J7L2DgvHRAsFE3x6BxrtrSs2dNZ
+    [id] => 7
+    [name] => 友達と歌う
+    [disp_flag] => 1
+)
+  
+[2024-07-15 12:56:49] local.DEBUG: success  
+[2024-07-15 12:56:52] local.DEBUG: ---------start----------  
+[2024-07-15 12:56:52] local.DEBUG: data=Array
+(
+    [_token] => r08eJ6JfBlXJ5J7L2DgvHRAsFE3x6BxrtrSs2dNZ
+    [id] => 10
+    [name] => 盛り上がる
+    [disp_flag] => 1
+)
+  
+[2024-07-15 12:56:52] local.DEBUG: success  
+[2024-07-15 13:26:19] local.DEBUG: ---------start----------  
+[2024-07-15 13:26:19] local.DEBUG: data=Array
+(
+    [_token] => r08eJ6JfBlXJ5J7L2DgvHRAsFE3x6BxrtrSs2dNZ
+    [id] => 10
+    [name] => 盛り上がる
+    [disp_flag] => 1
+)
+  
+[2024-07-15 13:26:19] local.DEBUG: success  
+[2024-07-15 13:26:22] local.DEBUG: ---------start----------  
+[2024-07-15 13:26:22] local.DEBUG: data=Array
+(
+    [_token] => r08eJ6JfBlXJ5J7L2DgvHRAsFE3x6BxrtrSs2dNZ
+    [id] => 11
+    [name] => しっとり
+    [disp_flag] => 1
+)
+  
+[2024-07-15 13:26:22] local.DEBUG: success  
+[2024-07-15 13:26:28] local.DEBUG: ---------start----------  
+[2024-07-15 13:26:28] local.DEBUG: data=Array
+(
+    [_token] => r08eJ6JfBlXJ5J7L2DgvHRAsFE3x6BxrtrSs2dNZ
+    [id] => 12
+    [name] => LOVEソング
+    [disp_flag] => 1
+)
+  
+[2024-07-15 13:26:28] local.DEBUG: success  

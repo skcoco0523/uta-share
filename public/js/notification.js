@@ -20,6 +20,14 @@ function showNotification(message, type, sec) {
             notification.innerHTML = `<i class="fa-solid fa-heart-circle-xmark fa-shake red icon-50"></i>
                                         <p>${message}</p>`;
             break;
+        case "category_add":    //カテゴリ登録
+            notification.innerHTML = `<i class="fa-solid fa-icons fa-bounce red icon-50"></i>
+                                        <p>${message}</p>`;
+            break;
+        case "category_del":    //カテゴリ削除
+            notification.innerHTML = `<i class="fa-solid fa-icons fa-shake red icon-50"></i>
+                                        <p>${message}</p>`;
+            break;
         case "profile":    //プロフィール変更
             notification.innerHTML = `<i class="fa-solid fa-address-card fa-fade icon-50"></i>
                                         <p>${message}</p>`;

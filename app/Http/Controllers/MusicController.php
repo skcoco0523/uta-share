@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Music;
+use App\Models\CustomCategory;
+
 
 class MusicController extends Controller
 {
@@ -27,11 +29,20 @@ class MusicController extends Controller
     //曲詳細
     public function music_show(Request $request)
     {
-        $music = Music::getMusic_detail($request->only(['id']));  //mus_id
-        $msg = null;
-        //dd($music);
+        $music_id = $request->only(['id']);
+        if($music_id){
+            $music = Music::getMusic_detail($music_id);
+            if(Auth::id()){
+                $custom_category = CustomCategory::chkCustomCategory(Auth::id(),$music_id);//ユーザーID、music_id指定、カテゴリ指定(ビット番号)
+            }else{
+                $custom_category = null;
+            }
+            $msg = null;
+            //dd($music);
+        }
+
         if($music){
-            return view('music_show', compact('music', 'msg'));
+            return view('music_show', compact('music', 'custom_category', 'msg'));
         }else{
             return redirect()->route('home')->with('error', '該当の曲が存在しません');
         }

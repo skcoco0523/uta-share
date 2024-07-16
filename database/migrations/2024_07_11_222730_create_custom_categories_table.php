@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('music_id');
-            $table->unsignedBigInteger('category_flag');
+            $table->unsignedBigInteger('category_bit');
             $table->timestamps();
 
             // 外部キー制約 (必要に応じて)
@@ -24,7 +24,7 @@ return new class extends Migration
 
             // インデックスの設定
             $table->index(['user_id', 'music_id']);
-            $table->index('category_flag');
+            $table->index('category_bit');
         });
     }
 

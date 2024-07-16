@@ -88,9 +88,9 @@ class Favorite extends Model
         make_error_log("chgFavorite.log","-------start-------");
         //make_error_log("favorite_chg","detail_id=".print_r($detail_id,1));
         try {
-            make_error_log("chgFavorite","user_id=".$user_id." table=".$table." fav_id=".$fav_id." type=".$type);
+            make_error_log("chgFavorite.log","user_id=".$user_id." table=".$table." fav_id=".$fav_id." type=".$type);
             $fav_chk = Favorite::chkFavorite($user_id, $table, $fav_id);
-            make_error_log("chgFavorite","fav_chk=".$fav_chk);
+            make_error_log("chgFavorite.log","fav_chk=".$fav_chk);
             $data = ["user_id"=>$user_id, "fav_id"=>$fav_id];
 
             //変更対象のテーブルを定義

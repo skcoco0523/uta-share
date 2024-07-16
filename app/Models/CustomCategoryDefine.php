@@ -43,9 +43,8 @@ class CustomCategoryDefine extends Model
             
             //新規bit番号を取得
             $data['bit_num']    = DB::table('custom_categories_define')->max('bit_num');
-            if($data['bit_num']==null)      $data['bit_num']=1;
-            else                            $data['bit_num']++;
-
+            if($data['bit_num']==null)      $data['bit_num'] = 1;
+            else                            $data['bit_num'] = $data['bit_num'] * 2;
             make_error_log("createCustomCategory.log","data=".print_r($data,1));
             $result = self::create($data);
             make_error_log("createCustomCategory.log","success");

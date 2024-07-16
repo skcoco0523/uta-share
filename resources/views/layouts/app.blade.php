@@ -16,15 +16,18 @@
 
     <!-- JS用ルーティングの定義 -->
     <script>
-        const loginUrl              = "{{ route('login') }}";
-        const historyDeleteUrl      = "{{ route('history-delete') }}";
-        const favoriteChangeUrl     = "{{ route('favorite-chg') }}";
-        const searchListShowUrl     = "{{ route('search-list-show') }}";
+        const loginUrl                  = "{{ route('login') }}";
+        const historyDeleteUrl          = "{{ route('history-delete') }}";
+        const favoriteChangeUrl         = "{{ route('favorite-chg') }}";
+        const customCategoryChangeUrl   = "{{ route('custom-category-chg') }}";
+        const searchListShowUrl         = "{{ route('search-list-show') }}";
     </script>
     <!-- 通知関連JSを読み込む -->
     <script src="{{ asset('js/notification.js') }}"></script>
     <!-- お気に入り関連JSを読み込む -->
     <script src="{{ asset('js/favorite_change.js') }}"></script>
+    <!-- カスタムカテゴリ関連JSを読み込む -->
+    <script src="{{ asset('js/custom_category_change.js') }}"></script>
     <!-- tab操作関連JSを読み込む -->
     <script src="{{ asset('js/tab.js') }}"></script>
     <!-- 検索履歴関連JSを読み込む -->

@@ -29,6 +29,9 @@
 <?//メニューは別ファイルで管理?>   
 @include('layouts.menu_table', ['detail_id' => $music->id, 'table' => 'mus', 'fav_flag' => $music->fav_flag])
 
+<?//カスタムカテゴリは別ファイルで管理?>   
+@include('layouts.custom_category_table', ['detail_id' => $music->id, 'custom_category' => $custom_category])
+
 <?//ェアポップアップモーダル?>  
 @include('modals.share-modal', ['title' => $music->name, 'url' => url()->current()])
 
