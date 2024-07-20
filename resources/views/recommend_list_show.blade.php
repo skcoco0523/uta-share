@@ -8,7 +8,7 @@
 </div>
 
 <?//テーブルリストは別ファイルで管理?>   
-@include('layouts.list_table', ['non_menu_table' => $recommend_list])
+@include('layouts.list_table', ['non_menu_table' => $recommend_list, 'table' => 'recom'])
 
 
 {{--ﾊﾟﾗﾒｰﾀ--}}

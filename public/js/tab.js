@@ -1,4 +1,5 @@
 
+/*
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
 
@@ -30,3 +31,5 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.nav-link.active').click();
     }
 });
+
+*/

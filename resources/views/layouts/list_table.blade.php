@@ -1,12 +1,12 @@
 
 
 <?//メニューなしテーブル?>
-@if(isset($non_menu_table))
+@if(isset($non_menu_table) && isset($table))
                             <table id="recommend-list" class="table table-borderless table-center">
                                 <tbody>
     @foreach ($non_menu_table as $key => $detail)
                                     <tr>
-                                        <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, 'recom')">
+                                        <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }},'{{ $table }}')">
                                             {{--ランキング、曲アルバム、プレイリストで画像参照を切り替える--}}
         @if(isset($detail->src)) 
                                             <img src="{{ $detail->src }}" class="icon-55">
@@ -17,7 +17,7 @@
         @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
                                         </td>
-                                        <td class="col-9" onclick="redirectToDetailShow({{ $detail->id }}, 'recom')">
+                                        <td class="col-9" onclick="redirectToDetailShow({{ $detail->id }},'{{ $table }}')">
                                             {{ Str::limit($detail->name, 30, '...') }}
                                         </td>
                                     </tr>
@@ -35,8 +35,10 @@
                                 <tr>
                                     <td class="col-2" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
         @if(isset($detail->src))        <img src="{{ $detail->src }}" class="icon-55">
-        @elseif(isset($detail->src))         
-                                        <img src="{{ $detail->src }}" class="icon-55">
+        @elseif(isset($detail->detail[0]->src))         
+                                        <img src="{{ $detail->detail[0]->src }}" class="icon-55">
+        @elseif(isset($detail->music[0]->src))         
+                                        <img src="{{ $detail->music[0]->src }}" class="icon-55">
         @else                           <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
                                     </th>

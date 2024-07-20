@@ -27,8 +27,3 @@
 
 @endsection
 
-<script>
-    function redirectToMusicShow(id) {
-        window.location.href = "{{ route('music-show') }}?id=" + id;
-    }
-</script>
