@@ -153,7 +153,7 @@
         fav_table.forEach(table => {
             let tableType = table.getAttribute("favorite-id").split("-")[0];
             if (tableType === 'art') {
-                console.log("Hiding element:", table); // デバッグ用にログを出力
+                //console.log("Hiding element:", table); // デバッグ用にログを出力
                 table.style.display = 'none';
             }
         });

@@ -12,16 +12,27 @@
 
 <div class="d-flex overflow-auto contents_box">
     <ul class="nav nav-pills flex-nowrap">
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red active" onclick="openTab(event, 'all')" aria-current="page" href="#">すべて</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'artists')">アーティスト</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'songs')">曲</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'albums')">アルバム</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'playlists')">プレイリスト</a></li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='all' ? 'active' : '' }}" onclick="redirectToSearchShow('all', '{{$input['keyword'] ?? null}}');">すべて</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='art' ? 'active' : '' }}" onclick="redirectToSearchShow('art', '{{$input['keyword'] ?? null}}');">アーティスト</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='mus' ? 'active' : '' }}" onclick="redirectToSearchShow('mus', '{{$input['keyword'] ?? null}}');">曲</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='alb' ? 'active' : '' }}" onclick="redirectToSearchShow('alb', '{{$input['keyword'] ?? null}}');">アルバム</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='pl' ? 'active' : '' }}" onclick="redirectToSearchShow('pl', '{{$input['keyword'] ?? null}}');">プレイリスト</a>
+        </li>
     </ul>
 </div>
 <br>
-<div id="all" class="tab-content active">
-    <?//テーブルリストは別ファイルで管理?>   
+
+
+@if($input['table']=='all')
     <h3>アーティスト</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["art"], 'table' => 'art'])
 
@@ -31,10 +42,8 @@
     @include('layouts.list_table', ['detail_table' => $search_list["alb"], 'table' => 'alb'])
     <h3>プレイリスト</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["pl"], 'table' => 'pl'])
-</div>
 
-<?//テーブルリストは別ファイルで管理?>   
-<div id="artists" class="tab-content">
+@elseif($input['table']=="art")
     <h3>アーティスト</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["art"], 'table' => 'art'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
@@ -43,8 +52,8 @@
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('layouts.pagination', ['paginator' => $search_list["art"],'additionalParams' => $additionalParams,])
-</div>
-<div id="songs" class="tab-content">
+
+@elseif($input['table']=="mus")
     <h3>曲</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["mus"], 'table' => 'mus'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
@@ -53,9 +62,8 @@
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('layouts.pagination', ['paginator' => $search_list["mus"],'additionalParams' => $additionalParams,])
-</div>
 
-<div id="albums" class="tab-content">
+@elseif($input['table']=="alb")
     <h3>アルバム</h3> 
     @include('layouts.list_table', ['detail_table' => $search_list["alb"], 'table' => 'alb'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
@@ -64,9 +72,8 @@
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('layouts.pagination', ['paginator' => $search_list["alb"],'additionalParams' => $additionalParams,])
-</div>
 
-<div id="playlists" class="tab-content">
+@elseif($input['table']=="pl")
     <h3>プレイリスト</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["pl"], 'table' => 'pl'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
@@ -75,14 +82,16 @@
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('layouts.pagination', ['paginator' => $search_list["pl"],'additionalParams' => $additionalParams,])
-</div>
+
+
+@endif
 
 @endsection
 
 <script>
     // 初期表示設定
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('all').style.display = 'block';
+        //document.getElementById('all').style.display = 'block';
 
         // 検索フォームにフォーカスが当たったらリダイレクトする
         const searchInput = document.getElementById('searchInput');
@@ -94,4 +103,8 @@
         });
 
     });
+    
+    function redirectToSearchShow(table, keyword = null) {
+        window.location.href = "{{ route('search-list-show') }}?table=" + table + "&keyword=" + keyword;
+    }
 </script>

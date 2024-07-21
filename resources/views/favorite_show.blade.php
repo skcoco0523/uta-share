@@ -6,7 +6,7 @@
 <div class="d-flex overflow-auto contents_box">
     <ul class="nav nav-pills flex-nowrap">
         <li class="nav-item nav-item-red">
-            <a class="nav-link nav-link-red {{ $input['table']=='all' ? 'active' : '' }}" onclick="redirectToFavoriteShow('');">すべて</a>
+            <a class="nav-link nav-link-red {{ $input['table']=='all' ? 'active' : '' }}" onclick="redirectToFavoriteShow('all');">すべて</a>
         </li>
         <li class="nav-item nav-item-red">
             <a class="nav-link nav-link-red {{ $input['table']=='mus' ? 'active' : '' }}" onclick="redirectToFavoriteShow('mus');">曲</a>
@@ -97,8 +97,8 @@
 @endsection
 
 <script>
-    function redirectToFavoriteShow(table, bit_num = null) {
-        window.location.href = "{{ route('favorite-show') }}?table=" + table + "&bit_num=" + bit_num;
+    function redirectToFavoriteShow(table, keyword = null) {
+        window.location.href = "{{ route('favorite-show') }}?table=" + table + "&keyword=" + keyword;
     }
 </script>
 
