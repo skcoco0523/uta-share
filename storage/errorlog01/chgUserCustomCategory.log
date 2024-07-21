@@ -273,3 +273,7 @@
 [2024-07-20 14:00:13] local.DEBUG: user_id=1 music_id=77 bit_num=4 type=add  
 [2024-07-20 14:00:13] local.DEBUG: before_bit_num=  
 [2024-07-20 14:00:13] local.DEBUG: to add  
+[2024-07-21 18:06:36] local.DEBUG: -------start-------  
+[2024-07-21 18:06:36] local.DEBUG: user_id=2 music_id=74 bit_num=1 type=add  
+[2024-07-21 18:06:36] local.DEBUG: before_bit_num=  
+[2024-07-21 18:06:36] local.DEBUG: to add  

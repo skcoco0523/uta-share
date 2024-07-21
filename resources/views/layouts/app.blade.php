@@ -61,6 +61,9 @@
     @if (session('message'))
     <script>
         showNotification('{{ session('message') }}', '{{ session('type') }}', '{{ session('sec') }}');
+        @php
+            session()->forget(['message', 'type', 'sec']);
+        @endphp
         //alert('{{ session('error') }}');
     </script>
     @endif

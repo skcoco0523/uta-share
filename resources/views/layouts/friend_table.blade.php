@@ -6,7 +6,7 @@
             @foreach ($friendlist_table as $key => $friend)   
                 <tr>
                 @if ($status == 'accepted')
-                    <td class="col-8" onclick="redirectToFriendShow({{ $friend->friend_id }})">
+                    <td class="col-8" onclick="redirectToFriendShow({{ $friend->id }})">
                 @else
                     <td class="col-8">
                 @endif

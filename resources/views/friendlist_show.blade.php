@@ -5,47 +5,56 @@
 <a href="{{ url()->previous() }}" class="no-decoration">＜＜</a>
 <div class="d-flex overflow-auto contents_box">
     <ul class="nav nav-pills flex-nowrap">
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red active" onclick="openTab(event, 'accepted')">フレンド</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'search')">検索</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'pending')">承認待ち</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'request')">リクエスト</a></li>
-        <li class="nav-item nav-item-red"><a class="nav-link nav-link-red" onclick="openTab(event, 'declined')">申請拒否</a></li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='accepted' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('accepted')">フレンド</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='search' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('search')">検索</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='pending' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('pending')">承認待ち</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='request' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('request')">リクエスト</a>
+        </li>
+        <li class="nav-item nav-item-red">
+            <a class="nav-link nav-link-red {{ $input['table']=='declined' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('declined')">申請拒否</a>
+        </li>
     </ul>
 </div>
 <br>
 
-<?//テーブルリストは別ファイルで管理?>   
-<div id="accepted" class="tab-content">
+@if($input['table']=='accepted')
     <h3>フレンド</h3>
     @include('layouts.friend_table', ['friendlist_table' => $friendlist["accepted"], 'status' => 'accepted'])
-</div>
-<div id="search" class="tab-content">
+
+@elseif($input['table']=="search")
     <h3>検索</h3>
     <form action="{{ route('friendlist-show') }}" method="GET">
         <div class="input-group mb-3">
             <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
             <input type="search" name="friend_code" class="form-control" placeholder="フレンドコード">
+            <input type="hidden" name="table" value="{{ $input['table'] }}">
         </div>
     </form>
+    
     @if(count($search_user))
         @include('layouts.friend_table', ['friendlist_table' => $search_user, 'status' => $search_user[0]->status])
     @endif
-</div>
 
-<div id="pending" class="tab-content">
+@elseif($input['table']=="pending")
     <h3>承認待ち</h3> 
     @include('layouts.friend_table', ['friendlist_table' => $friendlist["pending"], 'status' => 'pending'])
-</div>
 
-<div id="request" class="tab-content">
+@elseif($input['table']=="request")
     <h3>リクエスト</h3>
     @include('layouts.friend_table', ['friendlist_table' => $friendlist["request"], 'status' => 'request'])
-</div>
 
-<div id="declined" class="tab-content">
+@elseif($input['table']=="declined")
     <h3>申請拒否</h3>
     @include('layouts.friend_table', ['friendlist_table' => $friendlist["declined"], 'status' => 'declined'])
-</div>
+
+@endif
 
 
 @endsection
@@ -56,6 +65,9 @@
         document.getElementById('accepted').style.display = 'block';
     });
 
+    function redirectToFavoriteListShow(table) {
+        window.location.href = "{{ route('friendlist-show') }}?table=" + table;
+    }
 </script>
 
 <style>

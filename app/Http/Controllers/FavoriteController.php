@@ -32,37 +32,35 @@ class FavoriteController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         if (empty($input['page']))              $input['page']=null;
-        if (empty($input['table']))             $input['table']=null;
+        if (empty($input['table']))             $input['table']='all';
         if (empty($input['bit_num']))           $input['bit_num']=null;
         //選択しているタブのﾍﾟｰｼﾞｬｰのみページを指定する
-        $table    = $input['table'];
-        $bit_num  = $input['bit_num'];
-        $mus_page = ($table == "mus")       ? $input['page'] :1; //曲
-        $alb_page = ($table == "alb")       ? $input['page'] :1; //アルバム
-        $pl_page  = ($table == "pl")        ? $input['page'] :1; //プレイリスト
-        $pl_page  = ($table == "mypl")      ? $input['page'] :1; //myプレイリスト
-        $cc_page  = ($table == "category")  ? $input['page'] :1; //カテゴリ別>選択カテゴリ
+        $mus_page = ($input['table'] == "mus")       ? $input['page'] :1; //曲
+        $alb_page = ($input['table'] == "alb")       ? $input['page'] :1; //アルバム
+        $pl_page  = ($input['table'] == "pl")        ? $input['page'] :1; //プレイリスト
+        $pl_page  = ($input['table'] == "mypl")      ? $input['page'] :1; //myプレイリスト
+        $cc_page  = ($input['table'] == "category")  ? $input['page'] :1; //カテゴリ別>選択カテゴリ
         $favorite_list = array();
         $custom_category_list = array();
 
         //すべてタブ、曲タブ
-        if($table==null || $table=="mus"){
+        if($input['table']=='all' || $input['table']=="mus"){
             $favorite_list["mus"]       = Favorite::getFavorite(10,true,$mus_page,Auth::id(),"mus");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
         }
         //すべてタブ、アルバムタブ
-        if($table==null || $table=="alb"){
+        if($input['table']=='all' || $input['table']=="alb"){
             $favorite_list["alb"]       = Favorite::getFavorite(10,true,$alb_page,Auth::id(),"alb");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
         }
         //すべてタブ、プレイリストタブ
-        if($table==null || $table=="pl"){
+        if($input['table']=='all' || $input['table']=="pl"){
             $favorite_list["pl"]        = Favorite::getFavorite(10,true,$pl_page ,Auth::id(),"pl" );  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
         }
         //マイプレイリストタブ
-        if($table=="mypl"){
+        if($input['table']=="mypl"){
             $favorite_list["mypl"]      = Favorite::getFavorite(10,true,$pl_page ,Auth::id(),"mypl");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
         }
         //カテゴリ別タブ
-        if($table=="category"){
+        if($input['table']=="category"){
             $custom_category_list       = CustomCategory::getCustomCategory(null,false,null,null);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,ビット番号
             $favorite_list["category"]  = CustomCategory::getCustomCategory(10,true,$cc_page ,Auth::id(),$input['bit_num']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,ビット番号
         }

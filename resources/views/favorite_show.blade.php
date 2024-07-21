@@ -6,7 +6,7 @@
 <div class="d-flex overflow-auto contents_box">
     <ul class="nav nav-pills flex-nowrap">
         <li class="nav-item nav-item-red">
-            <a class="nav-link nav-link-red {{ $input['table']==null ? 'active' : '' }}" onclick="redirectToFavoriteShow('');">すべて</a>
+            <a class="nav-link nav-link-red {{ $input['table']=='all' ? 'active' : '' }}" onclick="redirectToFavoriteShow('');">すべて</a>
         </li>
         <li class="nav-item nav-item-red">
             <a class="nav-link nav-link-red {{ $input['table']=='mus' ? 'active' : '' }}" onclick="redirectToFavoriteShow('mus');">曲</a>
@@ -27,7 +27,7 @@
 </div>
 <br>
 
-@if($input['table']==null)
+@if($input['table']=='all')
     <h3>曲</h3>
     @include('layouts.list_table', ['detail_table' => $favorite_list["mus"], 'table' => 'mus'])
     <h3>アルバム</h3>
@@ -38,6 +38,7 @@
 @elseif($input['table']=="mus")
     <h3>曲</h3>
     @include('layouts.list_table', ['detail_table' => $favorite_list["mus"], 'table' => 'mus'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = ['table' => 'mus' ,];
     @endphp
@@ -47,6 +48,7 @@
 @elseif($input['table']=="alb")
     <h3>アルバム</h3>
     @include('layouts.list_table', ['detail_table' => $favorite_list["alb"], 'table' => 'alb'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = ['table' => 'alb' ,];
     @endphp
@@ -56,6 +58,7 @@
 @elseif($input['table']=="pl")
     <h3>プレイリスト</h3>
     @include('layouts.list_table', ['detail_table' => $favorite_list["pl"], 'table' => 'pl'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = ['table' => 'pl' ,];
     @endphp
@@ -68,9 +71,21 @@
 @elseif($input['table']=="category")
     <h3>カテゴリ別</h3>
     <?//カテゴリ項目?>
-    @include('layouts.custom_category_table', ['custom_category_list' => $custom_category_list, 'bit_num' => $input['bit_num']])
+    <div class="d-flex overflow-auto contents_box">
+        <ul class="nav nav-pills">
+            @foreach ($custom_category_list as $key => $category)
+            <li class="nav-item nav-item-red">
+                <a class="nav-link nav-link-red {{ $input['bit_num']==$category->bit_num ? 'active' : '' }}" onclick="redirectToFavoriteShow('category','{{$category->bit_num}}')">
+                    {{$category->name}}
+                </a>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+
     <?//登録曲?>
     @include('layouts.list_table', ['non_menu_table' => $favorite_list["category"], 'table' => 'mus'])
+    {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = ['table' => 'category' ,'bit_num' => $input['bit_num'] ,];
     @endphp
