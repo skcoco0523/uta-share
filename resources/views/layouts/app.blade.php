@@ -5,7 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <meta name="theme-color" content="#000000"> <!-- テーマカラー -->
+    <!-- アイコン設定（オプション） -->
+    <!-- <link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" type="image/png"> -->
 
+
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -40,15 +46,24 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- 追加 -->
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <!-- 追加　resources/css,jsで管理　viteでビルドしてアップロード -->
+    <!--<link rel="stylesheet" href="{{ asset('/css/style.css') }}">-->
     
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
 
     <!-- google広告 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1093408896428535"
     crossorigin="anonymous"></script>
+
+    <style>
+        .dropdown-item {
+            padding: 0.5rem 1.0rem; /* メニューアイテムのパディングを調整 */
+            /*margin-bottom: 1.0rem; /* メニューアイテムの下にスペースを追加 */
+            /*line-height: 1.5; /* 行間の調整 */
+        }
+    </style>
+
 </head>
 <div class="header"></div>
 
@@ -122,6 +137,7 @@
                                             <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                                         @endif
                                     @endauth
+                                        <a id="add-to-home-screen" class="dropdown-item" href="#">{{ __('Add to Home') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -143,3 +159,4 @@
     
     </div>
 </html>
+

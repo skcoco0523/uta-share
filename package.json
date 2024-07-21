@@ -13,6 +13,7 @@
         "laravel-vite-plugin": "^1.0.1",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.56.1",
+        "vite-plugin-pwa": "^0.20.0",
         "vue": "^3.2.37"
     },
     "dependencies": {
