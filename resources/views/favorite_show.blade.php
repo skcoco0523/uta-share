@@ -97,8 +97,8 @@
 @endsection
 
 <script>
-    function redirectToFavoriteShow(table, keyword = null) {
-        window.location.href = "{{ route('favorite-show') }}?table=" + table + "&keyword=" + keyword;
+    function redirectToFavoriteShow(table, bit_num = null) {
+        window.location.href = "{{ route('favorite-show') }}?table=" + table + "&bit_num=" + bit_num;
     }
 </script>
 
