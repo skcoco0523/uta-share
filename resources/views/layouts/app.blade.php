@@ -5,7 +5,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="{{ asset('manifest.json') }}">
     <meta name="theme-color" content="#000000"> <!-- テーマカラー -->
     <!-- アイコン設定（オプション） -->
     <!-- <link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" type="image/png"> -->
@@ -28,17 +27,14 @@
         const customCategoryChangeUrl   = "{{ route('custom-category-chg') }}";
         const searchListShowUrl         = "{{ route('search-list-show') }}";
     </script>
-    <!-- 通知関連JSを読み込む -->
+    
+    <!-- resources/js/app.js　で一括管理
     <script src="{{ asset('js/notification.js') }}"></script>
-    <!-- お気に入り関連JSを読み込む -->
     <script src="{{ asset('js/favorite_change.js') }}"></script>
-    <!-- カスタムカテゴリ関連JSを読み込む -->
     <script src="{{ asset('js/custom_category_change.js') }}"></script>
-    <!-- tab操作関連JSを読み込む -->
     <script src="{{ asset('js/tab.js') }}"></script>
-    <!-- 検索履歴関連JSを読み込む -->
     <script src="{{ asset('js/search_history.js') }}"></script>
-
+    -->
     <!-- Font Awesome CDN アイコン　　　https://fontawesome.com/　　　-->
     <script src="https://kit.fontawesome.com/46a805b165.js" crossorigin="anonymous"></script>
 
@@ -51,7 +47,9 @@
     
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
-
+    <!-- マニフェストファイルの読み込み -->
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    
     <!-- google広告 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1093408896428535"
     crossorigin="anonymous"></script>

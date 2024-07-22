@@ -1,3 +1,6 @@
+//npm run dev
+//npm run build
+
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
@@ -23,9 +26,10 @@ export default defineConfig({
         }),
         VitePWA({
             registerType: 'autoUpdate', // サービスワーカーの自動更新
+            /*manifest.json　は本番と県所で分けるため　別ファイル
             manifest: {
-                name: "歌share",
-                short_name: "歌share",
+                name: process.env.VITE_APP_NAME || "歌share",
+                short_name: process.env.VITE_APP_NAME || "歌share",
                 description: "フレンド間で音楽を共有するアプリケーションです。",
                 start_url: "/app01",
                 display: "standalone",
@@ -44,6 +48,7 @@ export default defineConfig({
                     }
                 ]
             },
+            */
             workbox: {
                 globPatterns: [
                     //'**/*.{js,css,html,png,jpg,svg}', // キャッシュ対象のファイルパターン

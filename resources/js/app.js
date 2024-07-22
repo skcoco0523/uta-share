@@ -1,7 +1,16 @@
 /*
-npm run dev で検証
-npm run build　でビルド　→build配下のファイルをアップロードする！
+==========================================================================================
+JSファイルを追加したら
+1.importに追加する
+2.npm run dev で検証
+3.npm run build　でビルド　→build配下のファイルをアップロードする！
+==========================================================================================
+
 */
+import './notification.js';            //通知
+import './favorite_change.js';         //お気に入り
+import './custom_category_change.js';  //ユーザー別カテゴリ
+import './search_history.js';          //検索履歴
 
 /**
  * First we will load all of this project's JavaScript dependencies which
