@@ -15,8 +15,7 @@
 {{--ﾊﾟﾗﾒｰﾀ--}}
 @php
     $additionalParams = [
-        'id' => $recommend->id ?? '',
-        'category' => $recommend->category ?? '',
+        'id' => $recommend->id ?? '', 'category' => $recommend->category ?? '',
     ];
 @endphp
 {{--ﾍﾟｰｼﾞｬｰ--}}

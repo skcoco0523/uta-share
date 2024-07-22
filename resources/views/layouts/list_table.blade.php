@@ -69,7 +69,7 @@
                                 <tbody>
     @foreach ($recommend_table as $key => $detail)
                                     <tr>
-                                        <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, '{{ $recommend->table }}')">
+                                        <td class="col-2" onclick="redirectToDetailShow({{ $detail->id }}, '{{ $recommend_table->table }}')">
                                             {{--曲、アルバム、プレイリストで画像参照を切り替える--}}
         @if(isset($detail->src))            <img src="{{ $detail->src }}" class="icon-55">
         @elseif(isset($detail->music[0]->src))
@@ -77,17 +77,17 @@
         @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
         @endif
                                         </td>
-                                        <td class="col-9" onclick="redirectToDetailShow({{ $detail->id }}, '{{ $recommend->table }}')">
+                                        <td class="col-9" onclick="redirectToDetailShow({{ $detail->id }}, '{{ $recommend_table->table }}')">
                                             {{ Str::limit($detail->name, 30, '...') }}
         @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
         @endif
                                         </td>
-                                        <td class="col-1" favorite-id="{{ $recommend->table }}-{{ $detail->id }}">
-        @if($detail->fav_flag)              <i data-favorite-id="{{ $recommend->table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend->table }}', {{ $detail->id }})"></i>
-        @else                               <i data-favorite-id="{{ $recommend->table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend->table }}', {{ $detail->id }})"></i>
+                                        <td class="col-1" favorite-id="{{ $recommend_table->table }}-{{ $detail->id }}">
+        @if($detail->fav_flag)              <i data-favorite-id="{{ $recommend_table->table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend_table->table }}', {{ $detail->id }})"></i>
+        @else                               <i data-favorite-id="{{ $recommend_table->table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend_table->table }}', {{ $detail->id }})"></i>
         @endif
                                         </td>
-                                        <td class="col-1" pl-menu-id="{{ $recommend->table }}-{{ $detail->id }}">
+                                        <td class="col-1" pl-menu-id="{{ $recommend_table->table }}-{{ $detail->id }}">
                                             <i class="fa-regular fa-square-plus icon-20 red"></i>
                                         </td>
                                     </tr>
@@ -128,9 +128,9 @@
     
     document.addEventListener('DOMContentLoaded', function() {
         // お気に入り状態初期値を定義
-        <?php if(isset($recommnd_table)){ ?>
-            <?php foreach ($recommnd_table->detail as $detail): ?>
-                setFavoriteActions('{{ $recommnd_table->table }}', {{ $detail->detail_id }}, {{$detail->fav_flag}});
+        <?php if(isset($recommend_table)){ ?>
+            <?php foreach ($recommend_table as $detail): ?>
+                setFavoriteActions('{{ $recommend_table->table }}', {{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
 

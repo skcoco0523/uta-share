@@ -866,3 +866,51 @@
 [2024-07-04 20:55:28] local.DEBUG: user_id=1 table=pl fav_id=6 type=del  
 [2024-07-04 20:55:28] local.DEBUG: fav_chk=1  
 [2024-07-04 20:55:28] local.DEBUG: delete  
+[2024-07-22 11:12:06] local.DEBUG: -------start-------  
+[2024-07-22 11:12:06] local.DEBUG: user_id=1 table=mus fav_id=396 type=add  
+[2024-07-22 11:12:06] local.DEBUG: fav_chk=0  
+[2024-07-22 11:12:06] local.DEBUG: to add  
+[2024-07-22 11:12:09] local.DEBUG: -------start-------  
+[2024-07-22 11:12:09] local.DEBUG: user_id=1 table=mus fav_id=396 type=del  
+[2024-07-22 11:12:09] local.DEBUG: fav_chk=1  
+[2024-07-22 11:12:09] local.DEBUG: delete  
+[2024-07-22 11:12:11] local.DEBUG: -------start-------  
+[2024-07-22 11:12:11] local.DEBUG: user_id=1 table=mus fav_id=222 type=add  
+[2024-07-22 11:12:11] local.DEBUG: fav_chk=0  
+[2024-07-22 11:12:11] local.DEBUG: to add  
+[2024-07-22 11:12:17] local.DEBUG: -------start-------  
+[2024-07-22 11:12:17] local.DEBUG: user_id=1 table=mus fav_id=58 type=add  
+[2024-07-22 11:12:17] local.DEBUG: fav_chk=0  
+[2024-07-22 11:12:17] local.DEBUG: to add  
+[2024-07-22 11:12:20] local.DEBUG: -------start-------  
+[2024-07-22 11:12:20] local.DEBUG: user_id=1 table=mus fav_id=58 type=del  
+[2024-07-22 11:12:20] local.DEBUG: fav_chk=1  
+[2024-07-22 11:12:20] local.DEBUG: delete  
+[2024-07-22 11:12:46] local.DEBUG: -------start-------  
+[2024-07-22 11:12:46] local.DEBUG: user_id=1 table=pl fav_id=9 type=add  
+[2024-07-22 11:12:46] local.DEBUG: fav_chk=0  
+[2024-07-22 11:12:46] local.DEBUG: to add  
+[2024-07-22 11:12:49] local.DEBUG: -------start-------  
+[2024-07-22 11:12:49] local.DEBUG: user_id=1 table=pl fav_id=9 type=del  
+[2024-07-22 11:12:49] local.DEBUG: fav_chk=1  
+[2024-07-22 11:12:49] local.DEBUG: delete  
+[2024-07-22 11:12:51] local.DEBUG: -------start-------  
+[2024-07-22 11:12:51] local.DEBUG: user_id=1 table=pl fav_id=9 type=add  
+[2024-07-22 11:12:51] local.DEBUG: fav_chk=0  
+[2024-07-22 11:12:51] local.DEBUG: to add  
+[2024-07-22 11:12:56] local.DEBUG: -------start-------  
+[2024-07-22 11:12:56] local.DEBUG: user_id=1 table=alb fav_id=28 type=add  
+[2024-07-22 11:12:56] local.DEBUG: fav_chk=0  
+[2024-07-22 11:12:56] local.DEBUG: to add  
+[2024-07-22 11:14:30] local.DEBUG: -------start-------  
+[2024-07-22 11:14:30] local.DEBUG: user_id=1 table=mus fav_id=28 type=add  
+[2024-07-22 11:14:30] local.DEBUG: fav_chk=0  
+[2024-07-22 11:14:30] local.DEBUG: to add  
+[2024-07-22 11:15:21] local.DEBUG: -------start-------  
+[2024-07-22 11:15:21] local.DEBUG: user_id=1 table=pl fav_id=2 type=del  
+[2024-07-22 11:15:21] local.DEBUG: fav_chk=1  
+[2024-07-22 11:15:21] local.DEBUG: delete  
+[2024-07-22 11:15:23] local.DEBUG: -------start-------  
+[2024-07-22 11:15:23] local.DEBUG: user_id=1 table=pl fav_id=2 type=add  
+[2024-07-22 11:15:23] local.DEBUG: fav_chk=0  
+[2024-07-22 11:15:23] local.DEBUG: to add  
