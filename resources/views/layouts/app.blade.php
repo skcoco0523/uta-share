@@ -137,7 +137,7 @@
                                             <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                                         @endif
                                     @endauth
-                                        <a id="add-to-home-screen" class="dropdown-item" href="#">{{ __('Add to Home') }}</a>
+                                        <a id="add-to-home-screen" class="dropdown-item" href="#">{{ __('Install to Application') }}</a>
                                     </li>
                                 </ul>
                             </div>

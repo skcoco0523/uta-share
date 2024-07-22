@@ -29,7 +29,7 @@
             <div class="row mb-3">
                 <div class="col-md-4" style="display: flex; align-items: center;">
                     <label for="friend_code" class="col-form-label text-md-end">{{ __('Friend_code') }}　</label>
-                    <p onclick="openShareModal('{{ route('friendlist-show', ['friend_code' => $profile->friend_code]) }}')" class="mb-0">
+                    <p onclick="openShareModal('{{ route('friendlist-show', ['friend_code' => $profile->friend_code, 'table' => 'search']) }}')" class="mb-0">
                         <i class="fa-regular fa-share-from-square icon-20"></i>
                     </p>
                 </div>
