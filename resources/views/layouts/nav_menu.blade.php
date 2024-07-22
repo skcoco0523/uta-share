@@ -6,11 +6,13 @@
                 <img src="{{ asset('img/icon/home.png') }}" alt="アイコン" class="icon-top">
                 <span style="font-size: 0.75rem;">トップ</span>
             </a>
+            {{-- ランキング機能は現在ないため無効化
             <div class="border-right"></div>
             <a class="flex-sm-fill text-sm-center nav-link p-2 d-flex flex-column align-items-center" href="#">
                 <img src="{{ asset('img/icon/ranking.png') }}" alt="アイコン" class="icon-top">
                 <span style="font-size: 0.75rem;">ランキング</span>
             </a>
+            --}}
             <div class="border-right"></div>
             <a href="{{ route('search-show') }}" class="flex-sm-fill text-sm-center nav-link p-2 d-flex flex-column align-items-center" href="#">
                 <img src="{{ asset('img/icon/search.png') }}" alt="アイコン" class="icon-top">
