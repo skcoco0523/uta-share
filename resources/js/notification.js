@@ -1,4 +1,4 @@
-function showNotification(message, type, sec) {
+window.showNotification = function showNotification(message, type, sec) {
     const notification = document.getElementById('notification');
     //アイコン情報：https://fontawesome.com/
     switch(type){
@@ -61,12 +61,12 @@ function showNotification(message, type, sec) {
     setTimeout(hideNotification, sec);
 }
 
-function hideNotification() {
+window.hideNotification = function hideNotification() {
     document.getElementById('notification').style.display = 'none';
 }
 
 //モーダル(シェアポップアップ)-----------------------------
-function openShareModal(url) {
+window.openShareModal = function openShareModal(url) {
     var modal = document.getElementById('shareModal');
     var shareButtons = modal.querySelectorAll('.share-button');
 
@@ -78,14 +78,14 @@ function openShareModal(url) {
     modal.style.display = 'block';
 }
 
-function closeShareModal(event) {
+window.closeShareModal = function closeShareModal(event) {
     // オーバーレイまたは閉じるボタンがクリックされた場合にのみモーダルを閉じる
     if (event.target.classList.contains('notification-overlay') || event.target.classList.contains('close')) {
         document.getElementById('shareModal').style.display = 'none';
     }
 }
 
-function shareToPlatform(platform, url) {
+window.shareToPlatform = function shareToPlatform(platform, url) {
 
     let popupUrl;
     const width = 600;

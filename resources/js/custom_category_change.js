@@ -1,4 +1,4 @@
-function setCustomCategoryActions(bit_num, status) {
+window.setCustomCategoryActions = function setCustomCategoryActions(bit_num, status) {
     if (typeof customCategoryActions === 'undefined') {
         window.customCategoryActions = {}; // グローバルオブジェクトを定義
     }
@@ -6,7 +6,7 @@ function setCustomCategoryActions(bit_num, status) {
 
 }
 
-function chgToCustomCategory(music_id, bit_num) {
+window.chgToCustomCategory = function chgToCustomCategory(music_id, bit_num) {
     // アイコンのdata属性を取得
     const customCategorySelector = `[bit_num="${bit_num}"]`;
     

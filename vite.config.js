@@ -55,14 +55,38 @@ export default defineConfig({
                     '**/*.{js,css,html,png,jpg}', // キャッシュ対象のファイルパターン
                 ],
                 runtimeCaching: [
+                    /*
                     {
-                        urlPattern: /\.(?:js|css|html)$/, // JavaScript, CSS, HTMLのキャッシュ設定
+                        urlPattern: /\.(?:html)$/, // HTMLのキャッシュ設定
                         handler: 'StaleWhileRevalidate', // または 'CacheFirst' など
                         options: {
                             cacheName: 'static-assets-cache',
                             expiration: {
                                 maxEntries: 50, // 最大エントリ数 ※ファイル数
-                                maxAgeSeconds: 7 * 24 * 60 * 60, // 1週間（7日間）
+                                maxAgeSeconds: 24 * 60 * 60, // 1週間（7日間）
+                            },
+                        },
+                    },
+                    */
+                    {
+                        urlPattern: /\.(?:js|css)$/, // JavaScript, CSSのキャッシュ設定
+                        handler: 'StaleWhileRevalidate', //
+                        options: {
+                            cacheName: 'static-assets-cache',
+                            expiration: {
+                                maxEntries: 50, // 最大エントリ数 ※ファイル数
+                                maxAgeSeconds: 30 * 24 * 60 * 60, // 30日
+                            },
+                        },
+                    },
+                    {
+                        urlPattern: /\.(?:png|jpg|jpeg|svg)$/, // 画像のキャッシュ設定例
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'image-cache',
+                            expiration: {
+                                maxEntries: 50, // 最大エントリ数 ※ファイル数
+                                maxAgeSeconds: 30 * 24 * 60 * 60, // 30日
                             },
                         },
                     },
@@ -79,17 +103,6 @@ export default defineConfig({
                         },
                     },
                     */
-                    {
-                        urlPattern: /\.(?:png|jpg|jpeg|svg)$/, // 画像のキャッシュ設定例
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'image-cache',
-                            expiration: {
-                                maxEntries: 50, // 最大エントリ数 ※ファイル数
-                                maxAgeSeconds: 30 * 24 * 60 * 60, // 30日
-                            },
-                        },
-                    },
                 ],
             },
         }),

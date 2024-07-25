@@ -1,7 +1,8 @@
-function redirectToSearch(keyword) {
+window.redirectToSearch = function redirectToSearch(keyword) {
     window.location.href = searchListShowUrl + "?keyword=" + encodeURIComponent(keyword);
 }
-function delete_history() {
+
+window.delete_history = function delete_history() {
     // お気に入りの状態を取得するためのHTTPリクエストを行う
     $.ajax({
         //POST通信

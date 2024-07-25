@@ -277,3 +277,35 @@
 [2024-07-21 18:06:36] local.DEBUG: user_id=2 music_id=74 bit_num=1 type=add  
 [2024-07-21 18:06:36] local.DEBUG: before_bit_num=  
 [2024-07-21 18:06:36] local.DEBUG: to add  
+[2024-07-25 15:53:39] local.DEBUG: -------start-------  
+[2024-07-25 15:53:39] local.DEBUG: user_id=1 music_id=77 bit_num=8 type=add  
+[2024-07-25 15:53:39] local.DEBUG: before_bit_num=  
+[2024-07-25 15:53:39] local.DEBUG: to add  
+[2024-07-25 15:53:48] local.DEBUG: -------start-------  
+[2024-07-25 15:53:48] local.DEBUG: user_id=1 music_id=77 bit_num=8 type=del  
+[2024-07-25 15:53:48] local.DEBUG: before_bit_num=12  
+[2024-07-25 15:53:48] local.DEBUG: cheke=8  
+[2024-07-25 15:54:17] local.DEBUG: -------start-------  
+[2024-07-25 15:54:17] local.DEBUG: user_id=1 music_id=77 bit_num=8 type=add  
+[2024-07-25 15:54:17] local.DEBUG: before_bit_num=  
+[2024-07-25 15:54:17] local.DEBUG: to add  
+[2024-07-25 15:56:07] local.DEBUG: -------start-------  
+[2024-07-25 15:56:07] local.DEBUG: user_id=1 music_id=77 bit_num=8 type=del  
+[2024-07-25 15:56:07] local.DEBUG: before_bit_num=12  
+[2024-07-25 15:56:07] local.DEBUG: cheke=8  
+[2024-07-25 15:58:32] local.DEBUG: -------start-------  
+[2024-07-25 15:58:32] local.DEBUG: user_id=1 music_id=77 bit_num=8 type=add  
+[2024-07-25 15:58:32] local.DEBUG: before_bit_num=  
+[2024-07-25 15:58:32] local.DEBUG: to add  
+[2024-07-25 15:58:35] local.DEBUG: -------start-------  
+[2024-07-25 15:58:35] local.DEBUG: user_id=1 music_id=77 bit_num=4 type=del  
+[2024-07-25 15:58:35] local.DEBUG: before_bit_num=12  
+[2024-07-25 15:58:35] local.DEBUG: cheke=4  
+[2024-07-25 15:58:35] local.DEBUG: -------start-------  
+[2024-07-25 15:58:35] local.DEBUG: user_id=1 music_id=77 bit_num=8 type=del  
+[2024-07-25 15:58:35] local.DEBUG: before_bit_num=8  
+[2024-07-25 15:58:35] local.DEBUG: cheke=8  
+[2024-07-25 15:58:38] local.DEBUG: -------start-------  
+[2024-07-25 15:58:38] local.DEBUG: user_id=1 music_id=77 bit_num=4 type=add  
+[2024-07-25 15:58:38] local.DEBUG: before_bit_num=  
+[2024-07-25 15:58:38] local.DEBUG: to add  

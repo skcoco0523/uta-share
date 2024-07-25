@@ -1,4 +1,4 @@
-function setFavoriteActions(table, id, fav_flag) {
+window.setFavoriteActions = function setFavoriteActions(table, id, fav_flag) {
     if (typeof favoriteActions === 'undefined') {
         window.favoriteActions = {}; // グローバルオブジェクトを定義
     }
@@ -9,7 +9,7 @@ function setFavoriteActions(table, id, fav_flag) {
 
 }
 
-function chgToFavorite(table, detail_id) {
+window.chgToFavorite = function chgToFavorite(table, detail_id) {
     // アイコンのdata属性を取得
     const favoriteIconSelector = `[data-favorite-id="${table}-${detail_id}"]`;
     
