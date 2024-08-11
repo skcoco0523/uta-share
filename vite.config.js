@@ -26,7 +26,15 @@ export default defineConfig({
         }),
         VitePWA({
             registerType: 'autoUpdate', // サービスワーカーの自動更新
-            /*manifest.json　は本番と県所で分けるため　別ファイル
+            strategies: 'injectManifest',
+            srcDir: 'src', // カスタムサービスワーカーのソースが格納されているディレクトリ
+            filename: 'sw.js', // サービスワーカーのファイル名
+            injectManifest: {
+              swSrc: 'src/sw.js', // カスタムサービスワーカーのソースファイル
+              swDest: 'public/build/sw.js' // 自動生成されるサービスワーカーの出力先
+            },
+            //manifest.json　は本番と検証で分けるため　別ファイル
+            /*
             manifest: {
                 name: process.env.VITE_APP_NAME || "歌share",
                 short_name: process.env.VITE_APP_NAME || "歌share",

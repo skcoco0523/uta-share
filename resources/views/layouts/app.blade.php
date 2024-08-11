@@ -19,13 +19,23 @@
     <!-- jQueryの読み込み -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- JS用ルーティングの定義 -->
     <script>
+        //JS用ルーティングの定義
         const loginUrl                  = "{{ route('login') }}";
         const historyDeleteUrl          = "{{ route('history-delete') }}";
         const favoriteChangeUrl         = "{{ route('favorite-chg') }}";
         const customCategoryChangeUrl   = "{{ route('custom-category-chg') }}";
         const searchListShowUrl         = "{{ route('search-list-show') }}";
+        const checkDevicesUrl           = "{{ route('devices-check') }}";
+        console.log(searchListShowUrl);
+        console.log(checkDevicesUrl);
+       
+        //configからJSで使用する値を取得
+        window.Laravel = {
+            user_id: '{{Auth::id() }}',
+            vapidPublicKey: '{{ config('webpush.vapid.public_key') }}',
+            // 必要な他の変数があれば追加
+        };
     </script>
     
     <!-- resources/js/app.js　で一括管理
@@ -49,7 +59,10 @@
     @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
     <!-- マニフェストファイルの読み込み -->
     <link rel="manifest" href="{{ asset('manifest.json') }}">
-    
+
+    <!-- サービスワーカーの登録 -->
+    <script src="{{ asset('registerSW.js') }}"></script>
+
     <!-- google広告 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1093408896428535"
     crossorigin="anonymous"></script>

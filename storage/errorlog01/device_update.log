@@ -1,0 +1,12 @@
+[2024-08-11 20:28:20] local.DEBUG: ------------start-----------  
+[2024-08-11 20:28:20] local.DEBUG: validated=Array
+(
+    [user_id] => 1
+    [device_id] => 561c1c87-6bc6-4f94-9357-175a3214fbc5
+    [os] => iOS
+    [browser] => Safari
+    [endpoint] => https://fcm.googleapis.com/fcm/send/cmnNDqasJXc:APA91bGYFSe7BPLYKjJGgKjDnOUNUUnpK0BcSOSBS8UTcVEOlhzFGZVQmmLutk86-OWJbGXu9_xwlNJiyAKPGgxwvw2y7MlvQ1tOJWO-rKns4Q2KnQxCgA2eHaznMr5wCh6zZdAGsyrW
+    [public_key] => BMF6wzopElTJPi51C5CZwok1e3bONnJZx08mSzMBPumGh8p3eKsW4dIglVxmgtQWQQhwZjZDWsiestbrnixKu2k=
+    [auth_token] => Afo6jVhXOT+ykPOLQxlJhg==
+)
+  

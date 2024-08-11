@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 
 //ユーザー
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Auth\UserDeviceController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AlbumController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\RecommendController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +56,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 //ユーザー------------------------------------------------------------------------
+//PWAアプリインストール時の　デバイス情報登録
+Route::post('devices/check', [UserDeviceController::class, 'device_update'])->name('devices-check');
+
 //パスワードリセット
 Route::post('password/reset/mailsend', [UserController::class, 'password_reset_mailsend'])->name('password-reset');
 
