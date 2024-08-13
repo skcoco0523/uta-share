@@ -76,14 +76,14 @@ npm run build　でビルド　→build配下のファイルをアップロー�
     display: block; /* 画像をブロックレベル要素に変更 */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
   }
-  .icon-20 {        /*テーブルのアイコンで利用*/
+  .icon-20 {        /*テーブルのアイコン,詳細リンク で使用*/
     width: 20px;
     height: 20px;
     font-size: 20px;/*　フォント用*/
     display: block; /* 画像をブロックレベル要素に変更 */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
   }
-  .icon-25 {        /*詳細リンクで使用*/
+  .icon-25 {
     width: 25px;
     height: 25px;
     font-size: 25px;/*　フォント用*/
