@@ -127,12 +127,26 @@ class FriendlistController extends Controller
     //フレンド申請
     public function friend_request(Request $request)
     {
+        $user_id = Auth::id();
         $friend_id =  (int) $request->user_id;
-        if((Auth::id() != $friend_id)){
-            $status = Friendlist::requestFriend(Auth::id(), $friend_id);
+        if(($user_id != $friend_id)){
+            $status = Friendlist::requestFriend($user_id, $friend_id);
         }
-        // フレンドリストにリダイレクト
-        $msg = $status === 'success' ? 'フレンド申請を送信しました。' : 'フレンド申請の送信に失敗しました。';
+        if($status){
+            //ユーザーへ通知
+            $msg = 'フレンド申請を送信しました。';
+            //フレンドへ通知
+            $user_prf = User::profile_get($user_id);
+            $send_info = [
+                'title' => 'フレンド申請',
+                'body' => $user_prf->name.'からフレンド申請が届きました',
+                'url' => route('friendlist-show', ['table' => 'request']),
+            ];
+            push_send($friend_id,$send_info);
+        }else{
+            $msg = 'フレンド申請の送信に失敗しました。';
+        }
+        
         $message = ['message' => $msg, 'type' => 'friend', 'sec' => '2000'];
         
         return redirect()->route('friendlist-show')->with($message);
@@ -140,11 +154,25 @@ class FriendlistController extends Controller
     //フレンド申請承諾
     public function friend_accept(Request $request)
     {
+        $user_id = Auth::id();
         $friend_id =  (int) $request->user_id;
-        $status = Friendlist::acceptFriend(Auth::id(), $friend_id);
+        $status = Friendlist::acceptFriend($user_id, $friend_id);
 
-        // フレンドリストにリダイレクト
-        $msg = $status === 'success' ? 'フレンド申請を承諾しました。' : 'フレンド申請の承諾に失敗しました。';
+        if($status){  
+            //ユーザーへ通知
+            $msg = 'フレンド申請を承諾しました。';
+            //フレンドへ通知
+            $user_prf = User::profile_get($user_id);
+            $send_info = [
+                'title' => 'フレンド申請',
+                'body' => $user_prf->name.'からフレンド申請が承諾されました',
+                'url' => route('friendlist-show', ['table' => 'pending']),
+            ];
+            push_send($friend_id,$send_info);
+        }else{
+            $msg = 'フレンド申請の承諾に失敗しました。';
+        }
+
         $message = ['message' => $msg, 'type' => 'friend', 'sec' => '2000'];
         
         return redirect()->route('friendlist-show')->with($message);
@@ -155,9 +183,9 @@ class FriendlistController extends Controller
         $friend_id =  (int) $request->user_id;
         $status = Friendlist::declineFriend(Auth::id(), $friend_id);
 
-        // 必要なデータを再取得してビューに渡す
-        $friendlist = Friendlist::getFriendlist(Auth::id());
-        $msg = $status === 'success' ? 'フレンド申請を拒否しました。' : 'フレンド申請の拒否に失敗しました。';
+        if($status)     $msg = 'フレンド申請を拒否しました。';
+        else            $msg = 'フレンド申請の拒否に失敗しました。';
+
         $message = ['message' => $msg, 'type' => 'friend', 'sec' => '2000'];
 
         return redirect()->route('friendlist-show')->with($message);
@@ -168,8 +196,12 @@ class FriendlistController extends Controller
         $friend_id =  (int) $request->user_id;
         $status = Friendlist::cancelFriend(Auth::id(), $friend_id);
 
-        // フレンドリストにリダイレクト
-        $msg = $status === 'success' ? 'フレンド申請を削除しました。' : 'フレンド申請の削除に失敗しました。';
+        if($status){
+            $msg = 'フレンド申請を削除しました。';
+        }else{
+            $msg = 'フレンド申請の削除に失敗しました。';
+        }
+
         $message = ['message' => $msg, 'type' => 'friend', 'sec' => '2000'];
 
         return redirect()->route('friendlist-show')->with($message);

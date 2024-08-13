@@ -26,83 +26,57 @@ class PushNotification
     
     public static function sendNotification($user_id, $send_info)
     {
+        make_error_log("sendNotification.log", "========================start========================");
         $user_devices = UserDevice::getUserDevices($user_id);
-    
-        // URL-safe Base64 を通常の Base64 に変換してからデコード
-        $publicKey = strtr($user_devices['public_key'], '-_', '+/');
-        $authToken = strtr($user_devices['auth_token'], '-_', '+/');
-    
+        if (!$user_devices) {
+            make_error_log("sendNotification.log", "user_devices is null");
+            return;
+        }
         $subscription = Subscription::create([
             'endpoint' => $user_devices['endpoint'],
-            //'publicKey' => base64_decode($publicKey), // デコードしたデータを使用
-            //'authToken' => base64_decode($authToken), // デコードしたデータを使用
             'publicKey' => $user_devices['public_key'], 
             'authToken' => $user_devices['auth_token'], 
         ]);
-    
-        $vapidPublicKey = strtr(config('webpush.vapid.public_key'), '-_', '+/');
-        $vapidPrivateKey = strtr(config('webpush.vapid.private_key'), '-_', '+/');
-    
+
         $auth = [
             'VAPID' => [
                 'subject' => config('webpush.vapid.subject'), // 管理者のメールアドレスを設定ファイルから取得
-                //'publicKey' => base64_decode($vapidPublicKey), // URL-safe Base64 からデコード
-                //'privateKey' => base64_decode($vapidPrivateKey), // URL-safe Base64 からデコード
                 'publicKey' => config('webpush.vapid.public_key'),
                 'privateKey' => config('webpush.vapid.private_key'),
             ],
         ];
     
-        $envPublicKey = base64_decode(strtr(config('webpush.vapid.public_key'), '-_', '+/'));
-        $dbPublicKey = base64_decode(strtr($user_devices['public_key'], '-_', '+/'));
-        
-        make_error_log("sendNotification.log", "Decoded envPublicKey=" . $envPublicKey);
-        make_error_log("sendNotification.log", "Decoded dbPublicKey=" . $dbPublicKey);
+        make_error_log("sendNotification.log", "subscription=" . print_r($subscription,1));
+        make_error_log("sendNotification.log", "auth=" . print_r($auth,1));
 
 
-        $publicKeyFromEnv = urlSafeBase64Decode(config('webpush.vapid.public_key'));
-        $privateFromEnv = urlSafeBase64Decode(config('webpush.vapid.private_key'));
-        $publicKeyFromDB = base64_decode($user_devices['public_key']);
-        $authTokenFromDB = base64_decode($user_devices['auth_token']);
-
-        //dd(bin2hex($publicKeyFromEnv),bin2hex($privateFromEnv),bin2hex($publicKeyFromDB),bin2hex($authTokenFromDB));
-        // デコード後の結果をログに出力
-    
-
-
-
+        /*使用例
         $send_info = [
-            'title' => 'New Message',
-            'body' => 'You have received a new message.',
+            'title' => 'テストタイトル',
+            'body' => 'テストメッセージ',
             'icon' => '/path/to/icon.png',
-            'url' => 'https://example.com/messages',
+            'url' => 'https://skcoco.com/app01',
             'badge' => '/path/to/badge.png',
             'data' => [
                 'some_key' => 'some_value',
                 'another_key' => 'another_value'
             ]
         ];
-
-        //dd($auth);
-        //dd($subscription,$auth);
+        */
+        
         $webPush = new WebPush($auth);
         try {
             $report = $webPush->sendOneNotification(
                 $subscription,
-                'push通知の本文'
-                //json_encode($send_info)
+                json_encode($send_info)
             );
-            make_error_log("sendNotification.log", "report:".$report);
         } catch (\Exception $e) {
             // 例外の詳細をログに出力
-            Log::error('Push通知送信エラー: ' . $e->getMessage());
-            // 例外のスタックトレースも出力する場合
-            Log::error($e->getTraceAsString());
+            make_error_log("sendNotification.log", "Push通知送信エラー:". $e->getMessage());
+            make_error_log("sendNotification.log", "Trace:". $e->getTraceAsString());
         }
-        dd($report);
-        dd($report->isSuccess());
-
-        return $report->isSuccess();
+        $reason = $report->getReason();
+        make_error_log("sendNotification.log", "Reason: " . $reason);
     }
 }
 

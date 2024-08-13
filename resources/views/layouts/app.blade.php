@@ -27,9 +27,7 @@
         const customCategoryChangeUrl   = "{{ route('custom-category-chg') }}";
         const searchListShowUrl         = "{{ route('search-list-show') }}";
         const checkDevicesUrl           = "{{ route('devices-check') }}";
-        console.log(searchListShowUrl);
-        console.log(checkDevicesUrl);
-       
+
         //configからJSで使用する値を取得
         window.Laravel = {
             user_id: '{{Auth::id() }}',
@@ -56,7 +54,7 @@
     <!--<link rel="stylesheet" href="{{ asset('/css/style.css') }}">-->
     
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/css/app.css'])
     <!-- マニフェストファイルの読み込み -->
     <link rel="manifest" href="{{ asset('manifest.json') }}">
 
@@ -81,17 +79,21 @@
 <body>
     
     <div id="notification">
-        <img src="" alt="通知GIF">
+        <img src="" alt="">
     </div>
 
     @if (session('message'))
-    <script>
-        showNotification('{{ session('message') }}', '{{ session('type') }}', '{{ session('sec') }}');
         @php
+            $message = session('message');
+            $type = session('type');
+            $sec = session('sec');
             session()->forget(['message', 'type', 'sec']);
         @endphp
-        //alert('{{ session('error') }}');
-    </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showNotification('{{ $message }}', '{{ $type }}', '{{ $sec }}');
+        });
+        </script>
     @endif
 
 
@@ -169,5 +171,9 @@
         </div>
     
     </div>
+    
+    <!-- Scripts -->
+    @vite(['resources/js/app.js'])
+</body>
 </html>
 

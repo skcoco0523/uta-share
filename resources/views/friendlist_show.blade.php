@@ -15,7 +15,7 @@
             <a class="nav-link nav-link-red {{ $input['table']=='pending' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('pending')">承認待ち</a>
         </li>
         <li class="nav-item nav-item-red">
-            <a class="nav-link nav-link-red {{ $input['table']=='request' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('request')">リクエスト</a>
+            <a class="nav-link nav-link-red {{ $input['table']=='request' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('request')">未承認</a>
         </li>
         <li class="nav-item nav-item-red">
             <a class="nav-link nav-link-red {{ $input['table']=='declined' ? 'active' : '' }}" onclick="redirectToFavoriteListShow('declined')">申請拒否</a>
@@ -47,7 +47,7 @@
     @include('layouts.friend_table', ['friendlist_table' => $friendlist["pending"], 'status' => 'pending'])
 
 @elseif($input['table']=="request")
-    <h3>リクエスト</h3>
+    <h3>未承認</h3>
     @include('layouts.friend_table', ['friendlist_table' => $friendlist["request"], 'status' => 'request'])
 
 @elseif($input['table']=="declined")
@@ -60,10 +60,6 @@
 @endsection
 
 <script>
-    // 初期表示設定
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('accepted').style.display = 'block';
-    });
 
     function redirectToFavoriteListShow(table) {
         window.location.href = "{{ route('friendlist-show') }}?table=" + table;

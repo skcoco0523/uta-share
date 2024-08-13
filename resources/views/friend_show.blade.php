@@ -63,10 +63,6 @@
 @endsection
 
 <script>
-    // 初期表示設定
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('songs').style.display = 'block';
-    });
 
     function redirectToFriendShow(friend_id, table, bit_num = null) {
         window.location.href = "{{ route('friend-show') }}?friend_id=" + friend_id + "&table=" + table + "&bit_num=" + bit_num;

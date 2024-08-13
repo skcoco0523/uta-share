@@ -118,11 +118,11 @@ class Friendlist extends Model
             // フレンドリクエストを作成
             //dd($user_id,$friend_id);
             $result = self::updateOrCreate(['user_id' => $user_id, 'friend_id' => $friend_id], ['status' => 0]);
+            return true;
 
-            return "success";
         } catch (\Exception $e) {
             make_error_log("requestFriend.log","failure");
-            return "failure";
+            return false;
         }
     }
     //フレンド承認
@@ -133,10 +133,11 @@ class Friendlist extends Model
             self::updateOrCreate(['user_id' => $friend_id, 'friend_id' => $user_id], ['status' => 1]);
             //自身のレコードも追加する
             self::updateOrCreate(['user_id' => $user_id, 'friend_id' => $friend_id], ['status' => 1]);
-            return "success";
+            return true;
+
         } catch (\Exception $e) {
             make_error_log("acceptFriend.log","failure");
-            return "failure";
+            return false;
         }
     }
     //フレンド申請拒否
@@ -147,11 +148,11 @@ class Friendlist extends Model
             self::updateOrCreate(['user_id' => $user_id, 'friend_id' => $friend_id], ['status' => 2]);
             //現在フレンドの可能性があるため、相手の申請を申請中に戻す
             self::updateOrCreate(['user_id' => $friend_id, 'friend_id' => $user_id], ['status' => 0]);
-    
-            return "success";
+            return true;
+
         } catch (\Exception $e) {
             make_error_log("declineFriend.log","failure");
-            return "failure";
+            return false;
         }
     }
     public static function cancelFriend($user_id, $friend_id)
@@ -162,11 +163,11 @@ class Friendlist extends Model
             self::where('user_id', $user_id)->where('friend_id', $friend_id)->delete();
             // 相手の申請はあれば削除する
             self::where('user_id', $friend_id)->where('friend_id', $user_id)->delete();
+            return true;
 
-            return "success";
         } catch (\Exception $e) {
             make_error_log("declineFriend.log","failure");
-            return "failure";
+            return false;
         }
     }
 
