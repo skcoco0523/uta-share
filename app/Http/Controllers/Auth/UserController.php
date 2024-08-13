@@ -60,7 +60,6 @@ class UserController extends Controller
     //プロフィール情報取得
     public function profile_show(Request $request)
     {
-        push_send(1,1);
         $this->middleware('auth');
 
         $profile = User::profile_get(Auth::id());;

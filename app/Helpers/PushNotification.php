@@ -70,13 +70,14 @@ class PushNotification
                 $subscription,
                 json_encode($send_info)
             );
+            $reason = $report->getReason();
+            make_error_log("sendNotification.log", "Reason: " . $reason);
+            
         } catch (\Exception $e) {
             // 例外の詳細をログに出力
             make_error_log("sendNotification.log", "Push通知送信エラー:". $e->getMessage());
             make_error_log("sendNotification.log", "Trace:". $e->getTraceAsString());
         }
-        $reason = $report->getReason();
-        make_error_log("sendNotification.log", "Reason: " . $reason);
     }
 }
 
