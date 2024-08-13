@@ -96,15 +96,15 @@ function showAddToHomeScreenButton() {
     const addToHomeScreenButton = document.querySelector('#add-to-home-screen');
     addToHomeScreenButton.addEventListener('click', () => {
 
-        /*
-        //ログイン状態が解除されている場合はログインを促す
-        if(!user_id){
-            alert('アプリインストールには会員登録、およびログインが必要です');
+  
+        if (getOS()=='iOS') {
+            console.log('device is iOS');
+            alert('iOSでは、ブラウザの「共有」メニューから「ホーム画面に追加」を選択してください。');
             return false;
         }
-        */
         // ユーザーにプッシュ通知の許可を促す サブスクリプションを作成し取得
         requestNotificationPermission().then((subscription) => {
+            
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((result) => {
@@ -121,18 +121,14 @@ function showAddToHomeScreenButton() {
                     console.error('Error during A2HS prompt', err);
                     alert('インストールプロンプトの表示中にエラーが発生しました。');
                 });
+
             } else {
                 console.log('通知拒否');
                 // インストールプロンプトがない場合の処理
-                if (getOS()=='iOS') {
-                    alert('iOSでは、ホーム画面に追加するには、ブラウザの「共有」メニューから「ホーム画面に追加」を選択してください。');
-                } else {
+                // deferredPrompt が設定されていない理由を説明する
+                //console.error('deferredPrompt が設定されていないか、サポートされていない環境です。');
+                alert('インストールプロンプトを表示できません。\nサポートされていない環境か、プロンプトが既に表示されている可能性があります。\nブラウザを再度開きなおしてください。');
 
-                    // deferredPrompt が設定されていない理由を説明する
-                    //console.error('deferredPrompt が設定されていないか、サポートされていない環境です。');
-                    alert('インストールプロンプトを表示できません。\nサポートされていない環境か、プロンプトが既に表示されている可能性があります。\nブラウザを再度開きなおしてください。');
-
-                }
             }
         }).catch((error) => {
             //通知許可のためサブスクリプション生成不可
