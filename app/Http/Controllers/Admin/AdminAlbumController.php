@@ -17,8 +17,6 @@ class AdminAlbumController extends Controller
     //追加
     public function album_regist(Request $request)
     {
-        $tab_name="アルバム";
-        $ope_type="album_reg";
         $artists = Artist::getArtist_list();  //全件　リスト用
         $albums = Album::getAlbum_list(5);  //5件
         $msg = request('msg');
@@ -27,7 +25,7 @@ class AdminAlbumController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'albums', 'input', 'msg'));
+        return view('admin.admin_home', compact('artists', 'albums', 'input', 'msg'));
     }
     //追加
     public function album_reg(Request $request)
@@ -87,8 +85,6 @@ class AdminAlbumController extends Controller
     //検索
     public function album_search(Request $request)
     {
-        $tab_name="アルバム";
-        $ope_type="album_search";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
@@ -100,7 +96,7 @@ class AdminAlbumController extends Controller
         $artist = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $album === null) ? "検索結果が0件です。" : $msg;
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'artist', 'album', 'input', 'msg'));
+        return view('admin.admin_home', compact('artist', 'album', 'input', 'msg'));
     }
     //削除
     public function album_del(Request $request)
@@ -154,9 +150,6 @@ class AdminAlbumController extends Controller
     //詳細変更
     public function album_chg_detail(Request $request)
     {
-        $tab_name="アルバム";
-        $ope_type="album_search";    //同一テンプレート内で分岐する
-        //$ope_type="album_chg_detail";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
@@ -172,7 +165,7 @@ class AdminAlbumController extends Controller
         $msg = ($msg===NULL && $input['keyword'] !==null && $albums === null) ? "検索結果が0件です。" : $msg;
 
         
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'album_detail', 'album', 'input', 'msg'));
+        return view('admin.admin_home', compact('album_detail', 'album', 'input', 'msg'));
     }
     //詳細変更用　関数(変更・削除・追加)
     public function album_chg_detail_fnc(Request $request)

@@ -199,8 +199,8 @@ Route::middleware(['auth'])->group(function () {
 
         //ユーザー------------------------------------------------------------------------
             //一覧
-            Route::get('user/list', [AdminUserController::class, 'user_list'])->name('admin-user-list');
-            Route::post('user/list/chg', [AdminUserController::class, 'user_chg'])->name('admin-user-change');
+            Route::get('user/search', [AdminUserController::class, 'user_search'])->name('admin-user-search');
+            Route::post('user/search/chg', [AdminUserController::class, 'user_chg'])->name('admin-user-change');
 
         //その他------------------------------------------------------------------------
             //依頼・要望

@@ -17,8 +17,6 @@ class AdminMusicController extends Controller
     //追加
     public function music_regist(Request $request)
     {
-        $tab_name="音楽";
-        $ope_type="music_reg";
         $artists = Artist::getArtist_list();  //全件　リスト用
         $musics = Music::getMusic_list(5);  //5件
         $msg = request('msg');
@@ -27,7 +25,7 @@ class AdminMusicController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'musics', 'artists', 'input', 'msg'));
+        return view('admin.admin_home', compact('musics', 'artists', 'input', 'msg'));
     }
     //追加
     public function music_reg(Request $request)
@@ -66,8 +64,6 @@ class AdminMusicController extends Controller
     //検索
     public function music_search(Request $request)
     {
-        $tab_name="音楽";
-        $ope_type="music_search";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
@@ -78,7 +74,7 @@ class AdminMusicController extends Controller
         $artists = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $musics === null) ? "検索結果が0件です。" : $msg;
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'musics', 'input', 'msg'));
+        return view('admin.admin_home', compact('artists', 'musics', 'input', 'msg'));
     }
     //削除
     public function music_del(Request $request)

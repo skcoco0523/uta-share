@@ -5586,3 +5586,16 @@
 [2024-07-04 21:08:51] local.DEBUG: fnc=del pl_id=6 detail_id=386  
 [2024-07-04 21:08:51] local.DEBUG: -------start-------  
 [2024-07-04 21:08:51] local.DEBUG: delete_pl_id=6  
+[2024-08-19 21:58:49] local.DEBUG: -----start-----  
+[2024-08-19 21:58:49] local.DEBUG: fnc=del pl_id=9 detail_id=74  
+[2024-08-19 21:58:49] local.DEBUG: -------start-------  
+[2024-08-19 21:58:49] local.DEBUG: delete_pl_id=9  
+[2024-08-19 22:35:39] local.DEBUG: -----start-----  
+[2024-08-19 22:35:39] local.DEBUG: fnc=add pl_id=6 detail_id=393  
+[2024-08-19 22:35:39] local.DEBUG: -------start-------  
+[2024-08-19 22:35:39] local.DEBUG: delete_pl_id=6  
+[2024-08-19 22:35:39] local.DEBUG: success  
+[2024-08-19 22:35:44] local.DEBUG: -----start-----  
+[2024-08-19 22:35:44] local.DEBUG: fnc=del pl_id=6 detail_id=393  
+[2024-08-19 22:35:44] local.DEBUG: -------start-------  
+[2024-08-19 22:35:44] local.DEBUG: delete_pl_id=6  

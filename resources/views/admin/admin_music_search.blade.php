@@ -59,20 +59,6 @@
     </div>
 @endif
 
-{{--検索--}}
-<form method="GET" action="{{ route('admin-music-search') }}">
-
-    <div class="row g-3 align-items-end">
-    <div class="col-sm-6">
-        <label for="keyword" class="visually-hidden">検索(曲名)</label>
-        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(曲名)">
-    </div>
-    <div class="col-auto align-self-end">
-        <button type="submit" class="btn btn-success">検索</button>
-    </div>
-</div>
-</form>
-
 {{--曲一覧--}}
 @if(isset($musics))
     ｱﾌｨﾘｴｲﾄﾘﾝｸ(ｲﾒｰｼﾞ&ﾘﾝｸ)はアルバムの情報が優先されます

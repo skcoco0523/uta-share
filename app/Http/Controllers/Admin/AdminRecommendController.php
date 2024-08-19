@@ -17,8 +17,6 @@ class AdminRecommendController extends Controller
     //追加
     public function recommend_regist(Request $request)
     {
-        $tab_name="おすすめ";
-        $ope_type="recommend_reg";
         //追加からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['name']);
@@ -26,7 +24,7 @@ class AdminRecommendController extends Controller
         //$category = null;
         $recommend = Recommend::getRecommend_list(null,false,null,null);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,カテゴリ,sort_flag
         $msg = request('msg');
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'recommend', 'input', 'msg'));
+        return view('admin.admin_home', compact('recommend', 'input', 'msg'));
     }
     //追加
     public function recommend_reg(Request $request)
@@ -55,9 +53,6 @@ class AdminRecommendController extends Controller
     //検索
     public function recommend_search(Request $request)
     {
-        $tab_name="おすすめ";
-        $ope_type="recommend_search";
-        
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
@@ -76,7 +71,7 @@ class AdminRecommendController extends Controller
         }
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($recommend) === 0) ? "検索結果が0件です。" : $msg;
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'recommend', 'input', 'msg'));
+        return view('admin.admin_home', compact('recommend', 'input', 'msg'));
     }
     //変更
     public function recommend_chg(Request $request)
@@ -95,8 +90,6 @@ class AdminRecommendController extends Controller
     //詳細変更
     public function recommend_chg_detail(Request $request)
     {
-        $tab_name="おすすめ";
-        $ope_type="recommend_search";    //同一テンプレート内で分岐する
         //$ope_type="recommend_chg_detail";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
@@ -113,13 +106,11 @@ class AdminRecommendController extends Controller
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $recommend_detail === null) ? "検索結果が0件です。" : $msg;
 
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'recommend_detail', 'recommend', 'input', 'msg'));
+        return view('admin.admin_home', compact('recommend_detail', 'recommend', 'input', 'msg'));
     }
     //詳細変更用　楽曲検索
     public function recommend_detail_search(Request $request)
     {
-        $tab_name="おすすめ";
-        $ope_type="recommend_search";    //同一テンプレート内で分岐する
         //追加 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)  $input = request('input');
         else                                 $input = $request->all();
@@ -155,7 +146,7 @@ class AdminRecommendController extends Controller
         $msg = request('msg');
         $msg = ($msg===NULL && $input['dtl_keyword'] !==null && $detail === null) ? "検索結果が0件です。" : $msg;
 
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'recommend_detail', 'recommend', 'detail', 'input', 'msg'));
+        return view('admin.admin_home', compact('recommend_detail', 'recommend', 'detail', 'input', 'msg'));
     }
     //表示順変更用
     public function recommend_chg_sort(Request $request)

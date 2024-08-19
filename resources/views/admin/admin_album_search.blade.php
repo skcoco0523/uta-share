@@ -60,20 +60,6 @@
     </div>
 @endif
 
-{{--検索--}}
-<form method="GET" action="{{ route('admin-album-search') }}">
-
-    <div class="row g-3 align-items-end">
-    <div class="col-sm-6">
-        <label for="keyword" class="visually-hidden">検索(アルバム名)</label>
-        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(アルバム名)">
-    </div>
-    <div class="col-auto align-self-end">
-        <button type="submit" class="btn btn-success">検索</button>
-    </div>
-</div>
-</form>
-
 {{--アルバム一覧--}}
 @if(isset($album))
     {{--ﾊﾟﾗﾒｰﾀ--}}

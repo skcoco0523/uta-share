@@ -1468,3 +1468,8 @@
 [2024-07-04 19:58:58] local.DEBUG: -------start-------  
 [2024-07-04 19:58:58] local.DEBUG: delete_id=385  
 [2024-07-04 19:58:58] local.DEBUG: success  
+[2024-08-19 21:59:49] local.DEBUG: -----start-----  
+[2024-08-19 21:59:49] local.DEBUG: fnc=add recom_id=43 category=0 detail_id=393  
+[2024-08-19 21:59:49] local.DEBUG: -------start-------  
+[2024-08-19 21:59:49] local.DEBUG: delete_id=393  
+[2024-08-19 21:59:49] local.DEBUG: success  

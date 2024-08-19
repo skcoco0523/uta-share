@@ -15,9 +15,6 @@ class AdminCategoryController extends Controller
     //カテゴリ設定
     public function custom_category_setting(Request $request)
     {
-
-        $tab_name="音楽";
-        $ope_type="category_setting";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
@@ -25,7 +22,7 @@ class AdminCategoryController extends Controller
         $custom_category = CustomCategoryDefine::getCustomCategory_list();
         $msg = request('msg');
         
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'custom_category', 'input', 'msg'));
+        return view('admin.admin_home', compact('custom_category', 'input', 'msg'));
     }
     //カテゴリ追加
     public function custom_category_reg(Request $request)

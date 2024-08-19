@@ -63,11 +63,17 @@ npm run build　でビルド　→build配下のファイルをアップロー�
     align-items: center;
   }
   
+  .table input.form-control, select.form-select {/* テーブルの折り返しを制限 */
+    width: auto !important;
+  }
+  .table  {
+    white-space: nowrap !important;
+  }
+
   .sub-title {
     font-size: 12px; /* 文字サイズを小さく設定 */
   }
-  
-  
+
   /*icon------------------------------------------------------------------------*/
   .icon-top {
     width: 35px;

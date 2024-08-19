@@ -11,10 +11,8 @@ use App\Models\User;
 class AdminUserController extends Controller
 {
     //検索
-    public function user_list(Request $request)
+    public function user_search(Request $request)
     {
-        $tab_name="ユーザー";
-        $ope_type="user_list";
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
@@ -30,7 +28,7 @@ class AdminUserController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'user_list', 'input', 'msg'));
+        return view('admin.admin_home', compact('user_list', 'input', 'msg'));
     }
     //削除
     public function user_del(Request $request)

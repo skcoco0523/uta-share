@@ -16,15 +16,13 @@ class AdminPlaylistController extends Controller
     //追加
     public function playlist_regist(Request $request)
     {
-        $tab_name="プレイリスト";
-        $ope_type="playlist_reg";
         //追加からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['name']);
         
         $playlist = Playlist::getPlaylist_list(5,false,null,null,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,admin_flag
         $msg = request('msg');
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist', 'input', 'msg'));
+        return view('admin.admin_home', compact('playlist', 'input', 'msg'));
     }
     //追加
     public function playlist_reg(Request $request)
@@ -53,9 +51,6 @@ class AdminPlaylistController extends Controller
     //検索
     public function playlist_search(Request $request)
     {
-        $tab_name="プレイリスト";
-        $ope_type="playlist_search";
-        
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
@@ -71,7 +66,7 @@ class AdminPlaylistController extends Controller
         $playlist = Playlist::getPlaylist_list(10,true,$input['page'],$input['keyword'],$input['admin_flag']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flag
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($playlist) === 0) ? "検索結果が0件です。" : $msg;
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist', 'input', 'msg'));
+        return view('admin.admin_home', compact('playlist', 'input', 'msg'));
     }
     //変更
     public function playlist_chg(Request $request)
@@ -91,9 +86,6 @@ class AdminPlaylistController extends Controller
     //詳細変更
     public function playlist_chg_detail(Request $request)
     {
-        $tab_name="プレイリスト";
-        $ope_type="playlist_search";    //同一テンプレート内で分岐する
-        //$ope_type="playlist_chg_detail";
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['id', 'keyword', 'admin_flag']);
@@ -111,15 +103,11 @@ class AdminPlaylistController extends Controller
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $playlist_detail === null) ? "検索結果が0件です。" : $msg;
 
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist_detail', 'playlist', 'input', 'msg'));
+        return view('admin.admin_home', compact('playlist_detail', 'playlist', 'input', 'msg'));
     }
     //詳細変更用　楽曲検索
     public function playlist_detail_search(Request $request)
     {
-        $tab_name="プレイリスト";
-        $ope_type="playlist_search";    //同一テンプレート内で分岐する
-        //$ope_type="playlist_chg_detail";
-        
         //追加 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)  $input = request('input');
         else                                 $input = $request->only(['id', 'mus_keyword', 'page']);
@@ -137,7 +125,7 @@ class AdminPlaylistController extends Controller
         $msg = request('msg');
         $msg = ($msg===NULL && $input['mus_keyword'] !==null && $music === null) ? "検索結果が0件です。" : $msg;
 
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'playlist_detail', 'playlist', 'music', 'input', 'msg'));
+        return view('admin.admin_home', compact('playlist_detail', 'playlist', 'music', 'input', 'msg'));
     }
     //詳細変更用　関数(変更・削除・追加)
     public function playlist_chg_detail_fnc(Request $request)

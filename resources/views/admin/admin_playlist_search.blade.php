@@ -30,25 +30,6 @@
     </div>
 @endif
 
-{{--検索--}}
-<form method="GET" action="{{ route('admin-playlist-search') }}">
-
-    <div class="row g-3 align-items-end">
-    <div class="col-sm-6">
-        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(ﾌﾟﾚｲﾘｽﾄ名)">
-    </div>
-    <div class="col-md-2">
-        <select id="inputState" name="admin_flag" class="form-select">
-            <option value="1" {{ ($input['admin_flag'] ?? '') == '1' ? 'selected' : '' }}>管理者</option>
-            <option value="0" {{ ($input['admin_flag'] ?? '') == '0' ? 'selected' : '' }}>ユーザー</option>
-        </select>
-    </div>
-    <div class="col-auto align-self-end">
-        <button type="submit" class="btn btn-success">検索</button>
-    </div>
-</div>
-</form>
-
 {{--プレイリスト一覧--}}
 @if(isset($playlist))
     {{--ﾊﾟﾗﾒｰﾀ--}}

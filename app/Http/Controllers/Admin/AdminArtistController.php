@@ -12,15 +12,13 @@ class AdminArtistController extends Controller
 {
     public function artist_regist(Request $request)
     {
-        $tab_name="アーティスト";
-        $ope_type="artist_reg";
         //追加からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['name', 'name2', 'debut', 'sex']);
 
         $artists = Artist::getArtist_list(5);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $msg = request('msg');
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'input', 'msg'));
+        return view('admin.admin_home', compact('artists', 'input', 'msg'));
     }
     //追加
     public function artist_reg(Request $request)
@@ -37,10 +35,7 @@ class AdminArtistController extends Controller
     }
     //検索
     public function artist_search(Request $request)
-    {
-        $tab_name="アーティスト";
-        $ope_type="artist_search";
-        
+    {        
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
@@ -51,7 +46,7 @@ class AdminArtistController extends Controller
         $artists = Artist::getArtist_list(10,true,$input['page'],$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($artists) === 0) ? "検索結果が0件です。" : $msg;
-        return view('admin.adminhome', compact('tab_name', 'ope_type', 'artists', 'input', 'msg'));
+        return view('admin.admin_home', compact('artists', 'input', 'msg'));
     }
     //変更
     public function artist_chg(Request $request)
