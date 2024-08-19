@@ -42,6 +42,11 @@
         @case("recommend_search")
             @include('admin.admin_recommend_search')
             @break
+        {{---------------- ユーザーメニュー ------------------}}
+        @case("user_list")
+            @include('admin.admin_user_list')
+            @break
+        
         @default
     @endswitch
 @endif

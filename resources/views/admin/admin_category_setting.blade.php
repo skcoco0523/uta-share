@@ -59,11 +59,11 @@
                 </td>
                 <td class="fw-light">{{$category->bit_num}}</td>
                 <td class="fw-light">
-                {{$category->sort_num}}　　
-                <div class="btn-group btn-group-sm" role="group" aria-label="">
-                    <input type="button" class="btn btn-secondary btn-sm" value="∧" onclick="category_sort_fnc('up','{{$category->id}}');" >
-                    <input type="button" class="btn btn-secondary btn-sm" value="∨" onclick="category_sort_fnc('down','{{$category->id}}');" >
-                </div>
+                    {{$category->sort_num}}　　
+                    <div class="btn-group btn-group-sm" role="group" aria-label="">
+                        <input type="button" class="btn btn-secondary btn-sm" value="∧" onclick="category_sort_fnc('up','{{$category->id}}');" >
+                        <input type="button" class="btn btn-secondary btn-sm" value="∨" onclick="category_sort_fnc('down','{{$category->id}}');" >
+                    </div>
                 </td>
                 <td class="fw-light"> 
                     <select id="disp_flag-{{$category->id}}" name="sex" class="form-select">

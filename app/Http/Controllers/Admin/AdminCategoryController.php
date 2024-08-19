@@ -12,10 +12,6 @@ use App\Models\CustomCategoryDefine;
 //カテゴリコントローラー
 class AdminCategoryController extends Controller
 {
-    public function home()
-    {
-        return view('admin.adminhome');
-    }
     //カテゴリ設定
     public function custom_category_setting(Request $request)
     {

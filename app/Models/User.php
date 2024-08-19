@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -53,6 +53,38 @@ class User extends Authenticatable
         'birthdate' => 'date',
     ];
     
+
+    //ユーザーリスト取得
+    public static function getUser_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$sort_flag=false)
+    {
+        $sql_cmd = DB::table('users');
+        if($keyword){
+                                            $sql_cmd = $sql_cmd->where('name', 'like', "%$keyword%");
+                                            $sql_cmd = $sql_cmd->orwhere('email', 'like', "%$keyword%");
+        }
+        //ソート条件を判定
+        if ($sort_flag)                     $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
+        else                                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
+
+        //dd($user_flag);
+        // ページング・取得件数指定・全件で分岐
+        if ($pageing){
+            if ($disp_cnt === null) $disp_cnt=5;
+            $sql_cmd = $sql_cmd->paginate($disp_cnt, ['*'], 'page', $page);
+        }                       
+        elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+        else                                $sql_cmd = $sql_cmd->get();
+
+        $user_list = $sql_cmd;
+        foreach($user_list as $key => $user){
+            $user->favorite_cnt = "favorite_cnt";
+            $user->friend_cnt = "friend_cnt";
+            $user->playlist_cnt = "playlist_cnt";
+        }
+
+        return $user_list;
+    }
+
     //プロフィール情報取得
     public static function profile_get($user_id)
     {
@@ -81,7 +113,7 @@ class User extends Authenticatable
             if(isset($data['mail_flag']))       $updateData['mail_flag']    = $data['mail_flag'];
             
             make_error_log("chgProfile.log","after_data=".print_r($data,1));
-            User::where('id', $data['id'])->update($updateData);
+            User::where('id', $chgProfile['id'])->update($updateData);
 
             make_error_log("chgProfile.log","success");
             return ['error_code' => 0];   //更新成功

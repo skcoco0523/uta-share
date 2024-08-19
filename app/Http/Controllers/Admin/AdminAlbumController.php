@@ -14,11 +14,6 @@ use App\Models\Affiliate;
 //アルバムコントローラー
 class AdminAlbumController extends Controller
 {
-    public function home()
-    {
-        return view('admin.adminhome');
-    }
-    
     //追加
     public function album_regist(Request $request)
     {

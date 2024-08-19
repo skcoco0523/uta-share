@@ -14,10 +14,7 @@ use App\Models\Playlist;
 //おすすめコントローラー
 class AdminRecommendController extends Controller
 {
-    public function home()
-    {
-        return view('admin.adminhome');
-    }
+    //追加
     public function recommend_regist(Request $request)
     {
         $tab_name="おすすめ";

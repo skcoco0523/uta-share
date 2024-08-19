@@ -30,28 +30,28 @@
                 @endauth
                 <ul class="nav nav-underline">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin-music-reg') }}">音楽</a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => '音楽']) }}">音楽</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin-album-reg') }}">アルバム</a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => 'アルバム']) }}">アルバム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin-artist-reg') }}">アーティスト</a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => 'アーティスト']) }}">アーティスト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin-playlist-reg') }}">プレイリスト</a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => 'プレイリスト']) }}">プレイリスト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin-recommend-reg') }}">おすすめ</a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => 'おすすめ']) }}">おすすめ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=""></a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => 'ユーザー']) }}">ユーザー</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=""></a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => '通知']) }}">通知</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=""></a>
+                        <a class="nav-link" href="{{ route('admin-home', ['tab_name' => 'その他']) }}">その他</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href=""></a>

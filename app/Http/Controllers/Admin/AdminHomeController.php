@@ -12,8 +12,9 @@ use Illuminate\Http\Request;
 //ホームコントローラー
 class AdminHomeController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        return view('admin.adminhome');
+        $tab_name = request('tab_name');
+        return view('admin.adminhome', compact('tab_name'));
     }
 }

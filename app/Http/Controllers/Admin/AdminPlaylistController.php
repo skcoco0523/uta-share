@@ -13,11 +13,7 @@ use App\Models\Music;
 //プレイリストコントローラー
 class AdminPlaylistController extends Controller
 {
-    public function home()
-    {
-        return view('admin.adminhome');
-    }
-
+    //追加
     public function playlist_regist(Request $request)
     {
         $tab_name="プレイリスト";

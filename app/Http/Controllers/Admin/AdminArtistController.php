@@ -10,11 +10,6 @@ use App\Models\Artist;
 //アーティストコントローラー
 class AdminArtistController extends Controller
 {
-    public function home()
-    {
-        return view('admin.adminhome');
-    }
-
     public function artist_regist(Request $request)
     {
         $tab_name="アーティスト";

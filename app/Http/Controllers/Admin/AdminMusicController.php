@@ -14,10 +14,6 @@ use App\Models\Affiliate;
 //ミュージックコントローラー
 class AdminMusicController extends Controller
 {
-    public function home()
-    {
-        return view('admin.adminhome');
-    }
     //追加
     public function music_regist(Request $request)
     {
