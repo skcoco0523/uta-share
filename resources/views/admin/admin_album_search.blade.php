@@ -94,9 +94,11 @@
                 <td class="fw-light">{{$alb->release_date}}</td>
                 <td class="fw-light">{{$alb->created_at}}</td>
                 <td class="fw-light">{{$alb->updated_at}}</td>
-                <td><a href="{{ $alb->href }}">
-                    <img src="{{ $alb->src }}" style="object-fit: cover; width: 100px; height: 100px;" alt="album_image">
-                </a></td>
+                <td class="fw-light">
+                    <a class="icon-55" href="{{ $alb->href }}">
+                        <img src="{{ $alb->src }}" style="object-fit: contain; width: 100%; height: 100%;" alt="album_image">
+                    </a>
+                </td>
                 <td class="fw-light">
                     <form method="GET" action="{{ route('admin-album-chgdetail') }}">
                         <input type="hidden" name="id" value="{{$alb->id}}">
