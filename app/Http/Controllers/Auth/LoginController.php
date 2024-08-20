@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
+use App\Models\UserLog; 
+
 class LoginController extends Controller
 {
     /*
@@ -41,6 +43,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        UserLog::create_user_log("login");
         // ユーザーが認証された後にデバイス情報を登録するためフロントで識別できるようにする
 
         return redirect()->intended($this->redirectPath() . '?login=success');
