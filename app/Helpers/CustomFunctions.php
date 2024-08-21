@@ -18,6 +18,26 @@ if (! function_exists('make_error_log')) {
     }
 }
 
+//リクエストからデータ取得
+if (! function_exists('get_input')) {
+    /**
+     * Custom function to make error log.
+     *
+     * @param  string  $file_name
+     * @param  mixed  $prm
+     * @return void
+     */
+    function get_input($input, $key)
+    {
+        $value = $input[$key] ?? null;
+        // 値が存在し、かつ空でない場合、その値を返す
+        if (isset($value) && $value !== '') {
+            return $value;
+        }
+        // 値がnullまたは空の場合はnullを返す
+        return null;        
+    }
+}
 
 //画像情報付与 aff_idに対して、画像格納を合わせて返す 20240122 kanno
 if (! function_exists('setAffData')) {

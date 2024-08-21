@@ -59,12 +59,34 @@ class User extends Authenticatable
     {
         $sql_cmd = DB::table('users');
         if($keyword){
-                                            $sql_cmd = $sql_cmd->where('name', 'like', "%$keyword%");
-                                            $sql_cmd = $sql_cmd->orwhere('email', 'like', "%$keyword%");
+            if($keyword['search_name'])
+                $sql_cmd = $sql_cmd->where('name', 'like', '%'. $keyword['search_name']. '%');
+
+            if($keyword['search_email'])
+                $sql_cmd = $sql_cmd->where('email', 'like', '%'. $keyword['search_email']. '%');
+
+            if($keyword['search_friendcode'])
+                $sql_cmd = $sql_cmd->where('friend_code', 'like', '%'. $keyword['search_friendcode']. '%');
+
+            if(is_numeric($keyword['search_gender']))
+                $sql_cmd = $sql_cmd->where('gender',$keyword['search_gender']);
+
+            if(is_numeric($keyword['search_release_flag']))
+                $sql_cmd = $sql_cmd->where('release_flag',$keyword['search_release_flag']);
+
+            if(is_numeric($keyword['search_mail_flag']))
+                $sql_cmd = $sql_cmd->where('mail_flag',$keyword['search_mail_flag']);
+
+            if(is_numeric($keyword['search_admin_flag']))
+                $sql_cmd = $sql_cmd->where('admin_flag',$keyword['search_admin_flag']);
+                
         }
+        
         //ソート条件を判定
-        if ($sort_flag)                     $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
-        else                                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
+        if ($sort_flag)
+            $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
+        else
+            $sql_cmd = $sql_cmd->orderBy('created_at', 'asc');
 
         //dd($user_flag);
         // ページング・取得件数指定・全件で分岐
@@ -77,9 +99,17 @@ class User extends Authenticatable
 
         $user_list = $sql_cmd;
         foreach($user_list as $key => $user){
-            $user->favorite_cnt = "favorite_cnt";
-            $user->friend_cnt = "friend_cnt";
-            $user->playlist_cnt = "playlist_cnt";
+            //ログイン回数、最終ﾛｸﾞｲﾝ日取得
+
+            $login_data = DB::table('user_logs')
+                            ->selectRaw('COUNT(*) as login_count, MAX(created_at) as last_login_date')
+                            ->where('type', 'login')->where('user_id', $user->id)->first();
+            $user->login_cnt        = $login_data->login_count;
+            $user->last_login_date  = $login_data->last_login_date;
+
+            $user->favorite_cnt = DB::table('favorite_mus')->where('user_id', $user->id)->count();
+            $user->friend_cnt   = DB::table('friendlists')->where('user_id', $user->id)->where('status', 1)->count();
+            $user->playlist_cnt = DB::table('playlist')->where('user_id', $user->id)->count();
         }
 
         return $user_list;

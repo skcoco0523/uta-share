@@ -16,11 +16,18 @@ class AdminUserController extends Controller
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
-        if (empty($input['keyword']))               $input['keyword']=null;
-        // 現在のページ番号を取得。指定がない場合は1を使用
-        if (empty($input['page']))              $input['page'] = 1;
+        
+        $input['search_name']           = get_input($input,"search_name");
+        $input['search_email']          = get_input($input,"search_email");
+        $input['search_friendcode']     = get_input($input,"search_friendcode");
+        $input['search_gender']         = get_input($input,"search_gender");
+        $input['search_release_flag']   = get_input($input,"search_release_flag");
+        $input['search_mail_flag']      = get_input($input,"search_mail_flag");
+        $input['search_admin_flag']     = get_input($input,"search_admin_flag");
 
-        $user_list = User::getUser_list(15,true,$input['page'],$input['keyword']);    //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,sort(1:,2:,3:,4:)
+        $input['page']              = get_input($input,"page");
+
+        $user_list = User::getUser_list(15,true,$input['page'],$input);    //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,sort(1:,2:,3:,4:)
         //dd($user_list);
         $msg = request('msg');
         
@@ -31,6 +38,7 @@ class AdminUserController extends Controller
         return view('admin.admin_home', compact('user_list', 'input', 'msg'));
     }
     //削除
+    /*
     public function user_del(Request $request)
     {
         $input = $request->all();
@@ -41,6 +49,7 @@ class AdminUserController extends Controller
 
         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
     }
+    */
     //変更
     public function user_chg(Request $request)
     {
