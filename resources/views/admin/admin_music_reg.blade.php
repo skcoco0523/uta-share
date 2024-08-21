@@ -75,9 +75,11 @@
                 <td class="fw-light">{{$music->link}}</td>
                 <td class="fw-light">{{$artist->created_at}}</td>
                 <td class="fw-light">{{$artist->updated_at}}</td>
-                <td><a href="{{ $music->href }}">
-                    <img src="{{ $music->src }}" style="object-fit: cover; width: 100px; height: 100px;" alt="music_image">
-                </a></td>
+                <td class="fw-light">
+                    <a class="icon-55" href="{{ $music->href }}">
+                        <img src="{{ $music->src }}" style="object-fit: contain; width: 100%; height: 100%;" alt="music_image">
+                    </a>
+                </td>
             </tr>
         @endforeach
         </tbody>
