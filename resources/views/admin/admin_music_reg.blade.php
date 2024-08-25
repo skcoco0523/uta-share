@@ -55,35 +55,37 @@
 
 {{--曲登録履歴--}}
 @if(isset($musics))
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">曲名</th>
-            <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
-            <th scope="col" class="fw-light">ﾘﾘｰｽ日</th>
-            <th scope="col" class="fw-light">ﾘﾝｸ</th>
-            <th scope="col" class="fw-light">データ登録日</th>
-            <th scope="col" class="fw-light">データ更新日</th>
-            <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
-        </tr>
-        </thead>
-        @foreach($musics as $music)
+    <div style="overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$music->name}}</td>
-                <td class="fw-light">{{$music->art_name}}</td>
-                <td class="fw-light">{{$music->release_date}}</td>
-                <td class="fw-light">{{$music->link}}</td>
-                <td class="fw-light">{{$artist->created_at}}</td>
-                <td class="fw-light">{{$artist->updated_at}}</td>
-                <td class="fw-light">
-                    <a class="icon-55" href="{{ $music->href }}">
-                        <img src="{{ $music->src }}" style="object-fit: contain; width: 100%; height: 100%;" alt="music_image">
-                    </a>
-                </td>
+                <th scope="col" class="fw-light">曲名</th>
+                <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
+                <th scope="col" class="fw-light">ﾘﾘｰｽ日</th>
+                <th scope="col" class="fw-light">ﾘﾝｸ</th>
+                <th scope="col" class="fw-light">データ登録日</th>
+                <th scope="col" class="fw-light">データ更新日</th>
+                <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($musics as $music)
+                <tr>
+                    <td class="fw-light">{{$music->name}}</td>
+                    <td class="fw-light">{{$music->art_name}}</td>
+                    <td class="fw-light">{{$music->release_date}}</td>
+                    <td class="fw-light">{{$music->link}}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $music->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $music->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <a class="icon-55" href="{{ $music->href }}">
+                            <img src="{{ $music->src }}" style="object-fit: contain; width: 100%; height: 100%;" alt="music_image">
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endif
 
 <script>

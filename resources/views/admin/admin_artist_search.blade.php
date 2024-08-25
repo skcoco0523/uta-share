@@ -47,46 +47,48 @@
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $artists,'additionalParams' => $additionalParams,])
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">#</th>
-            <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</th>
-            <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ｻﾌﾞ)</th>
-            <th scope="col" class="fw-light">ﾃﾞﾋﾞｭｰ日</th>
-            <th scope="col" class="fw-light">その他</th>
-            <th scope="col" class="fw-light">データ登録日</th>
-            <th scope="col" class="fw-light">データ更新日</th>
-            <th scope="col" class="fw-light"></th>
-        </tr>
-        </thead>
-        @foreach($artists as $artist)
+    <div style="overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$artist->id}}</td>
-                <td class="fw-light">{{$artist->name}}</td>
-                <td class="fw-light">{{$artist->name2}}</td>
-                <td class="fw-light">{{$artist->debut}}</td>
-                <td class="fw-light">
-                    @if($artist->sex === 0)     ｸﾞﾙｰﾌﾟ
-                    @elseif($artist->sex === 1) 男性
-                    @elseif($artist->sex === 2) 女性
-                    @endif
-                </td>
-                <td class="fw-light">{{$artist->created_at}}</td>
-                <td class="fw-light">{{$artist->updated_at}}</td>
-                <td class="fw-light">
-                    <form method="POST" action="{{ route('admin-artist-del') }}">
-                        @csrf
-                        <input type="hidden" name="id" value="{{$artist->id}}">
-                        <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
-                        <input type="submit" value="削除" class="btn btn-danger">
-                    </form>
-                </td>
+                <th scope="col" class="fw-light">#</th>
+                <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</th>
+                <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ｻﾌﾞ)</th>
+                <th scope="col" class="fw-light">ﾃﾞﾋﾞｭｰ日</th>
+                <th scope="col" class="fw-light">その他</th>
+                <th scope="col" class="fw-light">データ登録日</th>
+                <th scope="col" class="fw-light">データ更新日</th>
+                <th scope="col" class="fw-light"></th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($artists as $artist)
+                <tr>
+                    <td class="fw-light">{{$artist->id}}</td>
+                    <td class="fw-light">{{$artist->name}}</td>
+                    <td class="fw-light">{{$artist->name2}}</td>
+                    <td class="fw-light">{{$artist->debut}}</td>
+                    <td class="fw-light">
+                        @if($artist->sex === 0)     ｸﾞﾙｰﾌﾟ
+                        @elseif($artist->sex === 1) 男性
+                        @elseif($artist->sex === 2) 女性
+                        @endif
+                    </td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $artist->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $artist->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <form method="POST" action="{{ route('admin-artist-del') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$artist->id}}">
+                            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+                            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+                            <input type="submit" value="削除" class="btn btn-danger">
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $artists,'additionalParams' => $additionalParams,])
 @endif

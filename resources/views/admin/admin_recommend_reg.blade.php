@@ -31,35 +31,37 @@
 
 {{--あすすめ登録履歴--}}
 @if(isset($recommend))
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">登録名</th>
-            <th scope="col" class="fw-light">カテゴリ</th>
-            <th scope="col" class="fw-light">登録数</th>
-            <th scope="col" class="fw-light">表示順</th>
-            <th scope="col" class="fw-light">登録者</th>
-            <th scope="col" class="fw-light">データ登録日</th>
-            <th scope="col" class="fw-light">データ更新日</th>
-        </tr>
-        </thead>
-        @foreach($recommend as $recom)
+    <div style="overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$recom->name}}</td>
-                <td class="fw-light">
-                @if($recom->category === 0)         曲
-                    @elseif($recom->category === 1) アーティスト
-                    @elseif($recom->category === 2) アルバム
-                    @elseif($recom->category === 3) プレイリスト
-                @endif
-                </td>
-                <td class="fw-light">{{$recom->detail_cnt}}</td>
-                <td class="fw-light">{{$recom->sort_num}}</td>
-                <td class="fw-light">{{$recom->user_name}}</td>
-                <td class="fw-light">{{$recom->created_at}}</td>
-                <td class="fw-light">{{$recom->updated_at}}</td>
+                <th scope="col" class="fw-light">登録名</th>
+                <th scope="col" class="fw-light">カテゴリ</th>
+                <th scope="col" class="fw-light">登録数</th>
+                <th scope="col" class="fw-light">表示順</th>
+                <th scope="col" class="fw-light">登録者</th>
+                <th scope="col" class="fw-light">データ登録日</th>
+                <th scope="col" class="fw-light">データ更新日</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($recommend as $recom)
+                <tr>
+                    <td class="fw-light">{{$recom->name}}</td>
+                    <td class="fw-light">
+                    @if($recom->category === 0)         曲
+                        @elseif($recom->category === 1) アーティスト
+                        @elseif($recom->category === 2) アルバム
+                        @elseif($recom->category === 3) プレイリスト
+                    @endif
+                    </td>
+                    <td class="fw-light">{{$recom->detail_cnt}}</td>
+                    <td class="fw-light">{{$recom->sort_num}}</td>
+                    <td class="fw-light">{{$recom->user_name}}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $recom->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $recom->updated_at) !!}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endif

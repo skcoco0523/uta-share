@@ -58,35 +58,38 @@
 {{--アルバム登録履歴--}}
 @if(isset($albums))
     
-    <label class="form-label">最近追加されたアルバム</label>
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">ｱﾙﾊﾞﾑ名</th>
-            <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
-            <th scope="col" class="fw-light">収録数</th>
-            <th scope="col" class="fw-light">ﾘﾘｰｽ</th>
-            <th scope="col" class="fw-light">ﾃﾞｰﾀ登録日</th>
-            <th scope="col" class="fw-light">ﾃﾞｰﾀ更新日</th>
-            <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
-        </tr>
-        </thead>
-        @foreach($albums as $album)
+    <div style="overflow-x: auto;">
+        <label class="form-label">最近追加されたアルバム</label>
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$album->name}}</td>
-                <td class="fw-light">{{$album->art_name}}</td>
-                <td class="fw-light">{{$album->mus_cnt}}</td>
-                <td class="fw-light">{{$album->release_date}}</td>
-                <td class="fw-light">{{$album->created_at}}</td>
-                <td class="fw-light">{{$album->updated_at}}</td>
-                <td><a href="{{ $album->href }}">
-                    <img src="{{ $album->src }}" style="object-fit: cover; width: 100px; height: 100px;" alt="album_image">
-                </a></td>
-                
+                <th scope="col" class="fw-light">ｱﾙﾊﾞﾑ名</th>
+                <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
+                <th scope="col" class="fw-light">収録数</th>
+                <th scope="col" class="fw-light">ﾘﾘｰｽ</th>
+                <th scope="col" class="fw-light">ﾃﾞｰﾀ登録日</th>
+                <th scope="col" class="fw-light">ﾃﾞｰﾀ更新日</th>
+                <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($albums as $album)
+                <tr>
+                    <td class="fw-light">{{$album->name}}</td>
+                    <td class="fw-light">{{$album->art_name}}</td>
+                    <td class="fw-light">{{$album->mus_cnt}}</td>
+                    <td class="fw-light">{{$album->release_date}}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $album->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $album->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <a class="icon-55" href="{{ $album->href }}">
+                            <img src="{{ $album->src }}" style="object-fit: contain; width: 100%; height: 100%;" alt="album_image">
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endif
 
 <script>

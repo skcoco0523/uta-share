@@ -41,54 +41,56 @@
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $playlist,'additionalParams' => $additionalParams,])
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">#</th>
-            <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
-            <th scope="col" class="fw-light">登録曲数</th>
-            <th scope="col" class="fw-light">登録者</th>
-            <th scope="col" class="fw-light">種別</th>
-            <th scope="col" class="fw-light">データ登録日</th>
-            <th scope="col" class="fw-light">データ更新日</th>
-            <th scope="col" class="fw-light">詳細変更</th>
-            <th scope="col" class="fw-light"></th>
-        </tr>
-        </thead>
-        @foreach($playlist as $pl)
+    <div style="overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$pl->id}}</td>
-                <td class="fw-light">{{$pl->name}}</td>
-                <td class="fw-light">{{$pl->mus_cnt}}</td>
-                <td class="fw-light">{{$pl->user_name}}</td>
-                <td class="fw-light">
-                    @if($pl->admin_flag === 0)     ユーザー
-                    @elseif($pl->admin_flag === 1) 管理者
-                    @endif
-                </td>
-                <td class="fw-light">{{$pl->created_at}}</td>
-                <td class="fw-light">{{$pl->updated_at}}</td>
-                <td class="fw-light">
-                    <form method="GET" action="{{ route('admin-playlist-chgdetail') }}">
-                        <input type="hidden" name="id" value="{{$pl->id}}">
-                        <input type="submit" value="収録曲変更" class="btn btn-primary">
-                    </form>
-                </td>
-                <td class="fw-light">
-                    <form method="POST" action="{{ route('admin-playlist-del') }}">
-                        @csrf
-                        <input type="hidden" name="pl_id" value="{{$pl->id}}">
-                        <input type="hidden" name="pl_name" value="{{$pl->name}}">
-                        <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                        <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
-                        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
-                        <input type="submit" value="削除" class="btn btn-danger">
-                    </form>
-                </td>
+                <th scope="col" class="fw-light">#</th>
+                <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
+                <th scope="col" class="fw-light">登録曲数</th>
+                <th scope="col" class="fw-light">登録者</th>
+                <th scope="col" class="fw-light">種別</th>
+                <th scope="col" class="fw-light">データ登録日</th>
+                <th scope="col" class="fw-light">データ更新日</th>
+                <th scope="col" class="fw-light">詳細変更</th>
+                <th scope="col" class="fw-light"></th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($playlist as $pl)
+                <tr>
+                    <td class="fw-light">{{$pl->id}}</td>
+                    <td class="fw-light">{{$pl->name}}</td>
+                    <td class="fw-light">{{$pl->mus_cnt}}</td>
+                    <td class="fw-light">{{$pl->user_name}}</td>
+                    <td class="fw-light">
+                        @if($pl->admin_flag === 0)     ユーザー
+                        @elseif($pl->admin_flag === 1) 管理者
+                        @endif
+                    </td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $pl->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $pl->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <form method="GET" action="{{ route('admin-playlist-chgdetail') }}">
+                            <input type="hidden" name="id" value="{{$pl->id}}">
+                            <input type="submit" value="収録曲変更" class="btn btn-primary">
+                        </form>
+                    </td>
+                    <td class="fw-light">
+                        <form method="POST" action="{{ route('admin-playlist-del') }}">
+                            @csrf
+                            <input type="hidden" name="pl_id" value="{{$pl->id}}">
+                            <input type="hidden" name="pl_name" value="{{$pl->name}}">
+                            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+                            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
+                            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+                            <input type="submit" value="削除" class="btn btn-danger">
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $playlist,'additionalParams' => $additionalParams,])
 @endif

@@ -37,49 +37,50 @@
 
 {{--カテゴリ一覧--}}
 @if(isset($custom_category))
-
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">#</th>
-            <th scope="col" class="fw-light">登録名</th>
-            <th scope="col" class="fw-light">ビット番号</th>
-            <th scope="col" class="fw-light">表示順</th>
-            <th scope="col" class="fw-light">表示状態</th>
-            <th scope="col" class="fw-light">データ登録日</th>
-            <th scope="col" class="fw-light">データ更新日</th>
-            <th scope="col" class="fw-light"></th>
-        </tr>
-        </thead>
-        @foreach($custom_category as $category)
+    <div style="overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$category->id}}</td>
-                <td class="fw-light">
-                    <input id="name-{{$category->id}}" type="text" name="name" class="form-control" placeholder="name" value="{{$category->name}}">
-                </td>
-                <td class="fw-light">{{$category->bit_num}}</td>
-                <td class="fw-light">
-                    {{$category->sort_num}}　　
-                    <div class="btn-group btn-group-sm" role="group" aria-label="">
-                        <input type="button" class="btn btn-secondary btn-sm" value="∧" onclick="category_sort_fnc('up','{{$category->id}}');" >
-                        <input type="button" class="btn btn-secondary btn-sm" value="∨" onclick="category_sort_fnc('down','{{$category->id}}');" >
-                    </div>
-                </td>
-                <td class="fw-light"> 
-                    <select id="disp_flag-{{$category->id}}" name="sex" class="form-select">
-                        <option value="0" {{ $category->disp_flag == '0' ? 'selected' : '' }}>非表示</option>
-                        <option value="1" {{ $category->disp_flag == '1' ? 'selected' : '' }}>表示</option>
-                    </select>
-                </td>
-                <td class="fw-light">{{$category->created_at}}</td>
-                <td class="fw-light">{{$category->updated_at}}</td>
-                <td class="fw-light">
-                    <input type="button" class="btn btn-primary" value="更新" onclick="category_chg_fnc('{{$category->id}}');" >
-                </td>
+                <th scope="col" class="fw-light">#</th>
+                <th scope="col" class="fw-light">登録名</th>
+                <th scope="col" class="fw-light">ビット番号</th>
+                <th scope="col" class="fw-light">表示順</th>
+                <th scope="col" class="fw-light">表示状態</th>
+                <th scope="col" class="fw-light">データ登録日</th>
+                <th scope="col" class="fw-light">データ更新日</th>
+                <th scope="col" class="fw-light"></th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($custom_category as $category)
+                <tr>
+                    <td class="fw-light">{{$category->id}}</td>
+                    <td class="fw-light">
+                        <input id="name-{{$category->id}}" type="text" name="name" class="form-control" placeholder="name" value="{{$category->name}}">
+                    </td>
+                    <td class="fw-light">{{$category->bit_num}}</td>
+                    <td class="fw-light">
+                        {{$category->sort_num}}　　
+                        <div class="btn-group btn-group-sm" role="group" aria-label="">
+                            <input type="button" class="btn btn-secondary btn-sm" value="∧" onclick="category_sort_fnc('up','{{$category->id}}');" >
+                            <input type="button" class="btn btn-secondary btn-sm" value="∨" onclick="category_sort_fnc('down','{{$category->id}}');" >
+                        </div>
+                    </td>
+                    <td class="fw-light"> 
+                        <select id="disp_flag-{{$category->id}}" name="sex" class="form-select">
+                            <option value="0" {{ $category->disp_flag == '0' ? 'selected' : '' }}>非表示</option>
+                            <option value="1" {{ $category->disp_flag == '1' ? 'selected' : '' }}>表示</option>
+                        </select>
+                    </td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $category->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $category->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <input type="button" class="btn btn-primary" value="更新" onclick="category_chg_fnc('{{$category->id}}');" >
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 
     {{--表示順変更--}}
     <form name="category_sort_chg_form" method="POST" action="{{ route('admin-custom-category-sort-chg') }}">

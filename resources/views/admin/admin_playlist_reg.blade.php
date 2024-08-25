@@ -23,25 +23,27 @@
 
 {{--プレイリスト登録履歴--}}
 @if(isset($playlist))
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
-            <th scope="col" class="fw-light">登録曲数</th>
-            <th scope="col" class="fw-light">登録者</th>
-            <th scope="col" class="fw-light">データ登録日</th>
-            <th scope="col" class="fw-light">データ更新日</th>
-        </tr>
-        </thead>
-        @foreach($playlist as $pl)
+    <div style="overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$pl->name}}</td>
-                <td class="fw-light">{{$pl->mus_cnt}}</td>
-                <td class="fw-light">{{$pl->user_name}}</td>
-                <td class="fw-light">{{$pl->created_at}}</td>
-                <td class="fw-light">{{$pl->updated_at}}</td>
+                <th scope="col" class="fw-light">ﾌﾟﾚｲﾘｽﾄ名</th>
+                <th scope="col" class="fw-light">登録曲数</th>
+                <th scope="col" class="fw-light">登録者</th>
+                <th scope="col" class="fw-light">データ登録日</th>
+                <th scope="col" class="fw-light">データ更新日</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($playlist as $pl)
+                <tr>
+                    <td class="fw-light">{{$pl->name}}</td>
+                    <td class="fw-light">{{$pl->mus_cnt}}</td>
+                    <td class="fw-light">{{$pl->user_name}}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $pl->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $pl->updated_at) !!}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endif

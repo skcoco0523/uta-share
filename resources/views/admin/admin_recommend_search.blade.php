@@ -55,75 +55,77 @@
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
-    <table class="table table-striped table-hover table-bordered fs-6 ">
-        <thead>
-        <tr>
-            <th scope="col" class="fw-light">#</th>
-            <th scope="col" class="fw-light">登録名</th>
-            <th scope="col" class="fw-light">カテゴリ</th>
-            <th scope="col" class="fw-light">登録数</th>
-            <th scope="col" class="fw-light">表示順</th>
-            <th scope="col" class="fw-light">表示状態</th>
-            <th scope="col" class="fw-light">登録者</th>
-            <th scope="col" class="fw-light">データ登録日</th>
-            <th scope="col" class="fw-light">データ更新日</th>
-            <th scope="col" class="fw-light">詳細変更</th>
-            <th scope="col" class="fw-light"></th>
-        </tr>
-        </thead>
-        @foreach($recommend as $recom)
+    <div style="overflow-x: auto;">
+        <table class="table table-striped table-hover table-bordered fs-6 ">
+            <thead>
             <tr>
-                <td class="fw-light">{{$recom->id}}</td>
-                <td class="fw-light">{{$recom->name}}</td>
-                <td class="fw-light">
-                @if($recom->category === 0)     曲
-                @elseif($recom->category === 1) アーティスト
-                @elseif($recom->category === 2) アルバム
-                @elseif($recom->category === 3) プレイリスト
-                @endif
-                </td>
-                <td class="fw-light">{{$recom->detail_cnt}}</td>
-                <td class="fw-light">
-                    {{$recom->sort_num}}　　
-                    {{--カテゴリ検索時のみ表示順変更可能--}}
-                    @if($input['category']!=null)
-                    <div class="btn-group btn-group-sm" role="group" aria-label="">
-                        <input type="button" class="btn btn-secondary btn-sm" value="∧" onclick="recom_sort_fnc('up','{{$recom->id}}');" >
-                        <input type="button" class="btn btn-secondary btn-sm" value="∨" onclick="recom_sort_fnc('down','{{$recom->id}}');" >
-                    </div>
-                    @endif
-                </td>
-                <td class="fw-light">
-                @if($recom->disp_flag === 0)         非表示
-                    @elseif($recom->disp_flag === 1) 表示
-                @endif
-                </td>
-                <td class="fw-light">{{$recom->user_name}}</td>
-                <td class="fw-light">{{$recom->created_at}}</td>
-                <td class="fw-light">{{$recom->updated_at}}</td>
-                <td class="fw-light">
-                    <form method="GET" action="{{ route('admin-recommend-chgdetail') }}">
-                        <input type="hidden" name="id" value="{{$recom->id}}">
-                        <input type="hidden" name="category" value="{{$recom->category}}">
-                        <input type="submit" value="詳細変更" class="btn btn-primary">
-                    </form>
-                </td>
-                <td class="fw-light">
-                    <form method="POST" action="{{ route('admin-recommend-del') }}">
-                        @csrf
-                        <input type="hidden" name="recom_id" value="{{$recom->id}}">
-                        <input type="hidden" name="recom_name" value="{{$recom->name}}">
-                        <input type="hidden" name="category" value="{{$input['category'] ?? ''}}">
-                        <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                        <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
-                        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
-                        <input type="submit" value="削除" class="btn btn-danger">
-                    </form>
-                </td>
+                <th scope="col" class="fw-light">#</th>
+                <th scope="col" class="fw-light">登録名</th>
+                <th scope="col" class="fw-light">カテゴリ</th>
+                <th scope="col" class="fw-light">登録数</th>
+                <th scope="col" class="fw-light">表示順</th>
+                <th scope="col" class="fw-light">表示状態</th>
+                <th scope="col" class="fw-light">登録者</th>
+                <th scope="col" class="fw-light">データ登録日</th>
+                <th scope="col" class="fw-light">データ更新日</th>
+                <th scope="col" class="fw-light">詳細変更</th>
+                <th scope="col" class="fw-light"></th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            @foreach($recommend as $recom)
+                <tr>
+                    <td class="fw-light">{{$recom->id}}</td>
+                    <td class="fw-light">{{$recom->name}}</td>
+                    <td class="fw-light">
+                    @if($recom->category === 0)     曲
+                    @elseif($recom->category === 1) アーティスト
+                    @elseif($recom->category === 2) アルバム
+                    @elseif($recom->category === 3) プレイリスト
+                    @endif
+                    </td>
+                    <td class="fw-light">{{$recom->detail_cnt}}</td>
+                    <td class="fw-light">
+                        {{$recom->sort_num}}　　
+                        {{--カテゴリ検索時のみ表示順変更可能--}}
+                        @if($input['category']!=null)
+                        <div class="btn-group btn-group-sm" role="group" aria-label="">
+                            <input type="button" class="btn btn-secondary btn-sm" value="∧" onclick="recom_sort_fnc('up','{{$recom->id}}');" >
+                            <input type="button" class="btn btn-secondary btn-sm" value="∨" onclick="recom_sort_fnc('down','{{$recom->id}}');" >
+                        </div>
+                        @endif
+                    </td>
+                    <td class="fw-light">
+                    @if($recom->disp_flag === 0)         非表示
+                        @elseif($recom->disp_flag === 1) 表示
+                    @endif
+                    </td>
+                    <td class="fw-light">{{$recom->user_name}}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $recom->created_at) !!}</td>
+                    <td class="fw-light">{!! str_replace(' ', '<br>', $recom->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <form method="GET" action="{{ route('admin-recommend-chgdetail') }}">
+                            <input type="hidden" name="id" value="{{$recom->id}}">
+                            <input type="hidden" name="category" value="{{$recom->category}}">
+                            <input type="submit" value="詳細変更" class="btn btn-primary">
+                        </form>
+                    </td>
+                    <td class="fw-light">
+                        <form method="POST" action="{{ route('admin-recommend-del') }}">
+                            @csrf
+                            <input type="hidden" name="recom_id" value="{{$recom->id}}">
+                            <input type="hidden" name="recom_name" value="{{$recom->name}}">
+                            <input type="hidden" name="category" value="{{$input['category'] ?? ''}}">
+                            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+                            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
+                            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+                            <input type="submit" value="削除" class="btn btn-danger">
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
     @include('admin.layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
 
     {{--表示順変更--}}
