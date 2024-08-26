@@ -19,6 +19,7 @@ return new class extends Migration
 
             // 外部キー制約
             $table->foreign('pl_id')->references('id')->on('playlist')->onDelete('cascade');
+            $table->foreign('mus_id')->references('id')->on('musics')->onDelete('cascade');
             
             // インデックスの追加
             $table->index('pl_id');

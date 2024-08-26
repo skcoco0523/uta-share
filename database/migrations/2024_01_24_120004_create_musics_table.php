@@ -22,8 +22,9 @@ return new class extends Migration
             $table->timestamps();
     
             // 外部キー制約の追加なども可能
-            //$table->foreign('alb_id')->references('id')->on('albums');
+            $table->foreign('alb_id')->references('id')->on('albums')->onDelete('cascade');
             $table->foreign('art_id')->references('id')->on('artists')->onDelete('cascade');
+            $table->foreign('aff_id')->references('id')->on('affiliates')->onDelete('set null');
             
             // インデックスの追加
             $table->index('alb_id');

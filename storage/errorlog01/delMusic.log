@@ -153,3 +153,6 @@
 [2024-08-26 16:17:26] local.DEBUG: -------start-------  
 [2024-08-26 16:17:26] local.DEBUG: delete_mus_id=405  
 [2024-08-26 16:17:26] local.DEBUG: success  
+[2024-08-26 16:48:51] local.DEBUG: -------start-------  
+[2024-08-26 16:48:51] local.DEBUG: delete_mus_id=406  
+[2024-08-26 16:48:51] local.DEBUG: success  

@@ -24,3 +24,17 @@
     [sex] => 1
 )
   
+[2024-08-26 16:43:52] local.DEBUG: after_data=Array
+(
+    [name] => ケツメイシ１
+    [debut] => 2001-04-01
+    [sex] => 1
+)
+  
+[2024-08-26 16:43:56] local.DEBUG: after_data=Array
+(
+    [name] => ケツメイシ
+    [debut] => 2001-04-01
+    [sex] => 1
+)
+  
