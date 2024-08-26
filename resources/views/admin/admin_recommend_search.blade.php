@@ -133,6 +133,7 @@
         @csrf
         <input type="hidden" name="fnc" value="">
         <input type="hidden" name="id" value="">
+        <input type="hidden" name="search_category" value={{$input['search_category']}}>
         <input type="hidden" name="category" value={{$input['category']}}>
     </form>
 @endif

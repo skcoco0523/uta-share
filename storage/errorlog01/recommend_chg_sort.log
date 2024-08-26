@@ -104,3 +104,49 @@
 [2024-08-26 00:58:44] local.DEBUG: ---------start----------  
 [2024-08-26 00:58:44] local.DEBUG: sort_chg id=40-down  
 [2024-08-26 00:58:44] local.DEBUG: success  
+[2024-08-26 20:33:30] local.DEBUG: -----start-----  
+[2024-08-26 20:33:30] local.DEBUG: fnc=up recom_id=40  
+[2024-08-26 20:33:30] local.DEBUG: ---------start----------  
+[2024-08-26 20:33:30] local.DEBUG: sort_chg id=40-up  
+[2024-08-26 20:33:30] local.DEBUG: success  
+[2024-08-26 20:33:39] local.DEBUG: -----start-----  
+[2024-08-26 20:33:39] local.DEBUG: fnc=down recom_id=40  
+[2024-08-26 20:33:39] local.DEBUG: ---------start----------  
+[2024-08-26 20:33:39] local.DEBUG: sort_chg id=40-down  
+[2024-08-26 20:33:39] local.DEBUG: success  
+[2024-08-26 20:34:00] local.DEBUG: -----start-----  
+[2024-08-26 20:34:00] local.DEBUG: fnc=down recom_id=41  
+[2024-08-26 20:34:00] local.DEBUG: ---------start----------  
+[2024-08-26 20:34:00] local.DEBUG: sort_chg id=41-down  
+[2024-08-26 20:34:00] local.DEBUG: success  
+[2024-08-26 20:36:34] local.DEBUG: -----start-----  
+[2024-08-26 20:36:34] local.DEBUG: fnc=down recom_id=40  
+[2024-08-26 20:36:34] local.DEBUG: ---------start----------  
+[2024-08-26 20:36:34] local.DEBUG: sort_chg id=40-down  
+[2024-08-26 20:36:34] local.DEBUG: success  
+[2024-08-26 20:36:51] local.DEBUG: -----start-----  
+[2024-08-26 20:36:51] local.DEBUG: fnc=down recom_id=41  
+[2024-08-26 20:36:51] local.DEBUG: ---------start----------  
+[2024-08-26 20:36:51] local.DEBUG: sort_chg id=41-down  
+[2024-08-26 20:36:51] local.DEBUG: success  
+[2024-08-26 20:42:55] local.DEBUG: -----start-----  
+[2024-08-26 20:42:55] local.DEBUG: fnc=down recom_id=40  
+[2024-08-26 20:42:55] local.DEBUG: ---------start----------  
+[2024-08-26 20:42:55] local.DEBUG: sort_chg id=40-down  
+[2024-08-26 20:42:55] local.DEBUG: success  
+[2024-08-26 20:43:53] local.DEBUG: -----start-----  
+[2024-08-26 20:44:32] local.DEBUG: -----start-----  
+[2024-08-26 20:44:32] local.DEBUG: fnc=down recom_id=40  
+[2024-08-26 20:44:32] local.DEBUG: ---------start----------  
+[2024-08-26 20:44:32] local.DEBUG: sort_chg id=40-down  
+[2024-08-26 20:44:32] local.DEBUG: success  
+[2024-08-26 20:44:38] local.DEBUG: -----start-----  
+[2024-08-26 20:44:38] local.DEBUG: fnc=down recom_id=41  
+[2024-08-26 20:44:38] local.DEBUG: ---------start----------  
+[2024-08-26 20:44:38] local.DEBUG: sort_chg id=41-down  
+[2024-08-26 20:44:38] local.DEBUG: success  
+[2024-08-26 20:44:41] local.DEBUG: -----start-----  
+[2024-08-26 20:44:41] local.DEBUG: fnc=down recom_id=41  
+[2024-08-26 20:44:41] local.DEBUG: ---------start----------  
+[2024-08-26 20:44:41] local.DEBUG: sort_chg id=41-down  
+[2024-08-26 20:44:41] local.DEBUG: success  
