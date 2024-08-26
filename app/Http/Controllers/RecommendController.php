@@ -31,11 +31,10 @@ class RecommendController extends Controller
         $input = $request->all();
         
         $input['search_category']       = get_input($input,"category");
-        $input['page']      = get_input($input,"page");
-
-        $input['search_category']       = $category;
+        $input['page']                  = get_input($input,"page");
+        $category = $input['search_category'];
         
-        $recommend_list = Recommend::getRecommend_list(10,true,$page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $recommend_list = Recommend::getRecommend_list(10,true,$input['page'],$input,true);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,user_flag
 
         $msg = null;
         if($category==0) $recommend_list->name = "おすすめリスト：曲";
