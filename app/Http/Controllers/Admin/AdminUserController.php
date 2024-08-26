@@ -31,10 +31,6 @@ class AdminUserController extends Controller
         //dd($user_list);
         $msg = request('msg');
         
-        //リダイレクトの場合、inputを取得
-        if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->all();
-        
         return view('admin.admin_home', compact('user_list', 'input', 'msg'));
     }
     //削除

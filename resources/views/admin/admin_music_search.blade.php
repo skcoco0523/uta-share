@@ -61,13 +61,12 @@
 
 {{--曲一覧--}}
 @if(isset($musics))
-    ｱﾌｨﾘｴｲﾄﾘﾝｸ(ｲﾒｰｼﾞ&ﾘﾝｸ)はアルバムの情報が優先されます
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['input' => $input ?? '',];
+        $page_prm = $input ?? '';
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $musics,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $musics,'page_prm' => $page_prm,])
     <div style="overflow-x: auto;">
         <table class="table table-striped table-hover table-bordered fs-6 ">
             <thead>
@@ -115,7 +114,7 @@
         </table>
     </div>
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $musics,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $musics,'page_prm' => $page_prm,])
 @endif
 
 <script>
@@ -124,6 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var affiliateLinkInput = document.getElementById('affiliate-link');
     var affiliatePreview = document.getElementById('affiliate-preview');
+
+    const form = document.getElementById('mus_search_form');
+    form.style.display = 'none';
 
     affiliateLinkInput.addEventListener('input', function () {
         var link = affiliateLinkInput.value.trim();
@@ -139,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // テーブルの各行にクリックイベントリスナーを追加
     document.querySelectorAll('table tr').forEach(row => {
         row.addEventListener('click', () => {
+            form.style.display = 'block';
             // クリックされた行からデータを取得
             const cells = row.querySelectorAll('td');
             const id = cells[0].textContent;

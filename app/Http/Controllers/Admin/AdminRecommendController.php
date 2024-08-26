@@ -66,7 +66,7 @@ class AdminRecommendController extends Controller
         
         $input['category']              = $input['search_category'];
         //$sort_flag = ($input['category']!=null) ?       1:0;
-        if($input['search_category']){
+        if(is_numeric($input['search_category'])){
             //カテゴリ検索時は表示順を切り替えるため件数を15に増やす
             $recommend = Recommend::getRecommend_list(15,true,$input['page'],$input);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }else{

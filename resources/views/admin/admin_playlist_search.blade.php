@@ -34,12 +34,10 @@
 @if(isset($playlist))
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = [
-            'input' => $input ?? '',
-        ];
+        $page_prm = $input ?? '';
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $playlist,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $playlist,'page_prm' => $page_prm,])
     <div style="overflow-x: auto;">
         <table class="table table-striped table-hover table-bordered fs-6 ">
             <thead>
@@ -91,7 +89,7 @@
         </table>
     </div>
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $playlist,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $playlist,'page_prm' => $page_prm,])
 @endif
 
 {{--収録曲変更--}}
@@ -146,13 +144,10 @@
                 @if(isset($music) && is_iterable($music))
                     {{--ﾊﾟﾗﾒｰﾀ--}}
                     @php
-                        $additionalParams = [
-                            'mus_keyword' => $input['mus_keyword'] ?? '',
-                            'id' => $playlist_detail->id ?? '',
-                        ];
+                        $page_prm = $input ?? '';
                     @endphp
                     {{--ﾍﾟｰｼﾞｬｰ--}}
-                    @include('admin.layouts.pagination', ['paginator' => $music,'additionalParams' => $additionalParams,])
+                    @include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])
                     <table class="table table-striped table-hover table-bordered fs-6 ">
                         <thead>
                         <tr>
@@ -179,7 +174,7 @@
                         </tbody>
                     </table>
                     {{--ﾍﾟｰｼﾞｬｰ--}}
-                    @include('admin.layouts.pagination', ['paginator' => $music,'additionalParams' => $additionalParams,])
+                    @include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])
                 @endif 
             </div>
         </div>

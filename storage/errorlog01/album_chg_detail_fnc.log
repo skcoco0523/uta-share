@@ -5681,3 +5681,12 @@
 [2024-08-26 16:17:21] local.DEBUG: -------start-------  
 [2024-08-26 16:17:21] local.DEBUG: delete_pl_id=6  
 [2024-08-26 16:17:21] local.DEBUG: success  
+[2024-08-26 23:41:47] local.DEBUG: -----start-----  
+[2024-08-26 23:41:47] local.DEBUG: fnc=add pl_id=9 detail_id=388  
+[2024-08-26 23:41:47] local.DEBUG: -------start-------  
+[2024-08-26 23:41:47] local.DEBUG: delete_pl_id=9  
+[2024-08-26 23:41:47] local.DEBUG: success  
+[2024-08-26 23:41:51] local.DEBUG: -----start-----  
+[2024-08-26 23:41:51] local.DEBUG: fnc=del pl_id=9 detail_id=388  
+[2024-08-26 23:41:51] local.DEBUG: -------start-------  
+[2024-08-26 23:41:51] local.DEBUG: delete_pl_id=9  

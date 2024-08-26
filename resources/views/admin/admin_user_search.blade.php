@@ -11,10 +11,10 @@
 @if(isset($user_list))
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['keyword' => $input['keyword'] ?? '',];
+        $page_prm = $input ?? '';
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $user_list,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $user_list,'page_prm' => $page_prm,])
     <div style="overflow-x: auto;">
         <table class="table table-striped table-hover table-bordered fs-6">
             <thead>
@@ -59,7 +59,7 @@
         </table>
     </div>
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $user_list,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $user_list,'page_prm' => $page_prm,])
 
 @endif
 

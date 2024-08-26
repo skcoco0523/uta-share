@@ -2,19 +2,20 @@
     // デフォルト値を設定
     $defaultParams = [
         'paginator' => null,
-        'additionalParams' => []
+        'page_prm' => []
     ];
     // 引き渡されたデータをマージ
     $params = array_merge($defaultParams, get_defined_vars());
     $paginator = $params['paginator'];
-    $additionalParams = $params['additionalParams'];
+    $page_prm = $params['page_prm'];
+    $page_prm['page'] = null;
 @endphp
 
 @if($paginator)
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
             <li class="page-item {{ $paginator->currentPage() == 1 ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $paginator->previousPageUrl() . '&' . http_build_query($additionalParams) }}" aria-label="Previous">
+                <a class="page-link" href="{{ $paginator->previousPageUrl() . '&' . http_build_query($page_prm) }}" aria-label="Previous">
                     <span aria-hidden="true">&lt;</span>
                 </a>
             </li>
@@ -28,7 +29,7 @@
             @endphp
             @if($start > 1)
                 <li class="page-item">
-                    <a class="page-link" href="{{ $paginator->url(1) . '&' . http_build_query($additionalParams) }}">1</a>
+                    <a class="page-link" href="{{ $paginator->url(1) . '&' . http_build_query($page_prm) }}">1</a>
                 </li>
                 @if($start > 2)
                     <li class="page-item disabled"><span class="page-link">...</span></li>
@@ -36,7 +37,7 @@
             @endif
             @for ($i = $start; $i <= $end; $i++)
                 <li class="page-item {{ $paginator->currentPage() == $i ? 'active' : '' }}">
-                    <a class="page-link" href="{{ $paginator->url($i) . '&' . http_build_query($additionalParams) }}">{{ $i }}</a>
+                    <a class="page-link" href="{{ $paginator->url($i) . '&' . http_build_query($page_prm) }}">{{ $i }}</a>
                 </li>
             @endfor
             @if($end < $paginator->lastPage())
@@ -44,11 +45,11 @@
                     <li class="page-item disabled"><span class="page-link">...</span></li>
                 @endif
                 <li class="page-item">
-                    <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) . '&' . http_build_query($additionalParams) }}">{{ $paginator->lastPage() }}</a>
+                    <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) . '&' . http_build_query($page_prm) }}">{{ $paginator->lastPage() }}</a>
                 </li>
             @endif
             <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $paginator->nextPageUrl() . '&' . http_build_query($additionalParams) }}" aria-label="Next">
+                <a class="page-link" href="{{ $paginator->nextPageUrl() . '&' . http_build_query($page_prm) }}" aria-label="Next">
                     <span aria-hidden="true">&gt;</span>
                 </a>
             </li>

@@ -47,14 +47,10 @@
 @if(isset($recommend))
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = [
-            'keyword' => $input['keyword'] ?? '',
-            'id' => $recommend_detail->id ?? '',
-            'category' => $input['category'] ?? '',
-        ];
+        $page_prm = $input ?? '';
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $recommend,'page_prm' => $page_prm,])
     <div style="overflow-x: auto;">
         <table class="table table-striped table-hover table-bordered fs-6 ">
             <thead>
@@ -126,7 +122,7 @@
             </tbody>
         </table>
     </div>
-    @include('admin.layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $recommend,'page_prm' => $page_prm,])
 
     {{--表示順変更--}}
     <form name="recom_sort_chg_form" method="POST" action="{{ route('admin-recommend-sort-chg') }}">
@@ -142,11 +138,7 @@
 @if(isset($recommend_detail))
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = [
-            'dtl_keyword' => $input['dtl_keyword'] ?? '',
-            'id' => $recommend_detail->id ?? '',
-            'category' => $recommend_detail->category ?? '',
-        ];
+        $page_prm = $input ?? '';
     @endphp
     <div class="row g-3 align-items-end">
         <div class="col-sm">
@@ -200,7 +192,7 @@
                 {{--追加用テーブル--}}
                 @if(isset($detail) && is_iterable($detail))
                     {{--ﾍﾟｰｼﾞｬｰ--}}
-                    @include('admin.layouts.pagination', ['paginator' => $detail,'additionalParams' => $additionalParams,])
+                    @include('admin.layouts.pagination', ['paginator' => $detail,'page_prm' => $page_prm,])
                     <table class="table table-striped table-hover table-bordered fs-6 ">
                         <thead>
                         <tr>
@@ -231,7 +223,7 @@
                         </tbody>
                     </table>
                     {{--ﾍﾟｰｼﾞｬｰ--}}
-                    @include('admin.layouts.pagination', ['paginator' => $detail,'additionalParams' => $additionalParams,])
+                    @include('admin.layouts.pagination', ['paginator' => $detail,'page_prm' => $page_prm,])
                 @endif 
             </div>
         </div>

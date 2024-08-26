@@ -64,10 +64,10 @@
 @if(isset($album))
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['input' => $input ?? '',];
+        $page_prm = $input ?? '';
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $album,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $album,'page_prm' => $page_prm,])
     <div style="overflow-x: auto;">
         <table class="table table-striped table-hover table-bordered fs-6 ">
             <thead>
@@ -123,7 +123,7 @@
         </table>
     </div>
     {{--ﾍﾟｰｼﾞｬｰ--}}
-    @include('admin.layouts.pagination', ['paginator' => $album,'additionalParams' => $additionalParams,])
+    @include('admin.layouts.pagination', ['paginator' => $album,'page_prm' => $page_prm,])
 @endif
 
 {{--収録曲変更--}}
