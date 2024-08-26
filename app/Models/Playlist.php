@@ -15,11 +15,27 @@ class Playlist extends Model
     protected $table = 'playlist';    //playlistsテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['name', 'user_id', 'admin_flag'];
     //取得
-    public static function getPlaylist_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$admin_flag=0)
+    public static function getPlaylist_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$usre_id=null )
     {
         $sql_cmd = DB::table('playlist');
-        if($keyword) $sql_cmd   = $sql_cmd->where('name', 'like', "%$keyword%");
-        $sql_cmd                = $sql_cmd->where('admin_flag', $admin_flag);
+        if($keyword){
+            //ユーザーによる検索
+            if (isset($keyword['keyword'])) {
+                $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['keyword']. '%');
+                $sql_cmd = $sql_cmd->orwhere('playlist.admin_flag', 0);
+                
+            //管理者による検索
+            } else{
+                if (isset($keyword['search_playlist'])) 
+                    $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['search_playlist']. '%');
+
+                if (isset($keyword['search_admin_flag'])) 
+                    $sql_cmd = $sql_cmd->where('playlist.admin_flag',$keyword['search_admin_flag']);
+            }
+        }
+        if($usre_id)
+            $sql_cmd = $sql_cmd->where('playlist.user_id', Auth::id());
+
         $sql_cmd                = $sql_cmd->orderBy('created_at', 'desc');
 
         // ページング・取得件数指定・全件で分岐

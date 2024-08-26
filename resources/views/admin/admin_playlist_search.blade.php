@@ -35,8 +35,7 @@
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = [
-            'keyword' => $input['keyword'] ?? '',
-            'admin_flag' => $input['admin_flag'] ?? '',
+            'input' => $input ?? '',
         ];
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}

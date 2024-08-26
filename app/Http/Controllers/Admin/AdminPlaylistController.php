@@ -54,16 +54,17 @@ class AdminPlaylistController extends Controller
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        if (empty($input['keyword']))           $input['keyword']=null;
-        //0がはじかれてしまうためemptyは使わない
-        if (!isset($input['admin_flag']))                 $input['admin_flag'] = 1;
-        elseif ($input['admin_flag'] === '')              $input['admin_flag'] = 1;
-        // 現在のページ番号を取得。指定がない場合は1を使用
-        if (empty($input['page']))              $input['page'] = 1;
+
+        $input['search_playlist']       = get_input($input,"search_playlist");
+        $input['search_admin_flag']     = get_input($input,"search_admin_flag");
+        //ユーザーによる検索
+        $input['keyword']               = get_input($input,"keyword");
+
+        $input['page']                  = get_input($input,"page");
 
         $input['chg_flg'] = 0;
         //dd($input);
-        $playlist = Playlist::getPlaylist_list(10,true,$input['page'],$input['keyword'],$input['admin_flag']);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,admin_flag
+        $playlist = Playlist::getPlaylist_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰﾌﾗｸﾞ
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($playlist) === 0) ? "検索結果が0件です。" : $msg;
         return view('admin.admin_home', compact('playlist', 'input', 'msg'));
@@ -88,20 +89,17 @@ class AdminPlaylistController extends Controller
     {
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
-        else                                    $input = $request->only(['id', 'keyword', 'admin_flag']);
-        if (empty($input['id']))                $input['id']=null;
-        if (empty($input['keyword']))           $input['keyword']=null;
-        //0がはじかれてしまうためemptyは使わない
-        //if (empty($input['admin_flag']))         $input['admin_flag']=null;
-        if (!isset($input['admin_flag']))                 $input['admin_flag'] = null;
-        elseif ($input['admin_flag'] === '')              $input['admin_flag'] = null;
+        else                                    $input = $request->all();
+        
+        $input['id']                    = get_input($input,"id");
+        $input['search_playlist']       = get_input($input,"search_playlist");
+        $input['search_admin_flag']     = get_input($input,"search_admin_flag");
 
         //収録曲変更
         $playlist_detail = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
         $playlist = null;
             
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['keyword'] !==null && $playlist_detail === null) ? "検索結果が0件です。" : $msg;
 
         return view('admin.admin_home', compact('playlist_detail', 'playlist', 'input', 'msg'));
     }

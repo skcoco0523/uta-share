@@ -22,11 +22,23 @@ class Music extends Model
         $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
         $sql_cmd = $sql_cmd->leftJoin('albums', 'musics.alb_id', '=', 'albums.id');
         if($keyword){
-            $sql_cmd = $sql_cmd->where(function ($query) use ($keyword) {
-                                $query->where('musics.name', 'like', "%{$keyword}%")
-                                    ->orWhere('artists.name', 'like', "%{$keyword}%")
-                                    ->orWhere('artists.name2', 'like', "%{$keyword}%")
-                                    ->orWhere('albums.name', 'like', "%{$keyword}%");});
+            //ユーザーによる検索
+            if (isset($keyword['keyword'])) {
+                $sql_cmd = $sql_cmd->where('musics.name', 'like', '%'. $keyword['keyword']. '%');
+
+            //管理者による検索
+            } else{
+                if (isset($keyword['search_music'])) 
+                    $sql_cmd = $sql_cmd->where('musics.name', 'like', '%'. $keyword['search_music']. '%');
+    
+                if (isset($keyword['search_artist'])) {
+                    $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
+                    $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
+                }
+
+                if (isset($keyword['search_album'])) 
+                    $sql_cmd = $sql_cmd->where('albums.name', 'like', '%'. $keyword['search_album']. '%');
+            }
         }
         if($art_id){
             $sql_cmd = $sql_cmd->where('musics.art_id', '=', $art_id);
@@ -78,15 +90,17 @@ class Music extends Model
             if ($music) {
                 if (is_null($music->aff_id))        $music->aff_id = $music->album_aff_id;
                 if (is_null($music->release_date))  $music->release_date = $music->album_release_date;
+                //ログインしているユーザーはお気に入り情報も取得する
+                if (Auth::check())  $music->fav_flag = Favorite::chkFavorite(Auth::id(), "mus", $music->mus_id);
+                else                $music->fav_flag = 0;
+                //dd($music);
+                //画像情報を付与
+                $music=setAffData($music);
+    
+                return $music; 
+            }else{
+                return null;
             }
-            //ログインしているユーザーはお気に入り情報も取得する
-            if (Auth::check())  $music->fav_flag = Favorite::chkFavorite(Auth::id(), "mus", $music->mus_id);
-            else                $music->fav_flag = 0;
-            //dd($music);
-            //画像情報を付与
-            $music=setAffData($music);
-
-            return $music; 
         } catch (\Exception $e) {
             return null; 
         }

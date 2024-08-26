@@ -23,11 +23,11 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', '歌Share') }}
+                    <span>　ユーザー：{{ Auth::user()->name }}</span>
                 </a>
+            </div>
              
-                @auth
-                    <span style="margin-right: auto;">{{ Auth::user()->name }}</span>&nbsp;
-                @endauth
+            <div class="container">
                 <ul class="nav nav-underline">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin-home', ['tab' => 'music']) }}">音楽</a>
@@ -57,7 +57,7 @@
                         <a class="nav-link" href=""></a>
                     </li>
                 </ul>
-            </div>
+                </div>
         </nav>
 
         <main class="py-4">

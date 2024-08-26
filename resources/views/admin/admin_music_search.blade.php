@@ -64,7 +64,7 @@
     ｱﾌｨﾘｴｲﾄﾘﾝｸ(ｲﾒｰｼﾞ&ﾘﾝｸ)はアルバムの情報が優先されます
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['keyword' => $input['keyword'] ?? '',];
+        $additionalParams = ['input' => $input ?? '',];
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $musics,'additionalParams' => $additionalParams,])

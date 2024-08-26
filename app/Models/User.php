@@ -97,7 +97,7 @@ class User extends Authenticatable
                             ->where('type', 'login')->where('user_id', $user->id)->first();
             $user->login_cnt        = $login_data->login_count;
             $user->last_login_date  = $login_data->last_login_date;
-            
+
             //その他情報取得
             $user->favorite_cnt = DB::table('favorite_mus')->where('user_id', $user->id)->count();
             $user->friend_cnt   = DB::table('friendlists')->where('user_id', $user->id)->where('status', 1)->count();
@@ -135,7 +135,7 @@ class User extends Authenticatable
             if(isset($data['mail_flag']))       $updateData['mail_flag']    = $data['mail_flag'];
             
             make_error_log("chgProfile.log","after_data=".print_r($data,1));
-            User::where('id', $chgProfile['id'])->update($updateData);
+            User::where('id', $data['id'])->update($updateData);
 
             make_error_log("chgProfile.log","success");
             return ['error_code' => 0];   //更新成功

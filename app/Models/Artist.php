@@ -13,9 +13,26 @@ class Artist extends Model
     //取得
     public static function getArtist_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
-        $sql_cmd = DB::table('artists')->orderBy('created_at', 'desc')
-            ->where('name', 'like', "%$keyword%")
-            ->orWhere('name2', 'like', "%$keyword%");
+        $sql_cmd = DB::table('artists');
+        if($keyword){
+            //ユーザーによる検索
+            if (isset($keyword['keyword'])) {
+                $sql_cmd = $sql_cmd->Where('artists.name', 'like', '%'. $keyword['keyword']. '%');
+                $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
+
+            //管理者による検索
+            } else{
+                if (isset($keyword['search_artist'])) {
+                    $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
+                    $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
+                }
+                if (isset($keyword['search_sex'])) 
+                    $sql_cmd = $sql_cmd->where('artists.sex',$keyword['search_sex']);
+    
+
+            }
+        }
+        $sql_cmd = $sql_cmd->orderBy('artists.created_at', 'desc');
         
         // ページング・取得件数指定・全件で分岐
         if ($pageing){

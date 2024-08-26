@@ -99,3 +99,8 @@
 [2024-07-05 12:59:25] local.DEBUG: ---------start----------  
 [2024-07-05 12:59:25] local.DEBUG: sort_chg id=41-down  
 [2024-07-05 12:59:25] local.DEBUG: success  
+[2024-08-26 00:58:44] local.DEBUG: -----start-----  
+[2024-08-26 00:58:44] local.DEBUG: fnc=down recom_id=40  
+[2024-08-26 00:58:44] local.DEBUG: ---------start----------  
+[2024-08-26 00:58:44] local.DEBUG: sort_chg id=40-down  
+[2024-08-26 00:58:44] local.DEBUG: success  

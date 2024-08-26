@@ -39,13 +39,18 @@ class AdminArtistController extends Controller
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        if (empty($input['keyword']))           $input['keyword']=null;
-        // 現在のページ番号を取得。指定がない場合は1を使用
-        if (empty($input['page']))              $input['page'] = 1;
 
-        $artists = Artist::getArtist_list(10,true,$input['page'],$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $input['search_music']          = get_input($input,"search_music");
+        $input['search_artist']         = get_input($input,"search_artist");
+        $input['search_album']          = get_input($input,"search_album");
+        //ユーザーによる検索
+        $input['keyword']               = get_input($input,"keyword");
+
+        $input['page']                  = get_input($input,"page");
+
+        $artists = Artist::getArtist_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $msg = request('msg');
-        $msg = ($msg==NULL && $input['keyword'] !==null && count($artists) === 0) ? "検索結果が0件です。" : $msg;
+
         return view('admin.admin_home', compact('artists', 'input', 'msg'));
     }
     //変更

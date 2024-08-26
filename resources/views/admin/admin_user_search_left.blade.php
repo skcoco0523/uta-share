@@ -5,15 +5,15 @@
     <div class="row g-3 align-items-end">
     <div class="col-sm-12">
         ・ユーザー名
-        <input type="text" id="search_name" name="search_name" class="form-control" value="{{$input['search_name'] ?? ''}}">
+        <input type="text" name="search_name" class="form-control" value="{{$input['search_name'] ?? ''}}">
     </div>
     <div class="col-sm-12">
         ・アドレス
-        <input type="text" id="search_email" name="search_email" class="form-control" value="{{$input['search_email'] ?? ''}}">
+        <input type="text" name="search_email" class="form-control" value="{{$input['search_email'] ?? ''}}">
     </div>
     <div class="col-sm-12">
         ・フレンドコード
-        <input type="text" id="search_friendcode" name="search_friendcode" class="form-control" value="{{$input['search_friendcode'] ?? ''}}">
+        <input type="text" name="search_friendcode" class="form-control" value="{{$input['search_friendcode'] ?? ''}}">
     </div>
     <div class="col-md-12">
         ・性別
@@ -47,6 +47,7 @@
             <option value="1" {{ ($input['search_admin_flag'] ?? '') == '1' ? 'selected' : '' }}>管理者</option>
         </select>
     </div>
+    
     <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-success">検索</button>
     </div>

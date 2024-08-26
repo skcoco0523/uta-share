@@ -17,15 +17,27 @@ class Recommend extends Model
     protected $table = 'recommend';    //recommendsテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['name', 'user_id', 'category', 'disp_flag', 'sort_num'];
     //取得
-    public static function getRecommend_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$category=null,$sort_flag=false,$user_flag=false)
+    public static function getRecommend_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$user_flag=false)
     {
         $sql_cmd = DB::table('recommend');
-        if($keyword)                        $sql_cmd = $sql_cmd->where('name', 'like', "%$keyword%");
-        if($category !== null)              $sql_cmd = $sql_cmd->where('category', '=', $category);
-        if($user_flag)                      $sql_cmd = $sql_cmd->where('disp_flag', 1);
-        //ソート条件を判定
-        if ($sort_flag)                     $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
-        else                                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
+        if($keyword){
+            
+            if (isset($keyword['search_recommend'])) 
+                $sql_cmd = $sql_cmd->where('recommend.name', 'like', '%'. $keyword['search_recommend']. '%');
+
+            if (isset($keyword['search_category'])) {
+                $category = $keyword['search_category'];
+                $sql_cmd = $sql_cmd->where('recommend.category',$keyword['search_category']);
+                $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
+            }else{
+                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
+            }
+        }
+        
+        if($user_flag){
+            $sql_cmd = $sql_cmd->where('disp_flag', 1);
+            $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
+        }                      
 
         //dd($user_flag);
         // ページング・取得件数指定・全件で分岐
@@ -79,12 +91,18 @@ class Recommend extends Model
                             }
                         }
                     }
-                    if (count($add_list) == 0) unset($recommend[$key]);
-                    $item->detail = $add_list; 
+                    if (count($add_list) == 0){
+                        unset($recommend[$key]);
+                    }else{
+                        // キーを再インデックス化して、連続した配列にする (歯抜けになるから詰める)
+                        $add_list = array_values($add_list); 
+                        $item->detail = $add_list;
+                    } 
                 }
             }
         }
         //dd($recommend);
+
         return $recommend; 
     }
     //おすすめ詳細情報を取得
@@ -106,7 +124,6 @@ class Recommend extends Model
         else                                $sql_cmd = $sql_cmd->get();
 
         $detail_list = $sql_cmd;
-        $recommend2 = $detail_list;
         //if ($detail_list->isNotEmpty()) {
             $add_list = [];
             $item1 = "";
@@ -116,7 +133,9 @@ class Recommend extends Model
                 $table   = "mus";
                 foreach ($detail_list as $key => $detail_data) {
                     $add_list[$key] = Music::getMusic_detail($detail_data->detail_id);
-                    if(!$add_list[$key]) unset($add_list[$key]);
+                    if(!$add_list[$key]) {
+                        unset($detail_list[$key]);unset($add_list[$key]);
+                    }
                 }
             }elseif($recommend->category==1){//アーティスト
                 $item1   = "アーティスト名";
@@ -126,7 +145,9 @@ class Recommend extends Model
                 $table   = "alb";
                 foreach ($detail_list as $key => $detail_data) {
                     $add_list[$key] = Album::getAlbum_detail($detail_data->detail_id);
-                    if(!$add_list[$key]) unset($add_list[$key]);
+                    if(!$add_list[$key]) {
+                        unset($detail_list[$key]);unset($add_list[$key]);
+                    }
                 }
 
             }elseif($recommend->category==3){//プレイリスト  
@@ -135,21 +156,25 @@ class Recommend extends Model
                 foreach ($detail_list as $key => $detail_data) {       
                     $add_list[$key] = Playlist::getPlaylist_detail($detail_data->detail_id);
                     if(!$add_list[$key]) {
-                        unset($add_list[$key]);
+                        unset($detail_list[$key]);unset($add_list[$key]);
                     }else{
                         //プレイリストの収録曲が０件の場合は除外
-                        if (count($add_list[$key]->music) == 0) unset($add_list[$key]);
+                        if (count($add_list[$key]->music) == 0) {
+                            unset($detail_list[$key]);unset($add_list[$key]);
+                        }
                     }
                 }
             }
-            $detail = $add_list; 
+            // キーを再インデックス化して、連続した配列にする (歯抜けになるから詰める)
+            $detail = array_values($add_list); 
             
-            //dd($recommend2,$detail);
             if($pageing){
+                $recommend2 = $detail_list;
                 $recommend2->setCollection(collect($detail));
             }else{
+                $recommend2 = $detail_list->values();
                 $recommend2 = $recommend2->replace($detail);
-                //dd($recommend2,$detail);
+                //$recommend2->collect($detail);
             }
         //}
         $recommend2->item1      = $item1;

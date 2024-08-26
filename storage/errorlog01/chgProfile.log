@@ -1055,3 +1055,29 @@
 
 )
   
+[2024-08-26 16:07:13] local.DEBUG: -------start-------  
+[2024-08-26 16:07:13] local.DEBUG: after_data=Array
+(
+    [_token] => ueoWkX5NcDKwoxBuab0IwaAu1sGVNKITOfxI1J2y
+    [id] => 1
+    [name] => skcoco　admin
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [release_flag] => 0
+    [mail_flag] => 0
+)
+  
+[2024-08-26 16:07:13] local.DEBUG: failure  
+[2024-08-26 16:10:04] local.DEBUG: -------start-------  
+[2024-08-26 16:10:04] local.DEBUG: after_data=Array
+(
+    [_token] => ueoWkX5NcDKwoxBuab0IwaAu1sGVNKITOfxI1J2y
+    [id] => 1
+    [name] => skcoco　admin
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [release_flag] => 0
+    [mail_flag] => 0
+)
+  
+[2024-08-26 16:10:04] local.DEBUG: success  

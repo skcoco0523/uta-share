@@ -3,11 +3,17 @@
 
     検索条件
     <div class="row g-3 align-items-end">
-    <div class="col-sm-12">
-        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(アルバム名)">
-    </div>
-    <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-success">検索</button>
-    </div>
+        <div class="col-sm-12">
+            ・曲名
+            <input type="text" name="search_album" class="form-control" value="{{$input['search_album'] ?? ''}}">
+        </div>
+        <div class="col-sm-12">
+            ・ｱｰﾃｨｽﾄ名
+            <input type="text" name="search_artist" class="form-control" value="{{$input['search_artist'] ?? ''}}">
+        </div>
+        
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-success">検索</button>
+        </div>
 </div>
 </form>

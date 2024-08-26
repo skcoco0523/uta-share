@@ -56,18 +56,21 @@ class AdminRecommendController extends Controller
         //変更 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
-        if (empty($input['keyword']))               $input['keyword']=null;
-        // 0を許容するためissetを使用
-        if (!isset($input['category']))             $input['category'] = null;
-        // 現在のページ番号を取得。指定がない場合は1を使用
-        if (empty($input['page']))              $input['page'] = 1;
         
+        $input['search_recommend']      = get_input($input,"search_recommend");
+        $input['search_category']       = get_input($input,"search_category");
+        //ユーザーによる検索
+        $input['keyword']               = get_input($input,"keyword");
+
+        $input['page']                  = get_input($input,"page");
+        
+        $input['category']              = $input['search_category'];
         //$sort_flag = ($input['category']!=null) ?       1:0;
-        if($input['category']!=null){
+        if($input['search_category']){
             //カテゴリ検索時は表示順を切り替えるため件数を15に増やす
-            $recommend = Recommend::getRecommend_list(15,true,$input['page'],$input['keyword'],$input['category'],true);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,category,表示順ソート
+            $recommend = Recommend::getRecommend_list(15,true,$input['page'],$input);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }else{
-            $recommend = Recommend::getRecommend_list(10,true,$input['page'],$input['keyword'],$input['category'],false);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,category,
+            $recommend = Recommend::getRecommend_list(10,true,$input['page'],$input);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }
         $msg = request('msg');
         $msg = ($msg==NULL && $input['keyword'] !==null && count($recommend) === 0) ? "検索結果が0件です。" : $msg;
@@ -94,17 +97,17 @@ class AdminRecommendController extends Controller
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        if (empty($input['id']))                $input['id']=null;
-        if (empty($input['keyword']))           $input['keyword']=null;
-        // 0を許容するためissetを使用
-        if (!isset($input['category']))         $input['category'] = null;
+        
+        $input['id']                = get_input($input,"id");
+        $input['search_category']   = get_input($input,"search_category");
+        $input['category']          = get_input($input,"category");
+
 
         //収録曲変更
         $recommend_detail = Recommend::getRecommend_detail(null,false,null,$input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
         $recommend = null;
             
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['keyword'] !==null && $recommend_detail === null) ? "検索結果が0件です。" : $msg;
 
         return view('admin.admin_home', compact('recommend_detail', 'recommend', 'input', 'msg'));
     }
@@ -114,12 +117,14 @@ class AdminRecommendController extends Controller
         //追加 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)  $input = request('input');
         else                                 $input = $request->all();
-        if (empty($input['id']))             $input['id'] = null;
-        if (empty($input['dtl_keyword']))    $input['dtl_keyword'] = null;
-        // 0を許容するためissetを使用
-        if (!isset($input['category']))         $input['category'] = null;
-        // 現在のページ番号を取得。指定がない場合は1を使用
-        if (empty($input['page']))              $input['page'] = 1;
+        
+        $input['id']                = get_input($input,"id");
+        $input['search_category']   = get_input($input,"search_category");
+        $input['dtl_keyword']       = get_input($input,"dtl_keyword");
+        $input['category']          = get_input($input,"category");
+        
+        $input['page']              = get_input($input,"page");
+
 
         //収録曲変更　現在の収録曲
         $recommend_detail = Recommend::getRecommend_detail(null,false,null,$input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
@@ -128,16 +133,17 @@ class AdminRecommendController extends Controller
         //カテゴリに応じて分岐
         switch($input['category']){
             case 0: //曲
-                $detail = Music::getMusic_list(5,true,$input['page'],$input['dtl_keyword']);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Music::getMusic_list(5,true,$input['page'],$input);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 1: //ｱｰﾃｨｽﾄ
-                $detail = Artist::getArtist_list(5,true,$input['page'],$input['dtl_keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Artist::getArtist_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 2: //ｱﾙﾊﾞﾑ
-                $detail = Album::getAlbum_list(5,true,$input['page'],$input['dtl_keyword']);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Album::getAlbum_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
-                $detail = Playlist::getPlaylist_list(5,true,$input['page'],$input['dtl_keyword'],1);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,admin_flg
+                $input['search_admin_flag'] = 1;
+                $detail = Playlist::getPlaylist_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             default:
                 break;

@@ -28,13 +28,16 @@ class RecommendController extends Controller
     //おすすめ一覧
     public function recommend_list_show(Request $request)
     {
-        $category = (int)$request->input('category');
-        $page = $request->input('page', 1);
+        $input = $request->all();
         
-        $recommend_list = Recommend::getRecommend_list(10,true,$page,null,$category,false,true);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ、ｶﾃｺﾞﾘ,ｿｰﾄ,uﾕｰｻﾞｰ
+        $input['search_category']       = get_input($input,"category");
+        $input['page']      = get_input($input,"page");
+
+        $input['search_category']       = $category;
+        
+        $recommend_list = Recommend::getRecommend_list(10,true,$page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
 
         $msg = null;
-        //dd($music);
         if($category==0) $recommend_list->name = "おすすめリスト：曲";
         if($category==1) $recommend_list->name = "おすすめリスト：アーティスト";
         if($category==2) $recommend_list->name = "おすすめリスト：アルバム";

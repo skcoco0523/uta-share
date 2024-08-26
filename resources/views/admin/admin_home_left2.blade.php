@@ -7,7 +7,8 @@
 
         {{---------------- アルバムメニュー ------------------}}
         @if($tab == "album")
-            @if($method == "search")       @include('admin.admin_album_search_left') @endif
+        @if($method == "search")       @include('admin.admin_album_search_left') @endif
+        @if($method == "chgdetail")       @include('admin.admin_album_search_left') @endif
         @endif
 
         {{---------------- アーティストメニュー ------------------}}

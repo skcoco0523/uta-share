@@ -50,7 +50,7 @@ class AdminUserController extends Controller
         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
     }
     */
-    //変更
+    //変更　開発必須
     public function user_chg(Request $request)
     {
         $input = $request->all();

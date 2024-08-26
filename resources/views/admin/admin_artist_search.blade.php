@@ -19,7 +19,7 @@
             <input type="date" max="9999-12-31" name="debut" class="form-control" value="{{$select->debut ?? ''}}">
         </div>
         <div class="col-md-2">
-            <label for="inputsex" class="form-label">その他</label>
+            <label for="inputsex" class="form-label">種別</label>
             <select id="inputState" name="sex" class="form-select">
                 <option value="0" {{ ($select->sex ?? '') == '0' ? 'selected' : '' }}>ｸﾞﾙｰﾌﾟ</option>
                 <option value="1" {{ ($select->sex ?? '') == '1' ? 'selected' : '' }}>男性</option>
@@ -43,7 +43,7 @@
 @if(isset($artists))
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['keyword' => $input['keyword'] ?? '',];
+        $additionalParams = ['input' => $input ?? '',];
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $artists,'additionalParams' => $additionalParams,])
@@ -55,7 +55,7 @@
                 <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</th>
                 <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ｻﾌﾞ)</th>
                 <th scope="col" class="fw-light">ﾃﾞﾋﾞｭｰ日</th>
-                <th scope="col" class="fw-light">その他</th>
+                <th scope="col" class="fw-light">種別</th>
                 <th scope="col" class="fw-light">データ登録日</th>
                 <th scope="col" class="fw-light">データ更新日</th>
                 <th scope="col" class="fw-light"></th>
@@ -112,12 +112,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('input[name="name2"]').value = name2;
             document.querySelector('input[name="debut"]').value = debut;
                     
-        // その他(性別)の選択肢を設定
+        // 種別(性別)の選択肢を設定
         const selectSex = document.querySelector('select[name="sex"]');
         if (sex === 'ｸﾞﾙｰﾌﾟ')         selectSex.value = '0';
         else if (sex === '男性')    selectSex.value = '1';
         else if (sex === '女性')    selectSex.value = '2';
-        else  selectSex.value = ''; // その他の場合、空の値にする
+        else  selectSex.value = ''; // 種別の場合、空の値にする
         });
     });
 });

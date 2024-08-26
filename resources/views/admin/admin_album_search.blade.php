@@ -64,7 +64,7 @@
 @if(isset($album))
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['keyword' => $input['keyword'] ?? '',];
+        $additionalParams = ['input' => $input ?? '',];
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('admin.layouts.pagination', ['paginator' => $album,'additionalParams' => $additionalParams,])

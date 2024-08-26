@@ -30,7 +30,16 @@ class AdminMusicController extends Controller
     //追加
     public function music_reg(Request $request)
     {
-        $input = $request->only(['name', 'alb_id', 'art_id', 'art_name', 'release_date', 'link', 'aff_link']);
+        //$input = $request->only(['name', 'alb_id', 'art_id', 'art_name', 'release_date', 'link', 'aff_link']);
+        $input = $request->all();
+        
+        $input['name']              = get_input($input,"name");
+        $input['alb_id']            = get_input($input,"alb_id");
+        $input['art_id']            = get_input($input,"art_id");
+        $input['art_name']          = get_input($input,"art_name");
+        $input['release_date']      = get_input($input,"release_date");
+        $input['link']              = get_input($input,"link");
+        $input['aff_link']          = get_input($input,"aff_link");
         //dd($input);
         $msg=null;
         //Affiliate,Musicを一括で登録するため、事前にデータ確認
@@ -67,10 +76,16 @@ class AdminMusicController extends Controller
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        if (empty($input['keyword']))           $input['keyword']=null;
-        // 現在のページ番号を取得。指定がない場合は1を使用
-        if (empty($input['page']))              $input['page'] = 1;
-        $musics = Music::getMusic_list(10,true,$input['page'],$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        
+        $input['search_music']          = get_input($input,"search_music");
+        $input['search_artist']         = get_input($input,"search_artist");
+        $input['search_album']          = get_input($input,"search_album");
+        //ユーザーによる検索
+        $input['keyword']               = get_input($input,"keyword");
+
+        $input['page']                  = get_input($input,"page");
+
+        $musics = Music::getMusic_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $artists = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $input['keyword'] !==null && $musics === null) ? "検索結果が0件です。" : $msg;

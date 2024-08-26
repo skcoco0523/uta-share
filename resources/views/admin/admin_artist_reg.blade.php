@@ -45,7 +45,7 @@
                 <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</th>
                 <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ｻﾌﾞ)</th>
                 <th scope="col" class="fw-light">ﾃﾞﾋﾞｭｰ日</th>
-                <th scope="col" class="fw-light">その他</th>
+                <th scope="col" class="fw-light">種別</th>
                 <th scope="col" class="fw-light">データ登録日</th>
                 <th scope="col" class="fw-light">データ更新日</th>
             </tr>

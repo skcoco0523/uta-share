@@ -6173,3 +6173,43 @@
 )
   
 [2024-07-02 16:41:02] local.DEBUG: success  
+[2024-08-25 20:38:55] local.DEBUG: -------start-------  
+[2024-08-25 20:38:55] local.DEBUG: aff_link=  
+[2024-08-25 20:39:30] local.DEBUG: -------start-------  
+[2024-08-25 20:39:30] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3f21ceac.0731ff48.3f21cead.32f7903c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwecoa%2Fdsd04%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3f21ceac.0731ff48.3f21cead.32f7903c/?me_id=1426604&item_id=10000104&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fwecoa%2Fcabinet%2Fcompass1714441285.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-08-25 20:39:30] local.DEBUG: success  
+[2024-08-25 20:39:30] local.DEBUG: -------start-------  
+[2024-08-25 20:39:30] local.DEBUG: create_data=Array
+(
+    [_token] => hpRj24TzFBlBFJn7LLigJx9grvmgInG5isPVn0ao
+    [name] => test
+    [art_name] => クリープハイプ
+    [art_id] => 8
+    [release_date] => 2024-08-01
+    [link] => 
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/3f21ceac.0731ff48.3f21cead.32f7903c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwecoa%2Fdsd04%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3f21ceac.0731ff48.3f21cead.32f7903c/?me_id=1426604&item_id=10000104&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fwecoa%2Fcabinet%2Fcompass1714441285.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [alb_id] => 
+    [aff_id] => 31
+)
+  
+[2024-08-25 20:39:30] local.DEBUG: success  
+[2024-08-26 16:16:51] local.DEBUG: -------start-------  
+[2024-08-26 16:16:51] local.DEBUG: aff_link=  
+[2024-08-26 16:17:00] local.DEBUG: -------start-------  
+[2024-08-26 16:17:01] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/3f21ceac.0731ff48.3f21cead.32f7903c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwecoa%2Fdsd04%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3f21ceac.0731ff48.3f21cead.32f7903c/?me_id=1426604&item_id=10000104&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fwecoa%2Fcabinet%2Fcompass1714441285.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-08-26 16:17:01] local.DEBUG: success  
+[2024-08-26 16:17:01] local.DEBUG: -------start-------  
+[2024-08-26 16:17:01] local.DEBUG: create_data=Array
+(
+    [_token] => ueoWkX5NcDKwoxBuab0IwaAu1sGVNKITOfxI1J2y
+    [name] => test
+    [art_name] => ケツメイシ
+    [art_id] => 10
+    [release_date] => 
+    [link] => 
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/3f21ceac.0731ff48.3f21cead.32f7903c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwecoa%2Fdsd04%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/3f21ceac.0731ff48.3f21cead.32f7903c/?me_id=1426604&item_id=10000104&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fwecoa%2Fcabinet%2Fcompass1714441285.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [alb_id] => 
+    [aff_id] => 32
+)
+  
+[2024-08-26 16:17:01] local.DEBUG: success  

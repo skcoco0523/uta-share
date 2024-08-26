@@ -55,9 +55,12 @@ class SearchController extends Controller
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        if (empty($input['page']))              $input['page']=null;
-        if (empty($input['keyword']))           $input['keyword']=null;
-        if (empty($input['table']))             $input['table']='all';
+        
+        $input['page']              = get_input($input,"page");
+        $input['keyword']           = get_input($input,"keyword");
+        $input['table']             = get_input($input,"table");
+
+        if (!$input['table'])         $input['table']='all';
         //選択しているタブのﾍﾟｰｼﾞｬｰのみページを指定する
         $art_page = ($input['table'] == "art") ? $input['page'] :1;
         $mus_page = ($input['table'] == "mus") ? $input['page'] :1;
@@ -68,19 +71,19 @@ class SearchController extends Controller
         
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="art"){
-            $search_list["art"] = Artist::getArtist_list(5,true,$art_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $search_list["art"] = Artist::getArtist_list(5,true,$art_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }        
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="mus"){
-            $search_list["mus"] = Music::getMusic_list(10,true,$mus_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $search_list["mus"] = Music::getMusic_list(10,true,$mus_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }        
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="alb"){
-            $search_list["alb"] = Album::getAlbum_list(10,true,$alb_page,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $search_list["alb"] = Album::getAlbum_list(10,true,$alb_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }        
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="pl"){
-            $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input['keyword'],true);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,管理者登録フラグ
+            $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input,null);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰﾌﾗｸﾞ
         }
         //dd($search_list["pl"]);
         //検索履歴の登録
@@ -96,13 +99,13 @@ class SearchController extends Controller
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        if (empty($input['keyword']))           $input['keyword']=null;
+        $input['keyword']           = get_input($input,"keyword");
         
         //$table = ["art","mus","alb","pl"];
-        $search_list["art"] = Artist::getArtist_list(10,false,1,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["mus"] = Music::getMusic_list(10,false,1,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["alb"] = Album::getAlbum_list(10,false,1,$input['keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["pl"] = Playlist::getPlaylist_list(10,false,1,$input['keyword'],1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ     
+        $search_list["art"] = Artist::getArtist_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $search_list["mus"] = Music::getMusic_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $search_list["alb"] = Album::getAlbum_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $search_list["pl"] = Playlist::getPlaylist_list(10,false,1,$input,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ     
 
         $suggestions=array();
         foreach($search_list as $list){
