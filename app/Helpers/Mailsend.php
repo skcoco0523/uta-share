@@ -25,7 +25,7 @@ class MailContent extends Mailable
 //メール送信関数　テンプレート内データ,送信先
 if (! function_exists('mail_send')) {
     function mail_send($send_info, $mail, $tmpl){
-        make_error_log("mail_send","mail=".$mail."  tmpl=".$tmpl);
+        make_error_log("mail_send.log","mail=".$mail."  tmpl=".$tmpl);
         $mailMessage = get_MailMessage($send_info, $tmpl);
 
         if ($mailMessage) {
@@ -37,12 +37,20 @@ if (! function_exists('mail_send')) {
             // SendMailJobをディスパッチしてバックグラウンドで実行
             SendMailJob::dispatch($mail,$mailable);
         }else{
-            make_error_log("mail_send","not_tmpl");
+            make_error_log("mail_send.log","not_tmpl");
         }
     }
 }
 
 //テンプレートからメッセージ取得
+/*  使用例
+    $send_info = new \stdClass();
+    $send_info->user_name = $request->name;
+    $send_info->now_user_cnt = User::count();
+    $mail = "syunsuke.05.23.15@gmail.com";//送信先
+    $tmpl='user_reg_notice';//  送信内容
+    mail_send($send_info, $mail, $tmpl);
+*/
 if (! function_exists('get_MailMessage')) {
     function get_MailMessage($send_info, $tmpl)
     {
@@ -78,6 +86,19 @@ if (! function_exists('get_MailMessage')) {
 
                 return $MailMessage;
                 break;
+
+
+            //ここからは管理者充て
+            case 'user_reg_notice':
+                $MailMessage = (new MailMessage)
+                ->markdown('emails.mail')
+                ->subject(Lang::get('【歌share:管理者】ユーザー登録通知'))
+                ->line(Lang::get('新規登録者名：'. $send_info->user_name))
+                ->line(Lang::get('現在ユーザー数：'. $send_info->now_user_cnt));
+
+                return $MailMessage;
+                break;
+
             default:
                 return null;
         }

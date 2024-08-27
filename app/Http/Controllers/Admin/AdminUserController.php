@@ -53,14 +53,16 @@ class AdminUserController extends Controller
         $input['name']              = get_input($input,"name");
         $input['email']             = get_input($input,"email");
         $input['birthdate']         = get_input($input,"birthdate");
+        $input['prefectures']       = get_input($input,"prefectures");
         $input['gender']            = get_input($input,"gender");
         $input['release_flag']      = get_input($input,"release_flag");
         $input['mail_flag']         = get_input($input,"mail_flag");
 
         $msg = null;
-        if(!isset($input['name']))                $msg =  "ユーザー名は必須情報です。";
+        if(!isset($input['name']))               $msg =  "ユーザー名は必須情報です。";
         if(!isset($input['email']))              $msg =  "emailは必須情報です。";
-        if(!isset($input['birthdate']))          $msg =  "性別は必須情報です。";
+        if(!isset($input['birthdate']))          $msg =  "生年月日は必須情報です。";
+        if(!isset($input['prefectures']))        $msg =  "都道府県は必須情報です。";
         if(!isset($input['gender']))             $msg =  "性別は必須情報です。";
         if(!isset($input['release_flag']))       $msg =  "公開状態は必須情報です。";
         if(!isset($input['mail_flag']))          $msg =  "ﾒｰﾙ送信ﾌﾗｸﾞは必須情報です。";

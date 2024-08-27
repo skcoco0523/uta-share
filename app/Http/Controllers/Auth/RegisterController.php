@@ -58,10 +58,12 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             //会員情報追加
+            //'friend_code' => ['required', 'string', 'min:8', 'max:10'],   フレンドコードは後から生成するからここでは確認しない
             'gender' => ['required', 'in:0,1'],
             'birth_year' => ['required', 'integer', 'min:1900', 'max:' . date('Y')],
             'birth_month' => ['required', 'integer', 'min:1', 'max:12'],
             'birth_day' => ['required', 'integer', 'min:1', 'max:31'],
+            'prefectures' => ['required', 'string', 'min:2', 'max:10'],
         ]);
     }
 
@@ -84,6 +86,7 @@ class RegisterController extends Controller
             'friend_code' => $friend_code,
             'gender' => $data['gender'],
             'birthdate' => $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'],
+            'prefectures' => $data['prefectures'],
         ]);
     }
 
@@ -100,13 +103,31 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
+        //ユーザーへ登録完了メール送信
         $send_info = new \stdClass();
         $send_info->name = $request->name;
         $mail = $request->email;//送信先
         $tmpl='user_reg';//  送信内容
-
-        //パスワードリセットメール送信
         mail_send($send_info, $mail, $tmpl);
+
+
+        //自身に通知する
+        $now_user_cnt = User::count();
+
+        $send_info = new \stdClass();
+        $send_info->user_name = $request->name;
+        $send_info->now_user_cnt = $now_user_cnt;
+        $mail = "syunsuke.05.23.15@gmail.com";//送信先
+        $tmpl='user_reg_notice';//  送信内容
+        mail_send($send_info, $mail, $tmpl);
+
+        $send_info = [
+            'title' => '新規ユーザー登録',
+            'body' => "ユーザー名：".$request->name."\n現在ユーザー数：". $now_user_cnt,
+            'url' => route('admin-user-search'),
+        ];
+        push_send(1,$send_info);
+        
     }
 
 }

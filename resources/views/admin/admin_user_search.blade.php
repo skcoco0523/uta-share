@@ -27,6 +27,24 @@
             <label for="inputbirth" class="form-label">誕生日</label>
             <input type="date" max="9999-12-31" name="birthdate" class="form-control" value="{{$select->birthdate ?? ''}}">
         </div>
+        @php
+            $prefectures = [
+                '北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県','茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県',
+                '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県','静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県',
+                '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県','徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県',
+                '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'
+            ];
+        @endphp
+        <div class="col-md-6 col-lg-4">
+            <label for="inputbirth" class="form-label">都道府県</label>
+            <select name="prefectures" class="form-control">
+                @foreach ($prefectures as $prefecture)
+                    <option value="{{$prefecture ?? ''}}" {{ (($select->prefectures ?? '') == $prefecture) ? 'selected' : '' }}>
+                        {{ $prefecture }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
     </div>
     <div class="row g-3 align-items-end" >
         <div class="col-4">
@@ -81,6 +99,7 @@
                 <th scope="col" class="fw-light">ｱﾄﾞﾚｽ</th>
                 <th scope="col" class="fw-light">ﾌﾚﾝﾄﾞｺｰﾄﾞ</th>
                 <th scope="col" class="fw-light">誕生日</th>
+                <th scope="col" class="fw-light">都道府県</th>
                 <th scope="col" class="fw-light">性別</th>
                 <th scope="col" class="fw-light">公開</th>
                 <th scope="col" class="fw-light">ﾒｰﾙ送信</th>
@@ -100,6 +119,7 @@
                     <td class="fw-light">{{$user->email}}</td>
                     <td class="fw-light">{{$user->friend_code}}</td>
                     <td class="fw-light">{{$user->birthdate}}</td>
+                    <td class="fw-light">{{$user->prefectures}}</td>
                     <td class="fw-light">{{$user->gender == '0' ? '男性' : '女性' }}</td>
                     <td class="fw-light">{{$user->release_flag == '0' ? '許可' : '拒否' }}</td>
                     <td class="fw-light">{{$user->mail_flag == '0' ? '許可' : '拒否' }}</td>
@@ -140,24 +160,26 @@ document.addEventListener('DOMContentLoaded', function() {
             const name          = cells[1].textContent;
             const email         = cells[2].textContent;
             const birthdate     = cells[4].textContent;
+            const prefectures   = cells[5].textContent;
 
             // フォームの対応するフィールドにデータを設定
             document.querySelector('input[name="id"]').value = id;
             document.querySelector('input[name="name"]').value = name;
             document.querySelector('input[name="email"]').value = email;
             document.querySelector('input[name="birthdate"]').value = birthdate;
+            document.querySelector('input[name="prefectures"]').value = prefectures;
 
             // 性別の選択肢を設定
             const gender = document.querySelector('select[name="gender"]');
-            gender.value = (cells[5].textContent.trim() === '男性') ? '0' : '1';
+            gender.value = (cells[6].textContent.trim() === '男性') ? '0' : '1';
 
             // リリースフラグの選択肢を設定
             const release_flag = document.querySelector('select[name="release_flag"]');
-            release_flag.value = (cells[6].textContent.trim() === '許可') ? '0' : '1';
+            release_flag.value = (cells[7].textContent.trim() === '許可') ? '0' : '1';
 
             // メールフラグの選択肢を設定
             const mail_flag = document.querySelector('select[name="mail_flag"]');
-            mail_flag.value = (cells[7].textContent.trim() === '許可') ? '0' : '1';
+            mail_flag.value = (cells[8].textContent.trim() === '許可') ? '0' : '1';
 
         });
     });

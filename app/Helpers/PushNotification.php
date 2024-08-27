@@ -5,11 +5,18 @@
 use Minishlink\WebPush\Subscription;
 use Minishlink\WebPush\WebPush;
 use App\Models\UserDevice;
-
-
 // app/Helpers/PushNotification.php
 
 // プッシュ通知関数
+/*  使用例
+    $user_prf = User::profile_get($user_id);
+    $send_info = [
+        'title' => 'フレンド申請',
+        'body' => $user_prf->name.'からフレンド申請が届きました',
+        'url' => route('friendlist-show', ['table' => 'request']),
+    ];
+    push_send($friend_id,$send_info);
+*/
 if (! function_exists('push_send')) {
     //$send_info(title,body)
     function push_send($user_id, $send_info){
