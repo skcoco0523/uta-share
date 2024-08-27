@@ -1568,3 +1568,35 @@
 )
   
 [2024-07-04 19:59:30] local.DEBUG: success  
+[2024-08-27 23:03:13] local.DEBUG: ---------start----------  
+[2024-08-27 23:03:13] local.DEBUG: data=Array
+(
+    [_token] => W4u16on6HUcOSkMh0XsfSmJOqavBWXaj8uB6WEz4
+    [keyword] => 
+    [admin_flag] => 
+    [id] => 43
+    [page] => 
+    [name] => test2
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-08-27 23:03:13] local.DEBUG: success  
+[2024-08-27 23:04:51] local.DEBUG: ---------start----------  
+[2024-08-27 23:04:51] local.DEBUG: data=Array
+(
+    [_token] => W4u16on6HUcOSkMh0XsfSmJOqavBWXaj8uB6WEz4
+    [search_recommend] => test
+    [search_category] => 0
+    [page] => 
+    [id] => 43
+    [name] => test3
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 0
+    [user_name] => skcoco　admin
+)
+  
+[2024-08-27 23:04:51] local.DEBUG: success  

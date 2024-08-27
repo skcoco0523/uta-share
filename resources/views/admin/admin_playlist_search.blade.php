@@ -1,11 +1,14 @@
 
 {{-- プレイリスト情報更新処理 --}}
 @if(!(isset($playlist_detail)))
-    <form id="pl_search_form" method="POST" action="{{ route('admin-playlist-chg') }}">
+    <form id="pl_chg_form" method="POST" action="{{ route('admin-playlist-chg') }}">
         @csrf
         <div class="row g-3 align-items-end" >
-            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
+            {{--検索条件--}}
+            <input type="hidden" name="search_playlist" value="{{$input['search_playlist'] ?? ''}}">
+            <input type="hidden" name="search_admin_flag" value="{{$input['search_admin_flag'] ?? ''}}">
+            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+            {{--対象データ--}}
             <input type="hidden" name="id" value="{{$select->id ?? ''}}">
             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
             <div class="col-sm">
@@ -75,11 +78,13 @@
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-playlist-del') }}">
                             @csrf
+                            {{--検索条件--}}
+                            <input type="hidden" name="search_playlist" value="{{$input['search_playlist'] ?? ''}}">
+                            <input type="hidden" name="search_admin_flag" value="{{$input['search_admin_flag'] ?? ''}}">
+                            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+                            {{--対象データ--}}
                             <input type="hidden" name="pl_id" value="{{$pl->id}}">
                             <input type="hidden" name="pl_name" value="{{$pl->name}}">
-                            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
-                            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                             <input type="submit" value="削除" class="btn btn-danger">
                         </form>
                     </td>
@@ -233,26 +238,18 @@
             element.style.display = "none";
         }
     }
-
-    //リストから選択時、art_idをpostできないため、再取得
-    document.getElementById('pl_search_form').addEventListener('submit', function(event) {
-        var artistInput = document.querySelector('input[name="art_name"]');
-        var art_idInput = document.getElementById('selectedArtistId');
-        
-        // アーティストが入力されている場合のみ、フォームに値を設定する
-        if (artistInput.value !== '') {
-            var artistSelect = document.getElementById('artistSelect');
-            var selectedOption = Array.from(artistSelect.options).find(option => option.value === artistInput.value);
-            if (selectedOption) {
-                art_idInput.value = selectedOption.dataset.id;
-            }
-        }
-    });
     
     document.addEventListener('DOMContentLoaded', function() {
+
+        const form = document.getElementById('pl_chg_form');
+        //更新フォームを非表示
+        form.style.display = 'none';
+
         // テーブルの各行にクリックイベントリスナーを追加
         document.querySelectorAll('table tr').forEach(row => {
             row.addEventListener('click', () => {
+                //更新フォームを表示
+                form.style.display = 'block';
                 // クリックされた行からデータを取得
                 const cells = row.querySelectorAll('td');
                 const id = cells[0].textContent;

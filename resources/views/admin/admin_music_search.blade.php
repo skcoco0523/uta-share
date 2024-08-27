@@ -1,12 +1,16 @@
 
 {{-- ミュージック情報更新処理 --}}
-<form id="mus_search_form" method="POST" action="{{ route('admin-music-chg') }}">
+<form id="mus_chg_form" method="POST" action="{{ route('admin-music-chg') }}">
     @csrf
     <div class="row g-3 align-items-end" >
-        <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+        {{--検索条件--}}
+        <input type="hidden" name="search_music" value="{{$input['search_music'] ?? ''}}">
+        <input type="hidden" name="search_artist" value="{{$input['search_artist'] ?? ''}}">
+        <input type="hidden" name="search_album" value="{{$input['search_album'] ?? ''}}">
+        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+        {{--対象データ--}}
         <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
         <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
-        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
         <div class="col-sm">
             <label for="inputname" class="form-label">曲名</label>
             <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['mus_name'] ?? '') }}">
@@ -101,10 +105,15 @@
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-music-del') }}">
                             @csrf
+                            {{--検索条件--}}
+                            <input type="hidden" name="search_music" value="{{$input['search_music'] ?? ''}}">
+                            <input type="hidden" name="search_artist" value="{{$input['search_artist'] ?? ''}}">
+                            <input type="hidden" name="search_album" value="{{$input['search_album'] ?? ''}}">
+                            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+                            {{--対象データ--}}
                             <input type="hidden" name="id" value="{{$music->id}}">
                             <input type="hidden" name="name" value="{{$music->name}}">
                             <input type="hidden" name="aff_id" value="{{$music->aff_id}}">
-                            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
                             <input type="submit" value="削除" class="btn btn-danger">
                         </form>
                     </td>
@@ -124,7 +133,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var affiliateLinkInput = document.getElementById('affiliate-link');
     var affiliatePreview = document.getElementById('affiliate-preview');
 
-    const form = document.getElementById('mus_search_form');
+    const form = document.getElementById('mus_chg_form');
+    //更新フォームを非表示
     form.style.display = 'none';
 
     affiliateLinkInput.addEventListener('input', function () {
@@ -141,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // テーブルの各行にクリックイベントリスナーを追加
     document.querySelectorAll('table tr').forEach(row => {
         row.addEventListener('click', () => {
+            //更新フォームを表示
             form.style.display = 'block';
             // クリックされた行からデータを取得
             const cells = row.querySelectorAll('td');
@@ -163,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     //リストから選択時、art_idをpostできないため、再取得
-    document.getElementById('mus_search_form').addEventListener('submit', function(event) {
+    form.addEventListener('submit', function(event) {
         var artistInput = document.querySelector('input[name="art_name"]');
         var art_idInput = document.getElementById('selectedArtistId');
         

@@ -548,3 +548,135 @@
 )
   
 [2024-08-19 18:43:05] local.DEBUG: success  
+[2024-08-27 20:43:59] local.DEBUG: -------start-------  
+[2024-08-27 20:43:59] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 390
+    [alb_id] => 28
+    [art_id] => 6
+    [name] => Struggle
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:41:02
+    [updated_at] => 2024-07-02 16:41:02
+)
+  
+[2024-08-27 20:43:59] local.DEBUG: after_data=Array
+(
+    [art_id] => 10
+    [name] => Struggle
+    [aff_id] => 30
+)
+  
+[2024-08-27 20:43:59] local.DEBUG: success  
+[2024-08-27 20:44:15] local.DEBUG: -------start-------  
+[2024-08-27 20:44:15] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 390
+    [alb_id] => 28
+    [art_id] => 10
+    [name] => Struggle
+    [release_date] => 
+    [link] => 
+    [aff_id] => 30
+    [created_at] => 2024-07-02 16:41:02
+    [updated_at] => 2024-08-27 20:43:59
+)
+  
+[2024-08-27 20:44:15] local.DEBUG: after_data=Array
+(
+    [art_id] => 6
+    [name] => Struggle
+    [aff_id] => 30
+)
+  
+[2024-08-27 20:44:15] local.DEBUG: success  
+[2024-08-27 20:57:31] local.DEBUG: -------start-------  
+[2024-08-27 20:57:31] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 379
+    [alb_id] => 27
+    [art_id] => 6
+    [name] => 鬼よ
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:37:30
+    [updated_at] => 2024-07-02 16:38:44
+)
+  
+[2024-08-27 20:57:31] local.DEBUG: after_data=Array
+(
+    [art_id] => 6
+    [name] => 鬼よtest
+    [aff_id] => 29
+)
+  
+[2024-08-27 20:57:31] local.DEBUG: success  
+[2024-08-27 20:57:41] local.DEBUG: -------start-------  
+[2024-08-27 20:57:41] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 379
+    [alb_id] => 27
+    [art_id] => 6
+    [name] => 鬼よtest
+    [release_date] => 
+    [link] => 
+    [aff_id] => 29
+    [created_at] => 2024-07-02 16:37:30
+    [updated_at] => 2024-08-27 20:57:31
+)
+  
+[2024-08-27 20:57:41] local.DEBUG: after_data=Array
+(
+    [art_id] => 6
+    [name] => 鬼よ
+    [aff_id] => 29
+)
+  
+[2024-08-27 20:57:41] local.DEBUG: success  
+[2024-08-27 21:01:35] local.DEBUG: -------start-------  
+[2024-08-27 21:01:35] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 373
+    [alb_id] => 27
+    [art_id] => 6
+    [name] => Virtual Castle
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:37:30
+    [updated_at] => 2024-07-02 16:37:30
+)
+  
+[2024-08-27 21:01:35] local.DEBUG: after_data=Array
+(
+    [art_id] => 6
+    [name] => Virtual Castle　test
+    [aff_id] => 29
+)
+  
+[2024-08-27 21:01:35] local.DEBUG: success  
+[2024-08-27 21:01:44] local.DEBUG: -------start-------  
+[2024-08-27 21:01:44] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 373
+    [alb_id] => 27
+    [art_id] => 6
+    [name] => Virtual Castle　test
+    [release_date] => 
+    [link] => 
+    [aff_id] => 29
+    [created_at] => 2024-07-02 16:37:30
+    [updated_at] => 2024-08-27 21:01:35
+)
+  
+[2024-08-27 21:01:44] local.DEBUG: after_data=Array
+(
+    [art_id] => 6
+    [name] => Virtual Castle
+    [aff_id] => 29
+)
+  
+[2024-08-27 21:01:44] local.DEBUG: success  

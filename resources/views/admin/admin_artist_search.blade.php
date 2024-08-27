@@ -1,11 +1,14 @@
 
 {{-- アーティスト情報更新処理 --}}
-<form method="POST" action="{{ route('admin-artist-chg') }}">
+<form id="artist_chg_form" method="POST" action="{{ route('admin-artist-chg') }}">
     @csrf
     <div class="row g-3 align-items-end" >
-        <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-        <input type="hidden" name="id" value="{{$select->id ?? ''}}">
+        {{--検索条件--}}
+        <input type="hidden" name="search_artist" value="{{$input['search_artist'] ?? ''}}">
+        <input type="hidden" name="search_sex" value="{{$input['search_sex'] ?? ''}}">
         <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+        {{--対象データ--}}
+        <input type="hidden" name="id" value="{{$select->id ?? ''}}">
         <div class="col-sm">
             <label for="inputname" class="form-label">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
@@ -78,9 +81,12 @@
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-artist-del') }}">
                             @csrf
-                            <input type="hidden" name="id" value="{{$artist->id}}">
-                            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+                            {{--検索条件--}}
+                            <input type="hidden" name="search_artist" value="{{$input['search_artist'] ?? ''}}">
+                            <input type="hidden" name="search_sex" value="{{$input['search_sex'] ?? ''}}">
                             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+                            {{--対象データ--}}
+                            <input type="hidden" name="id" value="{{$artist->id}}">
                             <input type="submit" value="削除" class="btn btn-danger">
                         </form>
                     </td>
@@ -95,9 +101,16 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+    const form = document.getElementById('artist_chg_form');
+    //更新フォームを非表示
+    form.style.display = 'none';
+
     // テーブルの各行にクリックイベントリスナーを追加
     document.querySelectorAll('table tr').forEach(row => {
         row.addEventListener('click', () => {
+            //更新フォームを表示
+            form.style.display = 'block';
             // クリックされた行からデータを取得
             const cells = row.querySelectorAll('td');
             const id = cells[0].textContent;

@@ -1,13 +1,15 @@
 
 {{-- プレイリスト情報更新処理 --}}
 @if(!(isset($recommend_detail)))
-    <form method="POST" action="{{ route('admin-recommend-chg') }}">
+    <form id="recom_chg_form" method="POST" action="{{ route('admin-recommend-chg') }}">
         @csrf
         <div class="row g-3 align-items-end" >
-            <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
-            <input type="hidden" name="id" value="{{$select->id ?? ''}}">
+            {{--検索条件--}}
+            <input type="hidden" name="search_recommend" value="{{$input['search_recommend'] ?? ''}}">
+            <input type="hidden" name="search_category" value="{{$input['search_category'] ?? ''}}">
             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+            {{--対象データ--}}
+            <input type="hidden" name="id" value="{{$select->id ?? ''}}">
             <div class="col-sm">
                 <label for="inputname" class="form-label">登録名</label>
                 <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
@@ -285,7 +287,7 @@
     }
     //お気に入り表示順変更
     function recom_sort_fnc(fnc,recom_id){
-        var trg = document.forms["recom_sort_chg_form"];
+        var trg = document.forms["recom_chg_form"];
         trg.method="post";
         document.recom_sort_chg_form["fnc"].value    =fnc;
         document.recom_sort_chg_form["id"].value     =recom_id;
@@ -293,9 +295,17 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+
+        const form = document.getElementById('recom_chg_form');
+        //更新フォームを非表示
+        form.style.display = 'none';
+
         // テーブルの各行にクリックイベントリスナーを追加
         document.querySelectorAll('table tr').forEach(row => {
             row.addEventListener('click', () => {
+                //更新フォームを表示
+                form.style.display = 'block';
+                
                 // クリックされた行からデータを取得
                 const cells = row.querySelectorAll('td');
                 const id = cells[0].textContent;

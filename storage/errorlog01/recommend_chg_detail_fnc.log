@@ -1473,3 +1473,13 @@
 [2024-08-19 21:59:49] local.DEBUG: -------start-------  
 [2024-08-19 21:59:49] local.DEBUG: delete_id=393  
 [2024-08-19 21:59:49] local.DEBUG: success  
+[2024-08-27 20:50:00] local.DEBUG: -----start-----  
+[2024-08-27 20:50:00] local.DEBUG: fnc=add recom_id=43 category=0 detail_id=387  
+[2024-08-27 20:50:00] local.DEBUG: -------start-------  
+[2024-08-27 20:50:00] local.DEBUG: delete_id=387  
+[2024-08-27 20:50:00] local.DEBUG: success  
+[2024-08-27 23:05:06] local.DEBUG: -----start-----  
+[2024-08-27 23:05:06] local.DEBUG: fnc=add recom_id=43 category=0 detail_id=389  
+[2024-08-27 23:05:06] local.DEBUG: -------start-------  
+[2024-08-27 23:05:06] local.DEBUG: delete_id=389  
+[2024-08-27 23:05:06] local.DEBUG: success  
