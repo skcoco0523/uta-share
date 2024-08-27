@@ -131,6 +131,7 @@ class User extends Authenticatable
             if(isset($data['name']))            $updateData['name']         = $data['name'];
             if(isset($data['email']))           $updateData['email']        = $data['email'];
             if(isset($data['birthdate']))       $updateData['birthdate']    = $data['birthdate'];
+            if(isset($data['gender']))          $updateData['gender']       = $data['gender'];
             if(isset($data['release_flag']))    $updateData['release_flag'] = $data['release_flag'];
             if(isset($data['mail_flag']))       $updateData['mail_flag']    = $data['mail_flag'];
             

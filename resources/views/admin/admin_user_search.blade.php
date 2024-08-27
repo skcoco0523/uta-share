@@ -51,7 +51,7 @@
             </select>
         </div>
     </div>
-    <div class="g-3 text-end">
+    <div class="mt-3 text-end">
         <input type="submit" value="更新" class="btn btn-primary">
     </div>
 </form>

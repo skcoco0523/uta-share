@@ -50,29 +50,29 @@ class AdminUserController extends Controller
     public function user_chg(Request $request)
     {
         $input = $request->all();
-        
-        $ret = User::chgProfile($input);
+        $input['name']              = get_input($input,"name");
+        $input['email']             = get_input($input,"email");
+        $input['birthdate']         = get_input($input,"birthdate");
+        $input['gender']            = get_input($input,"gender");
+        $input['release_flag']      = get_input($input,"release_flag");
+        $input['mail_flag']         = get_input($input,"mail_flag");
+
         $msg = null;
+        if(!isset($input['name']))                $msg =  "ユーザー名は必須情報です。";
+        if(!isset($input['email']))              $msg =  "emailは必須情報です。";
+        if(!isset($input['birthdate']))          $msg =  "性別は必須情報です。";
+        if(!isset($input['gender']))             $msg =  "性別は必須情報です。";
+        if(!isset($input['release_flag']))       $msg =  "公開状態は必須情報です。";
+        if(!isset($input['mail_flag']))          $msg =  "ﾒｰﾙ送信ﾌﾗｸﾞは必須情報です。";
         
+        if(!$msg){
+            $ret = User::chgProfile($input);
+            if($ret['error_code'] == 0)     $msg = "プロフィール情報を更新しました。";
+            else                            $msg = "プロフィール情報の更新に失敗しました。";
+        }else{
+            return redirect()->route('admin-user-search', ['input' => $input, 'msg' => $msg]);
+        }
 
-        $input = $request->all();
-        $msg=null;
-        //music,Affiliate,Musicを一括で登録するため、事前にデータ確認
-        //if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
-        if(!$input['name'])         $msg =  "ユーザー名は必須情報です。";
-        if(!$input['email'])        $msg =  "emailは必須情報です。";
-        if(!$input['性別'])         $msg =  "性別は必須情報です。";
-        if(!$input['公開状態'])     $msg =  "公開状態は必須情報です。";
-        if(!$input['ﾒｰﾙ送信ﾌﾗｸﾞ'])   $msg =  "ﾒｰﾙ送信ﾌﾗｸﾞは必須情報です。";
-        
-
-        $ret = User::chgProfile($input);
-
-        if($ret['error_code'] == 0)     $msg = "プロフィール情報を更新しました。";
-        else                            $msg = "プロフィール情報の更新に失敗しました。";
-        if($msg!==null)         return redirect()->route('admin-user-list', ['input' => $input, 'msg' => $msg]);
-
-
-        return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
+        return redirect()->route('admin-user-search', ['input' => $input, 'msg' => $msg]);
     }
 }
