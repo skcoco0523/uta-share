@@ -126,14 +126,17 @@
                                     <!-- Authentication Links -->
                                     <li class="nav-item dropdown">
                                     @auth
-                                            <a class="dropdown-item" href="{{ route('profile-show') }}">
-                                                {{ __('Profile') }}
-                                            </a>
                                         @if (Auth::user()->admin_flag)
                                             <a class="dropdown-item" href="{{ route('admin-home') }}">
                                                 {{ __('Admin') }}
                                             </a>
                                         @endif
+                                            <a class="dropdown-item" href="{{ route('profile-show') }}">
+                                                {{ __('Profile') }}
+                                            </a>
+                                            <a class="dropdown-item" href="{{ route('request-show') }}">
+                                                {{ __('Request') }}
+                                            </a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">

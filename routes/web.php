@@ -29,6 +29,7 @@ use App\Http\Controllers\RecommendController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RequestController;
 
 
 /*
@@ -213,6 +214,10 @@ Route::middleware(['auth'])->group(function () {
     //プロフィール
     Route::get('profile/show', [UserController::class, 'profile_show'])->name('profile-show');
     Route::post('profile/change', [UserController::class, 'profile_change'])->name('profile-change');
+
+    //要望・問い合わせ
+    Route::get('request/show', [RequestController::class, 'request_show'])->name('request-show');
+    Route::post('request/send', [RequestController::class, 'request_send'])->name('request-send');
 
     //お気に入り表示
     Route::get('favorite', [FavoriteController::class, 'favorite_show'])->name('favorite-show');
