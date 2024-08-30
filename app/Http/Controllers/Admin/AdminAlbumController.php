@@ -89,12 +89,12 @@ class AdminAlbumController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        $input['search_artist']         = get_input($input,"search_artist");
-        $input['search_album']          = get_input($input,"search_album");
+        $input['search_artist']         = get_proc_data($input,"search_artist");
+        $input['search_album']          = get_proc_data($input,"search_album");
         //ユーザーによる検索
-        $input['keyword']               = get_input($input,"keyword");
+        $input['keyword']               = get_proc_data($input,"keyword");
 
-        $input['page']                  = get_input($input,"page");
+        $input['page']                  = get_proc_data($input,"page");
 
         $album = Album::getAlbum_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $artist = Artist::getArtist_list();  //全件　リスト用

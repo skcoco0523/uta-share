@@ -23,9 +23,9 @@ class RequestController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
 
-        $input['type']              = get_input($input,"type");
-        $input['message']           = get_input($input,"message");
-        $input['page']              = get_input($input,"page");
+        $input['type']              = get_proc_data($input,"type");
+        $input['message']           = get_proc_data($input,"message");
+        $input['page']              = get_proc_data($input,"page");
         $user_id = Auth::id();
         if($user_id){
             $user_request = UserRequest::getRequest(10,true,$input['page'],['login_id' => $user_id]);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
@@ -41,8 +41,14 @@ class RequestController extends Controller
     {
         $input = $request->all();
         
+        //データチェック
+        $input['user_id']           = Auth::id();
+        $input['type']              = get_proc_data($input,"type");
+        $input['message']           = get_proc_data($input,"message");
+
         $ret = UserRequest::createRequest($input);
-        $msg = null;
+        $msg = null;;
+
         //htmlで必須としているけど念のため
         if($ret['error_code'] == 3) $msg = "メッセージは必須情報です。";
         if($msg) return redirect()->route('request-show')->with($msg);

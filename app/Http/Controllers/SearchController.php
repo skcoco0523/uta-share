@@ -56,9 +56,9 @@ class SearchController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        $input['page']              = get_input($input,"page");
-        $input['keyword']           = get_input($input,"keyword");
-        $input['table']             = get_input($input,"table");
+        $input['page']              = get_proc_data($input,"page");
+        $input['keyword']           = get_proc_data($input,"keyword");
+        $input['table']             = get_proc_data($input,"table");
 
         if (!$input['table'])         $input['table']='all';
         //選択しているタブのﾍﾟｰｼﾞｬｰのみページを指定する
@@ -99,7 +99,7 @@ class SearchController extends Controller
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        $input['keyword']           = get_input($input,"keyword");
+        $input['keyword']           = get_proc_data($input,"keyword");
         
         //$table = ["art","mus","alb","pl"];
         $search_list["art"] = Artist::getArtist_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ

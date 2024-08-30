@@ -27,7 +27,7 @@ if (! function_exists('get_input')) {
      * @param  mixed  $prm
      * @return void
      */
-    function get_input($input, $key)
+    function get_proc_data($input, $key)
     {
         $value = $input[$key] ?? null;
         // 値が存在し、かつ空でない場合、その値を返す

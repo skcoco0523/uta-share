@@ -57,12 +57,12 @@ class AdminRecommendController extends Controller
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
         
-        $input['search_recommend']      = get_input($input,"search_recommend");
-        $input['search_category']       = get_input($input,"search_category");
+        $input['search_recommend']      = get_proc_data($input,"search_recommend");
+        $input['search_category']       = get_proc_data($input,"search_category");
         //ユーザーによる検索
-        $input['keyword']               = get_input($input,"keyword");
+        $input['keyword']               = get_proc_data($input,"keyword");
 
-        $input['page']                  = get_input($input,"page");
+        $input['page']                  = get_proc_data($input,"page");
         
         $input['category']              = $input['search_category'];
         //$sort_flag = ($input['category']!=null) ?       1:0;
@@ -98,9 +98,9 @@ class AdminRecommendController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        $input['id']                = get_input($input,"id");
-        $input['search_category']   = get_input($input,"search_category");
-        $input['category']          = get_input($input,"category");
+        $input['id']                = get_proc_data($input,"id");
+        $input['search_category']   = get_proc_data($input,"search_category");
+        $input['category']          = get_proc_data($input,"category");
 
 
         //収録曲変更
@@ -118,12 +118,12 @@ class AdminRecommendController extends Controller
         if($request->input('input')!==null)  $input = request('input');
         else                                 $input = $request->all();
         
-        $input['id']                = get_input($input,"id");
-        $input['search_category']   = get_input($input,"search_category");
-        $input['dtl_keyword']       = get_input($input,"dtl_keyword");
-        $input['category']          = get_input($input,"category");
+        $input['id']                = get_proc_data($input,"id");
+        $input['search_category']   = get_proc_data($input,"search_category");
+        $input['dtl_keyword']       = get_proc_data($input,"dtl_keyword");
+        $input['category']          = get_proc_data($input,"category");
         
-        $input['page']              = get_input($input,"page");
+        $input['page']              = get_proc_data($input,"page");
 
 
         //収録曲変更　現在の収録曲

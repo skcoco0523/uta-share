@@ -33,13 +33,13 @@ class AdminMusicController extends Controller
         //$input = $request->only(['name', 'alb_id', 'art_id', 'art_name', 'release_date', 'link', 'aff_link']);
         $input = $request->all();
         
-        $input['name']              = get_input($input,"name");
-        $input['alb_id']            = get_input($input,"alb_id");
-        $input['art_id']            = get_input($input,"art_id");
-        $input['art_name']          = get_input($input,"art_name");
-        $input['release_date']      = get_input($input,"release_date");
-        $input['link']              = get_input($input,"link");
-        $input['aff_link']          = get_input($input,"aff_link");
+        $input['name']              = get_proc_data($input,"name");
+        $input['alb_id']            = get_proc_data($input,"alb_id");
+        $input['art_id']            = get_proc_data($input,"art_id");
+        $input['art_name']          = get_proc_data($input,"art_name");
+        $input['release_date']      = get_proc_data($input,"release_date");
+        $input['link']              = get_proc_data($input,"link");
+        $input['aff_link']          = get_proc_data($input,"aff_link");
         //dd($input);
         $msg=null;
         //Affiliate,Musicを一括で登録するため、事前にデータ確認
@@ -77,13 +77,13 @@ class AdminMusicController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        $input['search_music']          = get_input($input,"search_music");
-        $input['search_artist']         = get_input($input,"search_artist");
-        $input['search_album']          = get_input($input,"search_album");
+        $input['search_music']          = get_proc_data($input,"search_music");
+        $input['search_artist']         = get_proc_data($input,"search_artist");
+        $input['search_album']          = get_proc_data($input,"search_album");
         //ユーザーによる検索
-        $input['keyword']               = get_input($input,"keyword");
+        $input['keyword']               = get_proc_data($input,"keyword");
 
-        $input['page']                  = get_input($input,"page");
+        $input['page']                  = get_proc_data($input,"page");
 
         $musics = Music::getMusic_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $artists = Artist::getArtist_list();  //全件　リスト用

@@ -30,8 +30,8 @@ class RecommendController extends Controller
     {
         $input = $request->all();
         
-        $input['search_category']       = get_input($input,"category");
-        $input['page']                  = get_input($input,"page");
+        $input['search_category']       = get_proc_data($input,"category");
+        $input['page']                  = get_proc_data($input,"page");
         $category = $input['search_category'];
         
         $recommend_list = Recommend::getRecommend_list(10,true,$input['page'],$input,true);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,user_flag

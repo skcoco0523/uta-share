@@ -17,15 +17,15 @@ class AdminUserController extends Controller
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
         
-        $input['search_name']           = get_input($input,"search_name");
-        $input['search_email']          = get_input($input,"search_email");
-        $input['search_friendcode']     = get_input($input,"search_friendcode");
-        $input['search_gender']         = get_input($input,"search_gender");
-        $input['search_release_flag']   = get_input($input,"search_release_flag");
-        $input['search_mail_flag']      = get_input($input,"search_mail_flag");
-        $input['search_admin_flag']     = get_input($input,"search_admin_flag");
+        $input['search_name']           = get_proc_data($input,"search_name");
+        $input['search_email']          = get_proc_data($input,"search_email");
+        $input['search_friendcode']     = get_proc_data($input,"search_friendcode");
+        $input['search_gender']         = get_proc_data($input,"search_gender");
+        $input['search_release_flag']   = get_proc_data($input,"search_release_flag");
+        $input['search_mail_flag']      = get_proc_data($input,"search_mail_flag");
+        $input['search_admin_flag']     = get_proc_data($input,"search_admin_flag");
 
-        $input['page']              = get_input($input,"page");
+        $input['page']                  = get_proc_data($input,"page");
 
         $user_list = User::getUser_list(15,true,$input['page'],$input);    //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,sort(1:,2:,3:,4:)
         //dd($user_list);
@@ -50,13 +50,13 @@ class AdminUserController extends Controller
     public function user_chg(Request $request)
     {
         $input = $request->all();
-        $input['name']              = get_input($input,"name");
-        $input['email']             = get_input($input,"email");
-        $input['birthdate']         = get_input($input,"birthdate");
-        $input['prefectures']       = get_input($input,"prefectures");
-        $input['gender']            = get_input($input,"gender");
-        $input['release_flag']      = get_input($input,"release_flag");
-        $input['mail_flag']         = get_input($input,"mail_flag");
+        $input['name']              = get_proc_data($input,"name");
+        $input['email']             = get_proc_data($input,"email");
+        $input['birthdate']         = get_proc_data($input,"birthdate");
+        $input['prefectures']       = get_proc_data($input,"prefectures");
+        $input['gender']            = get_proc_data($input,"gender");
+        $input['release_flag']      = get_proc_data($input,"release_flag");
+        $input['mail_flag']         = get_proc_data($input,"mail_flag");
 
         $msg = null;
         if(!isset($input['name']))               $msg =  "ユーザー名は必須情報です。";

@@ -55,12 +55,12 @@ class AdminPlaylistController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
 
-        $input['search_playlist']       = get_input($input,"search_playlist");
-        $input['search_admin_flag']     = get_input($input,"search_admin_flag");
+        $input['search_playlist']       = get_proc_data($input,"search_playlist");
+        $input['search_admin_flag']     = get_proc_data($input,"search_admin_flag");
         //ユーザーによる検索
-        $input['keyword']               = get_input($input,"keyword");
+        $input['keyword']               = get_proc_data($input,"keyword");
 
-        $input['page']                  = get_input($input,"page");
+        $input['page']                  = get_proc_data($input,"page");
 
         $input['chg_flg'] = 0;
         //dd($input);
@@ -91,9 +91,9 @@ class AdminPlaylistController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        $input['id']                    = get_input($input,"id");
-        $input['search_playlist']       = get_input($input,"search_playlist");
-        $input['search_admin_flag']     = get_input($input,"search_admin_flag");
+        $input['id']                    = get_proc_data($input,"id");
+        $input['search_playlist']       = get_proc_data($input,"search_playlist");
+        $input['search_admin_flag']     = get_proc_data($input,"search_admin_flag");
 
         //収録曲変更
         $playlist_detail = Playlist::getPlaylist_detail($input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用

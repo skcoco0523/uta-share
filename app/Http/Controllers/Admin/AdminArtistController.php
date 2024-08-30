@@ -40,13 +40,13 @@ class AdminArtistController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
 
-        $input['search_music']          = get_input($input,"search_music");
-        $input['search_artist']         = get_input($input,"search_artist");
-        $input['search_album']          = get_input($input,"search_album");
+        $input['search_music']          = get_proc_data($input,"search_music");
+        $input['search_artist']         = get_proc_data($input,"search_artist");
+        $input['search_album']          = get_proc_data($input,"search_album");
         //ユーザーによる検索
-        $input['keyword']               = get_input($input,"keyword");
+        $input['keyword']               = get_proc_data($input,"keyword");
 
-        $input['page']                  = get_input($input,"page");
+        $input['page']                  = get_proc_data($input,"page");
 
         $artists = Artist::getArtist_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $msg = request('msg');

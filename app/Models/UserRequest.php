@@ -51,11 +51,6 @@ class UserRequest extends Model
     {
         make_error_log("createRequest.log","-------start-------");
         try {
-            //データチェック
-            $data['user_id']           = Auth::id();
-            $data['type']              = get_input($data,"type");
-            $data['message']           = get_input($data,"message");
-
             $error_code = 0;
             if(!isset($data['user_id']))   $error_code = 1;   //データ不足
             if(!isset($data['type']))      $error_code = 2;   //データ不足
