@@ -950,3 +950,11 @@
 [2024-08-26 20:29:34] local.DEBUG: user_id=1 table=mus fav_id=222 type=add  
 [2024-08-26 20:29:34] local.DEBUG: fav_chk=0  
 [2024-08-26 20:29:34] local.DEBUG: to add  
+[2024-09-01 17:58:38] local.DEBUG: -------start-------  
+[2024-09-01 17:58:38] local.DEBUG: user_id=1 table=mus fav_id=74 type=del  
+[2024-09-01 17:58:38] local.DEBUG: fav_chk=1  
+[2024-09-01 17:58:38] local.DEBUG: delete  
+[2024-09-01 17:58:41] local.DEBUG: -------start-------  
+[2024-09-01 17:58:41] local.DEBUG: user_id=1 table=mus fav_id=74 type=add  
+[2024-09-01 17:58:41] local.DEBUG: fav_chk=0  
+[2024-09-01 17:58:41] local.DEBUG: to add  

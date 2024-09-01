@@ -58,7 +58,7 @@ class RequestController extends Controller
             //$profile = Auth::user();
             //dd($profile);
             $message = ['message' => '送信しました。',
-                        'type' => 'request',
+                        'type' => 'send',
                         'sec' => '2000'];
             return redirect()->route('request-show')->with($message);
         }else{

@@ -2039,3 +2039,17 @@
 )
   
 [2024-09-01 14:52:03] local.DEBUG: success  
+[2024-09-01 17:57:06] local.DEBUG: -------start-------  
+[2024-09-01 17:57:06] local.DEBUG: after_data=Array
+(
+    [_token] => 654Lv78bCaPBkBNzeDQx0k1sETpLx9Bl4voDhVxm
+    [id] => 1
+    [name] => skcoco　admin
+    [email] => syunsuke.05.23.15@gmail.com
+    [birthdate] => 1999-05-23
+    [prefectures] => 北海道
+    [release_flag] => 0
+    [mail_flag] => 0
+)
+  
+[2024-09-01 17:57:06] local.DEBUG: success  

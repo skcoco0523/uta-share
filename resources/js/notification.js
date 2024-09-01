@@ -32,6 +32,10 @@ window.showNotification = function showNotification(message, type, sec) {
             notification.innerHTML = `<i class="fa-solid fa-address-card fa-fade icon-50"></i>
                                         <p>${message}</p>`;
             break; 
+        case "send":    //送信
+            notification.innerHTML = `<i class="fa-solid fa-envelope fa-fade icon-50"></i>
+                                        <p>${message}</p>`;
+            break; 
         case "error":    //エラー
         notification.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-shake icon-50"></i>
                                     <p>${message}</p>`;
