@@ -39,8 +39,8 @@
             <label for="inputbirth" class="form-label">都道府県</label>
             <select name="prefectures" class="form-control">
                 @foreach ($prefectures as $prefecture)
-                    <option value="{{$prefecture ?? ''}}" {{ (($select->prefectures ?? '') == $prefecture) ? 'selected' : '' }}>
-                        {{ $prefecture }}
+                    <option value="{{$prefecture}}" {{ (($select->prefectures ?? '') == $prefecture) ? 'selected' : '' }}>
+                    {{$prefecture}}
                     </option>
                 @endforeach
             </select>
@@ -160,15 +160,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const name          = cells[1].textContent;
             const email         = cells[2].textContent;
             const birthdate     = cells[4].textContent;
-            const prefectures   = cells[5].textContent;
+            //const prefectures   = cells[5].textContent;
 
             // フォームの対応するフィールドにデータを設定
             document.querySelector('input[name="id"]').value = id;
             document.querySelector('input[name="name"]').value = name;
             document.querySelector('input[name="email"]').value = email;
             document.querySelector('input[name="birthdate"]').value = birthdate;
-            document.querySelector('input[name="prefectures"]').value = prefectures;
-
+            
+            //都道府県を設定
+            const prefectures = document.querySelector('select[name="prefectures"]');
+            prefectures.value = cells[5].textContent;
+            
             // 性別の選択肢を設定
             const gender = document.querySelector('select[name="gender"]');
             gender.value = (cells[6].textContent.trim() === '男性') ? '0' : '1';
