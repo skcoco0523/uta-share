@@ -26,6 +26,7 @@
     "Month"                             : "月",
     "Day"                               : "日",
     "Restrict disclosure to friends"    : "フレンドへの公開を制限する",
+    "notify user"                       : "ユーザーへ通知する",
     "Restricting email delivery"        : "メール配信を制限する",
     "Install to Application"            : "アプリ インストール",
     "":""

@@ -12,9 +12,25 @@ if (! function_exists('make_error_log')) {
      */
     function make_error_log($file_name, $prm)
     {
-        $file_name = config('error.log.path', 'errorlog01') . "/" . $file_name;
-        config(['logging.channels.single.path' => storage_path($file_name)]);
-        \Illuminate\Support\Facades\Log::channel('single')->debug($prm);
+        $file_path = storage_path(config('error.log.path', 'errorlog01') . "/" . $file_name);
+    
+        $log = \Illuminate\Support\Facades\Log::build([
+            'driver' => 'single',
+            'path' => $file_path,
+        ]);
+
+        // ファイルが存在しない場合は新規作成
+        if (!File::exists($file_path)) {
+            // 必要に応じてディレクトリも作成
+            $directory = dirname($file_path);
+            if (!File::isDirectory($directory))
+                File::makeDirectory($directory, 0755, true);
+            
+            // 空のファイルを作成
+            File::put($file_path, '');
+        }
+
+        $log->debug($prm);
     }
 }
 

@@ -16,7 +16,7 @@ class UserRequest extends Model
     protected $fillable = ['user_id', 'type', 'message'];     //一括代入の許可
 
     //ユーザーリクエスト情報取得
-    public static function getRequest($disp_cnt=null,$pageing=false,$page=1,$keyword=null) 
+    public static function getRequest_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null) 
     {
         $sql_cmd = DB::table('user_requests');
         if($keyword){
@@ -32,6 +32,14 @@ class UserRequest extends Model
 
                 if (isset($keyword['search_status'])) 
                     $sql_cmd = $sql_cmd->where('user_requests.status', $keyword['search_status']);
+
+                if (isset($keyword['search_mess'])) 
+                    $sql_cmd = $sql_cmd->where('user_requests.message', 'like', '%'. $keyword['search_mess']. '%');
+
+                if (isset($keyword['search_reply'])) 
+                    $sql_cmd = $sql_cmd->where('user_requests.reply', 'like', '%'. $keyword['search_reply']. '%');
+                
+                $sql_cmd = $sql_cmd->select('user_requests.*','users.name');
             }
         }
         // ページング・取得件数指定・全件で分岐
@@ -43,7 +51,7 @@ class UserRequest extends Model
         else                                $sql_cmd = $sql_cmd->get();
 
         $request = $sql_cmd;
-
+        //dd($request);
         return $request;
     }
     //ユーザーリクエスト情報登録
@@ -71,6 +79,32 @@ class UserRequest extends Model
             return ['id' => null, 'error_code' => -1];   //追加失敗
         }
 
+    }
+    //ユーザーリクエスト情報変更
+    public static function chgRequeste($data)
+    {
+        make_error_log("chgRequeste.log","-------start-------");
+        try {
+            
+            // 更新対象となるカラムと値を連想配列に追加
+            $updateData = [];
+            //if(isset($data['type']))            $updateData['type']     = $data['type'];      ユーザーからの内容は修正不可にする
+            //if(isset($data['message']))         $updateData['message']  = $data['message'];   ユーザーからの内容は修正不可にする
+            if(isset($data['reply']))           $updateData['reply']    = $data['reply'];
+            if(isset($data['status']))          $updateData['status']   = $data['status'];
+
+            make_error_log("chgRequeste.log","after_data=".print_r($data,1));
+            self::where('id', $data['id'])->update($updateData);
+
+            $user_id = self::where('id', $data['id'])->value('user_id');
+            
+            make_error_log("chgRequeste.log","success");
+            return ['error_code' => 0, 'user_id' => $user_id];   //更新成功
+
+        } catch (\Exception $e) {
+            make_error_log("chgRequeste.log","failure");
+            return ['error_code' => -1];   //更新失敗
+        }
     }
 }
 

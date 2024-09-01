@@ -28,7 +28,7 @@ class RequestController extends Controller
         $input['page']              = get_proc_data($input,"page");
         $user_id = Auth::id();
         if($user_id){
-            $user_request = UserRequest::getRequest(10,true,$input['page'],['login_id' => $user_id]);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $user_request = UserRequest::getRequest_list(10,true,$input['page'],['login_id' => $user_id]);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
             $msg = request('msg');
 
             return view('request_show', compact('user_request', 'input', 'msg'));

@@ -33,7 +33,8 @@
         
         @if($tab == "user")
             ユーザーメニュー
-            <li><a href="{{ route('admin-user-search') }}">               ユーザー(開発中)</a></li>{{--最終アクセス時刻、ログイン回数　追加--}}                                          
+            <li><a href="{{ route('admin-user-search') }}">             ユーザー</a></li>
+            <li><a href="{{ route('admin-request-search') }}">          要望・問い合わせ</a></li>
         @endif
 
         @if($tab == "notification")
@@ -45,7 +46,6 @@
 
         @if($tab == "another")
             その他メニュー
-            <li><a href="{{ route('admin-user-request') }}">           依頼 問い合わせ(未開発)</a></li>
         @endif    
     @endif
 

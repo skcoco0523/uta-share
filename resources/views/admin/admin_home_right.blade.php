@@ -36,5 +36,6 @@
     {{---------------- ユーザーメニュー ------------------}}
     @if($tab == "user")
         @if($method == "search")          @include('admin.admin_user_search') @endif
+        @if($method == "repuest")         @include('admin.admin_request_search') @endif
     @endif
 @endif

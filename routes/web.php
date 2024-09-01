@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminPlaylistController;
 use App\Http\Controllers\Admin\AdminRecommendController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminAnotherController;
 
 
 //ユーザー
@@ -203,9 +204,9 @@ Route::middleware(['auth'])->group(function () {
             Route::get('user/search', [AdminUserController::class, 'user_search'])->name('admin-user-search');
             Route::post('user/search/chg', [AdminUserController::class, 'user_chg'])->name('admin-user-chg');
 
-        //その他------------------------------------------------------------------------
             //依頼・要望
-            Route::get('user/repuest', [AdminUserController::class, 'user_repuest'])->name('admin-user-request');
+            Route::get('user/repuest', [AdminUserController::class, 'user_request_search'])->name('admin-request-search');
+            Route::post('user/repuest/chg', [AdminUserController::class, 'user_request_chg'])->name('admin-request-chg');
 
         });
     });

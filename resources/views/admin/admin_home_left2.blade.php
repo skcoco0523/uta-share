@@ -31,7 +31,10 @@
         {{---------------- ユーザーメニュー ------------------}}
         @if($tab == "user")
             @if($method == "search")       @include('admin.admin_user_search_left') @endif
+            @if($method == "repuest")      @include('admin.admin_request_search_left') @endif
         @endif
+
+        
     @endif
         
 </div>
