@@ -42,6 +42,9 @@ class UserRequest extends Model
                 $sql_cmd = $sql_cmd->select('user_requests.*','users.name');
             }
         }
+
+        $sql_cmd = $sql_cmd->orderBy('user_requests.created_at', 'desc');
+
         // ページング・取得件数指定・全件で分岐
         if ($pageing){
             if ($disp_cnt === null) $disp_cnt=5;
@@ -90,7 +93,8 @@ class UserRequest extends Model
             $updateData = [];
             //if(isset($data['type']))            $updateData['type']     = $data['type'];      ユーザーからの内容は修正不可にする
             //if(isset($data['message']))         $updateData['message']  = $data['message'];   ユーザーからの内容は修正不可にする
-            if(isset($data['reply']))           $updateData['reply']    = $data['reply'];
+            //if(isset($data['reply']))           $updateData['reply']    = $data['reply'];     null更新ありにする
+                                                $updateData['reply']    = $data['reply'];       
             if(isset($data['status']))          $updateData['status']   = $data['status'];
 
             make_error_log("chgRequeste.log","after_data=".print_r($data,1));

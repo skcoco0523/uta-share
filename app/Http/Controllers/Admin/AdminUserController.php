@@ -114,7 +114,7 @@ class AdminUserController extends Controller
         $msg = null;
         if(!isset($input['id']))        $msg =  "対象が選択されていません。";
         //if(!isset($input['message']))   $msg =  "依頼内容は必須情報です。";
-        if(!isset($input['reply']))     $msg =  "回答内容は必須情報です。";
+        //if(!isset($input['reply']))     $msg =  "回答内容は必須情報です。";       null更新有にする
         if(!isset($input['status']))    $msg =  "ステータスは必須情報です。";
         
         if(!$msg){
