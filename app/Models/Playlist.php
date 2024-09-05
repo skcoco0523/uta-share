@@ -41,13 +41,6 @@ class Playlist extends Model
                 if (isset($keyword['search_admin_flag'])) 
                     $sql_cmd = $sql_cmd->where('playlist.admin_flag',$keyword['search_admin_flag']);
             }
-        }else{
-            //念のため
-            dd("");
-            $user = Auth::user();
-            if($user->admin_flag)
-                $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
-
         }
 
         $sql_cmd                = $sql_cmd->orderBy('created_at', 'desc');
@@ -71,8 +64,8 @@ class Playlist extends Model
             if (Auth::check())  $item->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $item->id);
             else                $item->fav_flag = 0;
 
-            //マイプレイリスト
-            if (isset($keyword['user_id'])) {
+            //ユーザー検索は詳細も取得
+            if (isset($keyword['user_id']) || isset($keyword['user_serch'])) {
                 $detail = Playlist::getPlaylist_detail($item->id);
                 $item->detail = $detail->music;
             }

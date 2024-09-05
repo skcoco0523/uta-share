@@ -14,7 +14,10 @@
                                             <img src="{{ $detail->detail[0]->src }}" class="icon-55">
         @elseif(isset($detail->detail[0]->music[0]->src))
                                             <img src="{{ $detail->detail[0]->music[0]->src }}" class="icon-55">
-        @else                           <img src="{{ asset('img/pic/no_image.png') }}" class="icon-55">
+        @elseif($table == "art")
+                                            <img src="{{ asset('img/pic/artist.png') }}" class="icon-55">
+        @else
+                                            <img src="{{ asset('img/pic/no_image.png') }}" class="icon-55">
         @endif
                                         </td>
                                         <td class="col-9" onclick="redirectToDetailShow({{ $detail->id }},'{{ $table }}')">
@@ -37,9 +40,14 @@
         @if(isset($detail->src))        <img src="{{ $detail->src }}" class="icon-55">
         @elseif(isset($detail->detail[0]->src))         
                                         <img src="{{ $detail->detail[0]->src }}" class="icon-55">
+        @elseif(isset($detail->detail[0]->music[0]->src))
+                                        <img src="{{ $detail->detail[0]->music[0]->src }}" class="icon-55">
         @elseif(isset($detail->music[0]->src))         
                                         <img src="{{ $detail->music[0]->src }}" class="icon-55">
-        @else                           <img src="{{ asset('img/pic/no_image.png') }}" class="icon-55">
+        @elseif($table == "art")
+                                        <img src="{{ asset('img/pic/artist.png') }}" class="icon-55">
+        @else
+                                        <img src="{{ asset('img/pic/no_image.png') }}" class="icon-55">
         @endif
                                     </th>
                                     @if($table == "mypl")
