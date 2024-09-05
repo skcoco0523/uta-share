@@ -554,3 +554,5 @@
 #61 C:\\xampp\\htdocs\\app01\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #62 {main}
 "} 
+[2024-09-06 01:19:54] local.DEBUG: failure  
+[2024-09-06 01:19:54] local.DEBUG: obj=  

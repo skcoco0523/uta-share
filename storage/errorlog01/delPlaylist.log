@@ -617,3 +617,6 @@
 [2024-09-06 00:59:20] local.DEBUG: ---------start----------  
 [2024-09-06 00:59:20] local.DEBUG: delete_pl_id=19  
 [2024-09-06 00:59:20] local.DEBUG: success  
+[2024-09-06 01:17:12] local.DEBUG: ---------start----------  
+[2024-09-06 01:17:12] local.DEBUG: delete_pl_id=25  
+[2024-09-06 01:17:12] local.DEBUG: success  

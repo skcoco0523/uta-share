@@ -83,7 +83,8 @@ class SearchController extends Controller
         }        
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="pl"){
-            $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input,null);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰﾌﾗｸﾞ
+            $input['user_serch'] = 1;
+            $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }
         //dd($search_list["pl"]);
         //検索履歴の登録
@@ -105,7 +106,7 @@ class SearchController extends Controller
         $search_list["art"] = Artist::getArtist_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $search_list["mus"] = Music::getMusic_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $search_list["alb"] = Album::getAlbum_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $search_list["pl"] = Playlist::getPlaylist_list(10,false,1,$input,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ     
+        $search_list["pl"] = Playlist::getPlaylist_list(10,false,1,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ     
 
         $suggestions=array();
         foreach($search_list as $list){

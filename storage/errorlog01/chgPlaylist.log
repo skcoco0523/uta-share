@@ -702,3 +702,12 @@
 )
   
 [2024-09-06 00:57:10] local.DEBUG: success  
+[2024-09-06 01:17:07] local.DEBUG: ---------start----------  
+[2024-09-06 01:17:07] local.DEBUG: data=Array
+(
+    [_token] => yqVv1TKkI7qzwdUW1gSdPzd54mFHDiQ7lJOIqkj3
+    [id] => 25
+    [name] => マイプレイリスト更新
+)
+  
+[2024-09-06 01:17:07] local.DEBUG: success  

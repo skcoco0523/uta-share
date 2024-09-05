@@ -27,16 +27,27 @@ class Playlist extends Model
             //ユーザーによる検索
             }elseif (isset($keyword['keyword'])) {
                 $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['keyword']. '%');
-                //$sql_cmd = $sql_cmd->where('playlist.admin_flag', 0);
-                
+                $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
+            
+            //ユーザーによる検索条件なし検索
+            }elseif (isset($keyword['user_serch'])) {
+                $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
+            
             //管理者による検索
-            } else{
+            }else{
                 if (isset($keyword['search_playlist'])) 
                     $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['search_playlist']. '%');
 
                 if (isset($keyword['search_admin_flag'])) 
                     $sql_cmd = $sql_cmd->where('playlist.admin_flag',$keyword['search_admin_flag']);
             }
+        }else{
+            //念のため
+            dd("");
+            $user = Auth::user();
+            if($user->admin_flag)
+                $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
+
         }
 
         $sql_cmd                = $sql_cmd->orderBy('created_at', 'desc');
