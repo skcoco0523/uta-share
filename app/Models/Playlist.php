@@ -195,16 +195,16 @@ class Playlist extends Model
     {
         make_error_log("chgPlaylist_detail.log","-------start-------");
         try {
-            if(!$data['pl_id'])     return ['id' => null, 'error_code' => 1];   //データ不足
+            if(!$data['id'])     return ['id' => null, 'error_code' => 1];   //データ不足
             if(!$data['detail_id'])    return ['id' => null, 'error_code' => 2];   //データ不足
             
-            make_error_log("chgPlaylist_detail.log","delete_pl_id=".$data['pl_id']);
+            make_error_log("chgPlaylist_detail.log","delete_pl_id=".$data['id']);
             switch($data['fnc']){
                 case "add":
-                    $pl_id = DB::table('playlistdetail')->insert(['pl_id' => $data['pl_id'],'mus_id' => $data['detail_id']]);
+                    $pl_id = DB::table('playlistdetail')->insert(['pl_id' => $data['id'],'mus_id' => $data['detail_id']]);
                     break;
                 case "del":
-                    $deletedRows = DB::table('playlistdetail')->where(['pl_id'=>$data['pl_id'],'mus_id'=>$data['detail_id']])->delete();
+                    $deletedRows = DB::table('playlistdetail')->where(['pl_id'=>$data['id'],'mus_id'=>$data['detail_id']])->delete();
                     if ($deletedRows > 0) return ['id' => null, 'error_code' => 0];   //成功
                     else return ['id' => null, 'error_code' => -1];   //失敗
                     break;

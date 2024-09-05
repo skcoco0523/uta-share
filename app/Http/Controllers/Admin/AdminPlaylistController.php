@@ -130,9 +130,8 @@ class AdminPlaylistController extends Controller
     {
         make_error_log("album_chg_detail_fnc.log","-----start-----");
         $input = $request->all();
-        $input['id'] = $input['pl_id'];
         $msg=null;
-        make_error_log("album_chg_detail_fnc.log","fnc=".$input['fnc']." pl_id=".$input['pl_id']." detail_id=".$input['detail_id']);
+        make_error_log("album_chg_detail_fnc.log","fnc=".$input['fnc']." pl_id=".$input['id']." detail_id=".$input['detail_id']);
         
         $ret = Playlist::chgPlaylist_detail($input);
         switch($input['fnc']){
