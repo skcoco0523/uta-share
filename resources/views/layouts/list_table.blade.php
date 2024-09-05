@@ -14,7 +14,7 @@
                                             <img src="{{ $detail->detail[0]->src }}" class="icon-55">
         @elseif(isset($detail->detail[0]->music[0]->src))
                                             <img src="{{ $detail->detail[0]->music[0]->src }}" class="icon-55">
-        @else                               <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
+        @else                           <img src="{{ asset('img/pic/no_image.png') }}" class="icon-55">
         @endif
                                         </td>
                                         <td class="col-9" onclick="redirectToDetailShow({{ $detail->id }},'{{ $table }}')">
@@ -39,9 +39,14 @@
                                         <img src="{{ $detail->detail[0]->src }}" class="icon-55">
         @elseif(isset($detail->music[0]->src))         
                                         <img src="{{ $detail->music[0]->src }}" class="icon-55">
-        @else                           <p style="margin: 0 auto; text-align: center;">{{ $key + 1 }}</p>
+        @else                           <img src="{{ asset('img/pic/no_image.png') }}" class="icon-55">
         @endif
                                     </th>
+                                    @if($table == "mypl")
+
+                                    @else
+
+                                    @endif
                                     <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
                                         {{Str::limit($detail->name, 30, '...')}}
         @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
@@ -172,6 +177,9 @@
                 window.location.href = "{{ route('album-show') }}?id=" + detail_id;
                 break;
             case "pl":
+                window.location.href = "{{ route('playlist-show') }}?id=" + detail_id;
+                break;
+            case "mypl":
                 window.location.href = "{{ route('playlist-show') }}?id=" + detail_id;
                 break;
             case "recom":

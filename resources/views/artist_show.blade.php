@@ -10,11 +10,8 @@
     @endif
 </div>
 
-<!-- シェアポップアップモーダル -->
-@include('modals.share-modal', ['title' => $artist->name, 'url' => url()->current()])
-
-<?//メニューは別ファイルで管理?>   
-@include('layouts.menu_table', ['detail_id' => $artist->id, 'table' => 'art', 'fav_flag' => $artist->fav_flag])
+<?//メニューは別ファイルで管理  シェア?>   
+@include('layouts.icon_menu', ['detail_id' => $artist->id, 'table' => 'art', 'share' => 1])
 
 <?//テーブルリストは別ファイルで管理?>
 <h3>アルバム</h3>

@@ -26,13 +26,13 @@
     </p>   
     <!--対象アーティストの曲一覧に遷移させるリンク-->
 </div>
-<?//メニューは別ファイルで管理?>   
-@include('layouts.menu_table', ['detail_id' => $music->id, 'table' => 'mus', 'fav_flag' => $music->fav_flag])
+<?//メニューは別ファイルで管理  シェア、お気に入り、ﾌﾟﾚｲﾘｽﾄ追加?>   
+@include('layouts.icon_menu', ['detail_id' => $music->id, 'table' => 'mus', 'fav_flag' => $music->fav_flag, 'share' => 1])
 
 <?//カスタムカテゴリは別ファイルで管理?>   
 @include('layouts.custom_category_table', ['detail_id' => $music->id, 'custom_category' => $custom_category])
 
-<?//ェアポップアップモーダル?>  
+<?//シェアポップアップモーダル?>  
 @include('modals.share-modal', ['title' => $music->name, 'url' => url()->current()])
 
 @endsection

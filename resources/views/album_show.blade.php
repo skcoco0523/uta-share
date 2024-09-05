@@ -16,11 +16,8 @@
     <p>{{ $album->release_date }}：{{$album->mus_cnt }}曲</p>
 </div>
 
-<!-- シェアポップアップモーダル -->
-@include('modals.share-modal', ['title' => $album->name, 'url' => url()->current()])
-
-<?//メニューは別ファイルで管理?>   
-@include('layouts.menu_table', ['detail_id' => $album->id, 'table' => 'alb', 'fav_flag' => $album->fav_flag])
+<?//メニューは別ファイルで管理  シェア、お気に入り?>   
+@include('layouts.icon_menu', ['detail_id' => $album->id, 'table' => 'alb', 'fav_flag' => $album->fav_flag, 'share' => 1])
 
 <?//テーブルリストは別ファイルで管理?>
 @include('layouts.list_table', ['detail_table' => $album->music, 'table' => 'mus'])

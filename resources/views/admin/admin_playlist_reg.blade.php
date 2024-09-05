@@ -5,7 +5,6 @@
         <div class="col-sm">
             <label for="inputname" class="form-label">ﾌﾟﾚｲﾘｽﾄ名</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$input['name'] ?? ''}}">
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <input type="hidden" name="admin_flag" value="1">
         </div>
         <div class="col-md-2">

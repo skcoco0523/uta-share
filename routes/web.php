@@ -241,5 +241,12 @@ Route::middleware(['auth'])->group(function () {
     
     //検索履歴削除
     Route::post('history/delete', [SearchController::class, 'del_search_history'])->name('history-delete');
+
+    //マイプレイリスト作成
+    Route::post('myplaylist/reg', [PlaylistController::class, 'myplaylist_reg'])->name('myplaylist-reg');
+    //マイプレイリスト変更
+    Route::post('myplaylist/chg', [PlaylistController::class, 'myplaylist_chg'])->name('myplaylist-chg');
+    //マイプレイリスト削除
+    Route::post('myplaylist/del', [PlaylistController::class, 'myplaylist_del'])->name('myplaylist-del');
     
 });

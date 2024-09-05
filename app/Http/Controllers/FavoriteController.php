@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
+use App\Models\Playlist;
 use App\Models\CustomCategory;
 
 class FavoriteController extends Controller
@@ -57,7 +58,7 @@ class FavoriteController extends Controller
         }
         //マイプレイリストタブ
         if($input['table']=="mypl"){
-            $favorite_list["mypl"]      = Favorite::getFavorite(10,true,$pl_page ,Auth::id(),"mypl");  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,table
+            $favorite_list["mypl"]      = Playlist::getPlaylist_list(10,true,$pl_page,['user_id' => true],);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }
         //カテゴリ別タブ
         if($input['table']=="category"){

@@ -83,7 +83,7 @@
                             <input type="hidden" name="search_admin_flag" value="{{$input['search_admin_flag'] ?? ''}}">
                             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                             {{--対象データ--}}
-                            <input type="hidden" name="pl_id" value="{{$pl->id}}">
+                            <input type="hidden" name="id" value="{{$pl->id}}">
                             <input type="hidden" name="pl_name" value="{{$pl->name}}">
                             <input type="submit" value="削除" class="btn btn-danger">
                         </form>
@@ -190,7 +190,7 @@
 <form name="detail_form" method="POST" action="{{ route('admin-playlist-chgdetail-fnc') }}">
     @csrf
     <input type="hidden" name="fnc" value="">
-    <input type="hidden" name="pl_id" value="{{$playlist_detail->id}}">
+    <input type="hidden" name="id" value="{{$playlist_detail->id}}">
     <input type="hidden" name="detail_id" value="">
     <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
     <input type="hidden" name="mus_keyword" value="{{$input['mus_keyword'] ?? ''}}">

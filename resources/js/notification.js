@@ -36,16 +36,27 @@ window.showNotification = function showNotification(message, type, sec) {
             notification.innerHTML = `<i class="fa-solid fa-envelope fa-fade icon-50"></i>
                                         <p>${message}</p>`;
             break; 
-        case "error":    //エラー
-        notification.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-shake icon-50"></i>
-                                    <p>${message}</p>`;
-            break;
         case "friend":    //フレンド関連
         notification.innerHTML = `<i class="fa-solid fa-user-group fa-fade icon-50"></i>
                                     <p>${message}</p>`;
             break;
-
-            
+        case "mypl_create":    //マイプレイリスト作成
+        notification.innerHTML = `<i class="fa-solid fa-list-ul fa-bounce icon-50"></i>
+                                    <p>${message}</p>`;
+            break;
+        case "mypl_chg":    //マイプレイリスト変更
+        notification.innerHTML = `<i class="fa-solid fa-list-ul fa-fade icon-50"></i>
+                                    <p>${message}</p>`;
+            break; 
+        case "mypl_del":    //削除
+        notification.innerHTML = `<i class="fa-solid fa-list-ul fa-shake icon-50"></i>
+                                    <p>${message}</p>`;
+            break;
+        case "error":    //エラー
+        notification.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-shake icon-50"></i>
+                                    <p>${message}</p>`;
+            break;
+        
 
         default:            //メッセージのみ
             notification.innerHTML = `<p>${message}</p>`;
@@ -69,25 +80,29 @@ window.hideNotification = function hideNotification() {
     document.getElementById('notification').style.display = 'none';
 }
 
-//モーダル(シェアポップアップ)-----------------------------
-window.openShareModal = function openShareModal(url) {
-    var modal = document.getElementById('shareModal');
-    var shareButtons = modal.querySelectorAll('.share-button');
+//シェアモーダル========================================================
+window.openModal = function openModal(modal_id,url = null) {
+    var modal = document.getElementById(modal_id);
 
-    shareButtons.forEach(function(button) {
-        var platform = button.getAttribute('data-platform');
-        button.setAttribute('onclick', "shareToPlatform('" + platform + "', '" + url + "')");
-    });
+    //シェア処理のみ
+    if(modal_id=='share_modal'){
+        var shareButtons = modal.querySelectorAll('.share-button');
+        shareButtons.forEach(function(button) {
+            var platform = button.getAttribute('data-platform');
+            button.setAttribute('onclick', "shareToPlatform('" + platform + "', '" + url + "')");
+        });
+    }
 
     modal.style.display = 'block';
 }
 
-window.closeShareModal = function closeShareModal(event) {
+window.closeModal = function closeModal(modal_id) {
     // オーバーレイまたは閉じるボタンがクリックされた場合にのみモーダルを閉じる
-    if (event.target.classList.contains('notification-overlay') || event.target.classList.contains('close')) {
-        document.getElementById('shareModal').style.display = 'none';
-    }
+    //if (event.target.classList.contains('notification-overlay') || event.target.classList.contains('close')) {
+        document.getElementById(modal_id).style.display = 'none';
+    //}
 }
+
 
 window.shareToPlatform = function shareToPlatform(platform, url) {
 
@@ -112,5 +127,5 @@ window.shareToPlatform = function shareToPlatform(platform, url) {
     }
 
     window.open(popupUrl, platform + 'Share', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
-    closeShareModal({ target: document.querySelector('.notification-overlay') }); // モーダルを閉じる
+    closeModal('share_modal'); // モーダルを閉じる
 }

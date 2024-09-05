@@ -16,13 +16,19 @@
     <p class="card-text">{{ $playlist->name }}</p>
 </div>
 
-<?//メニューは別ファイルで管理?>   
-@include('layouts.menu_table', ['detail_id' => $playlist->id, 'table' => 'pl', 'fav_flag' => $playlist->fav_flag])
+<?//メニューは別ファイルで管理 ユーザープレイリストはメニューなし?>   
+@if($playlist->admin_flag == 1)
+    @include('layouts.icon_menu', ['detail_id' => $playlist->id, 'table' => 'pl', 'fav_flag' => $playlist->fav_flag, 'share' => 1])
+    <!-- シェアモーダル -->
+    @include('modals.share-modal', ['url' => url()->current()])
+@else
+    @include('layouts.icon_menu', ['detail_id' => $playlist->id, 'name' => $playlist->name, 'table' => 'mypl'])
 
-<!-- シェアポップアップモーダル -->
-@include('modals.share-modal', ['title' => $playlist->name, 'url' => url()->current()])
+@endif
+
 
 <?//テーブルリストは別ファイルで管理?>
-@include('layouts.list_table', ['detail_table' => $playlist->music, 'table' => 'mus'])
+@include('layouts.list_table', ['non_menu_table' => $playlist->music, 'table' => 'mus'])
+
 
 @endsection

@@ -5690,3 +5690,5 @@
 [2024-08-26 23:41:51] local.DEBUG: fnc=del pl_id=9 detail_id=388  
 [2024-08-26 23:41:51] local.DEBUG: -------start-------  
 [2024-08-26 23:41:51] local.DEBUG: delete_pl_id=9  
+[2024-09-02 01:17:32] local.DEBUG: -----start-----  
+[2024-09-02 01:17:32] local.DEBUG: fnc=add pl_id=19 detail_id=6  
