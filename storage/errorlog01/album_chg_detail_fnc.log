@@ -5699,3 +5699,27 @@
 [2024-09-06 01:51:36] local.DEBUG: fnc=add pl_id=26 detail_id=1  
 [2024-09-06 01:52:19] local.DEBUG: -----start-----  
 [2024-09-06 01:52:19] local.DEBUG: fnc=add pl_id=26 detail_id=1  
+[2024-09-10 21:47:00] local.DEBUG: -----start-----  
+[2024-09-10 21:47:00] local.DEBUG: fnc=add pl_id=26 detail_id=386  
+[2024-09-10 23:08:37] local.DEBUG: -----start-----  
+[2024-09-10 23:08:37] local.DEBUG: fnc=add pl_id=27 detail_id=332  
+[2024-09-10 23:26:59] local.DEBUG: -----start-----  
+[2024-09-10 23:26:59] local.DEBUG: fnc=add pl_id=26 detail_id=393  
+[2024-09-10 23:27:04] local.DEBUG: -----start-----  
+[2024-09-10 23:27:04] local.DEBUG: fnc=add pl_id=26 detail_id=330  
+[2024-09-10 23:27:14] local.DEBUG: -----start-----  
+[2024-09-10 23:27:14] local.DEBUG: fnc=add pl_id=26 detail_id=310  
+[2024-09-11 00:00:36] local.DEBUG: -----start-----  
+[2024-09-11 00:00:36] local.DEBUG: fnc=add pl_id=26 detail_id=333  
+[2024-09-11 00:00:44] local.DEBUG: -----start-----  
+[2024-09-11 00:00:44] local.DEBUG: fnc=add pl_id=26 detail_id=288  
+[2024-09-11 00:03:29] local.DEBUG: -----start-----  
+[2024-09-11 00:03:29] local.DEBUG: fnc=del pl_id=26 detail_id=288  
+[2024-09-11 00:03:34] local.DEBUG: -----start-----  
+[2024-09-11 00:03:34] local.DEBUG: fnc=add pl_id=26 detail_id=293  
+[2024-09-11 00:03:55] local.DEBUG: -----start-----  
+[2024-09-11 00:03:55] local.DEBUG: fnc=del pl_id=26 detail_id=293  
+[2024-09-11 00:04:00] local.DEBUG: -----start-----  
+[2024-09-11 00:04:00] local.DEBUG: fnc=add pl_id=26 detail_id=293  
+[2024-09-11 00:04:05] local.DEBUG: -----start-----  
+[2024-09-11 00:04:05] local.DEBUG: fnc=del pl_id=26 detail_id=293  

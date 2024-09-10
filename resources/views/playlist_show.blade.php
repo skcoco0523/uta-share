@@ -18,17 +18,17 @@
 
 <?//メニューは別ファイルで管理 ユーザープレイリストはメニューなし?>   
 @if($playlist->admin_flag == 1)
+    <?//共有・お気に入り?>
     @include('layouts.icon_menu', ['detail_id' => $playlist->id, 'table' => 'pl', 'fav_flag' => $playlist->fav_flag, 'share' => 1])
-    <!-- シェアモーダル -->
-    @include('modals.share-modal', ['url' => url()->current()])
+    @include('layouts.list_table', ['detail_table' => $playlist->music, 'table' => 'mus'])
+
 @else
+    <?//マイプレイリスト名変更・マイプレイリスト削除?>
     @include('layouts.icon_menu', ['detail_id' => $playlist->id, 'name' => $playlist->name, 'table' => 'mypl'])
+    @include('layouts.list_table', ['detail_table' => $playlist->music, 'table' => 'mus', 'pl_id' => $playlist->id])
 
 @endif
 
-
-<?//テーブルリストは別ファイルで管理?>
-@include('layouts.list_table', ['non_menu_table' => $playlist->music, 'table' => 'mus'])
 
 
 @endsection

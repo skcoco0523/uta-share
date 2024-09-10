@@ -248,5 +248,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('myplaylist/chg', [PlaylistController::class, 'myplaylist_chg'])->name('myplaylist-chg');
     //マイプレイリスト削除
     Route::post('myplaylist/del', [PlaylistController::class, 'myplaylist_del'])->name('myplaylist-del');
+    //マイプレイリスト曲追加削除
+    Route::post('myplaylist/detail_fnc', [PlaylistController::class, 'myplaylist_detail_fnc'])->name('myplaylist-detail-fnc');
     
 });

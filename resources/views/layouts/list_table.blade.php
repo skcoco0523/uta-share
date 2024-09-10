@@ -50,12 +50,8 @@
                                         <img src="{{ asset('img/pic/no_image.png') }}" class="icon-55">
         @endif
                                     </th>
-                                    @if($table == "mypl")
-
-                                    @else
-
-                                    @endif
-                                    <td class="col-9" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
+                                    
+                                    <td class="col-8" onclick="redirectToDetailShow({{$detail->id}},'{{ $table }}')">
                                         {{Str::limit($detail->name, 30, '...')}}
         @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
         @endif
@@ -65,13 +61,31 @@
         @else                           <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
         @endif
                                     </td>
+        <?//マイプレイリストへの曲追加?>
+        @if($table == "mus" && !(isset($pl_id)))
                                     <td class="col-1" pl-menu-id="{{ $table }}-{{ $detail->id }}">
-                                        <i class="fa-regular fa-square-plus icon-20 red"></i>
+                                        <i class="fa-regular fa-square-plus icon-20 red" onclick="openModal('reg_pl_modal', {{$detail->id}})"></i>
                                     </td>
+        @endif
+        <?//マイプレイリストから曲削除?>
+        @if($table == "mus" && isset($pl_id))
+                                    <td class="col-1" mypl-menu-id="{{ $table }}-{{ $detail->id }}">
+                                        <i class="fa-regular fa-trash-can icon-20 red" onclick="openModal('out_pl_modal', {{$detail->id}})"></i>
+                                    </td>
+        @endif
                                 </tr>
     @endforeach
+
+
                             </tbody>
                         </table>
+@endif
+
+<?//テーブル用モーダル?>
+@if(isset($table))
+    @if(isset($pl_id))
+        @include('modals.out_playlist-modal', ['pl_id' => $pl_id, 'url' => request()->fullUrl(),])
+    @endif
 @endif
 
 

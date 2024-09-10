@@ -4,10 +4,10 @@
 
         <?//シェア?>
         @if(isset($detail_id) && isset($table) && isset($share))
-        <a class="nav-link p-2 d-flex flex-column align-items-center">
-            <i class="fa-regular fa-share-from-square icon-20 red" onclick="openModal('share_modal','{{ request()->url()}}?id={{ $detail_id }}')"></i>
-        </a>
-        @include('modals.share-modal')
+            <a class="nav-link p-2 d-flex flex-column align-items-center">
+                <i class="fa-regular fa-share-from-square icon-20 red" onclick="openModal('share_modal', null, '{{ request()->url()}}?id={{ $detail_id }}')"></i>
+            </a>
+            @include('modals.share-modal')
         @endif
 
         <?//お気に入り?>

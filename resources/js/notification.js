@@ -81,7 +81,7 @@ window.hideNotification = function hideNotification() {
 }
 
 //シェアモーダル========================================================
-window.openModal = function openModal(modal_id,url = null) {
+window.openModal = function openModal(modal_id, detail_id = null, url = null) {
     var modal = document.getElementById(modal_id);
 
     //シェア処理のみ
@@ -91,6 +91,15 @@ window.openModal = function openModal(modal_id,url = null) {
             var platform = button.getAttribute('data-platform');
             button.setAttribute('onclick', "shareToPlatform('" + platform + "', '" + url + "')");
         });
+    }
+    //detail_id,url があれば、埋め込む　　 myplへの追加などで引き渡す
+    if(detail_id){
+        const detailInput = modal.querySelector("#detail_id");
+        if (detailInput) detailInput.value = detail_id;
+    }    
+    if(url){
+        const urlInput = modal.querySelector("#url");
+        if (urlInput) urlInput.value = url;
     }
 
     modal.style.display = 'block';

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Playlist;
 
@@ -28,10 +29,16 @@ class PlaylistController extends Controller
     public function playlist_show(Request $request)
     {
         $playlist = Playlist::getplaylist_detail($request->only(['id']));  //mus_id
+        
         $msg = null;
-        //dd($playlist);
         if($playlist){
-            return view('playlist_show', compact('playlist', 'msg'));
+            //他ユーザーのﾌﾟﾚｲﾘｽﾄは閲覧不可
+            $user = Auth::user();
+            if($playlist->user_id == $user->id || $playlist->admin_flag == 1){
+                return view('playlist_show', compact('playlist', 'msg'));
+            }else{
+                return redirect()->route('home')->with('error', '該当のプレイリストが存在しません');
+            }
         }else{
             return redirect()->route('home')->with('error', '該当のプレイリストが存在しません');
         }
@@ -74,5 +81,30 @@ class PlaylistController extends Controller
         $message = ['message' => $msg, 'type' => 'mypl_del', 'sec' => '2000'];
         return redirect()->route('favorite-show', ['table' => 'mypl'])->with($message);
     }
+    //詳細変更用　関数(追加・削除)
+    public function myplaylist_detail_fnc(Request $request)
+    {
+        make_error_log("myplaylist_detail_fnc.log","-----start-----");
+        $input = $request->all();
+        $msg=null;
+        $url = get_proc_data($input,"url");
+              
+        $ret = Playlist::chgPlaylist_detail($input);
+        if($input['fnc'] == "add"){
+            if($ret['error_code']==-1)      $msg = "プレイリストへの追加に失敗しました。";
+            if($ret['error_code']==0)       $msg = "プレイリストに追加しました。";
+
+        }elseif($input['fnc'] == "del"){
+            if($ret['error_code']==-1)      $msg = "プレイリストからの削除に失敗しました。";
+            if($ret['error_code']==0)       $msg = "プレイリストから削除しました。";
+            
+        }
+
+        $message = ['message' => $msg, 'type' => 'mypl_del', 'sec' => '2000'];
+        // 取得したURLにリダイレクトしながら、メッセージを渡す
+        return redirect()->to($url)->with($message);
+
+        
+        }
     
 }
