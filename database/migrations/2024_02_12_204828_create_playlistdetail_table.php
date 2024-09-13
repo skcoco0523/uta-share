@@ -21,6 +21,9 @@ return new class extends Migration
             $table->foreign('pl_id')->references('id')->on('playlist')->onDelete('cascade');
             $table->foreign('mus_id')->references('id')->on('musics')->onDelete('cascade');
             
+            // ユニーク制約を追加
+            $table->unique(['pl_id', 'mus_id']);
+
             // インデックスの追加
             $table->index('pl_id');
         });

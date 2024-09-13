@@ -1140,3 +1140,21 @@
 )
   
 [2024-09-13 15:29:18] local.DEBUG: success  
+[2024-09-13 16:22:39] local.DEBUG: ---------start----------  
+[2024-09-13 16:22:39] local.DEBUG: data=Array
+(
+    [_token] => 8AXJ3ACdVahDriZbwdfnVs8b8bpjtUwsc1DyZBYM
+    [name] => 追加テスト
+    [user_id] => 2
+)
+  
+[2024-09-13 16:22:39] local.DEBUG: success  
+[2024-09-13 16:31:10] local.DEBUG: ---------start----------  
+[2024-09-13 16:31:10] local.DEBUG: data=Array
+(
+    [_token] => 8AXJ3ACdVahDriZbwdfnVs8b8bpjtUwsc1DyZBYM
+    [name] => テスト2
+    [user_id] => 2
+)
+  
+[2024-09-13 16:31:10] local.DEBUG: success  

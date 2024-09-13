@@ -101,17 +101,24 @@ class PlaylistController extends Controller
               
         $ret = Playlist::chgPlaylist_detail($input);
         if($input['fnc'] == "add"){
-            if($ret['error_code']==-1)      $msg = "プレイリストへの追加に失敗しました。";
-            if($ret['error_code']==0)       $msg = "プレイリストに追加しました。";
-
-        }elseif($input['fnc'] == "del"){
-            if($ret['error_code']==-1)      $msg = "プレイリストからの削除に失敗しました。";
-            if($ret['error_code']==0)       $msg = "プレイリストから削除しました。";
+            if($ret['error_code']==-1){
+                $msg = "プレイリストへの追加に失敗しました。"; $type='error';
+            }
+            if($ret['error_code']==0){
+                $msg = "プレイリストに追加しました。"; $type='mypl_chg';
+            }
             
+        }elseif($input['fnc'] == "del"){
+            if($ret['error_code']==-1){
+                $msg = "プレイリストからの削除に失敗しました。"; $type='error';
+            }
+            if($ret['error_code']==0){
+                $msg = "プレイリストから削除しました。"; $type='mypl_chg';
+            }
         }
 
         // 取得したURLにリダイレクトしながら、メッセージを渡す
-        $message = ['message' => $msg, 'type' => 'mypl_del', 'sec' => '2000'];
+        $message = ['message' => $msg, 'type' => $type, 'sec' => '2000'];
         return redirect()->to($url)->with($message);
 
         }
