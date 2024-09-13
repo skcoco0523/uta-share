@@ -101,6 +101,10 @@ window.openModal = function openModal(modal_id, detail_id = null, url = null) {
         const urlInput = modal.querySelector("#url");
         if (urlInput) urlInput.value = url;
     }
+    //playlist追加モーダルのみ
+    if(modal_id=='add_pl_modal'){
+        get_myplaylist();
+    }
 
     modal.style.display = 'block';
 }

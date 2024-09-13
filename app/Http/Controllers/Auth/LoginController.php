@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
 use App\Models\UserLog; 
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -43,9 +44,15 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        //ログ書き込み
+        //make_error_log("myplaylist_get.log","request=".$request);
+        //make_error_log("myplaylist_get.log","user=".$user);
         UserLog::create_user_log("login");
-        // ユーザーが認証された後にデバイス情報を登録するためフロントで識別できるようにする
+        //dd($request, $user);
 
+        // ユーザーが認証された後にデバイス情報を登録するためフロントで識別できるようにする
         return redirect()->intended($this->redirectPath() . '?login=success');
     }
+    
+
 }

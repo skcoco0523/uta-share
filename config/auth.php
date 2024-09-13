@@ -40,6 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        //apiを許可　　ﾛｸﾞｲﾝ済みユーザーのみ使用するため　sessionにする
+        'api' => [
+            //'driver' => 'token',
+            'driver' => 'session',
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
 
     /*

@@ -20,6 +20,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
+        // ベースURLを定義
+        //const baseUrl = "{{ url('/app01') }}";
         //JS用ルーティングの定義
         const loginUrl                  = "{{ route('login') }}";
         const historyDeleteUrl          = "{{ route('history-delete') }}";
@@ -27,6 +29,9 @@
         const customCategoryChangeUrl   = "{{ route('custom-category-chg') }}";
         const searchListShowUrl         = "{{ route('search-list-show') }}";
         const checkDevicesUrl           = "{{ route('devices-check') }}";
+        // APIエンドポイントのURLを定義
+        const api_login                 = `{{ url('/api/login') }}`;
+        const getMyPlaylistUrl          = `{{ url('/api/myplaylist/get') }}`;
 
         //configからJSで使用する値を取得
         window.Laravel = {

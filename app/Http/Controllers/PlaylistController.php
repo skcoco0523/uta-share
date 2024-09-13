@@ -43,11 +43,19 @@ class PlaylistController extends Controller
             return redirect()->route('home')->with('error', '該当のプレイリストが存在しません');
         }
     }
-    
+    //マイプレイリスト取得　モーダルで使用する
+    public function myplaylist_get()
+    {
+        $playlists = Playlist::getPlaylist_list(999, false, null, ['user_id' => true]);
 
+        //make_error_log("myplaylist_get.log","playlists=".print_r($playlists,1));
+        // JSON形式でプレイリストを返す
+        return response()->json($playlists);
+    }
     //追加
     public function myplaylist_reg(Request $request)
     {
+        $this->middleware('auth');
         $input = $request->all();
         $ret = Playlist::createPlaylist($input);
         if($ret['error_code']==0)   $msg = "プレイリストを追加しました。";
@@ -57,9 +65,10 @@ class PlaylistController extends Controller
         return redirect()->route('favorite-show', ['table' => 'mypl'])->with($message);
         
     }
-    //追加
+    //変更
     public function myplaylist_chg(Request $request)
     {
+        $this->middleware('auth');
         $input = $request->all();
         $ret = Playlist::chgPlaylist($input);
         if($ret['error_code']==0)   $msg = "プレイリスト名を更新しました。";
@@ -72,7 +81,7 @@ class PlaylistController extends Controller
     //削除
     public function myplaylist_del(Request $request)
     {
-        //$input = $request->only(['pl_id','pl_name','keyword','admin_flag']);
+        $this->middleware('auth');
         $input = $request->all();
         $ret = Playlist::delPlaylist($input);
         if($ret['error_code']==0)   $msg = "プレイリストを削除しました。";
@@ -84,6 +93,7 @@ class PlaylistController extends Controller
     //詳細変更用　関数(追加・削除)
     public function myplaylist_detail_fnc(Request $request)
     {
+        $this->middleware('auth');
         make_error_log("myplaylist_detail_fnc.log","-----start-----");
         $input = $request->all();
         $msg=null;
@@ -100,11 +110,10 @@ class PlaylistController extends Controller
             
         }
 
-        $message = ['message' => $msg, 'type' => 'mypl_del', 'sec' => '2000'];
         // 取得したURLにリダイレクトしながら、メッセージを渡す
+        $message = ['message' => $msg, 'type' => 'mypl_del', 'sec' => '2000'];
         return redirect()->to($url)->with($message);
 
-        
         }
     
 }

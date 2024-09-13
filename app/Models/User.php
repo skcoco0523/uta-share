@@ -54,6 +54,11 @@ class User extends Authenticatable
         'birthdate' => 'date',
     ];
     
+    //ユーザートークン生成
+    public function createTokenForUser($name = 'Default Token Name')
+    {
+        return $this->createToken($name)->plainTextToken;
+    }
 
     //ユーザーリスト取得
     public static function getUser_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$sort_flag=false)
