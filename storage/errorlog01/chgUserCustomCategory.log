@@ -349,3 +349,11 @@
 [2024-09-10 23:31:19] local.DEBUG: user_id=1 music_id=330 bit_num=8 type=add  
 [2024-09-10 23:31:19] local.DEBUG: before_bit_num=  
 [2024-09-10 23:31:19] local.DEBUG: to add  
+[2024-09-14 21:37:59] local.DEBUG: -------start-------  
+[2024-09-14 21:37:59] local.DEBUG: user_id=1 music_id=67 bit_num=16 type=add  
+[2024-09-14 21:37:59] local.DEBUG: before_bit_num=  
+[2024-09-14 21:37:59] local.DEBUG: to add  
+[2024-09-14 21:38:03] local.DEBUG: -------start-------  
+[2024-09-14 21:38:03] local.DEBUG: user_id=1 music_id=67 bit_num=16 type=del  
+[2024-09-14 21:38:03] local.DEBUG: before_bit_num=20  
+[2024-09-14 21:38:03] local.DEBUG: cheke=16  

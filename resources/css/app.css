@@ -4,18 +4,21 @@ npm run build　でビルド　→build配下のファイルをアップロー�
 */
 
 
+.fixed-main {
+  max-width: 500px;
+}
 .fixed-top-menu {
     top: 0;
     background-color: #fff; /* 透明度を0.9に設定 */
-    max-width: 600px;
+    max-width: 500px;
   }
-  .fixed-bottom-menu {
-    bottom: 0;
-    /* background-color: #fff; メニューの背景色を指定 */
-    background-color: rgba(255, 255, 255, 0.6); /* 透明度を0.9に設定 */
-    border-top: 1px solid #ddd; /* 上部にボーダーを追加 */
-    max-width: 600px;
-  }
+.fixed-bottom-menu {
+  bottom: 0;
+  /* background-color: #fff; メニューの背景色を指定 */
+  background-color: rgba(255, 255, 255, 0.6); /* 透明度を0.9に設定 */
+  border-top: 1px solid #ddd; /* 上部にボーダーを追加 */
+  max-width: 500px;
+}
   
 /*list------------------------------------------------------------------------*/
   .list-group-item.list-selected {

@@ -8,8 +8,6 @@
     <meta name="theme-color" content="#000000"> <!-- テーマカラー -->
     <!-- アイコン設定（オプション） -->
     <!-- <link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" type="image/png"> -->
-
-
     
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,6 +15,7 @@
     <title>{{ config('app.name', '歌Share') }}</title>
     <meta name="description" content="お気に入りの曲を友達と共有しよう">
     <meta name="keywords" content="カラオケ, 歌, 好きな歌, 共有, 友達, 盛り上がる歌, おすすめ曲">
+    
     <?//SNSで表示される際の説明?>
     <meta property="og:url" content="https://skcoco.com/app01">
     <meta property="og:title" content="{{ config('app.name', '歌Share') }}">
@@ -115,7 +114,7 @@
             <div id="app">
                 <div class="fixed-top">
                     <div class="container-fluid fixed-top-menu">
-                        <nav class="navbar navbar-expand-md navbar-light">
+                        <nav class="navbar navbar-light">
                         
                             <a class="navbar-brand" href="{{ url('/') }}">
                                 {{ config('app.name', '歌Share') }}
@@ -176,7 +175,7 @@
                 </div>
 
                 <main class="py-4">
-                    <div class="container-fluid" style="max-width: 600px;">
+                    <div class="container-fluid fixed-main">
                     @yield('content')
                     </div>
                 </main>
