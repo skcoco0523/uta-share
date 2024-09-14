@@ -15,6 +15,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', '歌Share') }}</title>
+    <meta name="description" content="お気に入りの曲を友達と共有しよう">
+    <meta name="keywords" content="カラオケ, 歌, 好きな歌, 共有, 友達, 盛り上がる歌, おすすめ曲">
+    <?//SNSで表示される際の説明?>
+    <meta property="og:url" content="https://skcoco.com/app01">
+    <meta property="og:title" content="{{ config('app.name', '歌Share') }}">
+    <meta property="og:description" content="お気に入りの曲を友達と共有しよう">
+
+
+
 
     <!-- jQueryの読み込み -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
