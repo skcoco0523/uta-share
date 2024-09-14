@@ -15,6 +15,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
+                        <a href="{{ route('favorite-show') }}?table=mypl" class="nav-link d-inline-flex">
+                            <i class="fa-solid fa-plus icon-20 red"></i><span>　新規マイプレイリスト</span>
+                        </a>
                         <!-- プレイリストの内容が表示されるエリア -->
                         <ul id="playlistList" class="list-group">
                             <!-- プレイリストのリストがここに追加される -->
@@ -25,7 +28,6 @@
 
                     <button type="button" class="col-5 btn btn-secondary" onclick="closeModal('add_pl_modal')">キャンセル</button>
                     <button id="add_button" type="submit" class="col-5 btn btn-danger disabled">追加</button>
-                    <button id="create_button" type="button" class="col-5 btn btn-danger" style="display: none;">作成</button>
                 </div>
             </form>
         </div>
@@ -75,11 +77,12 @@
 
                         // クリックされたアイテムに選択クラスを追加
                         this.classList.add('list-selected');
-                        
+                        //追加ボタンを有効化
                         add_button.classList.remove('disabled');
                         
                         // 選択されたアイテムのIDを隠しフィールドに設定
                         document.getElementById('id').value = this.dataset.playlistId;
+
                     });
 
                     // プレイリストリストに追加
@@ -88,21 +91,16 @@
             } else {
                 // プレイリストがない場合のメッセージ
                 playlistContent.textContent = 'プレイリストがありません。';
-                //表示ボタンを切り替える
-                
-                document.getElementById('add_button').style.display = 'none';
-
-                let createButton = document.getElementById('create_button');
-                createButton.style.display = 'block'; // ボタンを表示
-                createButton.addEventListener('click', function() {
-                    window.location.href = "{{ route('favorite-show') }}?table=mypl"; // ボタンがクリックされたときにリダイレクト
-                });
             }
             
         })
         .fail((xhr, status, error) => {
             console.error('Error fetching playlist:', error);
-            document.getElementById('playlistContent').textContent = 'プレイリストの取得に失敗しました。';
+            // 認証エラーの場合の処理
+            closeModal('add_pl_modal');
+            showNotification('ログインが必要です。', "", 1000);
+            // 1秒後にログインページにリダイレクト
+            setTimeout(() => {window.location.href = loginUrl;}, 1000);
         });
 
 
