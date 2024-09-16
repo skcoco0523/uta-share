@@ -34,7 +34,7 @@
 
 @if($input['table']=='all')
     <h3>アーティスト</h3>
-    @include('layouts.list_table', ['detail_table' => $search_list["art"], 'table' => 'art'])
+    @include('layouts.list_table', ['non_menu_table' => $search_list["art"], 'table' => 'art'])
 
     <h3>曲</h3>
     @include('layouts.list_table', ['detail_table' => $search_list["mus"], 'table' => 'mus'])
@@ -45,7 +45,7 @@
 
 @elseif($input['table']=="art")
     <h3>アーティスト</h3>
-    @include('layouts.list_table', ['detail_table' => $search_list["art"], 'table' => 'art'])
+    @include('layouts.list_table', ['non_menu_table' => $search_list["art"], 'table' => 'art'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = ['keyword' => $input['keyword'] ?? '' ,'table' => 'art' ,];

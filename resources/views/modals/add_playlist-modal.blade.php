@@ -10,8 +10,9 @@
                     <h5 class="modal-title" id="newPlaylistModalLabel">プレイリストに追加</h5>
                     <input type="hidden" name="fnc" value='add'>
                     <input type="hidden" id="id" name="id">
-                    <input type="hidden" id="detail_id" name="detail_id" value={{$detail_id}}>
-                    <input type="hidden" id="url" name="url" value={{$url}}>
+                    <?//openModal()の引数で指定する?>
+                    <input type="hidden" id="detail_id" name="detail_id">
+                    <input type="hidden" id="url" name="url">
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">

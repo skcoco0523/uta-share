@@ -10,7 +10,8 @@
                     <h5 class="modal-title" id="newPlaylistModalLabel">プレイリストから削除</h5>
                     <input type="hidden" name="fnc" value='del'>
                     <input type="hidden" name="id" value={{$pl_id}}>
-                    <input type="hidden" id="url" name="url" value={{$url}}>
+                    <?//openModal()の引数で指定する?>
+                    <input type="hidden" id="url" name="url">
                     <input type="hidden" id="detail_id" name="detail_id">
                 </div>
                 <div class="modal-body">

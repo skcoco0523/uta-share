@@ -24,9 +24,9 @@
         <?//プレイリスト追加?>
         @if(isset($detail_id) && isset($table) && $table == "mus")
             <a class="nav-link p-2 d-flex flex-column align-items-center">
-                <i class="fa-regular fa-square-plus icon-20 red" onclick="openModal('add_pl_modal')"></i>
+                <i class="fa-regular fa-square-plus icon-20 red" onclick="openModal('add_pl_modal', {{$detail_id}}, '{{request()->fullUrl()}}')"></i>
             </a>
-            @include('modals.add_playlist-modal', ['detail_id' => $detail_id, 'url' => request()->fullUrl(),])
+            @include('modals.add_playlist-modal')
         @endif
 
         <?//プレイリスト変更,削除?>

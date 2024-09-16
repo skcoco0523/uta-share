@@ -1,4 +1,24 @@
+<?//テーブル用モーダル?>
+@if(isset($table))
+    <?//マイプレイリストへの追加?>
+    @if($table == "mus" && !(isset($pl_id)))
+        @include('modals.add_playlist-modal')
+    @endif
 
+    <?//マイプレイリストからの削除?>
+    @if($table == "mus" && isset($pl_id))
+        @include('modals.out_playlist-modal', ['pl_id' => $pl_id,])
+    @endif
+
+@endif
+
+@if(isset($recommend_table))
+    <?//マイプレイリストへの追加?>
+    @if($recommend_table->table == "mus")
+        @include('modals.add_playlist-modal')
+    @endif
+
+@endif
 
 <?//メニューなしテーブル?>
 @if(isset($non_menu_table) && isset($table))
@@ -56,21 +76,21 @@
         @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
         @endif
                                     </td>
-                                    <td class="col-1" favorite-id="{{ $table }}-{{ $detail->id }}">
+                                    <td class="col-1">
         @if($detail->fav_flag)          <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
         @else                           <i data-favorite-id="{{ $table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $table }}',{{ $detail->id }})"></i>
         @endif
                                     </td>
         <?//マイプレイリストへの曲追加?>
         @if($table == "mus" && !(isset($pl_id)))
-                                    <td class="col-1" pl-menu-id="{{ $table }}-{{ $detail->id }}">
-                                        <i class="fa-regular fa-square-plus icon-20 red" onclick="openModal('reg_pl_modal', {{$detail->id}})"></i>
+                                    <td class="col-1">
+                                        <i class="fa-regular fa-square-plus icon-20 red" onclick="openModal('add_pl_modal', {{$detail->id}}, '{{request()->fullUrl()}}')"></i>
                                     </td>
         @endif
         <?//マイプレイリストから曲削除?>
         @if($table == "mus" && isset($pl_id))
-                                    <td class="col-1" mypl-menu-id="{{ $table }}-{{ $detail->id }}">
-                                        <i class="fa-regular fa-trash-can icon-20 red" onclick="openModal('out_pl_modal', {{$detail->id}})"></i>
+                                    <td class="col-1">
+                                        <i class="fa-regular fa-trash-can icon-20 red" onclick="openModal('out_pl_modal', {{$detail->id}}, '{{request()->fullUrl()}}')"></i>
                                     </td>
         @endif
                                 </tr>
@@ -81,12 +101,7 @@
                         </table>
 @endif
 
-<?//テーブル用モーダル?>
-@if(isset($table))
-    @if(isset($pl_id))
-        @include('modals.out_playlist-modal', ['pl_id' => $pl_id, 'url' => request()->fullUrl(),])
-    @endif
-@endif
+
 
 
 <?//おすすめテーブル?>
@@ -109,19 +124,25 @@
         @if(isset($detail->art_name))   <br><p class="sub-title">{{Str::limit($detail->art_name, 30, '...')}}</p>
         @endif
                                         </td>
-                                        <td class="col-1" favorite-id="{{ $recommend_table->table }}-{{ $detail->id }}">
+                                        <td class="col-1">
         @if($detail->fav_flag)              <i data-favorite-id="{{ $recommend_table->table }}-{{ $detail->id }}" class="fa-solid fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend_table->table }}', {{ $detail->id }})"></i>
         @else                               <i data-favorite-id="{{ $recommend_table->table }}-{{ $detail->id }}" class="fa-regular fa-heart icon-20 red" onclick="chgToFavorite('{{ $recommend_table->table }}', {{ $detail->id }})"></i>
         @endif
                                         </td>
-                                        <td class="col-1" pl-menu-id="{{ $recommend_table->table }}-{{ $detail->id }}">
-                                            <i class="fa-regular fa-square-plus icon-20 red"></i>
+        <?//マイプレイリストへの曲追加?>
+        @if($recommend_table->table == "mus")
+                                        <td class="col-1">
+                                            <i class="fa-regular fa-square-plus icon-20 red" onclick="openModal('add_pl_modal', {{$detail->id}}, '{{request()->fullUrl()}}')"></i>
                                         </td>
+        @endif
                                     </tr>
     @endforeach
                                 </tbody>
                             </table>
 @endif
+
+
+
 
 
 <?//フレンド情報表示用?>
@@ -166,24 +187,6 @@
                 setFavoriteActions('{{$table}}',{{ $detail->id }}, {{$detail->fav_flag}});
             <?php endforeach; ?>
         <?php } ?>
-        
-        // mus以外はプレイリストメニューは無し
-        let pl_table = document.querySelectorAll("[pl-menu-id]");
-        pl_table.forEach(table => {
-            let tableType = table.getAttribute("pl-menu-id").split("-")[0];
-            if (tableType !== 'mus') {
-                table.style.display = 'none';
-            }
-        });
-        // artはメニューなし
-        let fav_table = document.querySelectorAll("[favorite-id]");
-        fav_table.forEach(table => {
-            let tableType = table.getAttribute("favorite-id").split("-")[0];
-            if (tableType === 'art') {
-                //console.log("Hiding element:", table); // デバッグ用にログを出力
-                table.style.display = 'none';
-            }
-        });
 
     });
 

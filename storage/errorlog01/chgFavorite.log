@@ -1108,3 +1108,8 @@
 [2024-09-13 02:51:07] local.DEBUG: user_id=1 table=mus fav_id=74 type=add  
 [2024-09-13 02:51:07] local.DEBUG: fav_chk=0  
 [2024-09-13 02:51:07] local.DEBUG: to add  
+[2024-09-17 06:07:03] local.DEBUG: -------start-------  
+[2024-09-17 06:07:03] local.DEBUG: user_id=1 table=art fav_id=10 type=add  
+[2024-09-17 06:07:03] local.DEBUG: fav_chk=  
+[2024-09-17 06:07:03] local.DEBUG: to add  
+[2024-09-17 06:07:03] local.DEBUG: failure  
