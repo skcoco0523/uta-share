@@ -5723,3 +5723,17 @@
 [2024-09-11 00:04:00] local.DEBUG: fnc=add pl_id=26 detail_id=293  
 [2024-09-11 00:04:05] local.DEBUG: -----start-----  
 [2024-09-11 00:04:05] local.DEBUG: fnc=del pl_id=26 detail_id=293  
+[2024-09-17 06:25:13] local.DEBUG: -----start-----  
+[2024-09-17 06:25:13] local.DEBUG: fnc=add alb_id=28 mus_id= name=  
+[2024-09-17 06:25:27] local.DEBUG: -----start-----  
+[2024-09-17 06:25:27] local.DEBUG: fnc=add alb_id=28 mus_id= name=test  
+[2024-09-17 06:25:33] local.DEBUG: -----start-----  
+[2024-09-17 06:25:33] local.DEBUG: fnc=del alb_id=28 mus_id=408 name=test  
+[2024-09-17 06:37:32] local.DEBUG: -----start-----  
+[2024-09-17 06:37:32] local.DEBUG: fnc=add pl_id=9 detail_id=379  
+[2024-09-17 06:37:36] local.DEBUG: -----start-----  
+[2024-09-17 06:37:36] local.DEBUG: fnc=del pl_id=9 detail_id=379  
+[2024-09-17 06:39:07] local.DEBUG: -----start-----  
+[2024-09-17 06:39:07] local.DEBUG: fnc=add pl_id=9 detail_id=388  
+[2024-09-17 06:39:13] local.DEBUG: -----start-----  
+[2024-09-17 06:39:13] local.DEBUG: fnc=del pl_id=9 detail_id=388  

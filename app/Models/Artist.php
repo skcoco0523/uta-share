@@ -15,13 +15,19 @@ class Artist extends Model
     {
         $sql_cmd = DB::table('artists');
         if($keyword){
-            //ユーザーによる検索
-            if (isset($keyword['keyword'])) {
-                $sql_cmd = $sql_cmd->Where('artists.name', 'like', '%'. $keyword['keyword']. '%');
-                $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
+            
+            //全検索
+            if (isset($keyword['search_all'])) {
+                $sql_cmd = $sql_cmd->Where('artists.name', 'like', '%'. $keyword['search_all']. '%');
+                $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['search_all']. '%');
 
-            //管理者による検索
-            } else{
+            }else{
+                //ユーザーによる検索
+                if (isset($keyword['keyword'])) {
+                    $sql_cmd = $sql_cmd->Where('artists.name', 'like', '%'. $keyword['keyword']. '%');
+                    $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
+                }
+                //管理者による検索
                 if (isset($keyword['search_artist'])) {
                     $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
                     $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
@@ -29,7 +35,6 @@ class Artist extends Model
                 if (isset($keyword['search_sex'])) 
                     $sql_cmd = $sql_cmd->where('artists.sex',$keyword['search_sex']);
     
-
             }
         }
         $sql_cmd = $sql_cmd->orderBy('artists.created_at', 'desc');

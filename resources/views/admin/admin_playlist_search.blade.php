@@ -138,7 +138,7 @@
                     <div class="row g-3 align-items-end">
                         <div class="col-sm-6">
                             <label for="keyword" class="visually-hidden">検索(楽曲名)</label>
-                            <input type="text" id="keyword" name="mus_keyword" class="form-control" value="{{$input['mus_keyword'] ?? ''}}" placeholder="検索(楽曲名)">
+                            <input type="text" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(楽曲名)">
                         </div>
                         <div class="col-auto align-self-end">
                             <button type="submit" class="btn btn-success">検索</button>
@@ -193,7 +193,7 @@
     <input type="hidden" name="id" value="{{$playlist_detail->id}}">
     <input type="hidden" name="detail_id" value="">
     <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
-    <input type="hidden" name="mus_keyword" value="{{$input['mus_keyword'] ?? ''}}">
+    <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
 </form>
 
 @endif

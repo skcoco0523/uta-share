@@ -20,14 +20,21 @@ class Album extends Model
         $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
         $sql_cmd = $sql_cmd->leftJoin('musics', 'albums.id', '=', 'musics.alb_id');
         if($keyword){
-            //ユーザーによる検索
-            if (isset($keyword['keyword'])) {
-                $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['keyword']. '%');
-                $sql_cmd = $sql_cmd->orWhere('artists.name', 'like', '%'. $keyword['keyword']. '%');
-                $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
+            //全検索
+            if (isset($keyword['search_all'])) {
+                $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['search_all']. '%');
+                $sql_cmd = $sql_cmd->orWhere('artists.name', 'like', '%'. $keyword['search_all']. '%');
+                $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['search_all']. '%');
 
-            //管理者による検索
-            } else{
+            }else{
+                //ユーザーによる検索
+                if (isset($keyword['keyword'])) {
+                    $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['keyword']. '%');
+                    $sql_cmd = $sql_cmd->orWhere('artists.name', 'like', '%'. $keyword['keyword']. '%');
+                    $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
+
+                }
+                //管理者による検索
                 if (isset($keyword['search_album'])) 
                     $sql_cmd = $sql_cmd->where('albums.name', 'like', '%'. $keyword['search_album']. '%');
     

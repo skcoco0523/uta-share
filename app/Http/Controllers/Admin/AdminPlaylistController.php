@@ -108,20 +108,21 @@ class AdminPlaylistController extends Controller
     {
         //追加 or 削除からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)  $input = request('input');
-        else                                 $input = $request->only(['id', 'mus_keyword', 'page']);
-        if (empty($input['id']))             $input['id'] = null;
-        if (empty($input['mus_keyword']))    $input['mus_keyword'] = null;
-        // 現在のページ番号を取得。指定がない場合は1を使用
-        if (empty($input['page']))           $input['page'] = 1;
+        else                                 $input = $request->all();
+        $input['id']            = get_proc_data($input,"id");
+        $input['page']          = get_proc_data($input,"page");
+        $input['keyword']       = get_proc_data($input,"keyword");
+        //全件検索
+        $input['search_all']    = $input['keyword'];
 
         //収録曲変更　現在の収録曲
         $playlist_detail = Playlist::getPlaylist_detail($input['id']);
         $playlist = null;
         //楽曲検索
-        $music = Music::getMusic_list(10,true,$input['page'],$input['mus_keyword']);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄ
+        $music = Music::getMusic_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄ
 
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['mus_keyword'] !==null && $music === null) ? "検索結果が0件です。" : $msg;
+        $msg = ($msg===NULL && $input['search_all'] !==null && $music === null) ? "検索結果が0件です。" : $msg;
 
         return view('admin.admin_home', compact('playlist_detail', 'playlist', 'music', 'input', 'msg'));
     }

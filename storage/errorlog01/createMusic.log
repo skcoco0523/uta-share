@@ -1,0 +1,14 @@
+[2024-09-17 06:25:27] local.DEBUG: -------start-------  
+[2024-09-17 06:25:27] local.DEBUG: create_data=Array
+(
+    [_token] => QzF8z846Fqe2CnfszEzgNN6AmGYNlZCLErkVpHkg
+    [fnc] => add
+    [alb_id] => 28
+    [mus_id] => 
+    [name] => test
+    [page] => 
+    [id] => 
+    [art_id] => 6
+)
+  
+[2024-09-17 06:25:27] local.DEBUG: success  

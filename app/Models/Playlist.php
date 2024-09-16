@@ -19,27 +19,33 @@ class Playlist extends Model
     {
         $sql_cmd = DB::table('playlist');
         if($keyword){
-            //マイプレイリスト
-            if (isset($keyword['user_id'])) {
-                $sql_cmd = $sql_cmd->where('playlist.user_id', Auth::id());
-                $sql_cmd = $sql_cmd->where('playlist.admin_flag', 0);
+            //全検索
+            if (isset($keyword['search_all'])) {
+                $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['search_all']. '%');
 
-            //ユーザーによる検索
-            }elseif (isset($keyword['keyword'])) {
-                $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['keyword']. '%');
-                $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
-            
-            //ユーザーによる検索条件なし検索
-            }elseif (isset($keyword['user_serch'])) {
-                $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
-            
-            //管理者による検索
             }else{
-                if (isset($keyword['search_playlist'])) 
-                    $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['search_playlist']. '%');
+                //マイプレイリスト
+                if (isset($keyword['user_id'])) {
+                    $sql_cmd = $sql_cmd->where('playlist.user_id', Auth::id());
+                    $sql_cmd = $sql_cmd->where('playlist.admin_flag', 0);
 
-                if (isset($keyword['search_admin_flag'])) 
-                    $sql_cmd = $sql_cmd->where('playlist.admin_flag',$keyword['search_admin_flag']);
+                //ユーザーによる検索
+                }elseif (isset($keyword['keyword'])) {
+                    $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['keyword']. '%');
+                    $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
+                
+                //ユーザーによる検索条件なし検索
+                }elseif (isset($keyword['user_serch'])) {
+                    $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
+                
+                //管理者による検索
+                }else{
+                    if (isset($keyword['search_playlist'])) 
+                        $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['search_playlist']. '%');
+
+                    if (isset($keyword['search_admin_flag'])) 
+                        $sql_cmd = $sql_cmd->where('playlist.admin_flag',$keyword['search_admin_flag']);
+                }
             }
         }
 

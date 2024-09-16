@@ -120,11 +120,12 @@ class AdminRecommendController extends Controller
         
         $input['id']                = get_proc_data($input,"id");
         $input['search_category']   = get_proc_data($input,"search_category");
-        $input['dtl_keyword']       = get_proc_data($input,"dtl_keyword");
+        $input['keyword']       = get_proc_data($input,"keyword");
         $input['category']          = get_proc_data($input,"category");
-        
         $input['page']              = get_proc_data($input,"page");
 
+        //全件検索
+        $input['search_all']    = $input['keyword'];
 
         //収録曲変更　現在の収録曲
         $recommend_detail = Recommend::getRecommend_detail(null,false,null,$input['id']);  //全件,なし,ｷｰﾜｰﾄﾞ　リスト用
@@ -150,7 +151,7 @@ class AdminRecommendController extends Controller
         }
 
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['dtl_keyword'] !==null && $detail === null) ? "検索結果が0件です。" : $msg;
+        $msg = ($msg===NULL && $input['keyword'] !==null && $detail === null) ? "検索結果が0件です。" : $msg;
 
         return view('admin.admin_home', compact('recommend_detail', 'recommend', 'detail', 'input', 'msg'));
     }

@@ -1248,3 +1248,15 @@
 )
   
 [2024-07-05 12:58:50] local.DEBUG: success  
+[2024-09-17 07:16:03] local.DEBUG: ---------start----------  
+[2024-09-17 07:16:10] local.DEBUG: ---------start----------  
+[2024-09-17 07:16:10] local.DEBUG: data=Array
+(
+    [_token] => QzF8z846Fqe2CnfszEzgNN6AmGYNlZCLErkVpHkg
+    [name] => test
+    [user_id] => 1
+    [category] => 1
+    [sort_num] => 1
+)
+  
+[2024-09-17 07:16:10] local.DEBUG: success  

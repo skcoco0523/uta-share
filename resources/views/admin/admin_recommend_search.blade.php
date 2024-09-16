@@ -184,7 +184,7 @@
                 <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                     <div class="row g-3 align-items-end">
                         <div class="col-sm-6">
-                            <input type="text" id="keyword" name="dtl_keyword" class="form-control" value="{{$input['dtl_keyword'] ?? ''}}" placeholder="検索({{$recommend_detail->item1}})">
+                            <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索({{$recommend_detail->item1}})">
                         </div>
                         <div class="col-auto align-self-end">
                             <button type="submit" class="btn btn-success">検索</button>
@@ -238,7 +238,7 @@
     <input type="hidden" name="fnc" value="">
     <input type="hidden" name="id" value="{{$recommend_detail->id}}">
     <input type="hidden" name="category" value="{{$input['category']}}">
-    <input type="hidden" name="dtl_keyword" value="{{$input['dtl_keyword'] ?? ''}}">
+    <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
     <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
     <input type="hidden" name="detail_id" value="">
 </form>
