@@ -34,7 +34,10 @@ class ArtistController extends Controller
         if($artist){
             $album      = Album::getAlbum_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
             $music      = Music::getMusic_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
-            $playlist   = Playlist::getPlaylist_list(10,false,null,['keyword' => $artist->name],1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰ
+            //画像取得のためuser_serchを引き渡す
+            $keyword['keyword'] = $artist->name;
+            $keyword['user_serch'] = 1;
+            $playlist   = Playlist::getPlaylist_list(10,false,null,$keyword,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰ
             
         }
 
