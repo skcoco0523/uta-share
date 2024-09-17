@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /app01/public/
+Disallow: /app01/profile/

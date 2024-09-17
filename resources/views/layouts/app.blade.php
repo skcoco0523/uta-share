@@ -13,6 +13,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', '歌Share') }}</title>
+    <link rel="icon" href="{{ asset('img/icon/home_icon_16_16.png') }}" sizes="16x16" type="image/png">
+    <link rel="icon" href="{{ asset('img/icon/home_icon_32_32.png') }}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ asset('img/icon/home_icon_48_48.png') }}" sizes="48x48" type="image/png">
+    
     <meta name="description" content="お気に入りの曲を友達と共有しよう">
     <meta name="keywords" content="カラオケ, 歌, 好きな歌, 共有, 友達, 盛り上がる歌, おすすめ曲">
     
@@ -20,7 +24,25 @@
     <meta property="og:url" content="https://skcoco.com/app01">
     <meta property="og:title" content="{{ config('app.name', '歌Share') }}">
     <meta property="og:description" content="お気に入りの曲を友達と共有しよう">
-
+    <meta property="og:type" content="website">
+    
+    @php
+        $homeUrl = route('home');
+        $logoUrl = asset('img/icon/home_icon_192_192.png');
+    @endphp
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "歌Share",
+        "url": "{{ $homeUrl }}",
+        "logo": {{ $logoUrl }}",
+        "sameAs": [
+            //"https://www.facebook.com/yourprofile",
+            //"https://twitter.com/yourprofile"
+        ]
+    }
+    </script>
 
 
 
