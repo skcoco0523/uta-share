@@ -189,7 +189,7 @@ class Recommend extends Model
     public static function createRecommend($data)
     {
         make_error_log("createRecommend.log","---------start----------");
-        //try {
+        try {
             
             if(!$data['name'])      return ['id' => null, 'error_code' => 1];   //データ不足
             //if(!$data['category'])  return ['id' => null, 'error_code' => 2];   //データ不足
@@ -201,10 +201,10 @@ class Recommend extends Model
             $result = self::create($data);
             make_error_log("createRecommend.log","success");
             return ['id' => null, 'error_code' => 0];   //追加成功
-        //} catch (\Exception $e) {
+        } catch (\Exception $e) {
             make_error_log("createRecommend.log","failure");
             return ['id' => null, 'error_code' => -1];   //追加失敗
-        //}
+        }
     }
     //変更
     public static function chgRecommend($data)

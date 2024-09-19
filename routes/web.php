@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\AdminPlaylistController;
 use App\Http\Controllers\Admin\AdminRecommendController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
-use App\Http\Controllers\Admin\AdminAnotherController;
+use App\Http\Controllers\Admin\AdminAdvController;
 
 
 //ユーザー
@@ -208,6 +208,18 @@ Route::middleware(['auth'])->group(function () {
             Route::get('user/repuest', [AdminUserController::class, 'user_request_search'])->name('admin-request-search');
             Route::post('user/repuest/chg', [AdminUserController::class, 'user_request_chg'])->name('admin-request-chg');
 
+        //広告------------------------------------------------------------------------
+            
+            //登録
+            Route::get('adv/reg', [AdminAdvController::class, 'adv_regist'])->name('admin-adv-reg');
+            Route::post('adv/reg', [AdminAdvController::class, 'adv_reg'])->name('admin-adv-reg');
+
+            //検索
+            Route::get('adv/search', [AdminAdvController::class, 'adv_search'])->name('admin-adv-search');
+            //検索>変更
+            Route::post('adv/search/chg', [AdminAdvController::class, 'adv_chg'])->name('admin-adv-chg');
+            //検索>削除
+            Route::post('adv/search/del', [AdminAdvController::class, 'adv_del'])->name('admin-adv-del');
         });
     });
 

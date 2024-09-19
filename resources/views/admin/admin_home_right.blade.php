@@ -38,4 +38,10 @@
         @if($method == "search")          @include('admin.admin_user_search') @endif
         @if($method == "repuest")         @include('admin.admin_request_search') @endif
     @endif
+    
+    {{---------------- 広告メニュー ------------------}}
+    @if($tab == "adv")
+        @if($method == "reg")       @include('admin.admin_adv_reg') @endif
+    @endif
+
 @endif

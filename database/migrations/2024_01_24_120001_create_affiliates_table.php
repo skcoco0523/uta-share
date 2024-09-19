@@ -16,6 +16,7 @@ return new class extends Migration
             // 'aff_link' カラムを削除
             $table->text('href');
             $table->text('src');
+            $table->text('tracking_src')->nullable();
             $table->timestamps();
         });
     }

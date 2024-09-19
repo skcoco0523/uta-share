@@ -1113,3 +1113,7 @@
 [2024-09-17 06:07:03] local.DEBUG: fav_chk=  
 [2024-09-17 06:07:03] local.DEBUG: to add  
 [2024-09-17 06:07:03] local.DEBUG: failure  
+[2024-09-19 20:28:43] local.DEBUG: -------start-------  
+[2024-09-19 20:28:43] local.DEBUG: user_id=1 table=mus fav_id=416 type=add  
+[2024-09-19 20:28:43] local.DEBUG: fav_chk=0  
+[2024-09-19 20:28:43] local.DEBUG: to add  

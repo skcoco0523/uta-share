@@ -17,13 +17,13 @@
     <link rel="icon" href="{{ asset('img/icon/home_icon_32_32.png') }}" sizes="32x32" type="image/png">
     <link rel="icon" href="{{ asset('img/icon/home_icon_48_48.png') }}" sizes="48x48" type="image/png">
     
-    <meta name="description" content="お気に入りの曲を友達と共有しよう">
+    <meta name="description" content="フレンド間でお気に入りに登録した曲などを共有するアプリケーション">
     <meta name="keywords" content="カラオケ, 歌, 好きな歌, 共有, 友達, 盛り上がる歌, おすすめ曲">
     
     <?//SNSで表示される際の説明?>
     <meta property="og:url" content="https://skcoco.com/app01">
     <meta property="og:title" content="{{ config('app.name', '歌Share') }}">
-    <meta property="og:description" content="お気に入りの曲を友達と共有しよう">
+    <meta property="og:description" content="フレンド間でお気に入りに登録した曲などを共有するアプリケーション">
     <meta property="og:type" content="website">
     
     @php

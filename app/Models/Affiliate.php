@@ -14,24 +14,30 @@ class Affiliate extends Model
     //作成
     public static function createAffiliate($data)
     {
-        make_error_log("createAffiliate.log","-------start-------");
-        make_error_log("createAffiliate.log","aff_link=".$data['aff_link']);
-        if(!$data['aff_link'])  return ['id' => null, 'error_code' => 1];   //データ不足
-
-        //DB追加処理チェック
         try {
-            preg_match('/href="([^"]+)"/', $data['aff_link'], $matches);
-            $href = $matches[1];
-    
-            preg_match('/src="([^"]+)"/', $data['aff_link'], $matches);
-            //ファイル拡張子までを取得
-            preg_match('/(https?:\/\/[^\/\s]+\/[^\s]+)\.[a-zA-Z0-9]{2,4}/', $matches[1], $matches);
-            $src = $matches[0];
+            make_error_log("createAffiliate.log","-------start-------");
+            make_error_log("createAffiliate.log","aff_link=".$data['aff_link']);
+            if(!$data['aff_link'])  return ['id' => null, 'error_code' => 1];   //データ不足
 
+            // href を取得
+            preg_match('/href="([^"]+)"/', $data['aff_link'], $hrefMatches);
+            $href = isset($hrefMatches[1]) ? $hrefMatches[1] : '';
+
+            // src を取得
+            preg_match_all('/src="([^"]+)"/', $data['aff_link'], $srcMatches);
+            $src1 = isset($srcMatches[1][0]) ? $srcMatches[1][0] : null;  // 1つ目 画像情報
+            $src2 = isset($srcMatches[1][1]) ? $srcMatches[1][1] : null;  // 2つ目 トラッキング
+
+
+            //最低限トラッキングを除く2つが必須
+            if(!$href || !$src1) return ['id' => null, 'error_code' => 2];   //追加失敗
+            
+            
             try {
                 $affiliate = new Affiliate();
-                $affiliate->href = $href;
-                $affiliate->src = $src;
+                $affiliate->href            = $href;
+                $affiliate->src             = $src1;
+                $affiliate->tracking_src    = $src2;
                 $affiliate->save();
                 // 保存されたレコードのIDを取得
                 $aff_id = $affiliate->id;
@@ -45,27 +51,31 @@ class Affiliate extends Model
             }
         } catch (\Exception $e) {
             make_error_log("createAffiliate.log","fraudulent data");
-            return ['id' => null, 'error_code' => 2];   //不正データ
+            return ['id' => null, 'error_code' => -1];   //不正データ
 
         }
     }
     //変更
     public static function chgAffiliate($data)
     {
-        make_error_log("chgAffiliate.log","-------start-------");
-        make_error_log("chgAffiliate.log","aff_link=".$data['aff_link']);
-        if(!$data['aff_link'])  return ['id' => null, 'error_code' => 1];   //データ不足
-
-        //DB追加処理チェック
         try {
-            preg_match('/href="([^"]+)"/', $data['aff_link'], $matches);
-            $new_href = $matches[1];
-    
-            preg_match('/src="([^"]+)"/', $data['aff_link'], $matches);
-            //ファイル拡張子までを取得
-            preg_match('/(https?:\/\/[^\/\s]+\/[^\s]+)\.[a-zA-Z0-9]{2,4}/', $matches[1], $matches);
-            $new_src = $matches[0];
-            make_error_log("chgAffiliate.log","chg_aff_id=".$data['aff_id']);
+            make_error_log("chgAffiliate.log","-------start-------");
+            make_error_log("chgAffiliate.log","aff_link=".$data['aff_link']);
+            if(!$data['aff_link'])  return ['id' => null, 'error_code' => 1];   //データ不足
+
+            // href を取得
+            preg_match('/href="([^"]+)"/', $data['aff_link'], $hrefMatches);
+            $new_href = isset($hrefMatches[1]) ? $hrefMatches[1] : '';
+
+            // src を取得
+            preg_match_all('/src="([^"]+)"/', $data['aff_link'], $srcMatches);
+            $new_src = isset($srcMatches[1][0]) ? $srcMatches[1][0] : null;  // 1つ目 画像情報
+            $new_src2 = isset($srcMatches[1][1]) ? $srcMatches[1][1] : null;  // 2つ目 トラッキング
+
+
+            //最低限トラッキングを除く2つが必須
+            if(!$new_href || !$new_src) return ['id' => null, 'error_code' => 2];   //追加失敗
+            
 
             try {
                 /*  クエリビルダではupdated_atが自動更新されない
@@ -79,6 +89,7 @@ class Affiliate extends Model
                     ->update([
                         'href' => $new_href, 
                         'src' => $new_src, 
+                        'tracking_src' => $new_src2, 
                     ]);
                 
                 // 保存されたレコードのIDを取得
@@ -93,6 +104,23 @@ class Affiliate extends Model
         } catch (\Exception $e) {
             make_error_log("chgAffiliate.log","fraudulent data");
             return ['id' => null, 'error_code' => 2];   //不正データ
+
+        }
+    }
+    //削除
+    public static function delAffiliate($data)
+    {
+        try {
+            //他データはリレーションでカスケード削除
+            make_error_log("delAffiliate.log","delete_aff_id=".$data['aff_id']);
+            Affiliate::where('id', $data['aff_id'])->delete();
+
+            make_error_log("delAffiliate.log","success");
+            return ['id' => null, 'error_code' => 0];   //削除成功
+
+        } catch (\Exception $e) {
+            make_error_log("delAffiliate.log","failure");
+            return ['id' => null, 'error_code' => -1];   //削除失敗
 
         }
     }

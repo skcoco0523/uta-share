@@ -22,7 +22,7 @@
 <div class="container-fluid" style="width: 100%;">
     <div class="row">
         {{-- メニュー選択したタブによって切り替え --}}
-        <div class="col-2">
+        <div class="col-12 col-md-2">
             <div class="rounded border p-3">
                 @include('admin.admin_home_left1')
             </div>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <!--メイン-->
-        <div class="col-10">
+        <div class="col-12 col-md-10">
             <div class="rounded border p-3">
                 @include('admin.admin_home_right')
             </div>

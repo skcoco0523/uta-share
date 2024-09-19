@@ -36,7 +36,12 @@
             <li><a href="{{ route('admin-user-search') }}">             ユーザー</a></li>
             <li><a href="{{ route('admin-request-search') }}">          要望・問い合わせ</a></li>
         @endif
-
+        @if($tab == "adv")
+            広告メニュー
+            <li><a href="{{ route('admin-adv-reg') }}">             新規登録</a></li>
+            <li><a href="{{ route('admin-adv-search') }}">          検索/変更/削除</a></li>
+        @endif
+        
         @if($tab == "notification")
             通知メニュー
             <li><a href="">               メール通知(未開発)</a></li>

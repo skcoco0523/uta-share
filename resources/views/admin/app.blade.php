@@ -48,6 +48,9 @@
                         <a class="nav-link" href="{{ route('admin-home', ['tab' => 'user']) }}">ユーザー</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin-home', ['tab' => 'adv']) }}">広告</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin-home', ['tab' => 'notification']) }}">通知</a>
                     </li>
                     <li class="nav-item">
