@@ -11,34 +11,40 @@ class Advertisement extends Model
     use HasFactory;
     protected $fillable = ['name', 'aff_id', 'memo', 'type', 'sdate', 'days', 'age', 'priority', 'disp_flag'];
     protected $table = 'advertisement';
+    protected static $valid_types = ['top', 'banner', 'footer', 'in_contents', 'popup'];           //必要があれば追加する
 
     //広告一覧取得
     public static function getAdv_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
-        $sql_cmd = DB::table('advertisement');
+        $sql_cmd = DB::table('advertisement as adv');
         if($keyword){
-            //全検索
-            if (isset($keyword['search_all'])) {
-                $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['search_all']. '%');
+            
+            if (isset($keyword['search_name'])) 
+                $sql_cmd = $sql_cmd->where('adv.name', 'like', '%'. $keyword['search_name']. '%');
 
-            }else{
-                //ユーザーによる検索
-                if (isset($keyword['keyword'])) {
-                    $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['keyword']. '%');
-                    $sql_cmd = $sql_cmd->orWhere('artists.name', 'like', '%'. $keyword['keyword']. '%');
-                    $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
+            if (isset($keyword['search_click_cnt_s'])) 
+                $sql_cmd = $sql_cmd->where('adv.click_cnt','>=' ,$keyword['search_click_cnt_s']);
 
-                }
-                //管理者による検索
-                if (isset($keyword['search_album'])) 
-                    $sql_cmd = $sql_cmd->where('albums.name', 'like', '%'. $keyword['search_album']. '%');
-    
-                if (isset($keyword['search_artist'])) {
-                    $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
-                    $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
-                }
+            if (isset($keyword['search_click_cnt_e'])) 
+                $sql_cmd = $sql_cmd->where('adv.click_cnt','<=' , $keyword['search_click_cnt_e']);
 
-            }
+            if (isset($keyword['search_type'])) 
+                $sql_cmd = $sql_cmd->where('adv.type', $keyword['search_type']);
+
+            if (isset($keyword['search_month'])) 
+                $sql_cmd = $sql_cmd->where('adv.sdate', 'like', $keyword['search_month']. '-%');
+
+            if (isset($keyword['search_day'])) 
+                $sql_cmd = $sql_cmd->where('adv.sdate', 'like', '%-'. $keyword['search_day']. '%');
+
+            if (isset($keyword['search_days'])) 
+                $sql_cmd = $sql_cmd->where('adv.days', $keyword['search_days']);
+
+            if (isset($keyword['search_age'])) 
+                $sql_cmd = $sql_cmd->where('adv.age', $keyword['search_age']);
+            
+            if (isset($keyword['search_disp_flag'])) 
+                $sql_cmd = $sql_cmd->where('adv.disp_flag', $keyword['search_disp_flag']);
         }
 
         // ページング・取得件数指定・全件で分岐
@@ -62,11 +68,10 @@ class Advertisement extends Model
         make_error_log("createAdv.log","-------start-------");
 
         //データチェック
-        $valid_types = ['top', 'banner', 'footer', 'in_contents', 'popup'];           //必要があれば追加する
         if(!isset($data['name']))       return ['id' => null, 'error_code' => 1];   //データ不足
         if(!isset($data['aff_id']))     return ['id' => null, 'error_code' => 2];   //データ不足
         if(!isset($data['type']))       return ['id' => null, 'error_code' => 3];   //データ不正
-        if (!in_array($data['type'], $valid_types))  return ['id' => null, 'error_code' => 3];   //データ不正
+        if (!in_array($data['type'], self::$valid_types))  return ['id' => null, 'error_code' => 3];   //データ不正
 
         //いずれかが引き渡されたらチェック
         if(isset($data['month']) || isset($data['day']) || isset($data['days'])) {
@@ -91,7 +96,68 @@ class Advertisement extends Model
 
         } catch (\Exception $e) {
             make_error_log("createAdv.log","failure");
-            return ['id' => null, 'error_code' => -1];   //追加成功
+            return ['id' => null, 'error_code' => -1];   //追加失敗
+        }
+    }
+    //更新
+    public static function chgAdv($data)
+    {
+        make_error_log("chgAdv.log","-------start-------");
+
+        //データチェック
+        if(!isset($data['name']))       return ['id' => null, 'error_code' => 1];   //データ不足
+        //if(!isset($data['aff_id']))     return ['id' => null, 'error_code' => 2];   //データ不足  更新は必須ではない
+        if(!isset($data['type']))       return ['id' => null, 'error_code' => 3];   //データ不正
+        if (!in_array($data['type'], self::$valid_types))  return ['id' => null, 'error_code' => 3];   //データ不正
+
+        //いずれかが引き渡されたらチェック
+        if(isset($data['month']) || isset($data['day']) || isset($data['days'])) {
+            if(!isset($data['month']) || !isset($data['day']) || !isset($data['days']))
+                return ['id' => null, 'error_code' => 4];   //データ不正(時間指定でどちらかがなし)
+            if (!Advertisement::check_date($data['month'],$data['day'])) 
+                return ['id' => null, 'error_code' => 4]; // データ不正（sdateがMM-DD形式ではない）
+            if (is_numeric($data['days']) && $data['days'] > 99) 
+                return ['id' => null, 'error_code' => 4]; // データ不正（daysが指定されていない）
+
+            $data['sdate'] = str_pad($data['month'], 2, '0', STR_PAD_LEFT) . "-" . str_pad($data['day'], 2, '0', STR_PAD_LEFT);
+        }else{
+            $data['sdate'] = null;
+        }
+
+
+        //DB追加処理チェック
+        try {
+
+            $adv = Advertisement::where('id', $data['id'])->first();
+            //dd($advertisement);
+            if ($adv !== null) {
+                // 更新対象となるカラムと値を連想配列に追加
+                $updateData = []; 
+                if ($adv->name != $data['name'])            $updateData['name'] =       $data['name']; 
+                if ($adv->memo != $data['memo'])            $updateData['memo'] =       $data['memo']; 
+                if ($adv->type != $data['type'])            $updateData['type'] =       $data['type']; 
+                if ($adv->sdate != $data['sdate'])          $updateData['sdate'] =      $data['sdate']; 
+                if ($adv->days != $data['days'])            $updateData['days'] =       $data['days']; 
+                if ($adv->age != $data['age'])              $updateData['age'] =        $data['age']; 
+                if ($adv->priority != $data['priority'])    $updateData['priority'] =   $data['priority']; 
+                if ($adv->disp_flag != $data['disp_flag'])  $updateData['disp_flag'] =  $data['disp_flag']; 
+                
+                make_error_log("chgAdv.log","after_data=".print_r($updateData,1));
+                
+                Advertisement::where('id', $data['id'])->update($updateData);
+    
+                return ['id' => $data['id'], 'error_code' => 0];   //更新成功
+            } else {
+                return ['id' => null, 'error_code' => -1];   //更新失敗
+            }
+
+            
+            make_error_log("chgAdv.log","success");
+            return ['id' => $adv_id, 'error_code' => 0];   //更新成功
+
+        } catch (\Exception $e) {
+            make_error_log("chgAdv.log","failure");
+            return ['id' => null, 'error_code' => -1];   //更新失敗
         }
     }
 
@@ -106,6 +172,20 @@ class Advertisement extends Model
             return false;
 
         return true;
+    }
+    //削除
+    public static function delAdv($data)
+    {
+        try {
+            
+            Advertisement::where('id', $data['id'])->delete();
+            return ['id' => null, 'error_code' => 0];   //削除成功
+            
+        } catch (\Exception $e) {
+            make_error_log("createAffiliate.log","fraudulent data");
+            return ['id' => null, 'error_code' => -1];   //削除失敗
+
+        }
     }
 
 

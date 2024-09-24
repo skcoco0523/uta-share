@@ -1,6 +1,7 @@
 {{-- アルバム登録処理 --}}
 <form id="adv_reg_form" method="POST" action="{{ route('admin-adv-reg') }}">
     @csrf
+
     <div class="row g-3 mb-3"> <!-- mb-3 を追加して下にマージンを追加 -->
         <!-- 広告名 -->
         <div class="col-6 col-md-2">
@@ -10,12 +11,10 @@
         <!-- タイプ -->
         <div class="col-6 col-md-2">
             <label for="inputtype" class="form-label">タイプ</label>
-            <select id="inputState" name="type" class="form-control">
-                <option value="top"         {{ ($input['type'] ?? '') == 'top'          ? 'selected' : '' }}>top</option>
-                <option value="banner"      {{ ($input['type'] ?? '') == 'banner'       ? 'selected' : '' }}>banner</option>
-                <option value="footer"      {{ ($input['type'] ?? '') == 'footer'       ? 'selected' : '' }}>footer</option>
-                <option value="in_contents" {{ ($input['type'] ?? '') == 'in_contents'  ? 'selected' : '' }}>in_contents</option>
-                <option value="popup"       {{ ($input['type'] ?? '') == 'popup'        ? 'selected' : '' }}>popup</option>
+            <select id="inputtype" name="type" class="form-control">
+                @foreach($type_list as $type)
+                    <option value="{{ $type }}" {{ ($input['type'] ?? '') == $type ? 'selected' : '' }}>{{$type}}</option>
+                @endforeach
             </select>
         </div>
         <!-- 掲載期間 -->

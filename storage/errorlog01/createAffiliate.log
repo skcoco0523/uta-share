@@ -6335,3 +6335,19 @@
 [2024-09-19 23:21:13] local.DEBUG: -------start-------  
 [2024-09-19 23:21:13] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/4022059f.eeb5b654.402205a0.e2291c7a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flindt-chocolate%2F9800606%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4022059f.eeb5b654.402205a0.e2291c7a/?me_id=1331692&item_id=10001570&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Flindt-chocolate%2Fcabinet%2Fhwtasting.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
 [2024-09-19 23:21:13] local.DEBUG: success  
+[2024-09-22 19:46:56] local.DEBUG: -------start-------  
+[2024-09-22 19:46:56] local.DEBUG: aff_link=<a href="https://rpx.a8.net/svt/ejp?a8mat=3ZDR00+D5X2B6+2HOM+67C4H&rakuten=y&a8ejpredirect=http%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2F0ea62065.34400275.0ea62066.204f04c0%2Fa24082691477_3ZDR00_D5X2B6_2HOM_67C4H%3Fpc%3Dhttp%253A%252F%252Fwww.rakuten.co.jp%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252F" rel="nofollow">
+<img src="http://hbb.afl.rakuten.co.jp/hsb/0eb4bbbc.f6bc911e.0eb4bbaa.95151395/" border="0"></a>
+<img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=3ZDR00+D5X2B6+2HOM+67C4H" alt="">  
+[2024-09-22 19:46:56] local.DEBUG: success  
+[2024-09-22 21:08:23] local.DEBUG: -------start-------  
+[2024-09-22 21:08:23] local.DEBUG: aff_link=<a href="https://hb.afl.rakuten.co.jp/ichiba/4040c3cc.2af977fd.4040c3cd.4d3fc9f8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fzakka-off%2F10010946%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4040c3cc.2af977fd.4040c3cd.4d3fc9f8/?me_id=1234237&item_id=10010946&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fzakka-off%2Fcabinet%2Frakuten08%2F5aotm655.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>  
+[2024-09-22 21:08:23] local.DEBUG: success  
+[2024-09-22 23:19:32] local.DEBUG: fraudulent data  
+[2024-09-22 23:20:26] local.DEBUG: fraudulent data  
+[2024-09-22 23:20:34] local.DEBUG: fraudulent data  
+[2024-09-23 13:32:23] local.DEBUG: -------start-------  
+[2024-09-23 13:32:23] local.DEBUG: aff_link=<a href="https://rpx.a8.net/svt/ejp?a8mat=3ZDR00+D5X2B6+2HOM+66OZ5&rakuten=y&a8ejpredirect=http%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2F0ea62065.34400275.0ea62066.204f04c0%2Fa24082691477_3ZDR00_D5X2B6_2HOM_66OZ5%3Fpc%3Dhttp%253A%252F%252Fwww.rakuten.co.jp%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252F" rel="nofollow">
+<img src="http://hbb.afl.rakuten.co.jp/hsb/0eb4bbb9.b33dd4ef.0eb4bbaa.95151395/" border="0"></a>
+<img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=3ZDR00+D5X2B6+2HOM+66OZ5" alt="">  
+[2024-09-23 13:32:23] local.DEBUG: success  

@@ -42,6 +42,7 @@
     {{---------------- 広告メニュー ------------------}}
     @if($tab == "adv")
         @if($method == "reg")       @include('admin.admin_adv_reg') @endif
+        @if($method == "search")       @include('admin.admin_adv_search') @endif
     @endif
 
 @endif

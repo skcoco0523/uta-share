@@ -127,3 +127,11 @@
     [release_date] => 2023-09-06
 )
   
+[2024-09-22 21:08:36] local.DEBUG: -------start-------  
+[2024-09-22 21:08:36] local.DEBUG: id=32 art_id=12 name=testedit  
+[2024-09-22 21:08:36] local.DEBUG: after_data=Array
+(
+    [name] => testedit
+    [art_id] => 12
+)
+  
