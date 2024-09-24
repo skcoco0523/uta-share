@@ -43,15 +43,6 @@ class PlaylistController extends Controller
             return redirect()->route('home')->with('error', '該当のプレイリストが存在しません');
         }
     }
-    //マイプレイリスト取得　モーダルで使用する
-    public function myplaylist_get()
-    {
-        $playlists = Playlist::getPlaylist_list(999, false, null, ['user_id' => true]);
-
-        //make_error_log("myplaylist_get.log","playlists=".print_r($playlists,1));
-        // JSON形式でプレイリストを返す
-        return response()->json($playlists);
-    }
     //追加
     public function myplaylist_reg(Request $request)
     {

@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 //use App\Http\Controllers\Auth\ApiLoginController;
-use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\Api\ApiPlaylistController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
     // マイプレイリスト取得
-    Route::get('/myplaylist/get', [PlaylistController::class, 'myplaylist_get']);
+    Route::get('/myplaylist/get', [ApiPlaylistController::class, 'myplaylist_get']);
 
 });
 
