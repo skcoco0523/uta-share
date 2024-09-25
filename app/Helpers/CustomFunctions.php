@@ -61,17 +61,18 @@ if (! function_exists('setAffData')) {
         try{
             //id プロパティが存在する場合の処理
             if (!empty($obj->id)){
-                $aff_data = DB::table('affiliates')
-                ->select('affiliates.id','affiliates.href','affiliates.src')
+                $aff_data = DB::table('affiliates as aff')
                 ->where('id', '=', $obj->aff_id)
                 ->first();
                 if ($aff_data) {
-                    $obj->href = $aff_data->href;
-                    $obj->src = $aff_data->src;
+                    $obj->href          = $aff_data->href;
+                    $obj->src           = $aff_data->src;
+                    $obj->tracking_src  = $aff_data->tracking_src;
                 } else {
                     // $aff_data が null の場合
-                    $obj->href = NULL;
-                    $obj->src = asset('img/pic/no_image.png');
+                    $obj->href          = NULL;
+                    $obj->src           = asset('img/pic/no_image.png');
+                    $obj->tracking_src  = asset('img/pic/no_image.png');
                 }
             }else{
                 foreach ($obj as $val) {
@@ -81,17 +82,18 @@ if (! function_exists('setAffData')) {
                         
                         foreach ($val->aff_id as $aff_id) {
                             
-                            $aff_data = DB::table('affiliates')
-                            ->select('affiliates.id','affiliates.href','affiliates.src')
+                            $aff_data = DB::table('affiliates as aff')
                             ->where('id', '=', $aff_id)
                             ->first();
                             if ($aff_data) {
-                                $href_array[] = $aff_data->href;
-                                $src_array[] = $aff_data->src;
+                                $href_array[]           = $aff_data->href;
+                                $src_array[]            = $aff_data->src;
+                                $tracking_src_array[]   = $aff_data->tracking_src;
                             } else {
                                 // $aff_data が null の場合
-                                $href_array[] = NULL;
-                                $src_array[] = asset('img/pic/no_image.png');
+                                $href_array[]           = NULL;
+                                $src_array[]            = asset('img/pic/no_image.png');
+                                $tracking_src_array[]   = asset('img/pic/no_image.png');
                             }
                             /*
                             $href_array[] = $href;
@@ -102,24 +104,27 @@ if (! function_exists('setAffData')) {
                             }
                             */
                         }
-                        $val->href = $href_array;
-                        $val->src = $src_array;
+                        $val->href          = $href_array;
+                        $val->src           = $src_array;
+                        $val->tracking_src  = $tracking_src_array;
                     //コレクション内のaff_idがオブジェクト
                     }else{
-                        $aff_data = DB::table('affiliates')
-                        ->select('affiliates.id','affiliates.href','affiliates.src')
+                        $aff_data = DB::table('affiliates as aff')
                         ->where('id', '=', $val->aff_id)
                         ->first();
                         if ($aff_data) {
-                            $href = $aff_data->href;
-                            $src = $aff_data->src;
+                            $href           = $aff_data->href;
+                            $src            = $aff_data->src;
+                            $tracking_src   = $aff_data->tracking_src;
                         } else {
                             // $aff_data が null の場合
-                            $href = null;
-                            $src = asset('img/pic/no_image.png');
+                            $href           = null;
+                            $src            = asset('img/pic/no_image.png');
+                            $tracking_src   = asset('img/pic/no_image.png');
                         }
-                        $val->href = $href;
-                        $val->src = $src;
+                        $val->href          = $href;
+                        $val->src           = $src;
+                        $val->tracking_src  = $tracking_src;
                     }
                 }
             }
@@ -129,6 +134,7 @@ if (! function_exists('setAffData')) {
             make_error_log("setAffData.log","failure");
             make_error_log("setAffData.log","obj=".$obj);
 
+            return null;
         }
     }
 }

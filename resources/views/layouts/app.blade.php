@@ -62,7 +62,9 @@
         // APIエンドポイントのURLを定義
         const api_login                 = `{{ url('/api/login') }}`;
         const getMyPlaylistUrl          = `{{ url('/api/myplaylist/get') }}`;
-
+        const getAdvertisementUrl       = `{{ url('/api/adv/get') }}`;
+        const AdvertisementClickUrl     = `{{ url('/api/adv/click') }}`;
+        
         //configからJSで使用する値を取得
         window.Laravel = {
             user_id: '{{Auth::id() }}',
@@ -132,6 +134,7 @@
     @endif
 
 
+
     <div class="container">
             <div id="app">
                 <div class="fixed-top">
@@ -195,8 +198,7 @@
                         </nav>
                     </div>
                 </div>
-
-                <main class="py-4">
+                <main class="py-3">
                     <div class="container-fluid fixed-main">
                     @yield('content')
                     </div>

@@ -78,8 +78,8 @@
             <div class="col-4 col-md-2">
                 <label for="inputdisp_flag" class="form-label">表示状態</label>
                 <select id="inputdisp_flag" name="disp_flag" class="form-control">
-                    <option value="0">非公開</option>
-                    <option value="1">公開</option>
+                    <option value="0">非表示</option>
+                    <option value="1">表示</option>
                 </select>
             </div>
 
@@ -236,6 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const days      = cells[6].textContent;
             const age       = cells[7].textContent;
             const priority  = cells[8].textContent;
+            const disp_flag = cells[9].textContent.trim();;
 
 
             const aff_id_input = row.querySelector('input[name="aff_id"]');
@@ -248,14 +249,18 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('select[name="month"]').value = month;
             document.querySelector('select[name="day"]').value = day;
             document.querySelector('select[name="days"]').value = days;
-
-
             document.querySelector('select[name="age"]').value = age;
             document.querySelector('select[name="priority"]').value = priority;
 
+            const selectDispflag = document.querySelector('select[name="disp_flag"]');
+            if (disp_flag === '非表示')         selectDispflag.value = '0';
+            else if (disp_flag === '表示')      selectDispflag.value = '1';
+            else  selectDispflag.value = ''; // その他の場合、空の値にする
+
             document.querySelector('textarea[name="memo"]').value = memo;
 
-            document.querySelector('input[name="name"]').value = name;
+            
+            
             document.querySelector('input[name="aff_id"]').value = aff_id_value; // aff_idの値を設定
         });
     });

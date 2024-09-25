@@ -73,8 +73,7 @@ class AdminAdvController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
-        $input['search_type']           = get_proc_data($input,"search_type");
-        $input['search_album']          = get_proc_data($input,"search_album");
+        //$input['search_type']           = get_proc_data($input,"search_type");
 
         $input['page']                  = get_proc_data($input,"page");
 

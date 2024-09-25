@@ -274,3 +274,114 @@
     [type] => banner
 )
   
+[2024-09-25 02:11:49] local.DEBUG: -------start-------  
+[2024-09-25 02:11:49] local.DEBUG: after_data=Array
+(
+    [disp_flag] => 1
+)
+  
+[2024-09-25 21:29:28] local.DEBUG: -------start-------  
+[2024-09-25 21:29:28] local.DEBUG: after_data=Array
+(
+    [sdate] => 09-25
+    [days] => 1
+    [age] => 
+    [disp_flag] => 0
+)
+  
+[2024-09-25 21:29:45] local.DEBUG: -------start-------  
+[2024-09-25 21:29:45] local.DEBUG: after_data=Array
+(
+    [days] => 2
+)
+  
+[2024-09-25 21:30:02] local.DEBUG: -------start-------  
+[2024-09-25 21:30:02] local.DEBUG: after_data=Array
+(
+    [sdate] => 09-24
+)
+  
+[2024-09-25 21:31:04] local.DEBUG: -------start-------  
+[2024-09-25 21:31:04] local.DEBUG: after_data=Array
+(
+    [memo] => 新規アカウント登録
+ 1取引55000
+    [disp_flag] => 1
+)
+  
+[2024-09-25 21:33:19] local.DEBUG: -------start-------  
+[2024-09-25 21:33:19] local.DEBUG: after_data=Array
+(
+    [disp_flag] => 1
+)
+  
+[2024-09-25 21:33:35] local.DEBUG: -------start-------  
+[2024-09-25 21:33:35] local.DEBUG: after_data=Array
+(
+    [sdate] => 09-25
+    [days] => 1
+    [disp_flag] => 0
+)
+  
+[2024-09-25 21:34:05] local.DEBUG: -------start-------  
+[2024-09-25 21:34:05] local.DEBUG: after_data=Array
+(
+    [disp_flag] => 1
+)
+  
+[2024-09-25 21:34:20] local.DEBUG: -------start-------  
+[2024-09-25 21:34:20] local.DEBUG: after_data=Array
+(
+    [sdate] => 09-26
+    [disp_flag] => 0
+)
+  
+[2024-09-25 21:34:33] local.DEBUG: -------start-------  
+[2024-09-25 21:34:33] local.DEBUG: after_data=Array
+(
+    [sdate] => 09-24
+    [days] => 2
+)
+  
+[2024-09-25 21:34:42] local.DEBUG: -------start-------  
+[2024-09-25 21:34:42] local.DEBUG: after_data=Array
+(
+    [disp_flag] => 1
+)
+  
+[2024-09-25 21:40:10] local.DEBUG: -------start-------  
+[2024-09-25 21:40:10] local.DEBUG: after_data=Array
+(
+    [disp_flag] => 0
+)
+  
+[2024-09-25 21:42:34] local.DEBUG: -------start-------  
+[2024-09-25 21:42:34] local.DEBUG: after_data=Array
+(
+    [disp_flag] => 1
+)
+  
+[2024-09-25 21:43:05] local.DEBUG: -------start-------  
+[2024-09-25 21:43:05] local.DEBUG: after_data=Array
+(
+    [priority] => 2
+)
+  
+[2024-09-25 21:43:16] local.DEBUG: -------start-------  
+[2024-09-25 21:43:16] local.DEBUG: after_data=Array
+(
+    [priority] => 4
+)
+  
+[2024-09-25 21:43:32] local.DEBUG: -------start-------  
+[2024-09-25 21:43:32] local.DEBUG: after_data=Array
+(
+    [priority] => 1
+)
+  
+[2024-09-25 21:43:38] local.DEBUG: -------start-------  
+[2024-09-25 21:43:38] local.DEBUG: after_data=Array
+(
+    [priority] => 1
+)
+  

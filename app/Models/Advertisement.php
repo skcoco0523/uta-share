@@ -61,7 +61,44 @@ class Advertisement extends Model
         $advertisement=setAffData($advertisement);
         return $advertisement; 
     }
-    
+    //ユーザー表示用広告取得
+    public static function getUserAdvlist($disp_cnt=null,$keyword=null)
+    {
+        $sql_cmd = DB::table('advertisement as adv');
+        if($keyword){
+            
+            if (isset($keyword['search_type'])) 
+                $sql_cmd = $sql_cmd->where('adv.type', $keyword['search_type']);
+            
+            // days が null か、または現在の日付に達しているか
+            $sql_cmd = $sql_cmd->where(function($query) {
+                $query->whereRaw('DATE_ADD(STR_TO_DATE(CONCAT(YEAR(CURDATE()), "-", sdate), "%Y-%m-%d"), INTERVAL days DAY) >= CURDATE()')
+                    ->orwhere('adv.days', null);
+                    
+            });
+            $sql_cmd = $sql_cmd->where('adv.disp_flag', 1);
+
+            $sql_cmd = $sql_cmd->orderBy('adv.priority', 'asc');
+            //if (isset($keyword['search_age']))            会員、非会員がいるため未使用
+                //$sql_cmd = $sql_cmd->where('adv.age', $keyword['search_age']);
+        }
+
+        // 取得件数指定・全件で分岐                
+        if($disp_cnt !== null)              $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
+        else                                $sql_cmd = $sql_cmd->get();
+        $advertisement = $sql_cmd;
+
+        //画像情報を付与
+        $advertisement=setAffData($advertisement);
+
+        return $advertisement; 
+    }
+    //広告クリック数変更
+    public static function advCountUp($adv_id)
+    {
+        $sql_cmd = DB::table('advertisement as adv')->where('id', $adv_id)->increment('click_cnt'); // click_cntを1増やす
+    }
+
     //作成
     public static function createAdv($data)
     {

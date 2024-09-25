@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 //use App\Http\Controllers\Auth\ApiLoginController;
 use App\Http\Controllers\Api\ApiPlaylistController;
+use App\Http\Controllers\Api\ApiAdvController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,3 +40,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 //未認証ユーザー
 
+
+// 広告情報取得
+Route::get('/adv/get', [ApiAdvController::class, 'adv_get']);
+Route::post('/adv/click', [ApiAdvController::class, 'adv_click']);

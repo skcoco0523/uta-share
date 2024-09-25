@@ -7,10 +7,11 @@ JSファイルを追加したら
 ==========================================================================================
 
 */
-import './notification.js';            //通知
-import './favorite_change.js';         //お気に入り
-import './custom_category_change.js';  //ユーザー別カテゴリ
-import './search_history.js';          //検索履歴
+import './notification.js';             //通知
+import './favorite_change.js';          //お気に入り
+import './custom_category_change.js';   //ユーザー別カテゴリ
+import './search_history.js';           //検索履歴
+import './advertisement.js';            //広告情報
 
 /**
  * First we will load all of this project's JavaScript dependencies which

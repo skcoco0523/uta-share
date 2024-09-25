@@ -3,8 +3,8 @@
 <?//コンテンツ?>  
 @section('content')
 
-<?//スライダー?>  
-@include('layouts.slider')
+<?//広告バナー?> 
+@include('layouts.adv_banner')
 
 <?//お気に入りランキング?>  
 @if(isset($ranking['fav_mus']))
