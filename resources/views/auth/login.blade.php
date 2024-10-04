@@ -64,4 +64,9 @@
         </form>
     </div>
 </div>
+
+<?//外部ログイン用?>
+@include('layouts.social_login')
+
 @endsection
+

@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -76,7 +75,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // 重複しないフレンドコードを生成する
-        $friend_code = $this->generateUniqueFriendCode();
+        $friend_code = User::generateUniqueFriendCode();
 
         return User::create([
             'name' => $data['name'],
@@ -90,17 +89,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function generateUniqueFriendCode()
-    {
-        $friend_code = Str::random(8); // 8文字のランダムな文字列を生成
-        // 重複確認
-        while (User::where('friend_code', $friend_code)->exists()) {
-            $friend_code = Str::random(8); // 重複した場合は再度生成
-        }
-
-        return $friend_code;
-    }
-
     protected function registered(Request $request, $user)
     {
         //ユーザーへ登録完了メール送信
@@ -110,6 +98,8 @@ class RegisterController extends Controller
         $tmpl='user_reg';//  送信内容
         mail_send($send_info, $mail, $tmpl);
 
+
+        UserLog::create_user_log("user_reg");
 
         //自身に通知する
         $now_user_cnt = User::count();

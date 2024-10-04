@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\AdminAdvController;
 //ユーザー
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\UserDeviceController;
+use App\Http\Controllers\Auth\LineLoginController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\AlbumController;
@@ -58,6 +59,9 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+
+Route::get('linelogin', [LineLoginController::class, 'lineLogin'])->name('linelogin');
+Route::get('callback', [LineLoginController::class, 'callback'])->name('callback');
 
 //ユーザー------------------------------------------------------------------------
 //PWAアプリインストール時の　デバイス情報登録

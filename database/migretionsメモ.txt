@@ -1,20 +1,10 @@
 
 
+【テーブル作成】==============================================================================
 php artisan make:migration create_テーブル名_table
 　yyyy_mm_dd_000000_create_テーブル名_table.phpが作成される
 
-php artisan make:model Xxxx
-　モデル作成
-
-php artisan migrate:reset
-　マイグレーションをリセット
-composer dump-autoload
-　\htdocs\app01\database　にあるファイルを読み込む
-php artisan migrate
-　読み込んだファイルをもとにDBを再作成
-　作成しなおすテーブルは削除してから
-
--------------------------------
+-----------
 
 public function up()
 {
@@ -36,3 +26,28 @@ $table->integer('column_name');
 $table->bigInteger('column_name');
 
 ※unsignedを付けたら符号なし「unsignedtinyInteger」
+
+
+【テーブル変更】==============================================================================
+php artisan make:migration add_column_to_table --table=table_name
+
+-------
+    // カラムの追加
+    $table->string('new_column_name')->nullable();
+
+    // カラムの変更（例えば、サイズの変更）
+    $table->string('existing_column_name', 150)->change();
+
+【マイグレーション実行】==============================================================================
+php artisan migrate
+　読み込んだファイルをもとにDBを再作成
+　作成しなおすテーブルは削除してから
+
+php artisan migrate:reset
+　マイグレーションをリセット
+composer dump-autoload
+　\htdocs\app01\database　にあるファイルを読み込む
+
+
+【モデル作成】==============================================================================
+php artisan make:model Xxxx

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Friendlist;
 
@@ -30,6 +31,7 @@ class User extends Authenticatable
         'birthdate',            //生年月日
         'release_flag',         //フレンドへの公開規制、
         'mail_flag',            //メール送信規制
+        'line_id',              //lineログインID
     ];
 
     /**
@@ -40,6 +42,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'line_id',              //lineログインID
     ];
 
     /**
@@ -151,6 +154,18 @@ class User extends Authenticatable
             make_error_log("chgProfile.log","failure");
             return ['error_code' => -1];   //更新失敗
         }
+    }
+
+    //フレンドコード生成
+    public static function generateUniqueFriendCode()
+    {
+        $friend_code = Str::random(8); // 8文字のランダムな文字列を生成
+        // 重複確認
+        while (User::where('friend_code', $friend_code)->exists()) {
+            $friend_code = Str::random(8); // 重複した場合は再度生成
+        }
+
+        return $friend_code;
     }
 
 
