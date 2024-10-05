@@ -66,7 +66,7 @@ class UserController extends Controller
         $msg = null;
         //dd($profile);
         if($profile){
-            return view('profile_show', compact('profile', 'msg'));
+            return view('auth/profile_show', compact('profile', 'msg'));
         }else{
             $message = ['message' => 'プロフィール情報の取得に失敗しました。','type' => '','sec' => '2000'];
             return redirect()->route('home')->with($message);

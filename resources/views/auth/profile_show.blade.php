@@ -22,7 +22,7 @@
                 <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                 <div class="col-md-6">
-                    <input id="email" type="email" class="form-control" name="email" value="{{ $profile->email}}" required autocomplete="email">
+                    <input id="email" type="email" class="form-control" name="email" value="{{ $profile->email}}" autocomplete="email">
                 </div>
             </div>
 
@@ -42,7 +42,9 @@
                 <label for="birthdate" class="col-md-4 col-form-label text-md-end">{{ __('Birthdate') }}</label>
 
                 <div class="col-md-6">
-                    <input id="birthdate" type="date" class="form-control" name="birthdate" value="{{ \Carbon\Carbon::parse($profile->birthdate)->format('Y-m-d')  }}"  required autocomplete="birthdate" autofocus>
+                    <input id="birthdate" type="date" max="9999-12-31" class="form-control" name="birthdate" 
+                        value="{{ $profile->birthdate ? \Carbon\Carbon::parse($profile->birthdate)->format('Y-m-d') : '' }}"  
+                        required autocomplete="birthdate" autofocus>
                 </div>
             </div>
             @php
@@ -58,6 +60,7 @@
 
                 <div class="col-md-6">
                     <select name="prefectures" id="inputPrefectures" class="form-control">
+                        <option value="" {{ ($profile->prefectures ?? '') == '' ? 'selected' : '' }}></option>
                         @foreach ($prefectures as $prefecture)
                             <option value="{{ $prefecture }}" {{ (isset($profile->prefectures) && $profile->prefectures == $prefecture) ? 'selected' : '' }}>
                                 {{ $prefecture }}
@@ -70,7 +73,7 @@
             <div class="row mb-3">
                 <div class="col-md-6 offset-md-4">
                     <div class="form-check">
-                        <input type="hidden" name="release_flag" value="0"> <!-- デフォルト値 -->
+                        <input type="hidden" name="release_flag" value="0">
                         <input class="form-check-input" type="checkbox" name="release_flag" value="1" {{ $profile->release_flag ? 'checked' : '' }}>
 
                         <label class="form-check-label" for="release_flag">
@@ -83,7 +86,7 @@
             <div class="row mb-3">
                 <div class="col-md-6 offset-md-4">
                     <div class="form-check">
-                        <input type="hidden" name="mail_flag" value="0"> <!-- デフォルト値 -->
+                        <input type="hidden" name="mail_flag" value="0">
                         <input class="form-check-input" type="checkbox" name="mail_flag" value="1" {{ $profile->mail_flag ? 'checked' : '' }}>
 
                         <label class="form-check-label" for="mail_flag">

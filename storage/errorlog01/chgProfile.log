@@ -2067,3 +2067,59 @@
 )
   
 [2024-09-13 13:47:37] local.DEBUG: success  
+[2024-10-05 15:56:36] local.DEBUG: -------start-------  
+[2024-10-05 15:56:36] local.DEBUG: after_data=Array
+(
+    [_token] => m8ZIXF5mQJdFfgdYLoByrNYrcWMMGdWjn8sOTVXF
+    [id] => 13
+    [name] => 菅野竣介
+    [email] => 
+    [birthdate] => 199905-02-03
+    [prefectures] => 
+    [release_flag] => 0
+    [mail_flag] => 0
+)
+  
+[2024-10-05 15:56:36] local.DEBUG: failure  
+[2024-10-05 15:58:03] local.DEBUG: -------start-------  
+[2024-10-05 15:58:04] local.DEBUG: after_data=Array
+(
+    [_token] => m8ZIXF5mQJdFfgdYLoByrNYrcWMMGdWjn8sOTVXF
+    [id] => 13
+    [name] => 菅野竣介
+    [email] => 
+    [birthdate] => 1999-05-23
+    [prefectures] => 
+    [release_flag] => 0
+    [mail_flag] => 0
+)
+  
+[2024-10-05 15:58:04] local.DEBUG: success  
+[2024-10-05 15:58:24] local.DEBUG: -------start-------  
+[2024-10-05 15:58:24] local.DEBUG: after_data=Array
+(
+    [_token] => m8ZIXF5mQJdFfgdYLoByrNYrcWMMGdWjn8sOTVXF
+    [id] => 13
+    [name] => 菅野竣介
+    [email] => 
+    [birthdate] => 1999-05-23
+    [prefectures] => 
+    [release_flag] => 0
+    [mail_flag] => 0
+)
+  
+[2024-10-05 15:58:24] local.DEBUG: success  
+[2024-10-05 15:58:36] local.DEBUG: -------start-------  
+[2024-10-05 15:58:36] local.DEBUG: after_data=Array
+(
+    [_token] => m8ZIXF5mQJdFfgdYLoByrNYrcWMMGdWjn8sOTVXF
+    [id] => 13
+    [name] => 菅野竣介
+    [email] => 
+    [birthdate] => 1999-05-23
+    [prefectures] => 千葉県
+    [release_flag] => 0
+    [mail_flag] => 0
+)
+  
+[2024-10-05 15:58:36] local.DEBUG: success  
