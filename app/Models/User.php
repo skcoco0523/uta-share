@@ -103,7 +103,7 @@ class User extends Authenticatable
             //ログイン回数、最終ﾛｸﾞｲﾝ日取得
             $login_data = DB::table('user_logs')
                             ->selectRaw('COUNT(*) as login_count, MAX(created_at) as last_login_date')
-                            ->where('type', 'login')->where('user_id', $user->id)->first();
+                            ->where('type', 'like', '%login%')->where('user_id', $user->id)->first();
             $user->login_cnt        = $login_data->login_count;
             $user->last_login_date  = $login_data->last_login_date;
 

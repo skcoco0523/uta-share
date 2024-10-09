@@ -96,6 +96,7 @@
             <tr>
                 <th scope="col" class="fw-light">ID</th>
                 <th scope="col" class="fw-light">ﾕｰｻﾞｰ名</th>
+                <th scope="col" class="fw-light">外部連携</th>
                 <th scope="col" class="fw-light">ｱﾄﾞﾚｽ</th>
                 <th scope="col" class="fw-light">ﾌﾚﾝﾄﾞｺｰﾄﾞ</th>
                 <th scope="col" class="fw-light">誕生日</th>
@@ -114,13 +115,14 @@
             </thead>
             @foreach($user_list as $user)
                 <tr>
-                <td class="fw-light">{{$user->id}}</td>
+                    <td class="fw-light">{{$user->id}}</td>
                     <td class="fw-light">{{$user->name}}</td>
+                    <td class="fw-light">{{$user->provider}}</td>
                     <td class="fw-light">{{$user->email}}</td>
                     <td class="fw-light">{{$user->friend_code}}</td>
                     <td class="fw-light">{{$user->birthdate}}</td>
                     <td class="fw-light">{{$user->prefectures}}</td>
-                    <td class="fw-light">{{$user->gender == '0' ? '男性' : '女性' }}</td>
+                    <td class="fw-light">{{$user->gender === null ? '' : ($user->gender == '0' ? '男性' : '女性')}}</td>
                     <td class="fw-light">{{$user->release_flag == '0' ? '許可' : '拒否' }}</td>
                     <td class="fw-light">{{$user->mail_flag == '0' ? '許可' : '拒否' }}</td>
                     <td class="fw-light">{{$user->login_cnt}}</td>

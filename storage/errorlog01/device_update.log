@@ -166,3 +166,15 @@
     [auth_token] => KaTFKH7kqj3lHrSJ8AfLxw==
 )
   
+[2024-10-09 18:34:48] local.DEBUG: ------------start-----------  
+[2024-10-09 18:34:48] local.DEBUG: validated=Array
+(
+    [user_id] => 1
+    [device_id] => 624f744d-1a31-4d8d-98d3-96fe323ae183
+    [os] => Windows
+    [browser] => Chrome
+    [endpoint] => https://fcm.googleapis.com/fcm/send/dlReFxXchjk:APA91bFJ_QUu8YyVQIvN7fPk6_hGuzFHSyaDjXhhgA3KZABjFNJhEyjDglZ3XchE5LQOnFinO2BkeyXmaF2mgIBnQwdw69GebfzWp9tqIFyWbgfhFlZYEVUgFE7551Wz9THse5fMlqRv
+    [public_key] => BIruhBwwN7+R8av14O8lvIIdTENYNMlSR2bt7hfnziA2PYno0nqwrby9DjzfuwvsXwfCImV+yHlKT70xFZmUBP4=
+    [auth_token] => Iox6rOEkHjrwtRzByMGT+Q==
+)
+  
