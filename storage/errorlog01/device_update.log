@@ -142,3 +142,27 @@
     [auth_token] => hvrBIxsdbooRlLproEKaMw==
 )
   
+[2024-10-09 17:15:19] local.DEBUG: ------------start-----------  
+[2024-10-09 17:15:19] local.DEBUG: validated=Array
+(
+    [user_id] => 1
+    [device_id] => 673964db-c867-4d29-930c-5619f95e4165
+    [os] => Windows
+    [browser] => Chrome
+    [endpoint] => https://fcm.googleapis.com/fcm/send/d-jrHdAicH8:APA91bFpkzYx1hSQSbNh8zCckhpbjEH0M6Xaa2Twoo6jWAeOSnR2bxggVsXi7MSWuLlipCHhT5zkEOThLxgywVt9kmCIyqOXhr-b_vYPvvbcBSKXWX4oK17qXFzbl85iCphWYh8pjuNN
+    [public_key] => BOlyJz6Lf7sr2COpd4OZTJhqgTZ0eF7AubAi6cSReUxQ/5A2BgmXTQlxhN/19tfJxu9dy/GMZD3yIrGCCxur0GU=
+    [auth_token] => aAk2gabIMfKA+Q44JoHt1A==
+)
+  
+[2024-10-09 17:17:53] local.DEBUG: ------------start-----------  
+[2024-10-09 17:17:53] local.DEBUG: validated=Array
+(
+    [user_id] => 13
+    [device_id] => cd92e92a-c6f5-446f-aa46-9644e0c1eb0e
+    [os] => Windows
+    [browser] => Chrome
+    [endpoint] => https://fcm.googleapis.com/fcm/send/dtNFRFESNK0:APA91bGEMAJHF2B9Q7hwsOmMJ0d_Av93x4upagoiqV2gb6ihYRQFJbs5apkR2YOOBUwtXX4Zpum_gFKyheSkKqujgzvNpe1QnbmTA_vT7j_BVWJNsCYC4mecfOcGkUxjEcoQlfD_U9D9
+    [public_key] => BIRKw14Q5QYWxo9/s9om0mh5kJBClvzkAyPwQwjwZwMgbCqfFMmcdW7oWQqrOLfRqRquaLjD9EWnEhdOfFFxtv8=
+    [auth_token] => KaTFKH7kqj3lHrSJ8AfLxw==
+)
+  
