@@ -50,16 +50,13 @@ class LineLoginController extends Controller
         $state = Str::random(32);
         $nonce  = Str::random(32);
 
-        $uri ="https://access.line.me/oauth2/v2.1/authorize?";
-        $response_type = "response_type=code";
-        $client_id = "&client_id=".config('services.line.client_id');
-        $redirect_uri ="&redirect_uri=".config('services.line.redirect');
-        $state_uri = "&state=".$state;
-        $scope = "&scope=openid%20profile";
-        $prompt = "&prompt=consent";
-        $nonce_uri = "&nonce=";
-
-        $uri = $uri . $response_type . $client_id . $redirect_uri . $state_uri . $scope . $prompt . $nonce_uri;
+        $uri = "https://access.line.me/oauth2/v2.1/authorize?";
+        $uri .= "response_type=code";
+        $uri .= "&client_id=" . config('services.line.client_id');
+        $uri .= "&redirect_uri=" . config('services.line.redirect');
+        $uri .= "&state=" . $state;
+        $uri .= "&scope=openid%20profile";
+        $uri .= "&nonce=" . $nonce;
 
         return redirect($uri);
     }
@@ -117,10 +114,27 @@ class LineLoginController extends Controller
     // ログイン後のページ表示
     public function callback(Request $request)
     {
+        // 認証エラーがあれば再ログイン
+        if ($request->has('error')) {
+            // セッションにエラーカウントがあるか確認
+            $retry_cnt = session('login_retry_count', 0); // デフォルト0
+            make_error_log("linelogin.log", "error_description=" . json_encode($request->error_description));
+
+            // 5回以上エラーが発生していたら、homeへリダイレクト
+            if ($retry_cnt >= 5) {
+                make_error_log("linelogin.log", "login_retry_count=".$retry_cnt);
+                session()->forget('login_retry_count'); // カウントをリセット
+                return redirect()->route('home')->with('message', 'ログインに失敗しました。');
+            }
+
+            // カウントを増やしてセッションに保存
+            session(['login_retry_count' => $retry_cnt + 1]);
+
+            // エラーのため、再度ログインを試す
+            return $this->lineLogin();
+        }
         $accessToken = $this->getAccessToken($request);
         $profile = $this->getProfile($accessToken);
-
-        //dd($profile);
 
         // ユーザー情報あるか確認
         $user=User::where('line_id', $profile->userId)->first();
