@@ -190,7 +190,10 @@ npm run build　でビルド　→build配下のファイルをアップロー�
   }
   /* 画像が横に続くようにマージンを調整 */
   .carousel-item img {
-      margin-right: -10px; /* 画像のマージンを調整 */
+      margin: 0; /* 画像のマージンを完全になくす */
+      padding: 0; /* パディングをゼロに */
+      width: 100%; /* 幅を100%に設定 */
+      display: block; /* 画像をブロック要素として表示 */
   }
   /* 次のスライドの画像が表示される際のアニメーション */
   .carousel-item-next {
@@ -202,9 +205,8 @@ npm run build　でビルド　→build配下のファイルをアップロー�
   }
   /* 前のスライドと次のスライドの画像が表示される際のアニメーション */
   .carousel-item-prev, .carousel-item-next {
-      position: absolute;
-      top: 0;
-      width: 100%;
+      transform: translateX(0); /* 前後のスライドの位置を修正 */
+      position: relative; /* スライドが連続しているように見せる */
   }
   /*home------------------------------------------------------------------------*/
   .header {
