@@ -1,5 +1,5 @@
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" id="carousel-items">
+    <div class="carousel-inner" id="banner-adv-items">
         <!-- JavaScriptで動的に挿入される -->
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -18,8 +18,8 @@
         try {
             const advertisement = await get_advertisement(5, "banner");   
             if (advertisement && advertisement.length > 0) {
-                const carouselInner = document.getElementById('carousel-items');
-                carouselInner.innerHTML = ''; // 既存のスライドをクリア
+                const bannerAdvlInner = document.getElementById('banner-adv-items');
+                bannerAdvlInner.innerHTML = ''; // 既存のスライドをクリア
 
                 advertisement.forEach((ad, index) => {
                     const isActive = index === 0 ? 'active' : ''; // 最初のスライドをアクティブに
@@ -31,7 +31,7 @@
                             </a>
                         </div>
                     `;
-                    carouselInner.insertAdjacentHTML('beforeend', item);
+                    bannerAdvlInner.insertAdjacentHTML('beforeend', item);
                 });
             } else {
                 console.log('adv_nothing');

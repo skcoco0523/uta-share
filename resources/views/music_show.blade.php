@@ -35,4 +35,7 @@
 <?//シェアポップアップモーダル?>  
 @include('modals.share-modal', ['title' => $music->name, 'url' => url()->current()])
 
+<?//広告モーダル?>   
+@include('layouts.adv_popup')
+
 @endsection

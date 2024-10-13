@@ -21,6 +21,9 @@
 <h3>プレイリスト</h3>
 @include('layouts.list_table', ['detail_table' => $playlist, 'table' => 'pl'])
 
+<?//広告モーダル?>   
+@include('layouts.adv_popup')
+
 @endsection
 
 <script>

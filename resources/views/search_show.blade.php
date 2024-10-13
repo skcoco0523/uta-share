@@ -37,6 +37,9 @@
         </div>
 @endauth
 
+<?//広告モーダル?>   
+@include('layouts.adv_popup')
+
 @endsection
 
 <script>

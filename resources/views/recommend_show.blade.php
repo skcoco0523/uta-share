@@ -21,6 +21,9 @@
 {{--ﾍﾟｰｼﾞｬｰ--}}
 @include('layouts.pagination', ['paginator' => $recommend,'additionalParams' => $additionalParams,])
 
+<?//広告モーダル?>   
+@include('layouts.adv_popup')
+
 @endsection
 
 

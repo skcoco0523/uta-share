@@ -22,5 +22,8 @@
 <?//テーブルリストは別ファイルで管理?>
 @include('layouts.list_table', ['detail_table' => $album->music, 'table' => 'mus'])
 
+<?//広告モーダル?>   
+@include('layouts.adv_popup')
+
 @endsection
 

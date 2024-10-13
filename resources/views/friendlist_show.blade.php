@@ -56,6 +56,8 @@
 
 @endif
 
+<?//広告モーダル?>   
+@include('layouts.adv_popup')
 
 @endsection
 
