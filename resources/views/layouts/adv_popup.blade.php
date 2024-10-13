@@ -32,11 +32,9 @@
             // 指定した時間が経過していればモーダルを表示
             if (elapsedTime > advDisplayInterval) {
                 disp_flag = 1;
-                sessionStorage.setItem('adv_disp_time', new Date().getTime());  //現在の時刻をセッションストレージに保存
             }
         } else {
             disp_flag = 1;
-            sessionStorage.setItem('adv_disp_time', new Date().getTime());      //現在の時刻をセッションストレージに保存
         }
 
         //ここで広告を表示する
@@ -77,6 +75,7 @@
                     clearInterval(interval);
                     countdownDisplay.style.display = 'none'; // ボタンを表示
                     closeButton.style.display = 'block'; // ボタンを表示
+                    sessionStorage.setItem('adv_disp_time', new Date().getTime());      //指定秒数表示後、現在の時刻をセッションストレージに保存
                 }
             }, 1000); // 1秒ごとにカウントダウン
         }

@@ -24,6 +24,7 @@ window.get_advertisement = function get_advertisement(disp_cnt, type) {
 };
 
 window.adv_click = function adv_click(adv_id) {
+    sessionStorage.setItem('adv_disp_time', new Date().getTime());      //現在の時刻をセッションストレージに保存
     $.ajax({
         //POST通信
         type: "post",
