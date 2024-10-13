@@ -181,10 +181,10 @@ class Advertisement extends Model
         }
 
         //DB追加処理チェック
-        //try {
+        try {
 
             $adv = Advertisement::where('id', $data['id'])->first();
-            if ($adv !== null) {
+            if ($adv) {
                 // 更新対象となるカラムと値を連想配列に追加
                 $updateData = []; 
                 if ($adv->name != $data['name'])            $updateData['name']         = $data['name']; 
@@ -196,24 +196,22 @@ class Advertisement extends Model
                 if ($adv->gender != $data['gender'])        $updateData['gender']       = $data['gender']; 
                 if ($adv->priority != $data['priority'])    $updateData['priority']     = $data['priority']; 
                 if ($adv->disp_flag != $data['disp_flag'])  $updateData['disp_flag']    = $data['disp_flag']; 
-                
-                make_error_log("chgAdv.log","after_data=".print_r($updateData,1));
-                
-                Advertisement::where('id', $data['id'])->update($updateData);
-    
+
+                make_error_log("chgAdv.log","chg_data=".print_r($updateData,1));
+                if(count($updateData) > 0){
+                    Advertisement::where('id', $data['id'])->update($updateData);
+                    make_error_log("chgAdv.log","success");
+                }
                 return ['id' => $data['id'], 'error_code' => 0];   //更新成功
+
             } else {
                 return ['id' => null, 'error_code' => -1];   //更新失敗
             }
 
-            
-            make_error_log("chgAdv.log","success");
-            return ['id' => $adv_id, 'error_code' => 0];   //更新成功
-
-        //} catch (\Exception $e) {
+        } catch (\Exception $e) {
             make_error_log("chgAdv.log","failure");
             return ['id' => null, 'error_code' => -1];   //更新失敗
-        //}
+        }
     }
 
     public static function check_date($month, $day) {

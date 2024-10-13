@@ -39,6 +39,21 @@
             </div>
 
             <div class="row mb-3">
+                <label class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
+
+                <div class="col-md-6">
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="man" value="0" {{ $profile->gender === 0 ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="man">{{ __('Man') }}</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="woman" value="1" {{ $profile->gender === 1 ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="woman">{{ __('Woman') }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
                 <label for="birthdate" class="col-md-4 col-form-label text-md-end">{{ __('Birthdate') }}</label>
 
                 <div class="col-md-6">
@@ -59,7 +74,7 @@
                 <label for="prefectures" class="col-md-4 col-form-label text-md-end">{{ __('Prefectures') }}</label>
 
                 <div class="col-md-6">
-                    <select name="prefectures" id="inputPrefectures" class="form-control">
+                    <select name="prefectures" id="inputPrefectures" class="form-control" required>
                         <option value="" {{ ($profile->prefectures ?? '') == '' ? 'selected' : '' }}></option>
                         @foreach ($prefectures as $prefecture)
                             <option value="{{ $prefecture }}" {{ (isset($profile->prefectures) && $profile->prefectures == $prefecture) ? 'selected' : '' }}>

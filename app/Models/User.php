@@ -132,23 +132,32 @@ class User extends Authenticatable
     //プロフィール情報変更
     public static function chgProfile($data)
     {
-        make_error_log("chgProfile.log","-------start-------");
         try {
-            
-            // 更新対象となるカラムと値を連想配列に追加
-            $updateData = [];
-            if(isset($data['name']))            $updateData['name']         = $data['name'];
-            if(isset($data['email']))           $updateData['email']        = $data['email'];
-            if(isset($data['birthdate']))       $updateData['birthdate']    = $data['birthdate'];
-            if(isset($data['prefectures']))     $updateData['prefectures']  = $data['prefectures'];
-            if(isset($data['gender']))          $updateData['gender']       = $data['gender'];
-            if(isset($data['release_flag']))    $updateData['release_flag'] = $data['release_flag'];
-            if(isset($data['mail_flag']))       $updateData['mail_flag']    = $data['mail_flag'];
-            make_error_log("chgProfile.log","after_data=".print_r($data,1));
-            User::where('id', $data['id'])->update($updateData);
+            make_error_log("chgProfile.log","-------start-------");
+            $user = User::where('id', $data['id'])->first();
+            if($user){
+                // 更新対象となるカラムと値を連想配列に追加
+                $updateData = [];
+                if ($user->name != $data['name'])                   $updateData['name']         = $data['name']; 
+                if ($user->email != $data['email'])                 $updateData['email']        = $data['email']; 
+                if ($user->birthdate->format('Y-m-d') != $data['birthdate'])
+                                                                    $updateData['birthdate']    = $data['birthdate']; 
+                if ($user->prefectures != $data['prefectures'])     $updateData['prefectures']  = $data['prefectures']; 
+                if ($user->gender != $data['gender'])               $updateData['gender']       = $data['gender']; 
+                if ($user->release_flag != $data['release_flag'])   $updateData['release_flag'] = $data['release_flag']; 
+                if ($user->mail_flag != $data['mail_flag'])         $updateData['mail_flag']    = $data['mail_flag']; 
 
-            make_error_log("chgProfile.log","success");
-            return ['error_code' => 0];   //更新成功
+                make_error_log("chgProfile.log","chg_data=".print_r($updateData,1));
+                if(count($updateData) > 0){
+                    User::where('id', $data['id'])->update($updateData);
+                    make_error_log("chgProfile.log","success");
+                }
+                
+                return ['id' => $data['id'], 'error_code' => 0];   //更新成功
+
+            } else {
+                return ['id' => null, 'error_code' => -1];   //更新失敗
+            }
 
         } catch (\Exception $e) {
             make_error_log("chgProfile.log","failure");
