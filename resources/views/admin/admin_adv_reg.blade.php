@@ -139,7 +139,7 @@
                     <td class="fw-light">{{$adv->disp_flag === 0 ? '非表示' : '表示' }}</td>
                     <td class="fw-light">
                         <a class="" href="{{ $adv->href }}">
-                            <img src="{{ $adv->src }}" style="height: 100%;" alt="adv_image">
+                            <img src="{{ $adv->src }}" style="max-height: 150px;" alt="adv_image">
                         </a>
                     </td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $adv->created_at) !!}</td>
