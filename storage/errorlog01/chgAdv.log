@@ -391,3 +391,91 @@
     [disp_flag] => 1
 )
   
+[2024-10-13 19:33:07] local.DEBUG: -------start-------  
+[2024-10-13 19:33:07] local.DEBUG: after_data=Array
+(
+    [age] => 10
+)
+  
+[2024-10-13 19:42:00] local.DEBUG: -------start-------  
+[2024-10-13 19:42:00] local.DEBUG: after_data=Array
+(
+    [age] => 20
+)
+  
+[2024-10-13 19:42:41] local.DEBUG: -------start-------  
+[2024-10-13 19:42:41] local.DEBUG: after_data=Array
+(
+    [age] => 
+)
+  
+[2024-10-13 19:43:07] local.DEBUG: -------start-------  
+[2024-10-13 19:43:07] local.DEBUG: after_data=Array
+(
+    [age] => 20
+)
+  
+[2024-10-13 19:43:29] local.DEBUG: -------start-------  
+[2024-10-13 19:43:29] local.DEBUG: after_data=Array
+(
+    [sdate] => 10-13
+)
+  
+[2024-10-13 19:43:42] local.DEBUG: -------start-------  
+[2024-10-13 19:43:42] local.DEBUG: after_data=Array
+(
+    [age] => 10
+)
+  
+[2024-10-13 20:32:16] local.DEBUG: -------start-------  
+[2024-10-13 20:32:16] local.DEBUG: failure  
+[2024-10-13 20:36:41] local.DEBUG: -------start-------  
+[2024-10-13 20:36:41] local.DEBUG: failure  
+[2024-10-13 20:40:00] local.DEBUG: -------start-------  
+[2024-10-13 20:40:00] local.DEBUG: failure  
+[2024-10-13 20:40:56] local.DEBUG: -------start-------  
+[2024-10-13 20:41:42] local.DEBUG: -------start-------  
+[2024-10-13 20:44:02] local.DEBUG: -------start-------  
+[2024-10-13 20:45:45] local.DEBUG: -------start-------  
+[2024-10-13 20:45:45] local.DEBUG: -------start-------  
+[2024-10-13 20:46:58] local.DEBUG: -------start-------  
+[2024-10-13 20:46:58] local.DEBUG: after_data=Array
+(
+    [memo] => 
+    [gender] => 1
+    [disp_flag] => 0
+)
+  
+[2024-10-13 20:55:20] local.DEBUG: -------start-------  
+[2024-10-13 20:55:20] local.DEBUG: after_data=Array
+(
+    [memo] => 購入金額の1%
+    [disp_flag] => 1
+)
+  
+[2024-10-13 20:58:41] local.DEBUG: -------start-------  
+[2024-10-13 20:58:41] local.DEBUG: after_data=Array
+(
+    [priority] => 2
+    [disp_flag] => 0
+)
+  
+[2024-10-13 20:58:47] local.DEBUG: -------start-------  
+[2024-10-13 20:58:47] local.DEBUG: after_data=Array
+(
+    [priority] => 1
+)
+  
+[2024-10-13 20:59:32] local.DEBUG: -------start-------  
+[2024-10-13 20:59:32] local.DEBUG: after_data=Array
+(
+    [age] => 
+    [disp_flag] => 1
+)
+  
+[2024-10-13 21:13:53] local.DEBUG: -------start-------  
+[2024-10-13 21:13:53] local.DEBUG: after_data=Array
+(
+    [gender] => 0
+)
+  

@@ -11,6 +11,7 @@
         <input type="hidden" name="search_day"          value="{{$input['search_day'] ?? ''}}">
         <input type="hidden" name="search_days"         value="{{$input['search_days'] ?? ''}}">
         <input type="hidden" name="search_age"          value="{{$input['search_age'] ?? ''}}">
+        <input type="hidden" name="search_gender"       value="{{$input['search_gender'] ?? ''}}">
         <input type="hidden" name="search_disp_flag"    value="{{$input['search_disp_flag'] ?? ''}}">
         <input type="hidden" name="page"                value="{{request()->input('page') ?? $input['page'] ?? '' }}">
         {{--対象データ--}}
@@ -65,6 +66,15 @@
                 <select id="inputage" name="age" class="form-control">
                     <option value="">指定なし</option>
                     @for ($i = 10; $i <= 90; $i+=10) <option value="{{ $i }}">{{ $i }}代</option> @endfor
+                </select>
+            </div>
+            <!-- 対象性別 -->
+            <div class="col-4 col-md-2">
+                <label for="inputgender" class="form-label">対象性別</label>
+                <select id="inputgender" name="gender" class="form-control">
+                    <option value="">指定なし</option>
+                    <option value="0">男性</option>
+                    <option value="1">女性</option>
                 </select>
             </div>
             <!-- 優先度 -->
@@ -137,6 +147,7 @@
                 <th scope="col" class="fw-light">掲載開始日</th>
                 <th scope="col" class="fw-light">掲載日数</th>
                 <th scope="col" class="fw-light">対象年齢</th>
+                <th scope="col" class="fw-light">対象性別</th>
                 <th scope="col" class="fw-light">優先度</th>
                 <th scope="col" class="fw-light">表示有無</th>
                 <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
@@ -154,11 +165,12 @@
                     <td class="fw-light">{{$adv->sdate}}</td>
                     <td class="fw-light">{{$adv->days}}</td>
                     <td class="fw-light">{{$adv->age}}</td>
+                    <td class="fw-light">{{$adv->gender === null ? '' : ($adv->gender === 0 ? '男性' : '女性') }}</td>
                     <td class="fw-light">{{$adv->priority}}</td>
                     <td class="fw-light">{{$adv->disp_flag === 0 ? '非表示' : '表示' }}</td>
                     <td class="fw-light">
                         <a class="" href="{{ $adv->href }}">
-                            <img src="{{ $adv->src }}" style="max-height: 150px;" alt="adv_image">
+                            <img src="{{ $adv->src }}" style="max-height: 150px; max-width: 450px;" alt="adv_image">
                         </a>
                     </td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $adv->created_at) !!}</td>
@@ -235,8 +247,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const days      = cells[6].textContent;
             const age       = cells[7].textContent;
-            const priority  = cells[8].textContent;
-            const disp_flag = cells[9].textContent.trim();;
+            const gender    = cells[8].textContent.trim();
+            const priority  = cells[9].textContent;
+            const disp_flag = cells[10].textContent.trim();
 
 
             const aff_id_input = row.querySelector('input[name="aff_id"]');
@@ -252,15 +265,16 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('select[name="age"]').value = age;
             document.querySelector('select[name="priority"]').value = priority;
 
+            const selectGender = document.querySelector('select[name="gender"]');
+            if (gender === '男性')          selectGender.value = '0';
+            else if (gender === '女性')     selectGender.value = '1';
+            else selectGender.value = '';   //nullありのためクリア
+
             const selectDispflag = document.querySelector('select[name="disp_flag"]');
             if (disp_flag === '非表示')         selectDispflag.value = '0';
             else if (disp_flag === '表示')      selectDispflag.value = '1';
-            else  selectDispflag.value = ''; // その他の場合、空の値にする
 
             document.querySelector('textarea[name="memo"]').value = memo;
-
-            
-            
             document.querySelector('input[name="aff_id"]').value = aff_id_value; // aff_idの値を設定
         });
     });

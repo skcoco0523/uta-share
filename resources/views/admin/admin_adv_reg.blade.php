@@ -45,22 +45,31 @@
 
 
         <!-- 対象年代 -->
-        <div class="col-4 col-md-2">
+        <div class="col-6 col-md-2">
             <label for="inputage" class="form-label">対象年代</label>
             <select id="inputage" name="age" class="form-control">
                 <option value="">指定なし</option>
                 @for ($i = 10; $i <= 90; $i+=10) <option value="{{ $i }}">{{ $i }}代</option> @endfor
             </select>
         </div>
+        <!-- 対象性別 -->
+        <div class="col-6 col-md-2">
+            <label for="inputgender" class="form-label">対象性別</label>
+            <select id="inputgender" name="gender" class="form-control">
+                <option value="">指定なし</option>
+                <option value="0">男性</option>
+                <option value="1">女性</option>
+            </select>
+        </div>
         <!-- 優先度 -->
-        <div class="col-4 col-md-2">
+        <div class="col-6 col-md-2">
             <label for="inputpriority" class="form-label">優先度(昇順)</label>
             <select id="inputpriority" name="priority" class="form-control">
                 @for ($i = 1; $i <= 100; $i++) <option value="{{ $i }}">{{ $i }}</option> @endfor
             </select>
         </div>
         <!-- 公開フラグ -->
-        <div class="col-4 col-md-2">
+        <div class="col-6 col-md-2">
             <label for="inputdisp_flag" class="form-label">表示状態</label>
             <select id="inputdisp_flag" name="disp_flag" class="form-control">
                 <option value="0">非公開</option>
@@ -119,6 +128,7 @@
                 <th scope="col" class="fw-light">掲載開始日</th>
                 <th scope="col" class="fw-light">掲載日数</th>
                 <th scope="col" class="fw-light">対象年齢</th>
+                <th scope="col" class="fw-light">対象性別</th>
                 <th scope="col" class="fw-light">優先度</th>
                 <th scope="col" class="fw-light">表示有無</th>
                 <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
@@ -135,11 +145,12 @@
                     <td class="fw-light">{{$adv->sdate}}</td>
                     <td class="fw-light">{{$adv->days}}</td>
                     <td class="fw-light">{{$adv->age}}</td>
+                    <td class="fw-light">{{ $adv->gender === null ? '' : ($adv->gender === 0 ? '男性' : '女性') }}</td>
                     <td class="fw-light">{{$adv->priority}}</td>
                     <td class="fw-light">{{$adv->disp_flag === 0 ? '非表示' : '表示' }}</td>
                     <td class="fw-light">
                         <a class="" href="{{ $adv->href }}">
-                            <img src="{{ $adv->src }}" style="max-height: 150px;" alt="adv_image">
+                            <img src="{{ $adv->src }}" style="max-height: 150px; max-width: 450px;" alt="adv_image">
                         </a>
                     </td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $adv->created_at) !!}</td>

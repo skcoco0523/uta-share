@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Advertisement extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'aff_id', 'memo', 'type', 'sdate', 'days', 'age', 'priority', 'disp_flag'];
+    protected $fillable = ['name', 'aff_id', 'memo', 'type', 'sdate', 'days', 'age', 'gender', 'priority', 'disp_flag'];
     protected $table = 'advertisement';
     protected static $valid_types = ['top', 'banner', 'footer', 'in_contents', 'popup'];           //必要があれば追加する
 
@@ -42,6 +43,9 @@ class Advertisement extends Model
 
             if (isset($keyword['search_age'])) 
                 $sql_cmd = $sql_cmd->where('adv.age', $keyword['search_age']);
+
+            if (isset($keyword['search_gender'])) 
+                $sql_cmd = $sql_cmd->where('adv.gender', $keyword['search_gender']);
             
             if (isset($keyword['search_disp_flag'])) 
                 $sql_cmd = $sql_cmd->where('adv.disp_flag', $keyword['search_disp_flag']);
@@ -77,10 +81,25 @@ class Advertisement extends Model
                     
             });
             $sql_cmd = $sql_cmd->where('adv.disp_flag', 1);
-
             $sql_cmd = $sql_cmd->orderBy('adv.priority', 'asc');
-            //if (isset($keyword['search_age']))            会員、非会員がいるため未使用
-                //$sql_cmd = $sql_cmd->where('adv.age', $keyword['search_age']);
+            
+            //ログインしている場合、表示対象を絞る
+            if (Auth::check()){
+                $user = Auth::user();
+                //性別チェック
+                if($user->gender !== null){
+                    $sql_cmd = $sql_cmd->where(function($query) use ($user) { 
+                        $query->where('adv.gender', $user->gender)->orwhere('adv.gender', null);
+                    });
+                }
+                //年齢チェック
+                if($user->birthdate !== null){
+                    $user_age = (int)((date_diff(date_create($user->birthdate), date_create('now'))->y) / 10) * 10; // 年齢を10で割って整数部分を取得
+                    $sql_cmd = $sql_cmd->where(function($query) use ($user_age) { 
+                        $query->where('adv.age', $user_age)->orwhere('adv.age', null);
+                     });
+                }
+            }
         }
 
         // 取得件数指定・全件で分岐                
@@ -161,23 +180,22 @@ class Advertisement extends Model
             $data['sdate'] = null;
         }
 
-
         //DB追加処理チェック
-        try {
+        //try {
 
             $adv = Advertisement::where('id', $data['id'])->first();
-            //dd($advertisement);
             if ($adv !== null) {
                 // 更新対象となるカラムと値を連想配列に追加
                 $updateData = []; 
-                if ($adv->name != $data['name'])            $updateData['name'] =       $data['name']; 
-                if ($adv->memo != $data['memo'])            $updateData['memo'] =       $data['memo']; 
-                if ($adv->type != $data['type'])            $updateData['type'] =       $data['type']; 
-                if ($adv->sdate != $data['sdate'])          $updateData['sdate'] =      $data['sdate']; 
-                if ($adv->days != $data['days'])            $updateData['days'] =       $data['days']; 
-                if ($adv->age != $data['age'])              $updateData['age'] =        $data['age']; 
-                if ($adv->priority != $data['priority'])    $updateData['priority'] =   $data['priority']; 
-                if ($adv->disp_flag != $data['disp_flag'])  $updateData['disp_flag'] =  $data['disp_flag']; 
+                if ($adv->name != $data['name'])            $updateData['name']         = $data['name']; 
+                if ($adv->memo != $data['memo'])            $updateData['memo']         = $data['memo']; 
+                if ($adv->type != $data['type'])            $updateData['type']         = $data['type']; 
+                if ($adv->sdate != $data['sdate'])          $updateData['sdate']        = $data['sdate']; 
+                if ($adv->days != $data['days'])            $updateData['days']         = $data['days']; 
+                if ($adv->age != $data['age'])              $updateData['age']          = $data['age']; 
+                if ($adv->gender != $data['gender'])        $updateData['gender']       = $data['gender']; 
+                if ($adv->priority != $data['priority'])    $updateData['priority']     = $data['priority']; 
+                if ($adv->disp_flag != $data['disp_flag'])  $updateData['disp_flag']    = $data['disp_flag']; 
                 
                 make_error_log("chgAdv.log","after_data=".print_r($updateData,1));
                 
@@ -192,10 +210,10 @@ class Advertisement extends Model
             make_error_log("chgAdv.log","success");
             return ['id' => $adv_id, 'error_code' => 0];   //更新成功
 
-        } catch (\Exception $e) {
+        //} catch (\Exception $e) {
             make_error_log("chgAdv.log","failure");
             return ['id' => null, 'error_code' => -1];   //更新失敗
-        }
+        //}
     }
 
     public static function check_date($month, $day) {

@@ -27,7 +27,7 @@
                         <div class="carousel-item ${isActive}" data-bs-interval="5000">
                             <a href="${ad.href}" rel="nofollow" onclick="adv_click(${ad.id})">
                                 <img src="${ad.src}" class="d-block w-100">
-                                <img border="0" width="1" height="1" src="${ad.tracking_src}>
+                                <img border="0" width="1" height="1" src="${ad.tracking_src}">
                             </a>
                         </div>
                     `;
