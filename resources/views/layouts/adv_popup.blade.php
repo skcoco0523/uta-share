@@ -20,7 +20,7 @@
     
     document.addEventListener('DOMContentLoaded', async function() {
         
-        const advDisplayInterval = 60*15;   // 広告表示間隔　(秒)        ページ遷移時に再度広告が表示されるまでの間隔
+        const advDisplayInterval = 60*15;   // 広告表示間隔　(秒)        ページ遷移時に再度広告が表示されるまでの間隔       一旦15分間隔で
         let advDisplayTime = 10;            // 広告表示時間　(秒)         広告を強制表示する秒数
         let disp_flag = 0;
         // セッションストレージから前回の表示時刻を取得
@@ -39,11 +39,12 @@
             sessionStorage.setItem('adv_disp_time', new Date().getTime());      //現在の時刻をセッションストレージに保存
         }
 
+        //ここで広告を表示する
         if(disp_flag == 1){
+
             //一旦複数件取得し、ランダムで1つを表示
             const advertisement = await get_advertisement(10,"popup");
-            console.log(advertisement);
-                    
+            console.log(advertisement);        
 
             //表示対象の広告情報(popup)があった場合のみ表示
             if (advertisement && advertisement.length > 0) {
@@ -55,7 +56,7 @@
                 const item = `
                         <a href="${select_data.href}" rel="nofollow" onclick="adv_click(${select_data.id})">
                             <img src="${select_data.src}" class="d-block w-100">
-                            <img border="0" width="1" height="1" src="${select_data.tracking_src}>
+                            <img border="0" width="1" height="1" src="${select_data.tracking_src}">
                         </a>
                 `;
                 popupAdvlInner.insertAdjacentHTML('beforeend', item);
