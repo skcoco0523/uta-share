@@ -48,8 +48,17 @@ class Artist extends Model
         else                                $sql_cmd = $sql_cmd->get();
 
         $artist = $sql_cmd;
+        
+        // 取得したアーティストidを配列にし、一括でアルバム件数を取得する
+        $art_ids = $artist->pluck('id')->toArray();
+        $sql_cmd = DB::table('albums');
+        $sql_cmd = $sql_cmd->select('art_id', DB::raw('COUNT(*) as alb_cnt'));
+        $sql_cmd = $sql_cmd->whereIn('art_id', $art_ids)->groupBy('art_id')->pluck('alb_cnt', 'art_id')->toArray();  
+        $alb_cnt = $sql_cmd;
+
         //アーティストはお気に入り登録なし
         foreach($artist as $art){
+            $art->alb_cnt = isset($alb_cnt[$art->id]) ? $alb_cnt[$art->id] : 0;
             $art->fav_flag = 0;
         }
 

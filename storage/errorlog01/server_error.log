@@ -10890,3 +10890,493 @@
 
 )
   
+[2024-10-13 22:59:37] local.DEBUG: =================start================  
+[2024-10-13 22:59:37] local.DEBUG: Array
+(
+    [message] => Unauthenticated.
+    [exception] => Illuminate\Auth\AuthenticationException
+    [file] => C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php
+    [line] => 95
+    [trace] => #0 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(81): Illuminate\Auth\Middleware\Authenticate->unauthenticated(Object(Illuminate\Http\Request), Array)
+#1 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(55): Illuminate\Auth\Middleware\Authenticate->authenticate(Object(Illuminate\Http\Request), Array)
+#2 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#3 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#4 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#5 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#6 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#7 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#8 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#9 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#10 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#16 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#18 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#21 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#37 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
+#40 {main}
+    [url] => https://localhost/app01/admin/home?tab=artist
+    [method] => GET
+    [input] => Array
+        (
+            [tab] => artist
+        )
+
+)
+  
+[2024-10-13 23:10:03] local.DEBUG: =================start================  
+[2024-10-13 23:10:03] local.DEBUG: Array
+(
+    [message] => SQLSTATE[42S22]: Column not found: 1054 Unknown column 'albums.artist_id' in 'on clause' (Connection: mysql, SQL: select count(*) as aggregate from (select `artists`.*, COUNT(albums.id) as album_count from `artists` left join `albums` on `artists`.`id` = `albums`.`artist_id` group by `artists`.`id`) as `aggregate_table`)
+    [exception] => Illuminate\Database\QueryException
+    [file] => C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php
+    [line] => 822
+    [trace] => #0 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php(776): Illuminate\Database\Connection->runQueryCallback('select count(*)...', Array, Object(Closure))
+#1 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php(407): Illuminate\Database\Connection->run('select count(*)...', Array, Object(Closure))
+#2 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2751): Illuminate\Database\Connection->select('select count(*)...', Array, true)
+#3 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2740): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(3294): Illuminate\Database\Query\Builder->Illuminate\Database\Query\{closure}()
+#5 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2739): Illuminate\Database\Query\Builder->onceWithColumns(Array, Object(Closure))
+#6 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2896): Illuminate\Database\Query\Builder->get()
+#7 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2863): Illuminate\Database\Query\Builder->runPaginationCountQuery(Array)
+#8 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2770): Illuminate\Database\Query\Builder->getCountForPagination()
+#9 C:\xampp\htdocs\app01\app\Models\Artist.php(48): Illuminate\Database\Query\Builder->paginate(10, Array, 'page', 1)
+#10 C:\xampp\htdocs\app01\app\Http\Controllers\Admin\AdminArtistController.php(51): App\Models\Artist::getArtist_list(10, true, NULL, Array)
+#11 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Admin\AdminArtistController->artist_search(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction('artist_search', Array)
+#13 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\Admin\AdminArtistController), 'artist_search')
+#14 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#15 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#16 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\app01\app\Http\Middleware\AdminMiddleware.php(16): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\AdminMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(57): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#29 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#32 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#34 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#36 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#38 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#46 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#50 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#51 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#52 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#54 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#55 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#56 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#57 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#58 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#59 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
+#60 {main}
+    [url] => https://localhost/app01/admin/artist/search
+    [method] => GET
+    [input] => Array
+        (
+        )
+
+)
+  
+[2024-10-13 23:10:16] local.DEBUG: =================start================  
+[2024-10-13 23:10:16] local.DEBUG: Array
+(
+    [message] => SQLSTATE[42000]: Syntax error or access violation: 1055 'app01.artists.name' isn't in GROUP BY (Connection: mysql, SQL: select count(*) as aggregate from (select `artists`.*, COUNT(albums.id) as album_count from `artists` left join `albums` on `artists`.`id` = `albums`.`art_id` group by `artists`.`id`) as `aggregate_table`)
+    [exception] => Illuminate\Database\QueryException
+    [file] => C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php
+    [line] => 822
+    [trace] => #0 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php(776): Illuminate\Database\Connection->runQueryCallback('select count(*)...', Array, Object(Closure))
+#1 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php(407): Illuminate\Database\Connection->run('select count(*)...', Array, Object(Closure))
+#2 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2751): Illuminate\Database\Connection->select('select count(*)...', Array, true)
+#3 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2740): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(3294): Illuminate\Database\Query\Builder->Illuminate\Database\Query\{closure}()
+#5 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2739): Illuminate\Database\Query\Builder->onceWithColumns(Array, Object(Closure))
+#6 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2896): Illuminate\Database\Query\Builder->get()
+#7 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2863): Illuminate\Database\Query\Builder->runPaginationCountQuery(Array)
+#8 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2770): Illuminate\Database\Query\Builder->getCountForPagination()
+#9 C:\xampp\htdocs\app01\app\Models\Artist.php(48): Illuminate\Database\Query\Builder->paginate(10, Array, 'page', 1)
+#10 C:\xampp\htdocs\app01\app\Http\Controllers\Admin\AdminArtistController.php(51): App\Models\Artist::getArtist_list(10, true, NULL, Array)
+#11 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Admin\AdminArtistController->artist_search(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction('artist_search', Array)
+#13 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\Admin\AdminArtistController), 'artist_search')
+#14 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#15 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#16 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\app01\app\Http\Middleware\AdminMiddleware.php(16): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\AdminMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(57): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#29 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#32 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#34 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#36 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#38 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#46 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#50 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#51 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#52 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#54 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#55 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#56 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#57 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#58 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#59 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
+#60 {main}
+    [url] => https://localhost/app01/admin/artist/search
+    [method] => GET
+    [input] => Array
+        (
+        )
+
+)
+  
+[2024-10-13 23:20:40] local.DEBUG: =================start================  
+[2024-10-13 23:20:40] local.DEBUG: Array
+(
+    [message] => Undefined variable $artist_ids
+    [exception] => ErrorException
+    [file] => C:\xampp\htdocs\app01\app\Models\Artist.php
+    [line] => 56
+    [trace] => #0 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(255): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 56)
+#1 C:\xampp\htdocs\app01\app\Models\Artist.php(56): Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 56)
+#2 C:\xampp\htdocs\app01\app\Http\Controllers\Admin\AdminArtistController.php(51): App\Models\Artist::getArtist_list(10, true, NULL, Array)
+#3 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Admin\AdminArtistController->artist_search(Object(Illuminate\Http\Request))
+#4 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction('artist_search', Array)
+#5 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\Admin\AdminArtistController), 'artist_search')
+#6 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#7 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#8 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#9 C:\xampp\htdocs\app01\app\Http\Middleware\AdminMiddleware.php(16): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#10 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\AdminMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(57): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#21 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#28 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#30 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#39 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#41 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#44 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#45 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#46 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#49 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#50 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#51 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
+#52 {main}
+    [url] => https://localhost/app01/admin/artist/search
+    [method] => GET
+    [input] => Array
+        (
+        )
+
+)
+  
+[2024-10-13 23:20:53] local.DEBUG: =================start================  
+[2024-10-13 23:20:53] local.DEBUG: Array
+(
+    [message] => SQLSTATE[42S22]: Column not found: 1054 Unknown column 'artist_id' in 'where clause' (Connection: mysql, SQL: select `art_id`, COUNT(*) as alb_cnt from `albums` where `artist_id` in (12, 10, 9, 8, 7, 6, 5, 4, 3, 2) group by `artist_id`)
+    [exception] => Illuminate\Database\QueryException
+    [file] => C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php
+    [line] => 822
+    [trace] => #0 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php(776): Illuminate\Database\Connection->runQueryCallback('select `art_id`...', Array, Object(Closure))
+#1 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Connection.php(407): Illuminate\Database\Connection->run('select `art_id`...', Array, Object(Closure))
+#2 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2751): Illuminate\Database\Connection->select('select `art_id`...', Array, true)
+#3 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2980): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(3294): Illuminate\Database\Query\Builder->Illuminate\Database\Query\{closure}()
+#5 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2976): Illuminate\Database\Query\Builder->onceWithColumns(Array, Object(Closure))
+#6 C:\xampp\htdocs\app01\app\Models\Artist.php(56): Illuminate\Database\Query\Builder->pluck('album_count', 'artist_id')
+#7 C:\xampp\htdocs\app01\app\Http\Controllers\Admin\AdminArtistController.php(51): App\Models\Artist::getArtist_list(10, true, NULL, Array)
+#8 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Admin\AdminArtistController->artist_search(Object(Illuminate\Http\Request))
+#9 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction('artist_search', Array)
+#10 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\Admin\AdminArtistController), 'artist_search')
+#11 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#12 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#13 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\app01\app\Http\Middleware\AdminMiddleware.php(16): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\AdminMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#16 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(57): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#26 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#33 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#35 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#41 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#46 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#47 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#48 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#49 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#50 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#51 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#52 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#53 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#54 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#55 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#56 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
+#57 {main}
+    [url] => https://localhost/app01/admin/artist/search
+    [method] => GET
+    [input] => Array
+        (
+        )
+
+)
+  
+[2024-10-13 23:21:10] local.DEBUG: =================start================  
+[2024-10-13 23:21:10] local.DEBUG: Array
+(
+    [message] => Undefined property: stdClass::$album_count
+    [exception] => ErrorException
+    [file] => C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php
+    [line] => 3040
+    [trace] => #0 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(255): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 3040)
+#1 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(3040): Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 3040)
+#2 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2998): Illuminate\Database\Query\Builder->pluckFromObjectColumn(Array, 'album_count', 'art_id')
+#3 C:\xampp\htdocs\app01\app\Models\Artist.php(56): Illuminate\Database\Query\Builder->pluck('album_count', 'art_id')
+#4 C:\xampp\htdocs\app01\app\Http\Controllers\Admin\AdminArtistController.php(51): App\Models\Artist::getArtist_list(10, true, NULL, Array)
+#5 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(54): App\Http\Controllers\Admin\AdminArtistController->artist_search(Object(Illuminate\Http\Request))
+#6 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(43): Illuminate\Routing\Controller->callAction('artist_search', Array)
+#7 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(259): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\Admin\AdminArtistController), 'artist_search')
+#8 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Route.php(205): Illuminate\Routing\Route->runController()
+#9 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(806): Illuminate\Routing\Route->run()
+#10 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\app01\app\Http\Middleware\AdminMiddleware.php(16): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\AdminMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(57): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#23 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#32 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#41 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#44 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#45 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#46 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#50 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#51 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#52 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#53 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
+#54 {main}
+    [url] => https://localhost/app01/admin/artist/search
+    [method] => GET
+    [input] => Array
+        (
+        )
+
+)
+  
+[2024-10-14 01:21:02] local.DEBUG: =================start================  
+[2024-10-14 01:21:02] local.DEBUG: Array
+(
+    [message] => Undefined constant "str_r" (View: C:\xampp\htdocs\app01\resources\views\admin\admin_album_search.blade.php) (View: C:\xampp\htdocs\app01\resources\views\admin\admin_album_search.blade.php) (View: C:\xampp\htdocs\app01\resources\views\admin\admin_album_search.blade.php)
+    [exception] => Illuminate\View\ViewException
+    [file] => C:\xampp\htdocs\app01\storage\framework\views\f241dfe2d66aa5117ce0a34bae23da0d.php
+    [line] => 100
+    [trace] => #0 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(60): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(Illuminate\View\ViewException), 1)
+#1 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(72): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\View.php(207): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\View.php(190): Illuminate\View\View->getContents()
+#4 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\View.php(159): Illuminate\View\View->renderContents()
+#5 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Response.php(69): Illuminate\View\View->render()
+#6 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Response.php(35): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(918): Illuminate\Http\Response->__construct(Object(Illuminate\View\View), 200, Array)
+#8 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(885): Illuminate\Routing\Router::toResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\app01\app\Http\Middleware\AdminMiddleware.php(16): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): App\Http\Middleware\AdminMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(57): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(121): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#23 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(67): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(805): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(784): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(748): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#32 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Routing\Router.php(737): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(144): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#41 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#42 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(99): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#44 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#45 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(49): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#46 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(39): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(183): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(119): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#50 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#51 C:\xampp\htdocs\app01\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#52 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#53 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
+#54 {main}
+    [url] => https://localhost/app01/admin/album/search
+    [method] => GET
+    [input] => Array
+        (
+        )
+
+)
+  

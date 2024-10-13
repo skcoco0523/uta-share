@@ -57,6 +57,7 @@
                 <th scope="col" class="fw-light">#</th>
                 <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</th>
                 <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名(ｻﾌﾞ)</th>
+                <th scope="col" class="fw-light">ｱﾙﾊﾞﾑ数</th>
                 <th scope="col" class="fw-light">ﾃﾞﾋﾞｭｰ日</th>
                 <th scope="col" class="fw-light">種別</th>
                 <th scope="col" class="fw-light">データ登録日</th>
@@ -69,6 +70,7 @@
                     <td class="fw-light">{{$artist->id}}</td>
                     <td class="fw-light">{{$artist->name}}</td>
                     <td class="fw-light">{{$artist->name2}}</td>
+                    <td class="fw-light">{{$artist->alb_cnt}}</td>
                     <td class="fw-light">{{$artist->debut}}</td>
                     <td class="fw-light">
                         @if($artist->sex === 0)     ｸﾞﾙｰﾌﾟ

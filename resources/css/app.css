@@ -138,28 +138,32 @@ npm run build　でビルド　→build配下のファイルをアップロー�
     width: 35px;
     height: 35px;
     font-size: 35px;/*　フォント用*/
-    display: block; /* 画像をブロックレベル要素に変更 */
+    display: flex;  /* フレックスボックスに変更 */
+    overflow: hidden; /* 子要素が親要素をはみ出さないように */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
   }
   .icon-20 {        /*テーブルのアイコン,詳細リンク で使用*/
     width: 20px;
     height: 20px;
     font-size: 20px;/*　フォント用*/
-    display: block; /* 画像をブロックレベル要素に変更 */
+    display: flex;  /* フレックスボックスに変更 */
+    overflow: hidden; /* 子要素が親要素をはみ出さないように */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
   }
   .icon-25 {
     width: 25px;
     height: 25px;
     font-size: 25px;/*　フォント用*/
-    display: block; /* 画像をブロックレベル要素に変更 */
+    display: flex;  /* フレックスボックスに変更 */
+    overflow: hidden; /* 子要素が親要素をはみ出さないように */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
   }
   .icon-50 {        /*通知で利用*/
     width: 50px;
     height: 50px;
     font-size: 50px;
-    display: block; /* 画像をブロックレベル要素に変更 */
+    display: flex;  /* フレックスボックスに変更 */
+    overflow: hidden; /* 子要素が親要素をはみ出さないように */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
     border-radius: 5px; /* 四つ角を丸く */
   }
@@ -167,7 +171,8 @@ npm run build　でビルド　→build配下のファイルをアップロー�
     width: 55px;
     height: 55px;
     font-size: 55px;
-    display: block; /* 画像をブロックレベル要素に変更 */
+    display: flex;  /* フレックスボックスに変更 */
+    overflow: hidden; /* 子要素が親要素をはみ出さないように */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
     border-radius: 5px; /* 四つ角を丸く */
   }
@@ -175,7 +180,7 @@ npm run build　でビルド　→build配下のファイルをアップロー�
     width: 80%;
     /*height: calc(80% * 1); */
     height: auto; /* アスペクト比を保つために高さを自動調整 */
-    display: block; /* 画像をブロックレベル要素に変更 */
+    display: flex;  /* フレックスボックスに変更 */
     margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
     border-radius: 5px; /* 四つ角を丸く */
   }
