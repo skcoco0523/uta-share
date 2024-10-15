@@ -33,6 +33,8 @@ class Ranking extends Model
             else                                $sql_cmd = $sql_cmd->get();       
             $favorite = $sql_cmd;
             
+            $ranking = array();
+
             if($table=="mus") {
                 foreach($favorite as $fav){
                     $ranking[] = Music::getMusic_detail($fav->fav_id);
@@ -43,11 +45,14 @@ class Ranking extends Model
             if($table=="pl") {
             }
 
-            if($pageing){
-                $favorite->setCollection(collect($ranking));
-            }else{
-                $favorite = $favorite->replace($ranking);
-                //dd($recommend2,$detail);
+
+            if($ranking){
+                if($pageing){
+                    $favorite->setCollection(collect($ranking));
+                }else{
+                    $favorite = $favorite->replace($ranking);
+                    //dd($recommend2,$detail);
+                }
             }
             //dd($favorite);
         }
