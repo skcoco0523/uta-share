@@ -20,7 +20,7 @@
     
     document.addEventListener('DOMContentLoaded', async function() {
         
-        const advDisplayInterval = 60*15;   // 広告表示間隔　(秒)        ページ遷移時に再度広告が表示されるまでの間隔       一旦15分間隔で
+        const advDisplayInterval = 60*30;   // 広告表示間隔　(秒)        ページ遷移時に再度広告が表示されるまでの間隔       一旦30分間隔で
         let advDisplayTime = 10;            // 広告表示時間　(秒)         広告を強制表示する秒数
         let disp_flag = 0;
         // セッションストレージから前回の表示時刻を取得
