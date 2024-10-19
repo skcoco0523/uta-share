@@ -1600,3 +1600,84 @@
 )
   
 [2024-08-27 23:04:51] local.DEBUG: success  
+[2024-10-19 12:08:38] local.DEBUG: ---------start----------  
+[2024-10-19 12:08:41] local.DEBUG: ---------start----------  
+[2024-10-19 12:08:44] local.DEBUG: ---------start----------  
+[2024-10-19 12:08:48] local.DEBUG: ---------start----------  
+[2024-10-19 12:11:59] local.DEBUG: ---------start----------  
+[2024-10-19 12:12:02] local.DEBUG: ---------start----------  
+[2024-10-19 12:12:08] local.DEBUG: ---------start----------  
+[2024-10-19 12:13:05] local.DEBUG: ---------start----------  
+[2024-10-19 12:13:08] local.DEBUG: ---------start----------  
+[2024-10-19 12:15:10] local.DEBUG: ---------start----------  
+[2024-10-19 12:15:17] local.DEBUG: ---------start----------  
+[2024-10-19 12:15:18] local.DEBUG: ---------start----------  
+[2024-10-19 12:15:18] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [search_recommend] => 
+    [search_category] => 0
+    [page] => 
+    [id] => 40
+    [name] => おすすめ　曲　テスト
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-10-19 12:15:18] local.DEBUG: success  
+[2024-10-19 12:15:24] local.DEBUG: ---------start----------  
+[2024-10-19 12:15:27] local.DEBUG: ---------start----------  
+[2024-10-19 12:15:30] local.DEBUG: ---------start----------  
+[2024-10-19 12:15:44] local.DEBUG: ---------start----------  
+[2024-10-19 12:20:29] local.DEBUG: ---------start----------  
+[2024-10-19 12:24:19] local.DEBUG: ---------start----------  
+[2024-10-19 12:24:19] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [search_recommend] => 
+    [search_category] => 0
+    [page] => 
+    [id] => 43
+    [name] => test3
+    [category_name] => 曲
+    [category] => 0
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-10-19 12:24:19] local.DEBUG: success  
+[2024-10-19 12:24:24] local.DEBUG: ---------start----------  
+[2024-10-19 12:25:18] local.DEBUG: ---------start----------  
+[2024-10-19 12:25:18] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [search_recommend] => 
+    [search_category] => 
+    [page] => 
+    [id] => 45
+    [name] => アニメソング
+    [category_name] => プレイリスト
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-10-19 12:25:18] local.DEBUG: success  
+[2024-10-19 12:28:42] local.DEBUG: ---------start----------  
+[2024-10-19 12:28:42] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [search_recommend] => 
+    [search_category] => 
+    [page] => 
+    [id] => 46
+    [name] => 映画ソング
+    [category_name] => プレイリスト
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-10-19 12:28:42] local.DEBUG: success  

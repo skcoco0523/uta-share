@@ -1158,3 +1158,23 @@
 )
   
 [2024-09-13 16:31:10] local.DEBUG: success  
+[2024-10-19 12:26:50] local.DEBUG: ---------start----------  
+[2024-10-19 12:26:50] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [name] => 東京リベンジャーズ
+    [admin_flag] => 1
+    [user_id] => 1
+)
+  
+[2024-10-19 12:26:50] local.DEBUG: success  
+[2024-10-19 12:28:03] local.DEBUG: ---------start----------  
+[2024-10-19 12:28:03] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [name] => HELLO WORLD
+    [admin_flag] => 1
+    [user_id] => 1
+)
+  
+[2024-10-19 12:28:03] local.DEBUG: success  

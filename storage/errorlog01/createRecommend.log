@@ -1260,3 +1260,25 @@
 )
   
 [2024-09-17 07:16:10] local.DEBUG: success  
+[2024-10-19 12:25:07] local.DEBUG: ---------start----------  
+[2024-10-19 12:25:07] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [name] => アニメ
+    [user_id] => 1
+    [category] => 3
+    [sort_num] => 1
+)
+  
+[2024-10-19 12:25:07] local.DEBUG: success  
+[2024-10-19 12:28:33] local.DEBUG: ---------start----------  
+[2024-10-19 12:28:33] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [name] => 映画ソング
+    [user_id] => 1
+    [category] => 3
+    [sort_num] => 2
+)
+  
+[2024-10-19 12:28:33] local.DEBUG: success  

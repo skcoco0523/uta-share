@@ -1489,3 +1489,7 @@
 [2024-09-17 07:24:31] local.DEBUG: fnc=del recom_id=38 category=3 detail_id=9  
 [2024-09-17 07:24:50] local.DEBUG: -----start-----  
 [2024-09-17 07:24:50] local.DEBUG: fnc=add recom_id=38 category=3 detail_id=9  
+[2024-10-19 12:29:16] local.DEBUG: -----start-----  
+[2024-10-19 12:29:16] local.DEBUG: fnc=add recom_id=46 category=3 detail_id=33  
+[2024-10-19 12:29:49] local.DEBUG: -----start-----  
+[2024-10-19 12:29:49] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=32  

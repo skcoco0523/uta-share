@@ -1,5 +1,5 @@
 
-{{-- プレイリスト情報更新処理 --}}
+{{-- おすすめ情報更新処理 --}}
 @if(!(isset($recommend_detail)))
     <form id="recom_chg_form" method="POST" action="{{ route('admin-recommend-chg') }}">
         @csrf
@@ -110,11 +110,10 @@
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-recommend-del') }}">
                             @csrf
-                            <input type="hidden" name="recom_id" value="{{$recom->id}}">
+                            <input type="hidden" name="id" value="{{$recom->id}}">
                             <input type="hidden" name="recom_name" value="{{$recom->name}}">
                             <input type="hidden" name="category" value="{{$input['category'] ?? ''}}">
                             <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
-                            <input type="hidden" name="admin_flag" value="{{$input['admin_flag'] ?? ''}}">
                             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
                             <input type="submit" value="削除" class="btn btn-danger">
                         </form>
@@ -144,7 +143,7 @@
     @endphp
     <div class="row g-3 align-items-end">
         <div class="col-sm">
-            <label for="inputname" class="form-label">プレイリスト名</label>
+            <label for="inputname" class="form-label">おすすめ登録名</label>
             <input class="form-control" type="text" placeholder="{{$recommend_detail->name ?? ''}}" disabled>
         </div>
 
@@ -287,7 +286,7 @@
     }
     //お気に入り表示順変更
     function recom_sort_fnc(fnc,recom_id){
-        var trg = document.forms["recom_chg_form"];
+        var trg = document.forms["recom_sort_chg_form"];
         trg.method="post";
         document.recom_sort_chg_form["fnc"].value    =fnc;
         document.recom_sort_chg_form["id"].value     =recom_id;
