@@ -92,8 +92,14 @@
                 <tr>
                     <td class="fw-light">{{$music->id}}</td>
                     <td class="fw-light">{{$music->name}}</td>
-                    <td class="fw-light">{{$music->art_name}}</td>
-                    <td class="fw-light">{{$music->alb_name}}</td>
+                    <td class="fw-light">
+                        <a href="{{ route('admin-artist-search', ['search_artist' => $music->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                        {{$music->art_name}}
+                    </td>
+                    <td class="fw-light">
+                        <a href="{{ route('admin-album-search', ['search_album' => $music->alb_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                        {{$music->alb_name}}
+                    </td>
                     <td class="fw-light">{{$music->release_date}}</td>
                     <td class="fw-light">{{$music->link}}</td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $music->created_at) !!}</td>

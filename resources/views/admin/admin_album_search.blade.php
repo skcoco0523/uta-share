@@ -96,7 +96,10 @@
                 <tr>
                     <td class="fw-light">{{$alb->id}}</td>
                     <td class="fw-light">{{$alb->name}}</td>
-                    <td class="fw-light">{{$alb->art_name}}</td>
+                    <td class="fw-light">
+                        <a href="{{ route('admin-artist-search', ['search_artist' => $alb->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                        {{$alb->art_name}}
+                    </td>
                     <td class="fw-light">{{$alb->mus_cnt}}</td>
                     <td class="fw-light">{{$alb->release_date}}</td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $alb->created_at) !!}</td>

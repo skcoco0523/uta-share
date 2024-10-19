@@ -72,7 +72,10 @@
                     <td class="fw-light">{{$artist->id}}</td>
                     <td class="fw-light">{{$artist->name}}</td>
                     <td class="fw-light">{{$artist->name2}}</td>
-                    <td class="fw-light">{{$artist->alb_cnt}}</td>
+                    <td class="fw-light">
+                        <a href="{{ route('admin-album-search', ['search_artist' => $artist->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                        {{$artist->alb_cnt}}
+                    </td>
                     <td class="fw-light">{{$artist->debut}}</td>
                     <td class="fw-light">
                         @if($artist->sex === 0)     ｸﾞﾙｰﾌﾟ

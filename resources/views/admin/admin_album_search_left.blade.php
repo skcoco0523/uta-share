@@ -4,7 +4,7 @@
     検索条件
     <div class="row g-3 align-items-end">
         <div class="col-sm-12">
-            ・曲名
+            ・ｱﾙﾊﾞﾑ名
             <input type="text" name="search_album" class="form-control" value="{{$input['search_album'] ?? ''}}">
         </div>
         <div class="col-sm-12">
