@@ -29,8 +29,9 @@
             <textarea class="form-control" name="music_list">{{$input['music_list'] ?? ''}}</textarea>
         </div>
         <div class="col-12 col-md-6">
-            <label for="affiliate-link" class="form-label">アフィリエイトリンク</label>
-            <a href="https://affiliate.rakuten.co.jp/?l-id=af_header_logo" target="_blank" rel="noopener noreferrer" class="form-label">取得元URL</a>
+            <label for="affiliate-link" class="form-label">リンク：</label>
+            <a href="https://pub.a8.net/a8v2/media/memberAction.do" target="_blank" rel="noopener noreferrer" class="form-label me-3">A8.net</a>
+            <a href="https://affiliate.rakuten.co.jp/?l-id=af_header_logo" target="_blank" rel="noopener noreferrer" class="form-label">楽天アフィリエイト</a>
             <textarea class="form-control" id="affiliate-link" name="aff_link">{{$input['aff_link'] ?? ''}}</textarea>
             
             <div class="form-group mt-3">
