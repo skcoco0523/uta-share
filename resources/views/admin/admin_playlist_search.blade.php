@@ -3,7 +3,7 @@
 @if(!(isset($playlist_detail)))
     <form id="pl_chg_form" method="POST" action="{{ route('admin-playlist-chg') }}">
         @csrf
-        <div class="row g-3 align-items-end" >
+        <div class="row g-3 align-items-stretch mb-3">
             {{--検索条件--}}
             <input type="hidden" name="search_playlist" value="{{$input['search_playlist'] ?? ''}}">
             <input type="hidden" name="search_admin_flag" value="{{$input['search_admin_flag'] ?? ''}}">
@@ -11,18 +11,20 @@
             {{--対象データ--}}
             <input type="hidden" name="id" value="{{$select->id ?? ''}}">
             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
-            <div class="col-sm">
+            <div class="col-6 col-md-6">
                 <label for="inputname" class="form-label">ﾌﾟﾚｲﾘｽﾄ名</label>
                 <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
             </div>
-            <div class="col-sm">
+            <div class="col-6 col-md-6">
                 <label for="inputusername" class="form-label">登録者</label>
                 <input type="text" name="user_name" class="form-control" value="{{$select->user_name ?? ''}}" style="background-color: #f0f0f0; pointer-events: none;">
             </div>
-            <div class="col-md-2">
-            <input type="submit" value="更新" class="btn btn-primary">
         </div>
+
+        <div class="text-end mb-3">
+            <input type="submit" value="登録" class="btn btn-primary">
         </div>
+
     </form>
 @endif
 

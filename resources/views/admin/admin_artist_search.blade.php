@@ -2,37 +2,39 @@
 {{-- アーティスト情報更新処理 --}}
 <form id="artist_chg_form" method="POST" action="{{ route('admin-artist-chg') }}">
     @csrf
-    <div class="row g-3 align-items-end" >
+    <div class="row g-3 align-items-stretch mb-3">
         {{--検索条件--}}
         <input type="hidden" name="search_artist" value="{{$input['search_artist'] ?? ''}}">
         <input type="hidden" name="search_sex" value="{{$input['search_sex'] ?? ''}}">
         <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
         {{--対象データ--}}
         <input type="hidden" name="id" value="{{$select->id ?? ''}}">
-        <div class="col-sm">
+        <div class="col-6 col-md-3">
             <label for="inputname" class="form-label">ｱｰﾃｨｽﾄ名(ﾒｲﾝ)</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
         </div>
-        <div class="col-sm">
+        <div class="col-6 col-md-3">
             <label for="inputname2" class="form-label">ｱｰﾃｨｽﾄ名(ｻﾌﾞ)</label>
             <input type="text" name="name2" class="form-control" placeholder="name" value="{{$select->name2 ?? ''}}">
         </div>
-        <div class="col-md-3">
+        <div class="col-6 col-md-3">
             <label for="inputbirth" class="form-label">デビュー</label>
             <input type="date" max="9999-12-31" name="debut" class="form-control" value="{{$select->debut ?? ''}}">
         </div>
-        <div class="col-md-2">
+        <div class="col-6 col-md-3">
             <label for="inputsex" class="form-label">種別</label>
-            <select id="inputState" name="sex" class="form-select">
+            <select id="inputState" name="sex" class="form-control">
                 <option value="0" {{ ($select->sex ?? '') == '0' ? 'selected' : '' }}>ｸﾞﾙｰﾌﾟ</option>
                 <option value="1" {{ ($select->sex ?? '') == '1' ? 'selected' : '' }}>男性</option>
                 <option value="2" {{ ($select->sex ?? '') == '2' ? 'selected' : '' }}>女性</option>
             </select>
         </div>
-        <div class="col-md-2">
+    </div>
+    
+    <div class="text-end mb-3">
         <input type="submit" value="更新" class="btn btn-primary">
     </div>
-    </div>
+
 </form>
 
 {{--エラー--}}
@@ -118,8 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const id = cells[0].textContent;
             const name = cells[1].textContent;
             const name2 = cells[2].textContent;
-            const debut = cells[3].textContent;
-            const sex = cells[4].textContent.trim();
+            const debut = cells[4].textContent;
+            const sex = cells[5].textContent.trim();
 
             // フォームの対応するフィールドにデータを設定
             document.querySelector('input[name="id"]').value = id;

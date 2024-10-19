@@ -3,38 +3,40 @@
 @if(!(isset($recommend_detail)))
     <form id="recom_chg_form" method="POST" action="{{ route('admin-recommend-chg') }}">
         @csrf
-        <div class="row g-3 align-items-end" >
+        <div class="row g-3 align-items-stretch mb-3">
             {{--検索条件--}}
             <input type="hidden" name="search_recommend" value="{{$input['search_recommend'] ?? ''}}">
             <input type="hidden" name="search_category" value="{{$input['search_category'] ?? ''}}">
             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
             {{--対象データ--}}
             <input type="hidden" name="id" value="{{$select->id ?? ''}}">
-            <div class="col-sm">
+            <div class="col-6 col-md-3">
                 <label for="inputname" class="form-label">登録名</label>
                 <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
             </div>
-            <div class="col-sm">
+            <div class="col-6 col-md-3">
                 <label for="inputcategoryname" class="form-label">カテゴリ</label>
                 <input type="text" name="category_name" class="form-control" value="{{$select->category ?? ''}}" style="background-color: #f0f0f0; pointer-events: none;">
                 <input type="hidden" name="category" class="form-control" value="{{$input['category'] ?? ''}}">
             </div>
-            <div class="col-sm">
+            <div class="col-6 col-md-3">
                 <label for="inputdispflag" class="form-label">表示有無</label>
-                <select id="inputState" name="disp_flag" class="form-select">
+                <select id="inputState" name="disp_flag" class="form-control">
                     <option value="" {{ ($select->disp_flag ?? '') == '' ? 'selected' : '' }}></option>
                     <option value="0" {{ ($select->disp_flag ?? '') == '0' ? 'selected' : '' }}>非表示</option>
                     <option value="1" {{ ($select->disp_flag ?? '') == '1' ? 'selected' : '' }}>表示</option>
                 </select>
             </div>
-            <div class="col-sm">
+            <div class="col-6 col-md-3">
                 <label for="inputusername" class="form-label">登録者</label>
                 <input type="text" name="user_name" class="form-control" value="{{$select->user_name ?? ''}}" style="background-color: #f0f0f0; pointer-events: none;">
             </div>
-            <div class="col-md-2">
+        </div>
+        
+        <div class="text-end mb-3">
             <input type="submit" value="更新" class="btn btn-primary">
         </div>
-        </div>
+
     </form>
 @endif
 

@@ -135,3 +135,11 @@
     [art_id] => 12
 )
   
+[2024-10-19 13:09:57] local.DEBUG: -------start-------  
+[2024-10-19 13:09:57] local.DEBUG: id=32 art_id=12 name=testedit  
+[2024-10-19 13:09:57] local.DEBUG: after_data=Array
+(
+    [name] => testedit
+    [art_id] => 12
+)
+  

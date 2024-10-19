@@ -19,15 +19,14 @@
         <div class="col-12 col-md-12">
             ・クリック数
             <div class="row align-items-center">
-                <div class="col-5">
+                <div class="col-8">
                     <input type="number" name="search_click_cnt_s" class="form-control" value="{{ $input['search_click_cnt_s'] ?? '' }}" min="0">
                 </div>
-                <div class="col-2 text-center">
-                    〜
-                </div>
-                <div class="col-5">
+                以上
+                <div class="col-8">
                     <input type="number" name="search_click_cnt_e" class="form-control" value="{{ $input['search_click_cnt_e'] ?? '' }}" min="0">
                 </div>
+                以下
             </div>
         </div>
         <div class="col-4 col-md-12">

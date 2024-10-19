@@ -2,13 +2,13 @@
 {{-- カテゴリ情報更新処理 --}}
 <form method="POST" action="{{ route('admin-custom-category-reg') }}">
     @csrf
-    <div class="row g-3 align-items-end" >
+    <div class="row g-3 align-items-stretch mb-3">
         <input type="hidden" name="id" value="">
-        <div class="col-sm">
+        <div class="col-6 col-md-6">
             <label for="inputname" class="form-label">登録名</label>
             <input type="text" name="name" class="form-control" placeholder="name">
         </div>
-        <div class="col-sm">
+        <div class="col-6 col-md-6">
             <label for="inputcategoryname" class="form-label">ビット番号</label>
             <input type="text" name="bit_num" class="form-control" placeholder="自動で付与されます" style="background-color: #f0f0f0; pointer-events: none;">
         </div>
@@ -22,10 +22,12 @@
             </select>
         </div>
         --}}
-        <div class="col-md-2">
+    </div>
+
+    <div class="text-end mb-3">
         <input type="submit" value="登録" class="btn btn-primary">
     </div>
-    </div>
+
 </form>
 {{--エラー--}}
 @if(isset($msg))

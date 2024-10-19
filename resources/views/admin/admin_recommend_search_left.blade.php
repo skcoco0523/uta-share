@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-12">
         ・カテゴリ
-        <select name="search_category" class="form-select" placeholder="カテゴリ">
+        <select name="search_category" class="form-control" placeholder="カテゴリ">
             <option value=""  {{ ($input['search_category'] ?? '') == '' ? 'selected' : '' }}></option>
             <option value="0" {{ ($input['search_category'] ?? '') == '0' ? 'selected' : '' }}>曲</option>
             <option value="1" {{ ($input['search_category'] ?? '') == '1' ? 'selected' : '' }}>アーティスト</option>

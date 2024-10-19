@@ -1,16 +1,18 @@
 {{-- プレイリスト登録処理 --}}
 <form method="POST" action="{{ route('admin-playlist-reg') }}">
     @csrf
-    <div class="row g-3 align-items-end" >
-        <div class="col-sm">
+    <div class="row g-3 align-items-stretch mb-3">
+        <div class="col-12 col-md-12">
             <label for="inputname" class="form-label">ﾌﾟﾚｲﾘｽﾄ名</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$input['name'] ?? ''}}">
             <input type="hidden" name="admin_flag" value="1">
         </div>
-        <div class="col-md-2">
+    </div>
+
+    <div class="text-end mb-3">
         <input type="submit" value="登録" class="btn btn-primary">
     </div>
-    </div>
+
 </form>
 
 {{--エラー--}}

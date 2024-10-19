@@ -9,7 +9,7 @@
         </div>    
         <div class="col-md-12">
             ・種別
-            <select name="search_sex" class="form-select">
+            <select name="search_sex" class="form-control">
                 <option value=""  {{ ($input['search_sex'] ?? '') == ''  ? 'selected' : '' }}></option>
                 <option value="0" {{ ($input['search_sex'] ?? '') == '0' ? 'selected' : '' }}>ｸﾞﾙｰﾌﾟ</option>
                 <option value="1" {{ ($input['search_sex'] ?? '') == '1' ? 'selected' : '' }}>男性</option>

@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-12">
         ・性別
-        <select name="search_gender" class="form-select">
+        <select name="search_gender" class="form-control">
             <option value=""  {{ ($input['search_gender'] ?? '') == ''  ? 'selected' : '' }}></option>
             <option value="0" {{ ($input['search_gender'] ?? '') == '0' ? 'selected' : '' }}>男性</option>
             <option value="1" {{ ($input['search_gender'] ?? '') == '1' ? 'selected' : '' }}>女性</option>
@@ -25,7 +25,7 @@
     </div>
     <div class="col-md-12">
         ・公開
-        <select name="search_release_flag" class="form-select">
+        <select name="search_release_flag" class="form-control">
             <option value=""  {{ ($input['search_release_flag'] ?? '') == ''  ? 'selected' : '' }}></option>
             <option value="0" {{ ($input['search_release_flag'] ?? '') == '0' ? 'selected' : '' }}>許可</option>
             <option value="1" {{ ($input['search_release_flag'] ?? '') == '1' ? 'selected' : '' }}>拒否</option>
@@ -33,7 +33,7 @@
     </div>
     <div class="col-md-12">
         ・ﾒｰﾙ送信
-        <select name="search_mail_flag" class="form-select">
+        <select name="search_mail_flag" class="form-control">
             <option value=""  {{ ($input['search_mail_flag'] ?? '') == ''  ? 'selected' : '' }}></option>
             <option value="0" {{ ($input['search_mail_flag'] ?? '') == '0' ? 'selected' : '' }}>許可</option>
             <option value="1" {{ ($input['search_mail_flag'] ?? '') == '1' ? 'selected' : '' }}>拒否</option>
@@ -41,7 +41,7 @@
     </div>
     <div class="col-md-12">
         ・種別
-        <select name="search_admin_flag" class="form-select">
+        <select name="search_admin_flag" class="form-control">
             <option value=""  {{ ($input['search_admin_flag'] ?? '') == ''  ? 'selected' : '' }}></option>
             <option value="0" {{ ($input['search_admin_flag'] ?? '') == '0' ? 'selected' : '' }}>ユーザー</option>
             <option value="1" {{ ($input['search_admin_flag'] ?? '') == '1' ? 'selected' : '' }}>管理者</option>

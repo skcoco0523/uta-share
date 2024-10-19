@@ -11,7 +11,7 @@
     {{--対象データ--}}
     <input type="hidden" name="id"              value="{{$select->id ?? ''}}">
     
-    <div class="row g-3 align-items-start" >
+    <div class="row g-3 align-items-stretch mb-3">
         <div class="col-sm-6 col-lg-4">
             <label for="inputname" class="form-label">ﾕｰｻﾞｰ名</label>
             <input type="text" name="name" class="form-control" value="{{$select->name ?? ''}}" style="background-color: #f0f0f0; pointer-events: none;">
@@ -28,10 +28,9 @@
                 <option value="1" {{ ($select->status ?? '') == '1' ? 'selected' : '' }}>対応済</option>
             </select>
         </div>
-        
-
     </div>
-    <div class="row g-3 align-items-end" >
+
+    <div class="row g-3 align-items-stretch mb-3">
         <div class="col-6">
             <label for="inputmessage" class="form-label">依頼内容</label>
             <textarea class="form-control" name="message" style="background-color: #f0f0f0; pointer-events: none;"></textarea>
@@ -41,15 +40,16 @@
             <textarea class="form-control" name="reply">{{$select->reply ?? ''}}</textarea>
         </div>
     </div>
-    <div class="mt-3 text-end d-flex justify-content-end align-items-center">
-    <div class="form-check me-3">
-        <input class="form-check-input" type="checkbox" name="notification_flag" value="1">
-        <label class="form-check-label" for="notification_flag">
-            {{ __('notify user') }}
-        </label>
+    <div class="text-end mb-3 d-flex justify-content-end align-items-center">
+        <div class="form-check me-3">
+            <input class="form-check-input" type="checkbox" name="notification_flag" value="1">
+            <label class="form-check-label" for="notification_flag">
+                {{ __('notify user') }}
+            </label>
+        </div>
+        <input type="submit" value="更新" class="btn btn-primary">
     </div>
-    <input type="submit" value="更新" class="btn btn-primary">
-</div>
+    
 </form>
 
 {{--エラー--}}

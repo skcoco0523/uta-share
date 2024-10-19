@@ -18,7 +18,7 @@
         <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
         <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
 
-        <div class="row g-3 mb-3"> <!-- mb-3 を追加して下にマージンを追加 -->
+        <div class="row g-3 align-items-stretch mb-3">
             <!-- 広告名 -->
             <div class="col-6 col-md-2">
                 <label for="inputname" class="form-label">広告名</label>
@@ -95,8 +95,7 @@
 
         </div>
 
-
-        <div class="row g-3" >
+        <div class="row g-3 align-items-stretch mb-3">
             <div class="col-12 col-md-6">
                 <label for="inputmemo" class="form-label">メモ</label>
                 <textarea class="form-control" name="memo">{{$input['memo'] ?? ''}}</textarea>
@@ -115,9 +114,10 @@
             </div>
         </div>
 
-        <div class="mt-3 text-end">
+        <div class="text-end mb-3">
             <input type="submit" value="更新" class="btn btn-primary">
         </div>
+        
 </form>
 
 {{--エラー--}}

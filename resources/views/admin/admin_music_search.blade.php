@@ -2,7 +2,7 @@
 {{-- ミュージック情報更新処理 --}}
 <form id="mus_chg_form" method="POST" action="{{ route('admin-music-chg') }}">
     @csrf
-    <div class="row g-3 align-items-end" >
+    <div class="row g-3 align-items-stretch mb-3">
         {{--検索条件--}}
         <input type="hidden" name="search_music" value="{{$input['search_music'] ?? ''}}">
         <input type="hidden" name="search_artist" value="{{$input['search_artist'] ?? ''}}">
@@ -11,11 +11,11 @@
         {{--対象データ--}}
         <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
         <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
-        <div class="col-sm">
+        <div class="col-6 col-md-4">
             <label for="inputname" class="form-label">曲名</label>
             <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['mus_name'] ?? '') }}">
         </div>
-        <div class="col-sm">
+        <div class="col-6 col-md-4">
             <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
             <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
             <input type="hidden" id="selectedArtistId" name="art_id">
@@ -25,13 +25,13 @@
                 @endforeach
             </datalist>
         </div>
-        <div class="col-md-3">
+        <div class="col-6 col-md-4">
             <label for="inputbirth" class="form-label">ﾘﾘｰｽ</label>
             <input type="date" max="9999-12-31" name="release_date" class="form-control" value="{{$select->release_date ?? ($input['release_date'] ?? '') }}">
         </div>
     </div>
 
-    <div class="row mt-3 align-items-stretch">
+    <div class="row g-3 align-items-stretch mb-3">
         <div class="col-sm">
             <label for="inputlink" class="form-label">ﾘﾝｸ</label>
             <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['link'] ?? ''}}">
@@ -48,11 +48,11 @@
                 {{--入力されたリンクが表示される部分--}}
             </div>
         </div>
-        <div class="col-md-2 align-self-end mt-3">
-            <input type="submit" value="更新" class="btn btn-primary">
-        </div>
     </div>
 
+    <div class="text-end mb-3">
+        <input type="submit" value="更新" class="btn btn-primary">
+    </div>
 
 </form>
 

@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-12">
         ・種別
-        <select name="search_admin_flag" class="form-select">
+        <select name="search_admin_flag" class="form-control">
             <option value=""  {{ ($input['search_admin_flag'] ?? '') == ''  ? 'selected' : '' }}></option>
             <option value="1" {{ ($input['search_admin_flag'] ?? '') == '1' ? 'selected' : '' }}>管理者</option>
             <option value="0" {{ ($input['search_admin_flag'] ?? '') == '0' ? 'selected' : '' }}>ユーザー</option>

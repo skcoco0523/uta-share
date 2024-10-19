@@ -14,16 +14,16 @@
     {{--対象データ--}}
     <input type="hidden" name="id" value="{{$select->id ?? ''}}">
     
-    <div class="row g-3 align-items-start" >
-        <div class="col-sm-6 col-lg-4">
+    <div class="row g-3 align-items-stretch mb-3">
+        <div class="col-6 col-md-3">
             <label for="inputname" class="form-label">ﾕｰｻﾞｰ名</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$select->name ?? ''}}">
         </div>
-        <div class="col-sm-6 col-lg-4">
+        <div class="col-6 col-md-3">
             <label for="" class="form-label">ｱﾄﾞﾚｽ</label>
             <input type="email" name="email" class="form-control" placeholder="XXX@gmail.com" value="{{$select->email ?? ''}}">
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-6 col-md-3">
             <label for="inputbirth" class="form-label">誕生日</label>
             <input type="date" max="9999-12-31" name="birthdate" class="form-control" value="{{$select->birthdate ?? ''}}">
         </div>
@@ -35,7 +35,7 @@
                 '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'
             ];
         @endphp
-        <div class="col-md-6 col-lg-4">
+        <div class="col-6 col-md-3">
             <label for="inputbirth" class="form-label">都道府県</label>
             <select name="prefectures" class="form-control">
                 @foreach ($prefectures as $prefecture)
@@ -46,32 +46,35 @@
             </select>
         </div>
     </div>
-    <div class="row g-3 align-items-end" >
-        <div class="col-4">
+    
+    <div class="row g-3 align-items-stretch mb-3">
+        <div class="col-6 col-md-4">
             <label for="inputsex" class="form-label">性別</label>
-            <select name="gender" class="form-select">
+            <select name="gender" class="form-control">
                 <option value="0" {{ ($select->gender ?? '') == '0' ? 'selected' : '' }}>男性</option>
                 <option value="1" {{ ($select->gender ?? '') == '1' ? 'selected' : '' }}>女性</option>
             </select>
         </div>
-        <div class="col-4">
+        <div class="col-6 col-md-4">
             <label for="inputsex" class="form-label">公開</label>
-            <select name="release_flag" class="form-select">
+            <select name="release_flag" class="form-control">
                 <option value="0" {{ ($select->release_flag ?? '') == '0' ? 'selected' : '' }}>許可</option>
                 <option value="1" {{ ($select->release_flag ?? '') == '1' ? 'selected' : '' }}>拒否</option>
             </select>
         </div>
-        <div class="col-4">
+        <div class="col-6 col-md-4">
             <label for="inputsex" class="form-label">性別</label>
-            <select name="mail_flag" class="form-select">
+            <select name="mail_flag" class="form-control">
                 <option value="0" {{ ($select->mail_flag ?? '') == '0' ? 'selected' : '' }}>許可</option>
                 <option value="1" {{ ($select->mail_flag ?? '') == '1' ? 'selected' : '' }}>拒否</option>
             </select>
         </div>
     </div>
-    <div class="mt-3 text-end">
+    
+    <div class="text-end mb-3">
         <input type="submit" value="更新" class="btn btn-primary">
     </div>
+    
 </form>
 
 {{--エラー--}}

@@ -1,12 +1,12 @@
 {{-- アルバム登録処理 --}}
 <form id="alb_reg_form" method="POST" action="{{ route('admin-album-reg') }}">
     @csrf
-    <div class="row g-3 align-items-end" >
-        <div class="col-sm">
+    <div class="row g-3 align-items-stretch mb-3">
+    <div class="col-6 col-md-4">
             <label for="inputname" class="form-label">ｱﾙﾊﾞﾑ名</label>
             <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{$input['alb_name'] ?? ''}}">
         </div>
-        <div class="col-sm">
+        <div class="col-6 col-md-4">
             <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
             <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
             <input type="hidden" id="selectedArtistId" name="art_id">
@@ -16,19 +16,19 @@
                 @endforeach
             </datalist>
         </div>
-        <div class="col-md-3">
+        <div class="col-6 col-md-4">
             <label for="inputrelease_date" class="form-label">ﾘﾘｰｽ</label>
             <input type="date" max="9999-12-31" name="release_date" class="form-control" value="{{$input['release_date'] ?? ''}}">
         </div>
     </div>
 
-    <div class="row mt-3 align-items-stretch">
+    <div class="row g-3 align-items-stretch mb-3">
         {{--曲一覧--}}
-        <div class="col-sm">
+        <div class="col-12 col-md-6">
             <label for="inputart_music_list" class="form-label">楽曲リスト(改行込みで一括登録)</label>
             <textarea class="form-control" name="music_list">{{$input['music_list'] ?? ''}}</textarea>
         </div>
-        <div class="col-sm">
+        <div class="col-12 col-md-6">
             <label for="affiliate-link" class="form-label">アフィリエイトリンク</label>
             <a href="https://affiliate.rakuten.co.jp/?l-id=af_header_logo" target="_blank" rel="noopener noreferrer" class="form-label">取得元URL</a>
             <textarea class="form-control" id="affiliate-link" name="aff_link">{{$input['aff_link'] ?? ''}}</textarea>
@@ -40,11 +40,11 @@
                 {{--入力されたリンクが表示される部分--}}
             </div>
         </div>
-        <div class="col-md-2 align-self-end mt-3">
-            <input type="submit" value="登録" class="btn btn-primary">
-        </div>
     </div>
-
+ 
+    <div class="text-end mb-3">
+        <input type="submit" value="登録" class="btn btn-primary">
+    </div>
 
 </form>
 
@@ -59,7 +59,6 @@
 @if(isset($albums))
     
     <div style="overflow-x: auto;">
-        <label class="form-label">最近追加されたアルバム</label>
         <table class="table table-striped table-hover table-bordered fs-6 ">
             <thead>
             <tr>

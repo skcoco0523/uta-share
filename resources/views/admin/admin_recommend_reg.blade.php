@@ -1,25 +1,27 @@
 {{-- おすすめ登録処理 --}}
 <form method="POST" action="{{ route('admin-recommend-reg') }}">
     @csrf
-    <div class="row g-3 align-items-end" >
-        <div class="col-8">
+    <div class="row g-3 align-items-stretch mb-3">
+        <div class="col-6 col-md-6">
             <label for="inputname" class="form-label">登録名</label>
             <input type="text" name="name" class="form-control" placeholder="name" value="{{$input['name'] ?? ''}}">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
         </div>
-        <div class="col-2">
+        <div class="col-6 col-md-6">
             <label for="inputcategory" class="form-label">カテゴリ</label>
-            <select id="inputState" name="category" class="form-select">
+            <select id="inputState" name="category" class="form-control">
                 <option value="0" {{ ($input['category'] ?? '') == '0' ? 'selected' : '' }}>曲</option>
                 <option value="1" {{ ($input['category'] ?? '') == '1' ? 'selected' : '' }}>アーティスト</option>
                 <option value="2" {{ ($input['category'] ?? '') == '2' ? 'selected' : '' }}>アルバム</option>
                 <option value="3" {{ ($input['category'] ?? '') == '3' ? 'selected' : '' }}>プレイリスト</option>
             </select>
         </div>
-        <div class="col-2">
+    </div>
+
+    <div class="text-end mb-3">
         <input type="submit" value="登録" class="btn btn-primary">
     </div>
-    </div>
+
 </form>
 
 {{--エラー--}}
