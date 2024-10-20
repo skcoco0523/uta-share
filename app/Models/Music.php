@@ -31,9 +31,11 @@ class Music extends Model
                 $sql_cmd = $sql_cmd->orwhere('albums.name', 'like', '%'. $keyword['search_all']. '%');
 
             }else{
-                //ユーザーによる検索
+                //ユーザーによる検索　曲名、アーティスト名に該当した場合
                 if (isset($keyword['keyword']))
                     $sql_cmd = $sql_cmd->where('musics.name', 'like', '%'. $keyword['keyword']. '%');
+                    $sql_cmd = $sql_cmd->orwhere('artists.name', 'like', '%'. $keyword['keyword']. '%');
+                    $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
 
                 //管理者による検索
                 if (isset($keyword['search_music'])) 
