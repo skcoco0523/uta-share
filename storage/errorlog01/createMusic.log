@@ -102,3 +102,17 @@
 )
   
 [2024-09-19 20:24:22] local.DEBUG: success  
+[2024-10-20 17:10:14] local.DEBUG: -------start-------  
+[2024-10-20 17:10:14] local.DEBUG: create_data=Array
+(
+    [_token] => gIkDhWa3SFEDTjGbvVntWfOr3q33m0nzO8n05sir
+    [fnc] => add
+    [alb_id] => 32
+    [mus_id] => 
+    [name] => ｱﾙﾊﾞﾑ　曲追加テスト
+    [page] => 
+    [id] => 
+    [art_id] => 12
+)
+  
+[2024-10-20 17:10:14] local.DEBUG: success  

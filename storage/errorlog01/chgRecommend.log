@@ -1681,3 +1681,19 @@
 )
   
 [2024-10-19 12:28:42] local.DEBUG: success  
+[2024-10-20 17:24:44] local.DEBUG: ---------start----------  
+[2024-10-20 17:24:44] local.DEBUG: data=Array
+(
+    [_token] => gIkDhWa3SFEDTjGbvVntWfOr3q33m0nzO8n05sir
+    [search_recommend] => 
+    [search_category] => 
+    [page] => 
+    [id] => 49
+    [name] => ドラマ主題歌
+    [category_name] => プレイリスト
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => skcoco　admin
+)
+  
+[2024-10-20 17:24:44] local.DEBUG: success  

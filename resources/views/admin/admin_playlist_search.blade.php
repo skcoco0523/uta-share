@@ -169,8 +169,14 @@
                         @foreach($music as $mus)
                             <tr>
                                 <td class="fw-light">{{$mus->id}}</td>
-                                <td class="fw-light">{{$mus->name}}</td>
-                                <td class="fw-light">{{$mus->art_name}}</td>
+                                <td class="fw-light">
+                                <a href="{{ route('admin-music-search', ['search_music' => $mus->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                    {{$mus->name}}
+                                </td>
+                                <td class="fw-light">
+                                <a href="{{ route('admin-artist-search', ['search_artist' => $mus->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                    {{$mus->art_name}}
+                                </td>
                                 <td class="fw-light">{{$mus->created_at}}</td>
                                 <td class="fw-light">{{$mus->updated_at}}</td>
                                 <td class="fw-light">

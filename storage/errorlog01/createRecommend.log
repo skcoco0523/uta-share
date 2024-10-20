@@ -1282,3 +1282,36 @@
 )
   
 [2024-10-19 12:28:33] local.DEBUG: success  
+[2024-10-19 15:50:59] local.DEBUG: ---------start----------  
+[2024-10-19 15:50:59] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [name] => テスト
+    [user_id] => 1
+    [category] => 2
+    [sort_num] => 1
+)
+  
+[2024-10-19 15:50:59] local.DEBUG: success  
+[2024-10-19 15:52:55] local.DEBUG: ---------start----------  
+[2024-10-19 15:52:55] local.DEBUG: data=Array
+(
+    [_token] => odJlzmxvRp7mfGwZDosdzVSTnF1ZdyHKLamyNWGR
+    [name] => テスト
+    [user_id] => 1
+    [category] => 1
+    [sort_num] => 2
+)
+  
+[2024-10-19 15:52:55] local.DEBUG: success  
+[2024-10-20 17:24:35] local.DEBUG: ---------start----------  
+[2024-10-20 17:24:35] local.DEBUG: data=Array
+(
+    [_token] => gIkDhWa3SFEDTjGbvVntWfOr3q33m0nzO8n05sir
+    [name] => ドラマ主題歌
+    [user_id] => 1
+    [category] => 3
+    [sort_num] => 3
+)
+  
+[2024-10-20 17:24:35] local.DEBUG: success  

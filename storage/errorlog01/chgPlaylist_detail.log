@@ -188,3 +188,6 @@
 [2024-10-19 12:28:17] local.DEBUG: -------start-------  
 [2024-10-19 12:28:17] local.DEBUG: delete_pl_id=33  
 [2024-10-19 12:28:17] local.DEBUG: success  
+[2024-10-20 17:23:37] local.DEBUG: -------start-------  
+[2024-10-20 17:23:37] local.DEBUG: delete_pl_id=34  
+[2024-10-20 17:23:37] local.DEBUG: success  
