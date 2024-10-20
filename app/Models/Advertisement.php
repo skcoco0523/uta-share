@@ -76,7 +76,7 @@ class Advertisement extends Model
             
             // days が null か、または現在の日付に達しているか
             $sql_cmd = $sql_cmd->where(function($query) {
-                $query->whereRaw('DATE_ADD(STR_TO_DATE(CONCAT(YEAR(CURDATE()), "-", sdate), "%Y-%m-%d"), INTERVAL days DAY) >= CURDATE()')
+                $query->whereRaw('CURDATE() BETWEEN STR_TO_DATE(CONCAT(YEAR(CURDATE()), "-", sdate), "%Y-%m-%d") AND DATE_ADD(STR_TO_DATE(CONCAT(YEAR(CURDATE()), "-", sdate), "%Y-%m-%d"), INTERVAL days DAY)')
                     ->orwhere('adv.days', null);
                     
             });
