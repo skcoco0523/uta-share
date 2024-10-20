@@ -25,8 +25,9 @@
     <div class="row g-3 align-items-stretch mb-3">
         {{--曲一覧--}}
         <div class="col-12 col-md-6">
-            <label for="inputart_music_list" class="form-label">楽曲リスト(改行込みで一括登録)</label>
-            <textarea class="form-control" name="music_list">{{$input['music_list'] ?? ''}}</textarea>
+            <label for="inputart_music_list" class="form-label">楽曲リスト(改行込みで一括登録)　</label>
+            <button type="button" onclick="processMusicList()">加工する</button>
+            <textarea class="form-control" id="music_list" name="music_list">{{$input['music_list'] ?? ''}}</textarea>
         </div>
         <div class="col-12 col-md-6">
             <label for="affiliate-link" class="form-label">リンク：</label>
@@ -93,6 +94,33 @@
 @endif
 
 <script>
+
+function processMusicList() {
+    let musicList = document.getElementById('music_list').value;
+    let lines = musicList.split('\n');
+    
+    // すべての行が「XX.」形式に該当するかチェック
+    let datachack1 = lines.every(function(line) {
+        return /^\s*\d+\.\s*/.test(line);
+    });
+    // すべての行が「[X:XX]」形式に該当するかチェック
+    let datachack2 = lines.every(function(line) {
+        return /\s*\[\d+:\d+\]\s*$/.test(line);
+    });
+
+    // 加工された曲リストを作成
+    let processedLines = lines.map(function(line) {
+        // すべての行に「XX.」がある場合は削除
+        if (datachack1) { line = line.replace(/^\s*\d+\.\s*/, ''); }
+        // すべての行に「[X:XX]」がある場合は削除
+        if (datachack2) { line = line.replace(/\s*\[\d+:\d+\]\s*$/, ''); }
+        return line;
+    });
+
+    // 加工されたリストをテキストエリアに表示
+    document.getElementById('music_list').value = processedLines.join('\n');
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     var affiliateLinkInput = document.getElementById('affiliate-link');
     var affiliatePreview = document.getElementById('affiliate-preview');
@@ -121,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
 });
     
 

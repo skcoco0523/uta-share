@@ -202,3 +202,15 @@
     [auth_token] => FrnT0SWv5oP0YD+zyYvD2Q==
 )
   
+[2024-10-20 21:41:42] local.DEBUG: ------------start-----------  
+[2024-10-20 21:41:42] local.DEBUG: validated=Array
+(
+    [user_id] => 1
+    [device_id] => 8f36e6b8-eb22-44cd-854c-825241311408
+    [os] => Windows
+    [browser] => Chrome
+    [endpoint] => https://fcm.googleapis.com/fcm/send/ebmLgHhPDBA:APA91bFix_zs1IwvZpMgZGr0jegAo9gAfxApkudC-eUFkD0p__7gZujwopE0lrNwiGjTi576H0kwSaradEf05xQpflb_aSn789eSVjaaZt3BsQSDWaYpnYkOd0_seZdFa4BS9ogC6hi-
+    [public_key] => BFvG9HWqJ1xKxncoH5Tjbzs0ttOy0onjlFShjebyVwd/fXPprQwya916pMZDmZF6+CXXKLh6gjEV2A/f91WztsU=
+    [auth_token] => s6re3SpmPE3wvLXhzFHstQ==
+)
+  
