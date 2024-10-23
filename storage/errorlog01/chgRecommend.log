@@ -1697,3 +1697,51 @@
 )
   
 [2024-10-20 17:24:44] local.DEBUG: success  
+[2024-10-23 22:08:29] local.DEBUG: ---------start----------  
+[2024-10-23 22:08:29] local.DEBUG: data=Array
+(
+    [_token] => Uq1m2OZh5BXaZlVK9hYMokGaePLZQAmMVhTk3WNj
+    [search_recommend] => 
+    [search_category] => 3
+    [page] => 
+    [id] => 50
+    [name] => test
+    [category_name] => プレイリスト
+    [category] => 3
+    [disp_flag] => 1
+    [user_name] => 管理者用　菅野
+)
+  
+[2024-10-23 22:08:29] local.DEBUG: success  
+[2024-10-23 22:18:27] local.DEBUG: ---------start----------  
+[2024-10-23 22:18:27] local.DEBUG: data=Array
+(
+    [_token] => Uq1m2OZh5BXaZlVK9hYMokGaePLZQAmMVhTk3WNj
+    [search_recommend] => 
+    [search_category] => 
+    [page] => 
+    [id] => 51
+    [name] => おすすめ曲テスト2
+    [category_name] => 曲
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => 管理者用　菅野
+)
+  
+[2024-10-23 22:18:27] local.DEBUG: success  
+[2024-10-23 22:19:01] local.DEBUG: ---------start----------  
+[2024-10-23 22:19:01] local.DEBUG: data=Array
+(
+    [_token] => Uq1m2OZh5BXaZlVK9hYMokGaePLZQAmMVhTk3WNj
+    [search_recommend] => 
+    [search_category] => 
+    [page] => 
+    [id] => 47
+    [name] => テスト
+    [category_name] => アルバム
+    [category] => 
+    [disp_flag] => 1
+    [user_name] => 管理者用　菅野
+)
+  
+[2024-10-23 22:19:01] local.DEBUG: success  

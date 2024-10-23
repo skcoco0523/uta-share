@@ -1499,3 +1499,13 @@
 [2024-10-19 15:42:38] local.DEBUG: fnc=del recom_id=43 category=0 detail_id=417  
 [2024-10-20 17:24:59] local.DEBUG: -----start-----  
 [2024-10-20 17:24:59] local.DEBUG: fnc=add recom_id=49 category=3 detail_id=34  
+[2024-10-23 22:18:38] local.DEBUG: -----start-----  
+[2024-10-23 22:18:38] local.DEBUG: fnc=add recom_id=51 category=0 detail_id=409  
+[2024-10-23 22:18:42] local.DEBUG: -----start-----  
+[2024-10-23 22:18:42] local.DEBUG: fnc=add recom_id=51 category=0 detail_id=376  
+[2024-10-23 22:19:21] local.DEBUG: -----start-----  
+[2024-10-23 22:19:21] local.DEBUG: fnc=add recom_id=47 category=2 detail_id=1  
+[2024-10-23 22:19:26] local.DEBUG: -----start-----  
+[2024-10-23 22:19:26] local.DEBUG: fnc=add recom_id=47 category=2 detail_id=16  
+[2024-10-23 22:19:31] local.DEBUG: -----start-----  
+[2024-10-23 22:19:31] local.DEBUG: fnc=add recom_id=47 category=2 detail_id=31  

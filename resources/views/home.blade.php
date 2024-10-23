@@ -16,15 +16,15 @@
             </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
-            @for ($i=0; $i < count($ranking['fav_mus']); $i++)
-            <a href="{{ route('music-show',['id' => $ranking['fav_mus'][$i]->id]) }}" class="no-decoration">
+            @foreach ($ranking['fav_mus'] as $data)
+            <a href="{{ route('music-show',['id' => $data->id]) }}" class="no-decoration">
                 <div class="card card-mini" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                    <img src="{{ $ranking['fav_mus'][$i]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
-                    <p class="card-text text-truncate">{{$ranking['fav_mus'][$i]->name}}</p>
-                    <p class="card-text text-truncate">{{$ranking['fav_mus'][$i]->art_name}}</p>
+                    <img src="{{ $data->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                    <p class="card-text text-truncate">{{$data->name}}</p>
+                    <p class="card-text text-truncate">{{$data->art_name}}</p>
                 </div>
             </a>
-            @endfor
+            @endforeach
         </div>
     </div>
 @endif
@@ -39,14 +39,14 @@
             </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
-            @for ($i=0; $i < count($recommend_mus); $i++)
-            <a href="{{ route('recommend-show', ['id' => $recommend_mus[$i]->id]) }}" class="no-decoration">
+            @foreach ($recommend_mus as $recom_mus)
+            <a href="{{ route('recommend-show', ['id' => $recom_mus->id]) }}" class="no-decoration">
                 <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $recommend_mus[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
-                        <p class="card-text">{{$recommend_mus[$i]->name}}</p>
+                        <img src="{{ $recom_mus->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                        <p class="card-text">{{$recom_mus->name}}</p>
                 </div>
             </a>
-            @endfor
+            @endforeach
         </div>
     </div>
 @endif 
@@ -60,14 +60,14 @@
             </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
-            @for ($i=0; $i < count($recommend_alb); $i++)
-            <a href="{{ route('recommend-show', ['id' => $recommend_alb[$i]->id]) }}" class="no-decoration">
+            @foreach ($recommend_alb as $recom_alb)
+            <a href="{{ route('recommend-show', ['id' => $recom_alb->id]) }}" class="no-decoration">
                 <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $recommend_alb[$i]->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
-                        <p class="card-text">{{$recommend_alb[$i]->name}}</p>
+                        <img src="{{ $recom_alb->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                        <p class="card-text">{{$recom_alb->name}}</p>
                 </div>
             </a>
-            @endfor
+            @endforeach
         </div>
     </div>
 @endif
@@ -81,14 +81,14 @@
             </a>
         </div>
         <div class="d-flex overflow-auto contents_box">
-            @for ($i=0; $i < count($recommend_pl); $i++)
-            <a href="{{ route('recommend-show', ['id' => $recommend_pl[$i]->id]) }}" class="no-decoration">
+            @foreach ($recommend_pl as $recom_pl)
+            <a href="{{ route('recommend-show', ['id' => $recom_pl->id]) }}" class="no-decoration">
                 <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $recommend_pl[$i]->detail[0]->music[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
-                        <p class="card-text">{{$recommend_pl[$i]->name}}</p>
+                        <img src="{{ $recom_pl->detail[0]->music[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                        <p class="card-text">{{$recom_pl->name}}</p>
                 </div>
             </a>
-            @endfor
+            @endforeach
         </div>
     </div>
 @endif

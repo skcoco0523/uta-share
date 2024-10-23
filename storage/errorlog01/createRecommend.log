@@ -1315,3 +1315,25 @@
 )
   
 [2024-10-20 17:24:35] local.DEBUG: success  
+[2024-10-23 22:08:14] local.DEBUG: ---------start----------  
+[2024-10-23 22:08:14] local.DEBUG: data=Array
+(
+    [_token] => Uq1m2OZh5BXaZlVK9hYMokGaePLZQAmMVhTk3WNj
+    [name] => test
+    [user_id] => 1
+    [category] => 3
+    [sort_num] => 4
+)
+  
+[2024-10-23 22:08:14] local.DEBUG: success  
+[2024-10-23 22:18:20] local.DEBUG: ---------start----------  
+[2024-10-23 22:18:20] local.DEBUG: data=Array
+(
+    [_token] => Uq1m2OZh5BXaZlVK9hYMokGaePLZQAmMVhTk3WNj
+    [name] => おすすめ曲テスト2
+    [user_id] => 1
+    [category] => 0
+    [sort_num] => 2
+)
+  
+[2024-10-23 22:18:20] local.DEBUG: success  
