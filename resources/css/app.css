@@ -217,19 +217,66 @@ npm run build　でビルド　→build配下のファイルをアップロー�
   .header {
     margin-top:40px; /* fixed-bottom-menu の高さ + 追加の余白 */;
   }
-  .card-mini {
+  .card-square {
     width: 120px;
     height: 170px;
-    flex: 0 0 auto;
     margin-right: 10px;
   }
-  
-  .card-img-mini {
+  .card-square-img {
     object-fit: cover;
     border-top-left-radius: 5px; /* 左上の角を丸める */
     border-top-right-radius: 5px; /* 右上の角を丸める */
     height: 75%;
   }
+  .card-wide {
+    width: 250px;
+    height: 150px;
+    margin-right: 10px;
+  }
+  .card-wide-img{
+    position: relative; /* 絶対配置の子要素の基準にする */
+    overflow: hidden; /* はみ出た部分を隠す */
+    border-top-left-radius: 5px; /* 左上の角を丸める */
+    border-top-right-radius: 5px; /* 右上の角を丸める */
+    height: 80%;
+  }
+  .card-wide-img-back {
+    filter: blur(7px); /* ぼかし効果を追加 */
+  }
+  .card-wide-img-1 {
+    position: absolute; /* 重ねる画像を絶対配置 */
+    top: 50%; /* 親要素に対して垂直方向に中央揃え */
+    left: 35%; /* 親要素に対して水平方向に中央揃え */
+    transform: translate(-50%, -50%); /* 画像を中央に揃える */
+    width: 35%; /* 画像の幅を親要素の幅に対して20%に設定 */
+    border-radius: 5px; /* 同じ角の丸めを適用 */
+  }
+  .card-wide-img-2 {
+    position: absolute; /* 重ねる画像を絶対配置 */
+    top: 50%; /* 親要素に対して垂直方向に中央揃え */
+    left: 57%; /* 親要素に対して水平方向に中央揃え */
+    transform: translate(-50%, -50%); /* 画像を中央に揃える */
+    width: 28%; /* 画像の幅を親要素の幅に対して20%に設定 */
+    border-radius: 5px; /* 同じ角の丸めを適用 */
+  }
+  .card-wide-img-3 {
+    position: absolute; /* 重ねる画像を絶対配置 */
+    top: 50%; /* 親要素に対して垂直方向に中央揃え */
+    left: 75%; /* 親要素に対して水平方向に中央揃え */
+    transform: translate(-50%, -50%); /* 画像を中央に揃える */
+    width: 21%; /* 画像の幅を親要素の幅に対して20%に設定 */
+    border-radius: 5px; /* 同じ角の丸めを適用 */
+  }
+
+  .card-thin {
+    width: 200px;
+    height: 170px;
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+
+
   .contents_box{
     overflow: scroll;
     /*IE(Internet Explorer)・Microsoft Edgeへの対応*/

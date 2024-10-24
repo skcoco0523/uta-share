@@ -34,7 +34,7 @@ class PlaylistController extends Controller
         if($playlist){
             //他ユーザーのﾌﾟﾚｲﾘｽﾄは閲覧不可
             $user = Auth::user();
-            if($playlist->user_id == $user->id || $playlist->admin_flag == 1){
+            if($playlist->admin_flag == 1 || ($user && $playlist->user_id == $user->id)){
                 return view('playlist_show', compact('playlist', 'msg'));
             }else{
                 return redirect()->route('home')->with('error', '該当のプレイリストが存在しません');

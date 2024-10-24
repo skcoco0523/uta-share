@@ -1188,3 +1188,12 @@
 )
   
 [2024-10-20 17:23:23] local.DEBUG: success  
+[2024-10-24 22:32:02] local.DEBUG: ---------start----------  
+[2024-10-24 22:32:02] local.DEBUG: data=Array
+(
+    [_token] => 8Jyk0gIIYuha9eQkLQgGy4srTPciOMMgCwwZv395
+    [name] => mypl_test
+    [user_id] => 1
+)
+  
+[2024-10-24 22:32:02] local.DEBUG: success  

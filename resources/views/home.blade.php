@@ -18,8 +18,8 @@
         <div class="d-flex overflow-auto contents_box">
             @foreach ($ranking['fav_mus'] as $data)
             <a href="{{ route('music-show',['id' => $data->id]) }}" class="no-decoration">
-                <div class="card card-mini" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                    <img src="{{ $data->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                <div class="card card-square">
+                    <img src="{{ $data->src }}" class="card-square-img" alt="pic">
                     <p class="card-text text-truncate">{{$data->name}}</p>
                     <p class="card-text text-truncate">{{$data->art_name}}</p>
                 </div>
@@ -41,8 +41,8 @@
         <div class="d-flex overflow-auto contents_box">
             @foreach ($recommend_mus as $recom_mus)
             <a href="{{ route('recommend-show', ['id' => $recom_mus->id]) }}" class="no-decoration">
-                <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $recom_mus->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                <div class="card card-square">
+                        <img src="{{ $recom_mus->detail[0]->src }}" class="card-square-img" alt="pic">
                         <p class="card-text">{{$recom_mus->name}}</p>
                 </div>
             </a>
@@ -62,8 +62,8 @@
         <div class="d-flex overflow-auto contents_box">
             @foreach ($recommend_alb as $recom_alb)
             <a href="{{ route('recommend-show', ['id' => $recom_alb->id]) }}" class="no-decoration">
-                <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $recom_alb->detail[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
+                <div class="card card-square">
+                        <img src="{{ $recom_alb->detail[0]->src }}" class="card-square-img" alt="pic">
                         <p class="card-text">{{$recom_alb->name}}</p>
                 </div>
             </a>
@@ -80,12 +80,18 @@
                 <i class="fa-solid fa-greater-than icon-20 red title-right"></i>
             </a>
         </div>
-        <div class="d-flex overflow-auto contents_box">
-            @foreach ($recommend_pl as $recom_pl)
+        <div class="d-flex overflow-auto contents_box py-2">
+        @foreach ($recommend_pl as $recom_pl)
             <a href="{{ route('recommend-show', ['id' => $recom_pl->id]) }}" class="no-decoration">
-                <div class="card" style="width: 120px; height: 170px; flex: 0 0 auto; margin-right: 10px;">
-                        <img src="{{ $recom_pl->detail[0]->music[0]->src }}" class="card-img-mini" alt="pic" style="object-fit: cover; height: 75%;">
-                        <p class="card-text">{{$recom_pl->name}}</p>
+                <div class="card card-wide">
+                    <div Class="card-wide-img">
+                        <img src="{{ $recom_pl->detail[0]->music[0]->src }}" class="card-wide-img-back" alt="pic">
+                        
+                        <img src="{{ $recom_pl->detail[2]->music[0]->src ?? asset('img/pic/no_image.png') }}" class="card-wide-img-3" alt="pic">
+                        <img src="{{ $recom_pl->detail[1]->music[0]->src ?? asset('img/pic/no_image.png') }}" class="card-wide-img-2" alt="pic">
+                        <img src="{{ $recom_pl->detail[0]->music[0]->src ?? asset('img/pic/no_image.png') }}" class="card-wide-img-1" alt="pic">
+                    </div>
+                    <p class="card-text">{{$recom_pl->name}}</p>
                 </div>
             </a>
             @endforeach
