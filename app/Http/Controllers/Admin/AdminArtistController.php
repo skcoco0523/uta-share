@@ -43,8 +43,6 @@ class AdminArtistController extends Controller
         $input['search_music']          = get_proc_data($input,"search_music");
         $input['search_artist']         = get_proc_data($input,"search_artist");
         $input['search_album']          = get_proc_data($input,"search_album");
-        //ユーザーによる検索
-        $input['keyword']               = get_proc_data($input,"keyword");
 
         $input['page']                  = get_proc_data($input,"page");
 

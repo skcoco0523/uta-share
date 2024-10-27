@@ -13,12 +13,12 @@
         <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
         <div class="col-6 col-md-4">
             <label for="inputname" class="form-label">曲名</label>
-            <input type="text" name="alb_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['mus_name'] ?? '') }}">
+            <input type="text" name="mus_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['mus_name'] ?? '') }}">
         </div>
         <div class="col-6 col-md-4">
             <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
             <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
-            <input type="hidden" id="selectedArtistId" name="art_id">
+            <input type="hidden" id="selectedArtistId" name="art_id" value="{{$select->art_id ?? ($input['art_id'] ?? '')}}">
             <datalist id="artistSelect">
                 @foreach($artists as $artist)
                 <option value="{{ $artist->name }}" data-id="{{ $artist->id }}">{{ $artist->name }}</option>
@@ -90,6 +90,7 @@
             </thead>
             @foreach($musics as $music)
                 <tr>
+                    <input type="hidden" name="art_id" value="{{$music->art_id}}">
                     <td class="fw-light">{{$music->id}}</td>
                     <td class="fw-light">{{$music->name}}</td>
                     <td class="fw-light">
@@ -163,19 +164,21 @@ document.addEventListener('DOMContentLoaded', function () {
             // クリックされた行からデータを取得
             const cells = row.querySelectorAll('td');
             const id = cells[0].textContent;
-            const alb_name = cells[1].textContent;
+            const mus_name = cells[1].textContent;
             const art_name = cells[2].textContent;
             const release_date = cells[4].textContent;
             const link = cells[5].textContent;
+            const art_id_input = row.querySelector('input[name="art_id"]');
+            const art_id_value = art_id_input.value;
             const aff_id_input = row.querySelector('input[name="aff_id"]');
             const aff_id_value = aff_id_input.value;
-
             // フォームの対応するフィールドにデータを設定
             document.querySelector('input[name="id"]').value = id;
-            document.querySelector('input[name="alb_name"]').value = alb_name;
+            document.querySelector('input[name="mus_name"]').value = mus_name;
             document.querySelector('input[name="art_name"]').value = art_name;
             document.querySelector('input[name="release_date"]').value = release_date;
             document.querySelector('input[name="link"]').value = link;
+            document.querySelector('input[name="art_id"]').value = art_id_value; // art_idの値を設定
             document.querySelector('input[name="aff_id"]').value = aff_id_value; // aff_idの値を設定
         });
     });

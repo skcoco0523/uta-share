@@ -80,15 +80,13 @@ class AdminMusicController extends Controller
         $input['search_music']          = get_proc_data($input,"search_music");
         $input['search_artist']         = get_proc_data($input,"search_artist");
         $input['search_album']          = get_proc_data($input,"search_album");
-        //ユーザーによる検索
-        $input['keyword']               = get_proc_data($input,"keyword");
 
         $input['page']                  = get_proc_data($input,"page");
 
         $musics = Music::getMusic_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $artists = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
-        $msg = ($msg===NULL && $input['keyword'] !==null && $musics === null) ? "検索結果が0件です。" : $msg;
+        $msg = ($msg===NULL && $musics === null) ? "検索結果が0件です。" : $msg;
         return view('admin.admin_home', compact('artists', 'musics', 'input', 'msg'));
     }
     //削除
@@ -105,14 +103,10 @@ class AdminMusicController extends Controller
     //変更
     public function music_chg(Request $request)
     {
-        //$input = $request->only(['id', 'alb_name', 'art_id', 'alb_id', 'art_name', 'release_date', 'link', 'aff_id', 'aff_link', 'keyword','page']);
         $input = $request->all();
         $msg=null;
-        //music,Affiliate,Musicを一括で登録するため、事前にデータ確認
-        //if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
         if(!$input['art_id'])       $msg =  "登録されていないアーティストは選択できません。";
         if(!$input['art_name'])     $msg =  "アーティストを選択してください。";
-        if(!$input['alb_name'])     $msg =  "アルバム名を入力してください。";
         if(!$input['id'])           $msg =  "テーブルから選択してください。";
         if($msg!==null)         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
 
@@ -131,11 +125,11 @@ class AdminMusicController extends Controller
         //music変更
         //$input = $request->only(['id', 'alb_name', 'art_id','release_date', 'link','page']);
         $input = $request->all();
-        $input['name'] = $input['alb_name'];    //musicのカラム名に合わせる
+        $input['name'] = $input['mus_name'];    //musicのカラム名に合わせる
         if($input){
             $ret = Music::chgMusic($input);
             //最初にデータ不足の判定済み
-            if($ret['error_code']==-1)    $msg = "アルバム情報の更新に失敗しました。";
+            if($ret['error_code']==-1)    $msg = "曲情報の更新に失敗しました。";
             if($msg!==null) return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
             $alb_id=$ret['id']; //変更したAlbimID
         
@@ -143,7 +137,7 @@ class AdminMusicController extends Controller
         //収録曲は詳細変更でのみ可能
         //$input = $request->only(['keyword','page']);
         $input = $request->all();
-        $msg = "アルバム：" . $request->input('alb_name') . " を更新しました。";
+        $msg = "曲" . $request->input('alb_name') . " を更新しました。";
         return redirect()->route('admin-music-search', ['input' => $input, 'msg' => $msg]);
     }
 }

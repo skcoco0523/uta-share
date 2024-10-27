@@ -116,3 +116,18 @@
 )
   
 [2024-10-20 17:10:14] local.DEBUG: success  
+[2024-10-27 15:16:11] local.DEBUG: -------start-------  
+[2024-10-27 15:16:11] local.DEBUG: create_data=Array
+(
+    [_token] => b9EWSwAoM8zbTdfA25AHFpqEhRfDQITQld5ARGrK
+    [name] => test
+    [art_name] => ケツメイシ
+    [art_id] => 10
+    [release_date] => 
+    [link] => 
+    [aff_link] => <a href="https://hb.afl.rakuten.co.jp/ichiba/415cca62.f356b997.415cca63.9ec8807f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmeri%2Fa230901%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/415cca62.f356b997.415cca63.9ec8807f/?me_id=1363269&item_id=10000712&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fmeri%2Fcabinet%2Fa230901%2Forder01br.jpg%3F_ex%3D240x240&s=240x240&t=pict" border="0" style="margin:2px" alt="" title=""></a>
+    [alb_id] => 
+    [aff_id] => 52
+)
+  
+[2024-10-27 15:16:11] local.DEBUG: success  

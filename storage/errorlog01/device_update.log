@@ -238,3 +238,15 @@
     [auth_token] => yxmm4FH3yIsKXW611RW/aw==
 )
   
+[2024-10-27 14:37:03] local.DEBUG: ------------start-----------  
+[2024-10-27 14:37:03] local.DEBUG: validated=Array
+(
+    [user_id] => 1
+    [device_id] => 1fa2e56d-7ad6-4cee-9161-09806ba0b549
+    [os] => Windows
+    [browser] => Chrome
+    [endpoint] => https://fcm.googleapis.com/fcm/send/fTKC5wimMqs:APA91bFaQFT8rM2AYn11DrvXYhXspLeu9T05CckjVgz78cOqKqnLS6MgJ5gN_jXJr-5l_3DvufEsHFzHw2Js0ezOX_dbGCVmeX6LKiOzzL-80ARsoXdADmCP4GbwRhud3CQFM-JnSsNN
+    [public_key] => BHrhEGa3mzL/+Dp4nJpf26QGwa1YNNezS+b+MeUFnKp4t9Aq91rPiF7kG58VQj/eEAyU+UpUxMSdbc1+3ozTcdg=
+    [auth_token] => rxV34VjGUPI9BccDSMCGzw==
+)
+  

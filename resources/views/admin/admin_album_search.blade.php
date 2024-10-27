@@ -18,7 +18,7 @@
             <div class="col-6 col-md-4">
                 <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
                 <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
-                <input type="hidden" id="selectedArtistId" name="art_id">
+                <input type="hidden" id="selectedArtistId" name="art_id" value="{{$select->art_id ?? ($input['art_id'] ?? '')}}">
                 <datalist id="artistSelect">
                     @foreach($artist as $art)
                     <option value="{{ $art->name }}" data-id="{{ $art->id }}">{{ $art->name }}</option>
@@ -94,6 +94,7 @@
             </thead>
             @foreach($album as $alb)
                 <tr>
+                    <input type="hidden" name="art_id" value="{{$alb->art_id}}">
                     <td class="fw-light">{{$alb->id}}</td>
                     <td class="fw-light">{{$alb->name}}</td>
                     <td class="fw-light">
@@ -276,6 +277,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const aff_id_input = row.querySelector('input[name="aff_id"]');
             const music_list_input = row.querySelector('input[name="music_list"]');
             //const music_list_input = document.querySelector('input[name="music_list"]');
+            const art_id_input = row.querySelector('input[name="art_id"]');
+            const art_id_value = art_id_input.value;
             const aff_id_value = aff_id_input.value;
             const music_list_value = music_list_input.value;
 
@@ -284,6 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('input[name="alb_name"]').value = alb_name;
             document.querySelector('input[name="art_name"]').value = art_name;
             document.querySelector('input[name="release_date"]').value = release_date;
+            document.querySelector('input[name="art_id"]').value = art_id_value; // art_idの値を設定
             document.querySelector('input[name="aff_id"]').value = aff_id_value; // aff_idの値を設定
             document.querySelector('textarea[name="music_list"]').value = music_list_value; // alb_musの値を設定
         });

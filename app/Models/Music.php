@@ -21,10 +21,16 @@ class Music extends Model
         $sql_cmd = DB::table('musics');
         $sql_cmd = $sql_cmd->join('artists', 'musics.art_id', '=', 'artists.id');
         $sql_cmd = $sql_cmd->leftJoin('albums', 'musics.alb_id', '=', 'albums.id');
+        
         if($keyword){
+            $keyword['search_all']          = get_proc_data($keyword,"search_all");
+            $keyword['keyword']             = get_proc_data($keyword,"keyword");
+            $keyword['search_music']        = get_proc_data($keyword,"search_music");
+            $keyword['search_artist']       = get_proc_data($keyword,"search_artist");
+            $keyword['search_album']        = get_proc_data($keyword,"search_album");
 
             //全検索
-            if (isset($keyword['search_all'])) {
+            if ($keyword['search_all']) {
                 $sql_cmd = $sql_cmd->orwhere('musics.name', 'like', '%'. $keyword['search_all']. '%');
                 $sql_cmd = $sql_cmd->orwhere('artists.name', 'like', '%'. $keyword['search_all']. '%');
                 $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_all']. '%');
@@ -32,22 +38,23 @@ class Music extends Model
 
             }else{
                 //ユーザーによる検索　曲名、アーティスト名に該当した場合
-                if (isset($keyword['keyword']))
+                if ($keyword['keyword']){
                     $sql_cmd = $sql_cmd->where('musics.name', 'like', '%'. $keyword['keyword']. '%');
                     $sql_cmd = $sql_cmd->orwhere('artists.name', 'like', '%'. $keyword['keyword']. '%');
                     $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
-
+                }
                 //管理者による検索
-                if (isset($keyword['search_music'])) 
+                if ($keyword['search_music']){
                     $sql_cmd = $sql_cmd->where('musics.name', 'like', '%'. $keyword['search_music']. '%');
-
-                if (isset($keyword['search_artist'])) {
+                }
+                if ($keyword['search_artist']){
                     $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
                     $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
                 }
 
-                if (isset($keyword['search_album'])) 
+                if ($keyword['search_album']){
                     $sql_cmd = $sql_cmd->where('albums.name', 'like', '%'. $keyword['search_album']. '%');
+                }
             }
         }
         if($art_id){
@@ -121,8 +128,8 @@ class Music extends Model
         make_error_log("createMusic.log","-------start-------");
         make_error_log("createMusic.log","create_data=".print_r($data,1));
         //データチェック
-        if(!isset($data['name']) || !$data['name'])     return ['id' => null, 'error_code' => 1];   //データ不足
-        if(!isset($data['art_id']) || !$data['art_id']) return ['id' => null, 'error_code' => 2];   //データ不足
+        if(!(get_proc_data($data,"name")))        return ['id' => null, 'error_code' => 1];   //データ不足
+        if(!(get_proc_data($data,"art_id")))      return ['id' => null, 'error_code' => 2];   //データ不足
 
         //if(!$data['alb_id'])    return ['id' => null, 'error_code' => 3];   //データ不足      シングルもあるため
         //dd($data);

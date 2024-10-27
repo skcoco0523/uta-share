@@ -702,3 +702,135 @@
 )
   
 [2024-08-31 00:41:09] local.DEBUG: success  
+[2024-10-27 15:17:55] local.DEBUG: -------start-------  
+[2024-10-27 15:17:55] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 420
+    [alb_id] => 
+    [art_id] => 10
+    [name] => test
+    [release_date] => 
+    [link] => 
+    [aff_id] => 52
+    [created_at] => 2024-10-27 15:16:11
+    [updated_at] => 2024-10-27 15:16:11
+)
+  
+[2024-10-27 15:17:55] local.DEBUG: after_data=Array
+(
+    [art_id] => 10
+    [name] => testhh
+    [aff_id] => 52
+)
+  
+[2024-10-27 15:17:55] local.DEBUG: success  
+[2024-10-27 15:21:36] local.DEBUG: -------start-------  
+[2024-10-27 15:21:36] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 420
+    [alb_id] => 
+    [art_id] => 10
+    [name] => testhh
+    [release_date] => 
+    [link] => 
+    [aff_id] => 52
+    [created_at] => 2024-10-27 15:16:11
+    [updated_at] => 2024-10-27 15:17:55
+)
+  
+[2024-10-27 15:21:36] local.DEBUG: after_data=Array
+(
+    [art_id] => 10
+    [name] => testhh
+    [aff_id] => 52
+)
+  
+[2024-10-27 15:21:36] local.DEBUG: success  
+[2024-10-27 15:52:54] local.DEBUG: -------start-------  
+[2024-10-27 15:52:54] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 410
+    [alb_id] => 31
+    [art_id] => 12
+    [name] => BLACK MEMORY
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-09-19 20:24:22
+    [updated_at] => 2024-09-19 20:24:22
+)
+  
+[2024-10-27 15:52:54] local.DEBUG: after_data=Array
+(
+    [art_id] => 12
+    [name] => BLACK MEMORY
+    [aff_id] => 38
+)
+  
+[2024-10-27 15:52:54] local.DEBUG: success  
+[2024-10-27 15:52:59] local.DEBUG: -------start-------  
+[2024-10-27 15:52:59] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 420
+    [alb_id] => 
+    [art_id] => 10
+    [name] => testhh
+    [release_date] => 
+    [link] => 
+    [aff_id] => 52
+    [created_at] => 2024-10-27 15:16:11
+    [updated_at] => 2024-10-27 15:21:36
+)
+  
+[2024-10-27 15:52:59] local.DEBUG: after_data=Array
+(
+    [art_id] => 10
+    [name] => test
+    [aff_id] => 52
+)
+  
+[2024-10-27 15:52:59] local.DEBUG: success  
+[2024-10-27 15:53:28] local.DEBUG: -------start-------  
+[2024-10-27 15:53:28] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 420
+    [alb_id] => 
+    [art_id] => 10
+    [name] => test
+    [release_date] => 
+    [link] => 
+    [aff_id] => 52
+    [created_at] => 2024-10-27 15:16:11
+    [updated_at] => 2024-10-27 15:52:59
+)
+  
+[2024-10-27 15:53:28] local.DEBUG: after_data=Array
+(
+    [art_id] => 9
+    [name] => test
+    [aff_id] => 52
+)
+  
+[2024-10-27 15:53:28] local.DEBUG: success  
+[2024-10-27 15:55:54] local.DEBUG: -------start-------  
+[2024-10-27 15:55:54] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 420
+    [alb_id] => 
+    [art_id] => 9
+    [name] => test
+    [release_date] => 
+    [link] => 
+    [aff_id] => 52
+    [created_at] => 2024-10-27 15:16:11
+    [updated_at] => 2024-10-27 15:53:28
+)
+  
+[2024-10-27 15:55:54] local.DEBUG: after_data=Array
+(
+    [art_id] => 9
+    [name] => test
+    [aff_id] => 52
+)
+  
+[2024-10-27 15:55:54] local.DEBUG: success  
