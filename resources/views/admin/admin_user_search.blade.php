@@ -63,7 +63,7 @@
             </select>
         </div>
         <div class="col-6 col-md-4">
-            <label for="inputsex" class="form-label">性別</label>
+            <label for="inputsex" class="form-label">メール送信</label>
             <select name="mail_flag" class="form-control">
                 <option value="0" {{ ($select->mail_flag ?? '') == '0' ? 'selected' : '' }}>許可</option>
                 <option value="1" {{ ($select->mail_flag ?? '') == '1' ? 'selected' : '' }}>拒否</option>
@@ -163,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const cells         = row.querySelectorAll('td');
             const id            = cells[0].textContent;
             const name          = cells[1].textContent;
-            const email         = cells[2].textContent;
-            const birthdate     = cells[4].textContent;
+            const email         = cells[3].textContent;
+            const birthdate     = cells[5].textContent;
             //const prefectures   = cells[5].textContent;
 
             // フォームの対応するフィールドにデータを設定
@@ -175,19 +175,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             //都道府県を設定
             const prefectures = document.querySelector('select[name="prefectures"]');
-            prefectures.value = cells[5].textContent;
+            prefectures.value = cells[6].textContent;
             
             // 性別の選択肢を設定
             const gender = document.querySelector('select[name="gender"]');
-            gender.value = (cells[6].textContent.trim() === '男性') ? '0' : '1';
+            gender.value = (cells[7].textContent.trim() === '男性') ? '0' : '1';
 
             // リリースフラグの選択肢を設定
             const release_flag = document.querySelector('select[name="release_flag"]');
-            release_flag.value = (cells[7].textContent.trim() === '許可') ? '0' : '1';
+            release_flag.value = (cells[8].textContent.trim() === '許可') ? '0' : '1';
 
             // メールフラグの選択肢を設定
             const mail_flag = document.querySelector('select[name="mail_flag"]');
-            mail_flag.value = (cells[8].textContent.trim() === '許可') ? '0' : '1';
+            mail_flag.value = (cells[9].textContent.trim() === '許可') ? '0' : '1';
 
         });
     });
