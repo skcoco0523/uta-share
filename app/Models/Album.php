@@ -20,39 +20,55 @@ class Album extends Model
         $sql_cmd = $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
         $sql_cmd = $sql_cmd->leftJoin('musics', 'albums.id', '=', 'musics.alb_id');
         if($keyword){
-            //全検索
-            if (isset($keyword['search_all'])) {
-                $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['search_all']. '%');
-                $sql_cmd = $sql_cmd->orWhere('artists.name', 'like', '%'. $keyword['search_all']. '%');
-                $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['search_all']. '%');
 
+            //管理者による検索
+            if(get_proc_data($keyword,"admin_flag")){
+                //全検索
+                if(get_proc_data($keyword,"search_all")) {
+                    $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['search_all']. '%');
+                    $sql_cmd = $sql_cmd->orWhere('artists.name', 'like', '%'. $keyword['search_all']. '%');
+                    $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['search_all']. '%');
+
+                }else{
+                    if(get_proc_data($keyword,"search_album"))
+                        $sql_cmd = $sql_cmd->where('albums.name', 'like', '%'. $keyword['search_album']. '%');
+        
+                    if(get_proc_data($keyword,"search_artist")) {
+                        $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
+                        $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
+                    }
+                }
+            //ユーザーによる検索
             }else{
-                //ユーザーによる検索
-                if (isset($keyword['keyword'])) {
+                if(get_proc_data($keyword,"keyword")) {
                     $sql_cmd = $sql_cmd->Where('albums.name', 'like', '%'. $keyword['keyword']. '%');
                     $sql_cmd = $sql_cmd->orWhere('artists.name', 'like', '%'. $keyword['keyword']. '%');
                     $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
-
                 }
-                //管理者による検索
-                if (isset($keyword['search_album'])) 
-                    $sql_cmd = $sql_cmd->where('albums.name', 'like', '%'. $keyword['search_album']. '%');
-    
-                if (isset($keyword['search_artist'])) {
-                    $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
-                    $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
-                }
-
+                $sql_cmd = $sql_cmd->orderBy('albums.name','asc');
             }
+            //並び順
+            if(get_proc_data($keyword,"alb_name_asc"))  $sql_cmd = $sql_cmd->orderBy('albums.name',         'asc');
+            if(get_proc_data($keyword,"art_name_asc"))  $sql_cmd = $sql_cmd->orderBy('artists.name',        'asc');
+            if(get_proc_data($keyword,"mus_cnt_asc"))   $sql_cmd = $sql_cmd->orderBy('mus_cnt',             'asc');
+            if(get_proc_data($keyword,"release_asc"))   $sql_cmd = $sql_cmd->orderBy('albums.release_date', 'asc');
+            if(get_proc_data($keyword,"cdate_asc"))     $sql_cmd = $sql_cmd->orderBy('albums.created_at',   'asc');
+            if(get_proc_data($keyword,"udate_asc"))     $sql_cmd = $sql_cmd->orderBy('albums.updated_at',   'asc');
+            
+            if(get_proc_data($keyword,"alb_name_desc")) $sql_cmd = $sql_cmd->orderBy('albums.name',         'desc');
+            if(get_proc_data($keyword,"art_name_desc")) $sql_cmd = $sql_cmd->orderBy('artists.name',        'desc');
+            if(get_proc_data($keyword,"mus_cnt_desc"))  $sql_cmd = $sql_cmd->orderBy('mus_cnt',             'desc');
+            if(get_proc_data($keyword,"release_desc"))  $sql_cmd = $sql_cmd->orderBy('albums.release_date', 'desc');
+            if(get_proc_data($keyword,"cdate_desc"))    $sql_cmd = $sql_cmd->orderBy('albums.created_at',   'desc');
+            if(get_proc_data($keyword,"udate_desc"))    $sql_cmd = $sql_cmd->orderBy('albums.updated_at',   'desc');
         }
         if($art_id){
             $sql_cmd = $sql_cmd->where('albums.art_id', '=', $art_id);
         }
-        $sql_cmd = $sql_cmd->orderBy('albums.created_at', 'desc');
         //カラム追加、取得データを追加する場合はgroupbyにも追加する
         $sql_cmd = $sql_cmd->select('albums.id','albums.name','albums.art_id','albums.release_date','albums.aff_id','albums.created_at','albums.updated_at',
                                     'artists.name as art_name', 'albums.id as mus_id', 
-                                    'albums.name as alb_name', 'albums.aff_id as alb_aff_id');
+                                    'albums.name as alb_name', 'albums.aff_id as alb_aff_id', DB::raw('COUNT(musics.id) as mus_cnt'));
         $sql_cmd = $sql_cmd->groupBy('albums.id','albums.name','albums.art_id','albums.release_date','albums.aff_id','albums.created_at','albums.updated_at',
                                     'artists.name', 'albums.id',
                                     'albums.name', 'albums.aff_id');
@@ -71,10 +87,10 @@ class Album extends Model
         foreach ($album as $alb) {
             $music_list = DB::table('musics')->where('alb_id', $alb->id)->select('name')->get();
             $alb->music_list = "";
-            $alb->mus_cnt = 0;
+            //$alb->mus_cnt = 0;
             foreach ($music_list as $music) {
                 $alb->music_list = $alb->music_list. $music->name. "\r\n";
-                $alb->mus_cnt++ ;
+                //$alb->mus_cnt++ ;
             }
         }
         //アーティスト名を取得

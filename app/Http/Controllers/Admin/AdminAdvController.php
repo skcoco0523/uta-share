@@ -25,7 +25,10 @@ class AdminAdvController extends Controller
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        $advertisement = Advertisement::getAdv_list(5);  //5件
+
+        $input['admin_flag']            = true;
+        $input['cdate_desc']            = true;
+        $advertisement = Advertisement::getAdv_list(5,true,null,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $msg = request('msg');
         
         return view('admin.admin_home', compact('advertisement', 'input', 'msg'));
@@ -72,11 +75,11 @@ class AdminAdvController extends Controller
         //リダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
-        
-        //$input['search_type']           = get_proc_data($input,"search_type");
 
+        $input['admin_flag']            = true;
         $input['page']                  = get_proc_data($input,"page");
 
+        $input['type_asc']            = true;
         $advertisement = Advertisement::getAdv_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         
         $msg = request('msg');

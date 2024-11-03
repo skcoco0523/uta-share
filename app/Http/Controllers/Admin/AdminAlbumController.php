@@ -17,8 +17,13 @@ class AdminAlbumController extends Controller
     //追加
     public function album_regist(Request $request)
     {
-        $artists = Artist::getArtist_list();  //全件　リスト用
-        $albums = Album::getAlbum_list(5);  //5件
+        $input['admin_flag']            = true;
+        $input['art_name_asc']          = true;
+        $artists = Artist::getArtist_list(null,false,null,$input);  //全件　リスト用
+        $input['art_name_asc']          = false;
+
+        $input['cdate_desc']            = true;
+        $albums = Album::getAlbum_list(5,false,null,$input);  //5件
         $msg = request('msg');
         
         //追加からのリダイレクトの場合、inputを取得
@@ -89,14 +94,17 @@ class AdminAlbumController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
+        $input['admin_flag']            = true;
         $input['search_artist']         = get_proc_data($input,"search_artist");
         $input['search_album']          = get_proc_data($input,"search_album");
-        //ユーザーによる検索
-        $input['keyword']               = get_proc_data($input,"keyword");
 
         $input['page']                  = get_proc_data($input,"page");
 
+        $input['alb_name_asc']          = true;
         $album = Album::getAlbum_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $input['alb_name_asc']          = false;
+
+        $input['art_name_asc']          = true;
         $artist = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
         

@@ -34,7 +34,7 @@ class RecommendController extends Controller
         $input['page']                  = get_proc_data($input,"page");
         $category = $input['search_category'];
         
-        $recommend_list = Recommend::getRecommend_list(10,true,$input['page'],$input,true);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,user_flag
+        $recommend_list = Recommend::getRecommend_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
 
         $msg = null;
         if($category==0) $recommend_list->name = "おすすめリスト：曲";

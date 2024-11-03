@@ -17,27 +17,47 @@ class Recommend extends Model
     protected $table = 'recommend';    //recommendsテーブルが指定されてしまうため、強制的に指定
     protected $fillable = ['name', 'user_id', 'category', 'disp_flag', 'sort_num'];
     //取得
-    public static function getRecommend_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null,$user_flag=false)
+    public static function getRecommend_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
-        $sql_cmd = DB::table('recommend');
+        $sql_cmd = DB::table('recommend as recom');
         if($keyword){
             
-            if (isset($keyword['search_recommend'])) 
-                $sql_cmd = $sql_cmd->where('recommend.name', 'like', '%'. $keyword['search_recommend']. '%');
-
-            if (isset($keyword['search_category'])) {
-                $category = $keyword['search_category'];
-                $sql_cmd = $sql_cmd->where('recommend.category',$keyword['search_category']);
-                $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
+            //管理者による検索
+            if(get_proc_data($keyword,"admin_flag")){
+                if(get_proc_data($keyword,"search_recommend"))
+                    $sql_cmd = $sql_cmd->where('recom.name', 'like', '%'. $keyword['search_recommend']. '%');
+                    
+                if(is_numeric(get_proc_data($keyword,"search_category"))){
+                    $category = $keyword['search_category'];
+                    $sql_cmd = $sql_cmd->where('recom.category',$keyword['search_category']);
+                }else{
+                    $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
+                }
+            //ユーザーによる検索
             }else{
-                $sql_cmd = $sql_cmd->orderBy('created_at', 'desc');
+                if(is_numeric(get_proc_data($keyword,"search_category"))){
+                    $category = $keyword['search_category'];
+                    $sql_cmd = $sql_cmd->where('recom.category',$keyword['search_category']);
+                }
+                $sql_cmd = $sql_cmd->where('disp_flag', 1);
+                $sql_cmd = $sql_cmd->orderBy('recom.sort_num','asc');
             }
-        }
-        
-        if($user_flag){
-            $sql_cmd = $sql_cmd->where('disp_flag', 1);
-            $sql_cmd = $sql_cmd->orderBy('sort_num', 'asc');
-        }                      
+
+            //並び順
+            if(get_proc_data($keyword,"recom_name_asc"))    $sql_cmd = $sql_cmd->orderBy('recom.name',         'asc');
+            if(get_proc_data($keyword,"category_asc"))      $sql_cmd = $sql_cmd->orderBy('recom.category',     'asc');
+            if(get_proc_data($keyword,"sort_asc"))          $sql_cmd = $sql_cmd->orderBy('recom.sort_num',     'asc');
+            if(get_proc_data($keyword,"cdate_asc"))         $sql_cmd = $sql_cmd->orderBy('recom.created_at',   'asc');
+            if(get_proc_data($keyword,"udate_asc"))         $sql_cmd = $sql_cmd->orderBy('recom.updated_at',   'asc');
+            
+            if(get_proc_data($keyword,"recom_name_desc"))   $sql_cmd = $sql_cmd->orderBy('recom.name',         'desc');
+            if(get_proc_data($keyword,"category_desc"))     $sql_cmd = $sql_cmd->orderBy('recom.category',     'desc');
+            if(get_proc_data($keyword,"sort_desc"))         $sql_cmd = $sql_cmd->orderBy('recom.sort_num',     'desc');
+            if(get_proc_data($keyword,"cdate_desc"))        $sql_cmd = $sql_cmd->orderBy('recom.created_at',   'desc');
+            if(get_proc_data($keyword,"udate_desc"))        $sql_cmd = $sql_cmd->orderBy('recom.updated_at',   'desc');
+
+
+        }          
 
         //dd($user_flag);
         // ページング・取得件数指定・全件で分岐
@@ -56,31 +76,30 @@ class Recommend extends Model
             $user = DB::table('users')->where('id', $item->user_id)->select('name')->first();
             $item->user_name = $user->name ?? null;
 
-            //user_flagありはユーザー用に加工
-            if($user_flag) {
+            //ユーザー用に加工
+            if(!(get_proc_data($keyword,"admin_flag"))){
                 //収録曲が０件の場合は除外
                 if ($item->detail_cnt == 0) unset($recommend[$key]);
-
                 if ($item->detail->isNotEmpty()) {
                     $add_list = [];
 
-                    if($category==0){          //曲
+                    if($item->category==0){          //曲
                         foreach ($item->detail as $key => $detail_data) {
                             $add_list[$key] = Music::getMusic_detail($detail_data->detail_id);
                             if(!$add_list[$key]) unset($add_list[$key]);
                         }
-                    }elseif($category==1){//アーティスト
+                    }elseif($item->category==1){//アーティスト
                         foreach ($item->detail as $key => $detail_data) {
                             $add_list[$key] = Artist::getArtist_detail($detail_data->detail_id);
                             if(!$add_list[$key]) unset($add_list[$key]);
                         }
-                    }elseif($category==2){//アルバム
+                    }elseif($item->category==2){//アルバム
                         foreach ($item->detail as $key => $detail_data) {
                             $add_list[$key] = Album::getAlbum_detail($detail_data->detail_id);
                             if(!$add_list[$key]) unset($add_list[$key]);
                         }
     
-                    }elseif($category==3){//プレイリスト  
+                    }elseif($item->category==3){//プレイリスト  
                         foreach ($item->detail as $key => $detail_data) {       
                             $add_list[$key] = Playlist::getPlaylist_detail($detail_data->detail_id);
                             if(!$add_list[$key]) {
@@ -232,7 +251,7 @@ class Recommend extends Model
         }
     }
     //削除
-    public static function delRecommend($data)//-------------------------------------------ﾌﾟﾚｲﾘｽﾄ削除機能　開発必須
+    public static function delRecommend($data)
     {
         make_error_log("delRecommend.log","---------start----------");
         try {

@@ -76,7 +76,7 @@ class CustomCategoryDefine extends Model
         }
     }
     
-    //おすすめ表示順変更
+    //カカテゴリ表示順変更
     public static function chgsortCustomCategory($data)
     {
         make_error_log("chgsortCustomCategory.log","---------start----------");

@@ -13,7 +13,7 @@ class CustomCategory extends Model
     protected $fillable = ['user_id', 'music_id', 'category_bit'];     //一括代入の許可
 
     
-    //お気に入り情報取得
+    //カテゴリ情報取得
     public static function getCustomCategory($disp_cnt=null,$pageing=false,$page=1,$user_id,$bit_num=null)
     {
         try {

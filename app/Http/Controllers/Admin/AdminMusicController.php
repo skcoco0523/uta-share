@@ -17,8 +17,13 @@ class AdminMusicController extends Controller
     //追加
     public function music_regist(Request $request)
     {
-        $artists = Artist::getArtist_list();  //全件　リスト用
-        $musics = Music::getMusic_list(5);  //5件
+        $input['admin_flag']            = true;
+        $input['art_name_asc']          = true;
+        $artists = Artist::getArtist_list(null,false,null,$input);  //全件　リスト用
+        $input['art_name_asc']          = false;
+
+        $input['cdate_desc']            = true;
+        $musics = Music::getMusic_list(5,false,null,$input);  //5件
         $msg = request('msg');
         
         //追加からのリダイレクトの場合、inputを取得
@@ -33,6 +38,7 @@ class AdminMusicController extends Controller
         //$input = $request->only(['name', 'alb_id', 'art_id', 'art_name', 'release_date', 'link', 'aff_link']);
         $input = $request->all();
         
+        $input['admin_flag']        = true;
         $input['name']              = get_proc_data($input,"name");
         $input['alb_id']            = get_proc_data($input,"alb_id");
         $input['art_id']            = get_proc_data($input,"art_id");
@@ -77,14 +83,20 @@ class AdminMusicController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
+        $input['admin_flag']            = true;
         $input['search_music']          = get_proc_data($input,"search_music");
         $input['search_artist']         = get_proc_data($input,"search_artist");
         $input['search_album']          = get_proc_data($input,"search_album");
 
         $input['page']                  = get_proc_data($input,"page");
 
+        
+        $input['art_name_asc']          = true;
+        $artists = Artist::getArtist_list(null,false,null,$input);  //全件　リスト用
+        $input['art_name_asc']          = false;
+
+        $input['mus_name_asc']          = true;
         $musics = Music::getMusic_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
-        $artists = Artist::getArtist_list();  //全件　リスト用
         $msg = request('msg');
         $msg = ($msg===NULL && $musics === null) ? "検索結果が0件です。" : $msg;
         return view('admin.admin_home', compact('artists', 'musics', 'input', 'msg'));

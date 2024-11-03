@@ -18,6 +18,7 @@ class AdminUserController extends Controller
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
         
+        $input['admin_flag']            = true;
         $input['search_name']           = get_proc_data($input,"search_name");
         $input['search_email']          = get_proc_data($input,"search_email");
         $input['search_friendcode']     = get_proc_data($input,"search_friendcode");
@@ -51,6 +52,7 @@ class AdminUserController extends Controller
     public function user_chg(Request $request)
     {
         $input = $request->all();
+        $input['admin_flag']        = true;
         $input['name']              = get_proc_data($input,"name");
         $input['email']             = get_proc_data($input,"email");
         $input['birthdate']         = get_proc_data($input,"birthdate");
@@ -86,6 +88,7 @@ class AdminUserController extends Controller
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
         
+        $input['admin_flag']            = true;
         $input['search_type']           = get_proc_data($input,"search_type");
         $input['search_status']         = get_proc_data($input,"search_status");
         $input['search_mess']           = get_proc_data($input,"search_mess");
@@ -103,6 +106,7 @@ class AdminUserController extends Controller
     public function user_request_chg(Request $request)
     {
         $input = $request->all();
+        $input['admin_flag']            = true;
         $input['id']                    = get_proc_data($input,"id");
         $input['type']                  = get_proc_data($input,"type");
         $input['message']               = get_proc_data($input,"message");

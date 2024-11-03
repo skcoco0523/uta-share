@@ -139,8 +139,8 @@
                     <input type="hidden" name="id" value="{{$playlist_detail->id}}">
                     <div class="row g-3 align-items-end">
                         <div class="col-sm-6">
-                            <label for="keyword" class="visually-hidden">検索(楽曲名)</label>
-                            <input type="text" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索(楽曲名)">
+                            <label for="search_all" class="visually-hidden">検索(ｷｰﾜｰﾄﾞ)</label>
+                            <input type="text" name="search_all" class="form-control" value="{{$input['search_all'] ?? ''}}" placeholder="検索(ｷｰﾜｰﾄﾞ)">
                         </div>
                         <div class="col-auto align-self-end">
                             <button type="submit" class="btn btn-success">検索</button>
@@ -201,7 +201,7 @@
     <input type="hidden" name="id" value="{{$playlist_detail->id}}">
     <input type="hidden" name="detail_id" value="">
     <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
-    <input type="hidden" name="keyword" value="{{$input['keyword'] ?? ''}}">
+    <input type="hidden" name="search_all" value="{{$input['search_all'] ?? ''}}">
 </form>
 
 @endif

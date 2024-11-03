@@ -16,28 +16,42 @@ class Artist extends Model
         $sql_cmd = DB::table('artists');
         if($keyword){
             
-            //全検索
-            if (isset($keyword['search_all'])) {
-                $sql_cmd = $sql_cmd->Where('artists.name', 'like', '%'. $keyword['search_all']. '%');
-                $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['search_all']. '%');
+            //管理者による検索
+            if(get_proc_data($keyword,"admin_flag")){
+                //全検索
+                if (isset($keyword['search_all'])) {
+                    $sql_cmd = $sql_cmd->Where('artists.name', 'like', '%'. $keyword['search_all']. '%');
+                    $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['search_all']. '%');
 
+                }else{
+                    if (isset($keyword['search_artist'])) {
+                        $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
+                        $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
+                    }
+                    if (isset($keyword['search_sex'])) 
+                        $sql_cmd = $sql_cmd->where('artists.sex',$keyword['search_sex']);
+                }
+            //ユーザーによる検索
             }else{
-                //ユーザーによる検索
                 if (isset($keyword['keyword'])) {
                     $sql_cmd = $sql_cmd->Where('artists.name', 'like', '%'. $keyword['keyword']. '%');
                     $sql_cmd = $sql_cmd->orWhere('artists.name2', 'like', '%'. $keyword['keyword']. '%');
                 }
-                //管理者による検索
-                if (isset($keyword['search_artist'])) {
-                    $sql_cmd = $sql_cmd->where('artists.name', 'like', '%'. $keyword['search_artist']. '%');
-                    $sql_cmd = $sql_cmd->orwhere('artists.name2', 'like', '%'. $keyword['search_artist']. '%');
-                }
-                if (isset($keyword['search_sex'])) 
-                    $sql_cmd = $sql_cmd->where('artists.sex',$keyword['search_sex']);
-    
+                $sql_cmd = $sql_cmd->orderBy('artists.name','asc');
             }
+            //並び順
+            if(get_proc_data($keyword,"art_name_asc"))  $sql_cmd = $sql_cmd->orderBy('artists.name',        'asc');
+            if(get_proc_data($keyword,"art_name2_asc")) $sql_cmd = $sql_cmd->orderBy('artists.name2',       'asc');
+            if(get_proc_data($keyword,"debut_asc"))     $sql_cmd = $sql_cmd->orderBy('artists.debut',       'asc');
+            if(get_proc_data($keyword,"cdate_asc"))     $sql_cmd = $sql_cmd->orderBy('artists.created_at',  'asc');
+            if(get_proc_data($keyword,"udate_asc"))     $sql_cmd = $sql_cmd->orderBy('artists.updated_at',  'asc');
+            
+            if(get_proc_data($keyword,"art_name_desc")) $sql_cmd = $sql_cmd->orderBy('artists.name',        'desc');
+            if(get_proc_data($keyword,"art_name2_desc"))$sql_cmd = $sql_cmd->orderBy('artists.name2',       'desc');
+            if(get_proc_data($keyword,"debut_desc"))    $sql_cmd = $sql_cmd->orderBy('artists.debut',       'desc');
+            if(get_proc_data($keyword,"cdate_desc"))    $sql_cmd = $sql_cmd->orderBy('artists.created_at',  'desc');
+            if(get_proc_data($keyword,"udate_desc"))    $sql_cmd = $sql_cmd->orderBy('artists.updated_at',  'desc');
         }
-        $sql_cmd = $sql_cmd->orderBy('artists.created_at', 'desc');
         
         // ページング・取得件数指定・全件で分岐
         if ($pageing){

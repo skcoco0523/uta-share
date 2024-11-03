@@ -20,35 +20,45 @@ class Advertisement extends Model
         $sql_cmd = DB::table('advertisement as adv');
         if($keyword){
             
-            if (isset($keyword['search_name'])) 
-                $sql_cmd = $sql_cmd->where('adv.name', 'like', '%'. $keyword['search_name']. '%');
+            //管理者による検索
+            if(get_proc_data($keyword,"admin_flag")){
+                if(get_proc_data($keyword,"search_name"))
+                    $sql_cmd = $sql_cmd->where('adv.name', 'like', '%'. $keyword['search_name']. '%');
+                if(get_proc_data($keyword,"search_click_cnt_s"))
+                    $sql_cmd = $sql_cmd->where('adv.click_cnt','>=' ,$keyword['search_click_cnt_s']);
+                if(get_proc_data($keyword,"search_click_cnt_e"))
+                    $sql_cmd = $sql_cmd->where('adv.click_cnt','<=' , $keyword['search_click_cnt_e']);
+                if(get_proc_data($keyword,"search_type"))
+                    $sql_cmd = $sql_cmd->where('adv.type', $keyword['search_type']);
+                if(get_proc_data($keyword,"search_month"))
+                    $sql_cmd = $sql_cmd->where('adv.sdate', 'like', $keyword['search_month']. '-%');
+                if(get_proc_data($keyword,"search_day"))
+                    $sql_cmd = $sql_cmd->where('adv.sdate', 'like', '%-'. $keyword['search_day']. '%');
+                if(get_proc_data($keyword,"search_days"))
+                    $sql_cmd = $sql_cmd->where('adv.days', $keyword['search_days']);
+                if(get_proc_data($keyword,"search_age"))
+                    $sql_cmd = $sql_cmd->where('adv.age', $keyword['search_age']);
+                if(get_proc_data($keyword,"search_gender"))
+                    $sql_cmd = $sql_cmd->where('adv.gender', $keyword['search_gender']);
+                if(get_proc_data($keyword,"search_disp_flag"))
+                    $sql_cmd = $sql_cmd->where('adv.disp_flag', $keyword['search_disp_flag']);
+                
+            //ユーザーによる検索
+            }else{
 
-            if (isset($keyword['search_click_cnt_s'])) 
-                $sql_cmd = $sql_cmd->where('adv.click_cnt','>=' ,$keyword['search_click_cnt_s']);
-
-            if (isset($keyword['search_click_cnt_e'])) 
-                $sql_cmd = $sql_cmd->where('adv.click_cnt','<=' , $keyword['search_click_cnt_e']);
-
-            if (isset($keyword['search_type'])) 
-                $sql_cmd = $sql_cmd->where('adv.type', $keyword['search_type']);
-
-            if (isset($keyword['search_month'])) 
-                $sql_cmd = $sql_cmd->where('adv.sdate', 'like', $keyword['search_month']. '-%');
-
-            if (isset($keyword['search_day'])) 
-                $sql_cmd = $sql_cmd->where('adv.sdate', 'like', '%-'. $keyword['search_day']. '%');
-
-            if (isset($keyword['search_days'])) 
-                $sql_cmd = $sql_cmd->where('adv.days', $keyword['search_days']);
-
-            if (isset($keyword['search_age'])) 
-                $sql_cmd = $sql_cmd->where('adv.age', $keyword['search_age']);
-
-            if (isset($keyword['search_gender'])) 
-                $sql_cmd = $sql_cmd->where('adv.gender', $keyword['search_gender']);
+            }
+            //並び順
+            if(get_proc_data($keyword,"name_asc"))      $sql_cmd = $sql_cmd->orderBy('adv.name',        'asc');
+            if(get_proc_data($keyword,"type_asc"))      $sql_cmd = $sql_cmd->orderBy('adv.type',        'asc');
+            if(get_proc_data($keyword,"sdate_asc"))     $sql_cmd = $sql_cmd->orderBy('adv.sdate',       'asc');
+            if(get_proc_data($keyword,"cdate_asc"))     $sql_cmd = $sql_cmd->orderBy('adv.created_at',  'asc');
+            if(get_proc_data($keyword,"udate_asc"))     $sql_cmd = $sql_cmd->orderBy('adv.updated_at',  'asc');
             
-            if (isset($keyword['search_disp_flag'])) 
-                $sql_cmd = $sql_cmd->where('adv.disp_flag', $keyword['search_disp_flag']);
+            if(get_proc_data($keyword,"name_desc"))     $sql_cmd = $sql_cmd->orderBy('adv.name',        'desc');
+            if(get_proc_data($keyword,"type_desc"))     $sql_cmd = $sql_cmd->orderBy('adv.type',        'desc');
+            if(get_proc_data($keyword,"sdate_desc"))    $sql_cmd = $sql_cmd->orderBy('adv.sdate',       'desc');
+            if(get_proc_data($keyword,"cdate_desc"))    $sql_cmd = $sql_cmd->orderBy('adv.created_at',  'desc');
+            if(get_proc_data($keyword,"udate_desc"))    $sql_cmd = $sql_cmd->orderBy('adv.updated_at',  'desc');
         }
 
         // ページング・取得件数指定・全件で分岐

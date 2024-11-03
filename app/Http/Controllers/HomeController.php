@@ -30,9 +30,9 @@ class HomeController extends Controller
         //ランキング
         $ranking['fav_mus'] = Ranking::getFavoriteRanking(10,false,null,"mus");
         //おすすめ
-        $recommend_mus = Recommend::getRecommend_list(10,false,null,['search_category'=>0],true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ユーザー用フラグ
-        $recommend_alb = Recommend::getRecommend_list(10,false,null,['search_category'=>2],true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ユーザー用フラグ
-        $recommend_pl  = Recommend::getRecommend_list(10,false,null,['search_category'=>3],true);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ,ユーザー用フラグ
+        $recommend_mus = Recommend::getRecommend_list(10,false,null,['search_category'=>0]);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
+        $recommend_alb = Recommend::getRecommend_list(10,false,null,['search_category'=>2]);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
+        $recommend_pl  = Recommend::getRecommend_list(10,false,null,['search_category'=>3]);//件数,ﾍﾟｰｼﾞｬｰ,ｷｰﾜｰﾄﾞ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｶﾃｺﾞﾘ
 
         //return view('home');
         //dd($recommend_mus);

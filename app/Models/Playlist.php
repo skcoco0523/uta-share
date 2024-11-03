@@ -17,36 +17,51 @@ class Playlist extends Model
     //取得
     public static function getPlaylist_list($disp_cnt=null,$pageing=false,$page=1,$keyword=null)
     {
-        $sql_cmd = DB::table('playlist');
+        $sql_cmd = DB::table('playlist as pl');
+        //件数、登録者情報はここで取得しておくべき？
         if($keyword){
-            //全検索
-            if (isset($keyword['search_all'])) {
-                $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['search_all']. '%');
 
-            }else{
-                //マイプレイリスト
-                if (isset($keyword['user_id'])) {
-                    $sql_cmd = $sql_cmd->where('playlist.user_id', Auth::id());
-                    $sql_cmd = $sql_cmd->where('playlist.admin_flag', 0);
+            //管理者による検索
+            if(get_proc_data($keyword,"admin_flag")){
+                //全検索
+                if (isset($keyword['search_all'])) {
+                    $sql_cmd = $sql_cmd->where('pl.name', 'like', '%'. $keyword['search_all']. '%');
 
-                //ユーザーによる検索
-                }elseif (isset($keyword['keyword'])) {
-                    $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['keyword']. '%');
-                    $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
-                
-                //ユーザーによる検索条件なし検索
-                }elseif (isset($keyword['user_serch'])) {
-                    $sql_cmd = $sql_cmd->where('playlist.admin_flag', 1);
-                
-                //管理者による検索
                 }else{
-                    if (isset($keyword['search_playlist'])) 
-                        $sql_cmd = $sql_cmd->where('playlist.name', 'like', '%'. $keyword['search_playlist']. '%');
+                    //マイプレイリスト
+                    if (isset($keyword['user_id'])) {
+                        $sql_cmd = $sql_cmd->where('pl.user_id', Auth::id());
+                        $sql_cmd = $sql_cmd->where('pl.admin_flag', 0);
+                    
+                    //管理者による検索
+                    }else{
+                        if (isset($keyword['search_playlist'])) 
+                            $sql_cmd = $sql_cmd->where('pl.name', 'like', '%'. $keyword['search_playlist']. '%');
 
-                    if (isset($keyword['search_admin_flag'])) 
-                        $sql_cmd = $sql_cmd->where('playlist.admin_flag',$keyword['search_admin_flag']);
+                        if (isset($keyword['search_admin_flag'])) 
+                            $sql_cmd = $sql_cmd->where('pl.admin_flag',$keyword['search_admin_flag']);
+                    }
                 }
+            //ユーザーによる検索
+            }else{            
+                $sql_cmd = $sql_cmd->where('pl.admin_flag', 1);
+                if (get_proc_data($keyword,"keyword")){
+                    $sql_cmd = $sql_cmd->where('pl.name', 'like', '%'. $keyword['keyword']. '%');
+                }
+                $sql_cmd->orderBy('pl.name','asc');
             }
+            //並び順
+            if(get_proc_data($keyword,"pl_name_asc"))  $sql_cmd = $sql_cmd->orderBy('pl.name',         'asc');
+            //if(get_proc_data($keyword,"pl_cnt_asc"))  $sql_cmd = $sql_cmd->orderBy('pl_cnt',             'asc');
+            //if(get_proc_data($keyword,"user_name_asc"))  $sql_cmd = $sql_cmd->orderBy('user_name',       'asc');
+            if(get_proc_data($keyword,"cdate_asc"))     $sql_cmd = $sql_cmd->orderBy('pl.created_at',   'asc');
+            if(get_proc_data($keyword,"udate_asc"))     $sql_cmd = $sql_cmd->orderBy('pl.updated_at',   'asc');
+            
+            if(get_proc_data($keyword,"pl_name_desc")) $sql_cmd = $sql_cmd->orderBy('pl.name',         'desc');
+            //if(get_proc_data($keyword,"pl_cnt_desc"))  $sql_cmd = $sql_cmd->orderBy('pl_cnt',             'desc');
+            //if(get_proc_data($keyword,"user_name_desc")) $sql_cmd = $sql_cmd->orderBy('user_name',        'desc');
+            if(get_proc_data($keyword,"cdate_desc"))    $sql_cmd = $sql_cmd->orderBy('pl.created_at',   'desc');
+            if(get_proc_data($keyword,"udate_desc"))    $sql_cmd = $sql_cmd->orderBy('pl.updated_at',   'desc');
         }
 
         $sql_cmd                = $sql_cmd->orderBy('created_at', 'desc');
@@ -71,7 +86,7 @@ class Playlist extends Model
             else                $item->fav_flag = 0;
 
             //ユーザー検索は詳細も取得
-            if (isset($keyword['user_id']) || isset($keyword['user_serch'])) {
+            if(!(get_proc_data($keyword,"admin_flag"))){
                 $detail = Playlist::getPlaylist_detail($item->id);
                 $item->detail = $detail->music;
             }

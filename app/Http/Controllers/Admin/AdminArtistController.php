@@ -16,7 +16,9 @@ class AdminArtistController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['name', 'name2', 'debut', 'sex']);
 
-        $artists = Artist::getArtist_list(5);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+        $input['admin_flag']            = true;
+        $input['cdate_desc']            = true;
+        $artists = Artist::getArtist_list(5,false,null,$input);  //全件　リスト用
         $msg = request('msg');
         return view('admin.admin_home', compact('artists', 'input', 'msg'));
     }
@@ -40,12 +42,14 @@ class AdminArtistController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
 
+        $input['admin_flag']            = true;
         $input['search_music']          = get_proc_data($input,"search_music");
         $input['search_artist']         = get_proc_data($input,"search_artist");
         $input['search_album']          = get_proc_data($input,"search_album");
 
         $input['page']                  = get_proc_data($input,"page");
 
+        $input['art_name_asc']            = true;
         $artists = Artist::getArtist_list(10,true,$input['page'],$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         $msg = request('msg');
 

@@ -20,9 +20,10 @@ class AdminRecommendController extends Controller
         //追加からのリダイレクトの場合、inputを取得
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->only(['name']);
-        //$sort_flag = 0;
-        //$category = null;
-        $recommend = Recommend::getRecommend_list(null,false,null,null);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,カテゴリ,sort_flag
+
+        $input['admin_flag']            = true;
+        $input['cdate_desc']            = true;
+        $recommend = Recommend::getRecommend_list(5,false,null,$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,カテゴリ
         $msg = request('msg');
         return view('admin.admin_home', compact('recommend', 'input', 'msg'));
     }
@@ -57,10 +58,9 @@ class AdminRecommendController extends Controller
         if($request->input('input')!==null)         $input = request('input');
         else                                        $input = $request->all();
         
+        $input['admin_flag']            = true;
         $input['search_recommend']      = get_proc_data($input,"search_recommend");
         $input['search_category']       = get_proc_data($input,"search_category");
-        //ユーザーによる検索
-        $input['keyword']               = get_proc_data($input,"keyword");
 
         $input['page']                  = get_proc_data($input,"page");
         
@@ -68,12 +68,14 @@ class AdminRecommendController extends Controller
         //$sort_flag = ($input['category']!=null) ?       1:0;
         if(is_numeric($input['search_category'])){
             //カテゴリ検索時は表示順を切り替えるため件数を15に増やす
+            $input['sort_asc']            = true;
             $recommend = Recommend::getRecommend_list(15,true,$input['page'],$input);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }else{
+            $input['cdate_desc']            = true;
             $recommend = Recommend::getRecommend_list(10,true,$input['page'],$input);  //表示件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }
         $msg = request('msg');
-        $msg = ($msg==NULL && $input['keyword'] !==null && count($recommend) === 0) ? "検索結果が0件です。" : $msg;
+        $msg = ($msg==NULL && count($recommend) === 0) ? "検索結果が0件です。" : $msg;
         return view('admin.admin_home', compact('recommend', 'input', 'msg'));
     }
     //変更
@@ -98,6 +100,7 @@ class AdminRecommendController extends Controller
         if($request->input('input')!==null)     $input = request('input');
         else                                    $input = $request->all();
         
+        $input['admin_flag']        = true;
         $input['id']                = get_proc_data($input,"id");
         $input['search_category']   = get_proc_data($input,"search_category");
         $input['category']          = get_proc_data($input,"category");
@@ -118,9 +121,10 @@ class AdminRecommendController extends Controller
         if($request->input('input')!==null)  $input = request('input');
         else                                 $input = $request->all();
         
+        $input['admin_flag']        = true;
         $input['id']                = get_proc_data($input,"id");
         $input['search_category']   = get_proc_data($input,"search_category");
-        $input['keyword']       = get_proc_data($input,"keyword");
+        $input['keyword']           = get_proc_data($input,"keyword");
         $input['category']          = get_proc_data($input,"category");
         $input['page']              = get_proc_data($input,"page");
 
@@ -134,15 +138,19 @@ class AdminRecommendController extends Controller
         //カテゴリに応じて分岐
         switch($input['category']){
             case 0: //曲
+                $input['mus_name_asc']          = true;
                 $detail = Music::getMusic_list(5,true,$input['page'],$input);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 1: //ｱｰﾃｨｽﾄ
+                $input['art_name_asc']            = true;
                 $detail = Artist::getArtist_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 2: //ｱﾙﾊﾞﾑ
+                $input['alb_name_asc']          = true;
                 $detail = Album::getAlbum_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
+                $input['pl_name_asc']          = true;
                 $input['search_admin_flag'] = 1;
                 $detail = Playlist::getPlaylist_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
