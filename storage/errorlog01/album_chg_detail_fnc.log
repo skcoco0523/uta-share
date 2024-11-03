@@ -5755,3 +5755,9 @@
 [2024-10-20 17:23:37] local.DEBUG: fnc=add pl_id=34 detail_id=16  
 [2024-10-20 17:34:15] local.DEBUG: -----start-----  
 [2024-10-20 17:34:15] local.DEBUG: fnc=del alb_id=32 mus_id=419 name=ｱﾙﾊﾞﾑ　曲追加テスト  
+[2024-11-04 08:22:05] local.DEBUG: -----start-----  
+[2024-11-04 08:22:05] local.DEBUG: fnc=add alb_id=28 mus_id= name=  
+[2024-11-04 08:22:18] local.DEBUG: -----start-----  
+[2024-11-04 08:22:18] local.DEBUG: fnc=add alb_id=28 mus_id= name=test  
+[2024-11-04 08:22:28] local.DEBUG: -----start-----  
+[2024-11-04 08:22:28] local.DEBUG: fnc=del alb_id=28 mus_id=421 name=test  

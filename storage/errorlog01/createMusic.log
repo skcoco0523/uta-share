@@ -131,3 +131,17 @@
 )
   
 [2024-10-27 15:16:11] local.DEBUG: success  
+[2024-11-04 08:22:18] local.DEBUG: -------start-------  
+[2024-11-04 08:22:18] local.DEBUG: create_data=Array
+(
+    [_token] => 46rWBci4S7r8XASX7MyTkAomiokGifCJzRtZeA0F
+    [fnc] => add
+    [alb_id] => 28
+    [mus_id] => 
+    [name] => test
+    [page] => 
+    [id] => 
+    [art_id] => 6
+)
+  
+[2024-11-04 08:22:18] local.DEBUG: success  

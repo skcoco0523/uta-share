@@ -155,37 +155,39 @@
                     @endphp
                     {{--ﾍﾟｰｼﾞｬｰ--}}
                     @include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])
-                    <table class="table table-striped table-hover table-bordered fs-6 ">
-                        <thead>
-                        <tr>
-                            <th scope="col" class="fw-light">#</th>
-                            <th scope="col" class="fw-light">楽曲名</th>
-                            <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
-                            <th scope="col" class="fw-light">データ登録日</th>
-                            <th scope="col" class="fw-light">データ更新日</th>
-                            <th scope="col" class="fw-light"></th>
-                        </tr>
-                        </thead>
-                        @foreach($music as $mus)
+                    <div style="overflow-x: auto;">
+                        <table class="table table-striped table-hover table-bordered fs-6 ">
+                            <thead>
                             <tr>
-                                <td class="fw-light">{{$mus->id}}</td>
-                                <td class="fw-light">
-                                <a href="{{ route('admin-music-search', ['search_music' => $mus->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                    {{$mus->name}}
-                                </td>
-                                <td class="fw-light">
-                                <a href="{{ route('admin-artist-search', ['search_artist' => $mus->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                    {{$mus->art_name}}
-                                </td>
-                                <td class="fw-light">{{$mus->created_at}}</td>
-                                <td class="fw-light">{{$mus->updated_at}}</td>
-                                <td class="fw-light">
-                                    <input type="button" class="btn btn-success" value="追加" onclick="alb_detail_fnc('add','{{$mus->id}}');" >
-                                </td>
+                                <th scope="col" class="fw-light">#</th>
+                                <th scope="col" class="fw-light">楽曲名</th>
+                                <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
+                                <th scope="col" class="fw-light">データ登録日</th>
+                                <th scope="col" class="fw-light">データ更新日</th>
+                                <th scope="col" class="fw-light"></th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            @foreach($music as $mus)
+                                <tr>
+                                    <td class="fw-light">{{$mus->id}}</td>
+                                    <td class="fw-light">
+                                    <a href="{{ route('admin-music-search', ['search_music' => $mus->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                        {{$mus->name}}
+                                    </td>
+                                    <td class="fw-light">
+                                    <a href="{{ route('admin-artist-search', ['search_artist' => $mus->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                        {{$mus->art_name}}
+                                    </td>
+                                    <td class="fw-light">{{$mus->created_at}}</td>
+                                    <td class="fw-light">{{$mus->updated_at}}</td>
+                                    <td class="fw-light">
+                                        <input type="button" class="btn btn-success" value="追加" onclick="alb_detail_fnc('add','{{$mus->id}}');" >
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     {{--ﾍﾟｰｼﾞｬｰ--}}
                     @include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])
                 @endif 
