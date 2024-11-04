@@ -139,20 +139,20 @@ class AdminRecommendController extends Controller
         switch($input['category']){
             case 0: //曲
                 $input['mus_name_asc']          = true;
-                $detail = Music::getMusic_list(5,true,$input['page'],$input);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Music::getMusic_list(10,true,$input['page'],$input);//件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 1: //ｱｰﾃｨｽﾄ
                 $input['art_name_asc']            = true;
-                $detail = Artist::getArtist_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Artist::getArtist_list(10,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 2: //ｱﾙﾊﾞﾑ
                 $input['alb_name_asc']          = true;
-                $detail = Album::getAlbum_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Album::getAlbum_list(10,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             case 3: //ﾌﾟﾚｲﾘｽﾄ
                 $input['pl_name_asc']          = true;
                 $input['search_admin_flag'] = 1;
-                $detail = Playlist::getPlaylist_list(5,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+                $detail = Playlist::getPlaylist_list(10,true,$input['page'],$input);  //5件,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
                 break;
             default:
                 break;

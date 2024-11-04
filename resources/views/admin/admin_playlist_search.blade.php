@@ -101,97 +101,91 @@
 
 {{--収録曲変更--}}
 @if(isset($playlist_detail))
-    <div class="row g-3 align-items-end">
-        <div class="col-sm">
-            <label for="inputname" class="form-label">プレイリスト名</label>
-            <input class="form-control" type="text" placeholder="{{$playlist_detail->name ?? ''}}" disabled>
-        </div>
+    <div class="g-3 mb-3">
+        <label for="inputname" class="form-label">プレイリスト名</label>
+        <input class="form-control" type="text" placeholder="{{$playlist_detail->name ?? ''}}" disabled>
+    </div>
+    <div class="row g-3 align-items-stretch mb-3">
+        
+        <div class="col-12 col-md-6">
+            <label for="inputmusic" class="form-label">収録曲</label>
 
-        <label for="inputmusic" class="form-label">収録曲</label>
-
-        <div class="row align-items-end">
-            {{--変更フォーム--}}
-            <span class="form-label" style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_chg()">変更</span>
-            
-            <div id="detail_chg">
-                @foreach($playlist_detail->music as $mus)
-                <div class="row">
-                    <div class="col-sm-9 mb-2"> <!-- フォームの列 -->
-                        <input type="text" class="form-control" value="{{$mus->mus_name}}    < {{$mus->art_name}} >" disabled>
-                    </div>
-                    <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->
-                        <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
-                            <!--    プレイリストは変更なし
-                            <input type="button" class="btn btn-primary me-2" value="更新" onclick="alb_detail_fnc('chg','{{$mus->id}}');" >
-                            -->
-                            <input type="button" class="btn btn-danger" value="削除" onclick="alb_detail_fnc('del','{{$mus->id}}');" >
+            <div style="max-height: 600px; overflow-y: auto;">
+                <div class="row align-items-end">
+                    {{--変更フォーム--}}
+                    @foreach($playlist_detail->music as $mus)
+                    <div class="row">
+                        <div class="col-sm-9 mb-2"> <!-- フォームの列 -->
+                            <input type="text" class="form-control" value="{{$mus->mus_name}}    < {{$mus->art_name}} >" disabled>
                         </div>
+                        <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->
+                            <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
+                                <!--    プレイリストは変更なし
+                                <input type="button" class="btn btn-primary me-2" value="更新" onclick="alb_detail_fnc('chg','{{$mus->id}}');" >
+                                -->
+                                <input type="button" class="btn btn-danger" value="削除" onclick="alb_detail_fnc('del','{{$mus->id}}');" >
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            {{--追加用  検索フォーム--}}
+            <form method="GET" action="{{ route('admin-playlist-detail-search') }}">
+
+                <input type="hidden" name="id" value="{{$playlist_detail->id}}">
+                <div class="row g-3 align-items-end">
+                    <div class="col-sm-6">
+                        <label for="search_all" class="visually-hidden">検索(ｷｰﾜｰﾄﾞ)</label>
+                        <input type="text" name="search_all" class="form-control" value="{{$input['search_all'] ?? ''}}" placeholder="検索(ｷｰﾜｰﾄﾞ)">
+                    </div>
+                    <div class="col-auto align-self-end">
+                        <button type="submit" class="btn btn-success">検索</button>
                     </div>
                 </div>
-                @endforeach
-            </div>
-
-            <span class="form-label"  style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_add()">追加</span>
-            <div id="detail_add">
-                {{--追加用  検索フォーム--}}
-                <form method="GET" action="{{ route('admin-playlist-detail-search') }}">
-
-                    <input type="hidden" name="id" value="{{$playlist_detail->id}}">
-                    <div class="row g-3 align-items-end">
-                        <div class="col-sm-6">
-                            <label for="search_all" class="visually-hidden">検索(ｷｰﾜｰﾄﾞ)</label>
-                            <input type="text" name="search_all" class="form-control" value="{{$input['search_all'] ?? ''}}" placeholder="検索(ｷｰﾜｰﾄﾞ)">
-                        </div>
-                        <div class="col-auto align-self-end">
-                            <button type="submit" class="btn btn-success">検索</button>
-                        </div>
-                    </div>
-                </form>
-                {{--追加用テーブル--}}
-                @if(isset($music) && is_iterable($music))
-                    {{--ﾊﾟﾗﾒｰﾀ--}}
-                    @php
-                        $page_prm = $input ?? '';
-                    @endphp
-                    {{--ﾍﾟｰｼﾞｬｰ--}}
-                    @include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])
-                    <div style="overflow-x: auto;">
-                        <table class="table table-striped table-hover table-bordered fs-6 ">
-                            <thead>
+            </form>
+            {{--追加用テーブル--}}
+            @if(isset($music) && is_iterable($music))
+                {{--ﾊﾟﾗﾒｰﾀ--}}
+                @php
+                    $page_prm = $input ?? '';
+                @endphp
+                {{--ﾍﾟｰｼﾞｬｰ--}}
+                {{--@include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])--}}
+                <div style="overflow-x: auto;">
+                    <table class="table table-striped table-hover table-bordered fs-6 ">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="fw-light">#</th>
+                            <th scope="col" class="fw-light">楽曲名</th>
+                            <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
+                            <th scope="col" class="fw-light"></th>
+                        </tr>
+                        </thead>
+                        @foreach($music as $mus)
                             <tr>
-                                <th scope="col" class="fw-light">#</th>
-                                <th scope="col" class="fw-light">楽曲名</th>
-                                <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
-                                <th scope="col" class="fw-light">データ登録日</th>
-                                <th scope="col" class="fw-light">データ更新日</th>
-                                <th scope="col" class="fw-light"></th>
+                                <td class="fw-light">{{$mus->id}}</td>
+                                <td class="fw-light">
+                                <a href="{{ route('admin-music-search', ['search_music' => $mus->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                    {{$mus->name}}
+                                </td>
+                                <td class="fw-light">
+                                <a href="{{ route('admin-artist-search', ['search_artist' => $mus->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                    {{$mus->art_name}}
+                                </td>
+                                <td class="fw-light">
+                                    <input type="button" class="btn btn-success" value="追加" onclick="alb_detail_fnc('add','{{$mus->id}}');" >
+                                </td>
                             </tr>
-                            </thead>
-                            @foreach($music as $mus)
-                                <tr>
-                                    <td class="fw-light">{{$mus->id}}</td>
-                                    <td class="fw-light">
-                                    <a href="{{ route('admin-music-search', ['search_music' => $mus->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                        {{$mus->name}}
-                                    </td>
-                                    <td class="fw-light">
-                                    <a href="{{ route('admin-artist-search', ['search_artist' => $mus->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                        {{$mus->art_name}}
-                                    </td>
-                                    <td class="fw-light">{{$mus->created_at}}</td>
-                                    <td class="fw-light">{{$mus->updated_at}}</td>
-                                    <td class="fw-light">
-                                        <input type="button" class="btn btn-success" value="追加" onclick="alb_detail_fnc('add','{{$mus->id}}');" >
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    {{--ﾍﾟｰｼﾞｬｰ--}}
-                    @include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])
-                @endif 
-            </div>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                {{--ﾍﾟｰｼﾞｬｰ--}}
+                @include('admin.layouts.pagination', ['paginator' => $music,'page_prm' => $page_prm,])
+            @endif 
         </div>
     </div>
 
@@ -230,23 +224,6 @@
             //document.detail_form["name"].value    =add_name;
         }
         trg.submit();
-    }
-    //変更フォームの表示切替変更フォームの表示切替
-    function toggleDetails_chg() {
-        var element = document.getElementById("detail_chg");
-        if (element.style.display === "none") {
-            element.style.display = "block";
-        } else {
-            element.style.display = "none";
-        }
-    }
-    function toggleDetails_add() {
-        var element = document.getElementById("detail_add");
-        if (element.style.display === "none") {
-            element.style.display = "block";
-        } else {
-            element.style.display = "none";
-        }
     }
     
     document.addEventListener('DOMContentLoaded', function() {

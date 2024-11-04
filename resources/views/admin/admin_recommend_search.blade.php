@@ -143,110 +143,107 @@
     @php
         $page_prm = $input ?? '';
     @endphp
+    <div class="g-3 mb-3">
+        <label for="inputname" class="form-label">おすすめ登録名</label>
+        <input class="form-control" type="text" placeholder="{{$recommend_detail->name ?? ''}}" disabled>
+    </div>
+
     <div class="row g-3 align-items-stretch mb-3">
-        <div class="col-sm">
-            <label for="inputname" class="form-label">おすすめ登録名</label>
-            <input class="form-control" type="text" placeholder="{{$recommend_detail->name ?? ''}}" disabled>
+        
+        <div class="col-12 col-md-6">
+            <label for="inputmusic" class="form-label">収録曲</label>
+            <div style="max-height: 600px; overflow-y: auto;">
+                {{--変更フォーム--}}
+                @foreach($recommend_detail as $dtl)
+                <div class="row">
+                    <div class="col-sm-9"> <!-- フォームの列 -->
+                    
+                    @if($input['category']==0 || $input['category']==2)
+                    <input type="text" class="form-control" value="{{$dtl->name}}    < {{$dtl->art_name}} >" disabled>
+                    @else
+                    <input type="text" class="form-control" value="{{$dtl->name}}" disabled>
+                    @endif
+                    </div>
+                    <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->
+                        <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
+                            <input type="button" class="btn btn-danger" value="削除" onclick="recom_detail_fnc('del','{{$dtl->id}}');" >
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+        {{--追加用  検索フォーム--}}
+        <form method="GET" action="{{ route('admin-recommend-detail-search') }}">
+
+        <input type="hidden" name="id" value="{{$recommend_detail->id}}">
+        <input type="hidden" name="category" value="{{$input['category']}}">
+        <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
+            <div class="row g-3 align-items-stretch mb-3">
+                <div class="col-sm-6">
+                    <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索({{$recommend_detail->item1}})">
+                </div>
+                <div class="col-auto align-self-end">
+                    <button type="submit" class="btn btn-success">検索</button>
+                </div>
+            </div>
+        </form>
+        {{--追加用テーブル--}}
+        @if(isset($detail) && is_iterable($detail))
+            {{--ﾍﾟｰｼﾞｬｰ--}}
+            {{--@include('admin.layouts.pagination', ['paginator' => $detail,'page_prm' => $page_prm,])--}}
+            <div style="overflow-x: auto;">
+                <table class="table table-striped table-hover table-bordered fs-6 ">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="fw-light">#</th>
+                        <th scope="col" class="fw-light">{{$recommend_detail->item1}}</th>
+                        @if($input['category']==0 || $input['category']==2)
+                        <th scope="col" class="fw-light">アーティスト名</th>
+                        @endif
+                        <th scope="col" class="fw-light"></th>
+                    </tr>
+                    </thead>
+                    @foreach($detail as $dtl)
+                        <tr>
+                            <td class="fw-light">{{$dtl->id}}</td>
+                            <td class="fw-light">
+                                @if($input['category']==0)
+                                    <a href="{{ route('admin-music-search', ['search_music' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                @endif
+                                @if($input['category']==1)
+                                    <a href="{{ route('admin-artist-search', ['search_artist' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                @endif
+                                @if($input['category']==2)
+                                    <a href="{{ route('admin-album-search', ['search_album' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                @endif
+                                @if($input['category']==3)
+                                    <a href="{{ route('admin-playlist-search', ['search_playlist' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                @endif
+                                {{$dtl->name}}
+                            </td>
+                        @if($input['category']==0 || $input['category']==2)
+                            <td class="fw-light">
+                                <a href="{{ route('admin-artist-search', ['search_artist' => $dtl->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                {{$dtl->art_name}}
+                            </td>
+                        @endif
+                            <td class="fw-light">
+                                <input type="button" class="btn btn-success" value="追加" onclick="recom_detail_fnc('add','{{$dtl->id}}');" >
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            {{--ﾍﾟｰｼﾞｬｰ--}}
+            @include('admin.layouts.pagination', ['paginator' => $detail,'page_prm' => $page_prm,])
+        @endif 
+
         </div>
     </div>
 
-    <div class="row g-3 align-items-stretch">
-        <label for="inputmusic" class="form-label">収録曲</label>
-        {{--変更フォーム--}}
-        <span class="form-label" style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_chg()">変更</span>
-        <div id="detail_chg">
-            @foreach($recommend_detail as $dtl)
-            <div class="row">
-                <div class="col-sm-9"> <!-- フォームの列 -->
-                
-                @if($input['category']==0 || $input['category']==2)
-                <input type="text" class="form-control" value="{{$dtl->name}}    < {{$dtl->art_name}} >" disabled>
-                @else
-                <input type="text" class="form-control" value="{{$dtl->name}}" disabled>
-                @endif
-                </div>
-                <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->
-                    <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
-                        <input type="button" class="btn btn-danger" value="削除" onclick="recom_detail_fnc('del','{{$dtl->id}}');" >
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-
-        <span class="form-label"  style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_add()">追加</span>
-        <div id="detail_add">
-            {{--追加用  検索フォーム--}}
-            <form method="GET" action="{{ route('admin-recommend-detail-search') }}">
-
-            <input type="hidden" name="id" value="{{$recommend_detail->id}}">
-            <input type="hidden" name="category" value="{{$input['category']}}">
-            <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
-                <div class="row g-3 align-items-stretch mb-3">
-                    <div class="col-sm-6">
-                        <input type="text" id="keyword" name="keyword" class="form-control" value="{{$input['keyword'] ?? ''}}" placeholder="検索({{$recommend_detail->item1}})">
-                    </div>
-                    <div class="col-auto align-self-end">
-                        <button type="submit" class="btn btn-success">検索</button>
-                    </div>
-                </div>
-            </form>
-            {{--追加用テーブル--}}
-            @if(isset($detail) && is_iterable($detail))
-                {{--ﾍﾟｰｼﾞｬｰ--}}
-                @include('admin.layouts.pagination', ['paginator' => $detail,'page_prm' => $page_prm,])
-                <div style="overflow-x: auto;">
-                    <table class="table table-striped table-hover table-bordered fs-6 ">
-                        <thead>
-                        <tr>
-                            <th scope="col" class="fw-light">#</th>
-                            <th scope="col" class="fw-light">{{$recommend_detail->item1}}</th>
-                            @if($input['category']==0 || $input['category']==2)
-                            <th scope="col" class="fw-light">アーティスト名</th>
-                            @endif
-                            <th scope="col" class="fw-light">データ登録日</th>
-                            <th scope="col" class="fw-light">データ更新日</th>
-                            <th scope="col" class="fw-light"></th>
-                        </tr>
-                        </thead>
-                        @foreach($detail as $dtl)
-                            <tr>
-                                <td class="fw-light">{{$dtl->id}}</td>
-                                <td class="fw-light">
-                                    @if($input['category']==0)
-                                        <a href="{{ route('admin-music-search', ['search_music' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                    @endif
-                                    @if($input['category']==1)
-                                        <a href="{{ route('admin-artist-search', ['search_artist' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                    @endif
-                                    @if($input['category']==2)
-                                        <a href="{{ route('admin-album-search', ['search_album' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                    @endif
-                                    @if($input['category']==3)
-                                        <a href="{{ route('admin-playlist-search', ['search_playlist' => $dtl->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                    @endif
-                                    {{$dtl->name}}
-                                </td>
-                            @if($input['category']==0 || $input['category']==2)
-                                <td class="fw-light">
-                                    <a href="{{ route('admin-artist-search', ['search_artist' => $dtl->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
-                                    {{$dtl->art_name}}
-                                </td>
-                            @endif
-                                <td class="fw-light">{{$dtl->created_at}}</td>
-                                <td class="fw-light">{{$dtl->updated_at}}</td>
-                                <td class="fw-light">
-                                    <input type="button" class="btn btn-success" value="追加" onclick="recom_detail_fnc('add','{{$dtl->id}}');" >
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                {{--ﾍﾟｰｼﾞｬｰ--}}
-                @include('admin.layouts.pagination', ['paginator' => $detail,'page_prm' => $page_prm,])
-            @endif 
-        </div>
     </div>
 
 

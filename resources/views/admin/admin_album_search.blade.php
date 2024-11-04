@@ -141,7 +141,7 @@
 
 {{--収録曲変更--}}
 @if(isset($album_detail))
-    <div class="row g-3 align-items-end">
+    <div class="row g-3 mb-3">
         <div class="col-sm">
             <label for="inputname" class="form-label">アルバム名</label>
             <input class="form-control" type="text" placeholder="{{$album_detail->name ?? ''}}" disabled>
@@ -150,33 +150,39 @@
             <label for="inputart_name" class="form-label">アーティスト名</label>
             <input class="form-control" type="text" placeholder="{{$album_detail->art_name ?? ''}}" disabled>
         </div>
+    </div>
 
-        <label for="inputmusic" class="form-label">収録曲</label>
 
-        <div class="row align-items-end">
-            {{--変更フォーム--}}
-            <span class="form-label" style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_chg()">変更</span>
-            
-            <div id="detail_chg">
-                @foreach($album_detail->music as $music)
-                <div class="row">
-                    <div class="col-sm-9 mb-2"> <!-- フォームの列 -->
-                        <input type="text" name="name_{{$music->id}}" class="form-control" value="{{$music->name}}">
-                    </div>
-                    <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->
-                        <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
-                            <input type="button" class="btn btn-primary me-2" value="更新" onclick="alb_detail_fnc('chg','{{$music->id}}');" >
-                            <input type="button" class="btn btn-danger" value="削除" onclick="alb_detail_fnc('del','{{$music->id}}');" >
+    <div class="row g-3 align-items-stretch mb-3">
+        
+    <label for="inputmusic" class="form-label">収録曲</label>
+    <div class="col-12 col-md-6">
+        <div style="max-height: 600px; overflow-y: auto;">
+            <div class="row align-items-end">
+                {{--変更フォーム--}}
+                <div id="detail_chg">
+                    @foreach($album_detail->music as $music)
+                    <div class="row">
+                        <div class="col-8 mb-2"> <!-- フォームの列 -->
+                            <input type="text" name="name_{{$music->id}}" class="form-control" value="{{$music->name}}">
+                        </div>
+                        <div class="col-4 mb-2"> <!-- ボタンの列 -->
+                            <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
+                                <input type="button" class="btn btn-primary me-2" value="更新" onclick="alb_detail_fnc('chg','{{$music->id}}');" >
+                                <input type="button" class="btn btn-danger" value="削除" onclick="alb_detail_fnc('del','{{$music->id}}');" >
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
+        </div>
+    </div>
+        
+        <div class="col-12 col-md-6">
 
             {{--追加フォーム--}}
-            <span class="form-label"  style="cursor: pointer; color: blue; text-decoration: underline;" onclick="toggleDetails_add()">追加</span>
-
-            <div id="detail_add" style="display: none;">
+            <div id="detail_add">
                 <div class="row">
                     <div class="col-sm-9">
                         <input type="text" name="add_name" class="form-control" value="">
@@ -224,23 +230,6 @@ function alb_detail_fnc(fnc,mus_id){
             document.detail_form["name"].value    =add_name;
         }
         trg.submit();
-    }
-    //変更フォームの表示切替変更フォームの表示切替
-    function toggleDetails_chg() {
-        var element = document.getElementById("detail_chg");
-        if (element.style.display === "none") {
-            element.style.display = "block";
-        } else {
-            element.style.display = "none";
-        }
-    }
-    function toggleDetails_add() {
-        var element = document.getElementById("detail_add");
-        if (element.style.display === "none") {
-            element.style.display = "block";
-        } else {
-            element.style.display = "none";
-        }
     }
     
 document.addEventListener('DOMContentLoaded', function () {

@@ -415,3 +415,59 @@
 )
   
 [2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 15:48:50] local.DEBUG: -------start-------  
+[2024-11-04 15:48:50] local.DEBUG: create_data=Array
+(
+    [_token] => dH6uh9q2enNtICWCERl6Uu6oDarbTcOmLT7E98s6
+    [fnc] => add
+    [alb_id] => 28
+    [mus_id] => 
+    [name] => test
+    [page] => 
+    [id] => 
+    [art_id] => 6
+)
+  
+[2024-11-04 15:48:50] local.DEBUG: success  
+[2024-11-04 15:48:54] local.DEBUG: -------start-------  
+[2024-11-04 15:48:54] local.DEBUG: create_data=Array
+(
+    [_token] => dH6uh9q2enNtICWCERl6Uu6oDarbTcOmLT7E98s6
+    [fnc] => add
+    [alb_id] => 28
+    [mus_id] => 
+    [name] => test
+    [page] => 
+    [id] => 
+    [art_id] => 6
+)
+  
+[2024-11-04 15:48:54] local.DEBUG: success  
+[2024-11-04 15:48:57] local.DEBUG: -------start-------  
+[2024-11-04 15:48:57] local.DEBUG: create_data=Array
+(
+    [_token] => dH6uh9q2enNtICWCERl6Uu6oDarbTcOmLT7E98s6
+    [fnc] => add
+    [alb_id] => 28
+    [mus_id] => 
+    [name] => test
+    [page] => 
+    [id] => 
+    [art_id] => 6
+)
+  
+[2024-11-04 15:48:57] local.DEBUG: success  
+[2024-11-04 16:04:13] local.DEBUG: -------start-------  
+[2024-11-04 16:04:13] local.DEBUG: create_data=Array
+(
+    [_token] => dH6uh9q2enNtICWCERl6Uu6oDarbTcOmLT7E98s6
+    [fnc] => add
+    [alb_id] => 28
+    [mus_id] => 
+    [name] => test
+    [page] => 
+    [id] => 
+    [art_id] => 6
+)
+  
+[2024-11-04 16:04:13] local.DEBUG: success  

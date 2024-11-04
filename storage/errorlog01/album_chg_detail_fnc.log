@@ -5761,3 +5761,39 @@
 [2024-11-04 08:22:18] local.DEBUG: fnc=add alb_id=28 mus_id= name=test  
 [2024-11-04 08:22:28] local.DEBUG: -----start-----  
 [2024-11-04 08:22:28] local.DEBUG: fnc=del alb_id=28 mus_id=421 name=test  
+[2024-11-04 15:15:10] local.DEBUG: -----start-----  
+[2024-11-04 15:15:10] local.DEBUG: fnc=add pl_id=2 detail_id=281  
+[2024-11-04 15:27:51] local.DEBUG: -----start-----  
+[2024-11-04 15:27:51] local.DEBUG: fnc=add pl_id=2 detail_id=223  
+[2024-11-04 15:27:53] local.DEBUG: -----start-----  
+[2024-11-04 15:27:53] local.DEBUG: fnc=add pl_id=2 detail_id=274  
+[2024-11-04 15:27:56] local.DEBUG: -----start-----  
+[2024-11-04 15:27:56] local.DEBUG: fnc=add pl_id=2 detail_id=281  
+[2024-11-04 15:27:58] local.DEBUG: -----start-----  
+[2024-11-04 15:27:58] local.DEBUG: fnc=add pl_id=2 detail_id=223  
+[2024-11-04 15:28:00] local.DEBUG: -----start-----  
+[2024-11-04 15:28:00] local.DEBUG: fnc=add pl_id=2 detail_id=137  
+[2024-11-04 15:28:00] local.DEBUG: -----start-----  
+[2024-11-04 15:28:00] local.DEBUG: fnc=add pl_id=2 detail_id=200  
+[2024-11-04 15:28:01] local.DEBUG: -----start-----  
+[2024-11-04 15:28:01] local.DEBUG: fnc=add pl_id=2 detail_id=300  
+[2024-11-04 15:28:04] local.DEBUG: -----start-----  
+[2024-11-04 15:28:04] local.DEBUG: fnc=add pl_id=2 detail_id=189  
+[2024-11-04 15:28:07] local.DEBUG: -----start-----  
+[2024-11-04 15:28:07] local.DEBUG: fnc=add pl_id=2 detail_id=271  
+[2024-11-04 15:28:11] local.DEBUG: -----start-----  
+[2024-11-04 15:28:11] local.DEBUG: fnc=add pl_id=2 detail_id=202  
+[2024-11-04 15:35:56] local.DEBUG: -----start-----  
+[2024-11-04 15:35:56] local.DEBUG: fnc=add alb_id=28 mus_id= name=  
+[2024-11-04 15:48:35] local.DEBUG: -----start-----  
+[2024-11-04 15:48:35] local.DEBUG: fnc=add alb_id=28 mus_id= name=  
+[2024-11-04 15:48:50] local.DEBUG: -----start-----  
+[2024-11-04 15:48:50] local.DEBUG: fnc=add alb_id=28 mus_id= name=test  
+[2024-11-04 15:48:54] local.DEBUG: -----start-----  
+[2024-11-04 15:48:54] local.DEBUG: fnc=add alb_id=28 mus_id= name=test  
+[2024-11-04 15:48:57] local.DEBUG: -----start-----  
+[2024-11-04 15:48:57] local.DEBUG: fnc=add alb_id=28 mus_id= name=test  
+[2024-11-04 16:04:08] local.DEBUG: -----start-----  
+[2024-11-04 16:04:08] local.DEBUG: fnc=add alb_id=28 mus_id= name=  
+[2024-11-04 16:04:13] local.DEBUG: -----start-----  
+[2024-11-04 16:04:13] local.DEBUG: fnc=add alb_id=28 mus_id= name=test  

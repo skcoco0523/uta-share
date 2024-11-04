@@ -31,8 +31,10 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 120),
+    //セッションの保持期間は1ヵ月とする
+    'lifetime' => env('SESSION_LIFETIME', 44640),
 
+    //ブラウザを閉じてセッションを削除するか
     'expire_on_close' => false,
 
     /*
