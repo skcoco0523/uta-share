@@ -28,26 +28,26 @@ class Playlist extends Model
                     $sql_cmd = $sql_cmd->where('pl.name', 'like', '%'. $keyword['search_all']. '%');
 
                 }else{
-                    //マイプレイリスト
-                    if (isset($keyword['user_id'])) {
-                        $sql_cmd = $sql_cmd->where('pl.user_id', Auth::id());
-                        $sql_cmd = $sql_cmd->where('pl.admin_flag', 0);
-                    
-                    //管理者による検索
-                    }else{
-                        if (isset($keyword['search_playlist'])) 
-                            $sql_cmd = $sql_cmd->where('pl.name', 'like', '%'. $keyword['search_playlist']. '%');
+                    if (isset($keyword['search_playlist'])) 
+                        $sql_cmd = $sql_cmd->where('pl.name', 'like', '%'. $keyword['search_playlist']. '%');
 
-                        if (isset($keyword['search_admin_flag'])) 
-                            $sql_cmd = $sql_cmd->where('pl.admin_flag',$keyword['search_admin_flag']);
-                    }
+                    if (isset($keyword['search_admin_flag'])) 
+                        $sql_cmd = $sql_cmd->where('pl.admin_flag',$keyword['search_admin_flag']);
+
                 }
             //ユーザーによる検索
             }else{            
-                $sql_cmd = $sql_cmd->where('pl.admin_flag', 1);
                 if (get_proc_data($keyword,"keyword")){
                     $sql_cmd = $sql_cmd->where('pl.name', 'like', '%'. $keyword['keyword']. '%');
                 }
+                //マイプレイリスト
+                if (get_proc_data($keyword,"user_id")) {
+                    $sql_cmd = $sql_cmd->where('pl.user_id', Auth::id());
+                    $sql_cmd = $sql_cmd->where('pl.admin_flag', 0);
+                }else{
+                    $sql_cmd = $sql_cmd->where('pl.admin_flag', 1);
+                }
+                
                 $sql_cmd->orderBy('pl.name','asc');
             }
             //並び順

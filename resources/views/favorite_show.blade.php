@@ -55,7 +55,7 @@
     @include('layouts.list_table', ['non_menu_table' => $favorite_list["mypl"], 'table' => 'mypl'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['table' => 'pl' ,];
+        $additionalParams = ['table' => 'mypl' ,];
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('layouts.pagination', ['paginator' => $favorite_list["mypl"],'additionalParams' => $additionalParams,])
