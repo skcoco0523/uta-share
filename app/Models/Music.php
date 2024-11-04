@@ -73,6 +73,7 @@ class Music extends Model
         }
         if($art_id){
             $sql_cmd = $sql_cmd->where('musics.art_id', '=', $art_id);
+            $sql_cmd = $sql_cmd->orderBy('musics.name','asc');
         }
         
         $sql_cmd = $sql_cmd->select('musics.*', 'artists.name as art_name', 'musics.id as mus_id', 

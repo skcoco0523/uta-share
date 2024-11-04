@@ -30,20 +30,22 @@ class ArtistController extends Controller
     //アーティスト詳細
     public function artist_show(Request $request)
     {
-        $artist     = Artist::getartist_detail($request->only(['id']));  //mus_id
+        $input = $request->all();
+        $input['page']                  = get_proc_data($input,"page");
+
+        $artist     = Artist::getartist_detail($request->only(['id']));
         if($artist){
-            $album      = Album::getAlbum_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
-            $music      = Music::getMusic_list(10,false,null,null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
-            //画像取得のためuser_serchを引き渡す
-            $keyword['keyword'] = $artist->name;
-            $keyword['user_serch'] = 1;
-            $playlist   = Playlist::getPlaylist_list(10,false,null,$keyword,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰ
+            $album      = Album::getAlbum_list(10,true,$input['page'],null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
+            $music      = Music::getMusic_list(10,true,$input['page'],null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
+            //とりあえずﾌﾟﾚｲﾘｽﾄ情報は不要
+            //$keyword['keyword'] = $artist->name;
+            //$playlist   = Playlist::getPlaylist_list(10,false,null,$keyword,1);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,ﾕｰｻﾞｰ
             
         }
 
         $msg = null;
         if($artist){
-            return view('artist_show', compact('artist', 'album', 'music', 'playlist', 'msg'));
+            return view('artist_show', compact('artist', 'album', 'music', 'msg'));
         }else{
             return redirect()->route('home')->with('error', '該当のアーティストが存在しません');
         }

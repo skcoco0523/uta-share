@@ -16,10 +16,16 @@
 <?//テーブルリストは別ファイルで管理?>
 <h3>アルバム</h3>
 @include('layouts.list_table', ['detail_table' => $album, 'table' => 'alb'])
+
+
 <h3>曲</h3>
 @include('layouts.list_table', ['detail_table' => $music, 'table' => 'mus'])
-<h3>プレイリスト</h3>
-@include('layouts.list_table', ['detail_table' => $playlist, 'table' => 'pl'])
+{{--ﾊﾟﾗﾒｰﾀ--}}
+@php
+    $additionalParams = ['id' => $artist->id,];
+@endphp
+{{--ﾍﾟｰｼﾞｬｰ--}}
+@include('layouts.pagination', ['paginator' => $music,'additionalParams' => $additionalParams,])
 
 <?//広告モーダル?>   
 @include('layouts.adv_popup')
