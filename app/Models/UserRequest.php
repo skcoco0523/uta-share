@@ -20,26 +20,30 @@ class UserRequest extends Model
     {
         $sql_cmd = DB::table('user_requests');
         if($keyword){
-            //ユーザーによる検索
-            if (isset($keyword['login_id'])) {
-                $sql_cmd = $sql_cmd->where('user_id',$keyword['login_id']);
-                
+            
             //管理者による検索
-            } else{
+            if(get_proc_data($keyword,"admin_flag")){
                 $sql_cmd = $sql_cmd->leftJoin('users', 'user_requests.user_id', '=', 'users.id');
-                if (isset($keyword['search_type'])) 
+                if (get_proc_data($keyword,"search_type")) 
                     $sql_cmd = $sql_cmd->where('user_requests.type', $keyword['search_type']);
 
-                if (isset($keyword['search_status'])) 
+                if (get_proc_data($keyword,"search_status")) 
                     $sql_cmd = $sql_cmd->where('user_requests.status', $keyword['search_status']);
 
-                if (isset($keyword['search_mess'])) 
+                if (get_proc_data($keyword,"search_mess")) 
                     $sql_cmd = $sql_cmd->where('user_requests.message', 'like', '%'. $keyword['search_mess']. '%');
 
-                if (isset($keyword['search_reply'])) 
+                if (get_proc_data($keyword,"search_reply")) 
                     $sql_cmd = $sql_cmd->where('user_requests.reply', 'like', '%'. $keyword['search_reply']. '%');
                 
                 $sql_cmd = $sql_cmd->select('user_requests.*','users.name');
+                $sql_cmd = $sql_cmd->orderBy('user_requests.status', 'asc');
+                
+            //ユーザーによる検索
+            }else{
+                if (get_proc_data($keyword,"login_id")){
+                    $sql_cmd = $sql_cmd->where('user_id',$keyword['login_id']);
+                }
             }
         }
 
