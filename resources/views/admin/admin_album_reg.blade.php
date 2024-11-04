@@ -100,20 +100,21 @@ function processMusicList() {
     let lines = musicList.split('\n');
     
     // すべての行が「XX.」形式に該当するかチェック
-    let datachack1 = lines.every(function(line) {
-        return /^\s*\d+\.\s*/.test(line);
-    });
+    let datachack1 = lines.every(function(line) { return /^\s*\d+\.\s*/.test(line);         });
+    // すべての行が「XX 」形式に該当するかチェック
+    let datachack2 = lines.every(function(line) { return /^\s*\d+\ \s*/.test(line);         });
+    // すべての行が「XX　」形式に該当するかチェック
+    let datachack3 = lines.every(function(line) { return /^\s*\d+\　\s*/.test(line);        });
     // すべての行が「[X:XX]」形式に該当するかチェック
-    let datachack2 = lines.every(function(line) {
-        return /\s*\[\d+:\d+\]\s*$/.test(line);
-    });
+    let datachack4 = lines.every(function(line) { return /\s*\[\d+:\d+\]\s*$/.test(line);   });
 
     // 加工された曲リストを作成
     let processedLines = lines.map(function(line) {
         // すべての行に「XX.」がある場合は削除
         if (datachack1) { line = line.replace(/^\s*\d+\.\s*/, ''); }
-        // すべての行に「[X:XX]」がある場合は削除
-        if (datachack2) { line = line.replace(/\s*\[\d+:\d+\]\s*$/, ''); }
+        if (datachack2) { line = line.replace(/^\s*\d+\ \s*/, ''); }
+        if (datachack3) { line = line.replace(/^\s*\d+\　\s*/, ''); }
+        if (datachack4) { line = line.replace(/\s*\[\d+:\d+\]\s*$/, ''); }
         return line;
     });
 
