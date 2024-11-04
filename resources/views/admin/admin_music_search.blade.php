@@ -32,11 +32,13 @@
     </div>
 
     <div class="row g-3 align-items-stretch mb-3">
-        <div class="col-sm">
-            <label for="inputlink" class="form-label">ﾘﾝｸ</label>
-            <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['link'] ?? ''}}">
+        <div class="col-12 col-md-6">
+            {{-- 外部リンクは未使用
+                <label for="inputlink" class="form-label">ﾘﾝｸ</label>
+                <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['link'] ?? ''}}">
+            --}}
         </div>
-        <div class="col-sm">
+        <div class="col-12 col-md-6">
             <label for="affiliate-link" class="form-label">リンク：</label>
             <a href="https://pub.a8.net/a8v2/media/memberAction.do" target="_blank" rel="noopener noreferrer" class="form-label me-3">A8.net</a>
             <a href="https://affiliate.rakuten.co.jp/?l-id=af_header_logo" target="_blank" rel="noopener noreferrer" class="form-label">楽天アフィリエイト</a>

@@ -25,8 +25,10 @@
 
     <div class="row g-3 align-items-stretch mb-3">
         <div class="col-12 col-md-6">
-            <label for="inputlink" class="form-label">ﾘﾝｸ</label>
-            <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['link'] ?? ''}}">
+            {{-- 外部リンクは未使用
+                <label for="inputlink" class="form-label">ﾘﾝｸ</label>
+                <input type="text" name="link" class="form-control" placeholder="https://..." value="{{$input['link'] ?? ''}}">
+            --}}
         </div>
         <div class="col-12 col-md-6">
             <label for="affiliate-link" class="form-label">リンク：</label>
