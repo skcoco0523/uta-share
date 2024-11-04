@@ -74,7 +74,9 @@ class AdminAlbumController extends Controller
         $input = $request->only(['art_id']);
         $input['alb_id'] = $alb_id;          //AlbumID追加
 
-        $add_mus_list = array_filter(array_map('trim', preg_split('/\R/', $request->input('music_list'))));
+        // 入力文字列をUTF-8として扱い、改行で分割
+        //$add_mus_list = array_filter(array_map('trim', preg_split('/\R/', $request->input('music_list'))));
+        $add_mus_list = array_filter(array_map('trim', preg_split('/\R/u', $request->input('music_list'))));
         foreach ($add_mus_list as $music) {
             if($music !== ""){
                 $input['name'] = $music;    //musicsの追加カラム

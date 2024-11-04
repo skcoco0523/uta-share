@@ -145,3 +145,273 @@
 )
   
 [2024-11-04 08:22:18] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 彗星の如く
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 感�
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: failure  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 愛�
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: failure  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => CRAZY
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => �
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: failure  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => �の気�
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: failure  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => �
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: failure  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => DEEP DIVE
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 響 -hibiki-
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 運命論
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => The Red Light
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => KANZAI BOYA
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => Slash
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 新しい時代
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 99�
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: failure  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => 会いたい、会いたい、会えない。
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 33
+    [name] => Topaz Love
+)
+  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 彗星の如く
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 感情愛情CRAZY
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 光の気配
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => DEEP DIVE
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 響 -hibiki-
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 運命論
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => The Red Light
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => KANZAI BOYA
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => Slash
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 新しい時代
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 99％
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => 会いたい、会いたい、会えない。
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 34
+    [name] => Topaz Love
+)
+  
+[2024-11-04 10:13:36] local.DEBUG: success  

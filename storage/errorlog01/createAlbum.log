@@ -4,3 +4,9 @@
 [2024-09-22 21:08:23] local.DEBUG: -------start-------  
 [2024-09-22 21:08:23] local.DEBUG: name=test art_id=12 release_date= aff_id=47  
 [2024-09-22 21:08:23] local.DEBUG: success  
+[2024-11-04 10:07:34] local.DEBUG: -------start-------  
+[2024-11-04 10:07:34] local.DEBUG: name=test art_id=3 release_date=2024-12-10 aff_id=53  
+[2024-11-04 10:07:34] local.DEBUG: success  
+[2024-11-04 10:13:36] local.DEBUG: -------start-------  
+[2024-11-04 10:13:36] local.DEBUG: name=test art_id=3 release_date=2024-12-10 aff_id=54  
+[2024-11-04 10:13:36] local.DEBUG: success  
