@@ -3,11 +3,11 @@
     
     検索条件
     <div class="row g-3 align-items-end">
-        <div class="col-sm-12">
+        <div class="col-4 col-md-12">
             ・ｱｰﾃｨｽﾄ名
             <input type="text" name="search_artist" class="form-control" value="{{$input['search_artist'] ?? ''}}">
         </div>    
-        <div class="col-md-12">
+        <div class="col-4 col-md-12">
             ・種別
             <select name="search_sex" class="form-control">
                 <option value=""  {{ ($input['search_sex'] ?? '') == ''  ? 'selected' : '' }}></option>

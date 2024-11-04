@@ -23,7 +23,7 @@
     <div class="row">
         {{-- メニュー選択したタブによって切り替え --}}
         <div class="col-12 col-md-2">
-            <div class="rounded border p-3">
+            <div class="rounded border p-3 mb-2">
                 @include('admin.admin_home_left1')
             </div>
             <div class="rounded border p-3">
@@ -32,7 +32,7 @@
         </div>
         <!--メイン-->
         <div class="col-12 col-md-10">
-            <div class="rounded border p-3">
+            <div class="rounded border p-3 mb-2">
                 @include('admin.admin_home_right')
             </div>
         </div>

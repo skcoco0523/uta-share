@@ -3,15 +3,15 @@
 
     検索条件
     <div class="row g-3 align-items-end">
-        <div class="col-sm-12">
+        <div class="col-4 col-md-12">
             ・曲名
             <input type="text" name="search_music" class="form-control" value="{{$input['search_music'] ?? ''}}">
         </div>
-        <div class="col-sm-12">
+        <div class="col-4 col-md-12">
             ・ｱｰﾃｨｽﾄ名
             <input type="text" name="search_artist" class="form-control" value="{{$input['search_artist'] ?? ''}}">
         </div>
-        <div class="col-sm-12">
+        <div class="col-4 col-md-12">
             ・ｱﾙﾊﾞﾑ名
             <input type="text" name="search_album" class="form-control" value="{{$input['search_album'] ?? ''}}">
         </div>

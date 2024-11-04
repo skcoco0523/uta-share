@@ -11,11 +11,11 @@
         {{--対象データ--}}
         <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
         <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
-        <div class="col-6 col-md-4">
+        <div class="col-4 col-md-4">
             <label for="inputname" class="form-label">曲名</label>
             <input type="text" name="mus_name" class="form-control" placeholder="name" value="{{ $select->name ?? ($input['mus_name'] ?? '') }}">
         </div>
-        <div class="col-6 col-md-4">
+        <div class="col-4 col-md-4">
             <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
             <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
             <input type="hidden" id="selectedArtistId" name="art_id" value="{{$select->art_id ?? ($input['art_id'] ?? '')}}">
@@ -25,7 +25,7 @@
                 @endforeach
             </datalist>
         </div>
-        <div class="col-6 col-md-4">
+        <div class="col-4 col-md-4">
             <label for="inputbirth" class="form-label">ﾘﾘｰｽ</label>
             <input type="date" max="9999-12-31" name="release_date" class="form-control" value="{{$select->release_date ?? ($input['release_date'] ?? '') }}">
         </div>
