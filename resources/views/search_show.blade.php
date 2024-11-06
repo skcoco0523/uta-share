@@ -26,7 +26,9 @@
             <table class="table table-borderless table-center">
                 <tbody>
                 <tr><td>
-                    <span onclick="redirectToSearch('{{ $his->search_word }}');">{{ $his->search_word }}</span>
+                    <span onclick="redirectToSearch('{{ $his->search_word }}');">
+                        {{Str::limit($his->search_word, 25, '...')}}
+                    </span>
                     <i class="fa-solid fa-magnifying-glass" style="float: right; cursor: pointer;"></i>
                 </td></tr>
                 </tbody>
@@ -78,7 +80,12 @@
             const keys = Object.keys(data);
             if (keys.length > 0) {
                 keys.forEach(key => {
-                    const item = data[key]; // キーを使って値を取得
+                    let item = data[key]; // キーを使って値を取得
+                        // itemの内容が25文字以上の場合、省略
+                    const maxLength = 25;
+                    if (item.length > maxLength) {
+                        item = item.slice(0, maxLength) + '...';
+                    }
                     const suggestionItem = document.createElement('tr');
                     suggestionItem.innerHTML = `
                         <td class="col-12">
@@ -93,7 +100,7 @@
                 });
                 showSuggestions();
             } else {
-                suggestionsList.innerHTML = '<tr><td class="col-12">一致する結果がありません。</td></tr>';
+                suggestionsList.innerHTML = '<tr><td>一致する結果がありません。</td></tr>';
                 showSuggestions();
             }
         })
