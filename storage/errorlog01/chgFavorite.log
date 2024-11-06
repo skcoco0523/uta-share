@@ -1217,3 +1217,11 @@
 [2024-10-20 17:49:49] local.DEBUG: user_id=1 table=mus fav_id=45 type=add  
 [2024-10-20 17:49:49] local.DEBUG: fav_chk=0  
 [2024-10-20 17:49:49] local.DEBUG: to add  
+[2024-11-06 18:46:31] local.DEBUG: -------start-------  
+[2024-11-06 18:46:31] local.DEBUG: user_id=1 table=mus fav_id=449 type=add  
+[2024-11-06 18:46:31] local.DEBUG: fav_chk=0  
+[2024-11-06 18:46:31] local.DEBUG: to add  
+[2024-11-06 18:46:34] local.DEBUG: -------start-------  
+[2024-11-06 18:46:34] local.DEBUG: user_id=1 table=mus fav_id=449 type=del  
+[2024-11-06 18:46:34] local.DEBUG: fav_chk=1  
+[2024-11-06 18:46:34] local.DEBUG: delete  

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Ranking;
+use App\Models\CustomCategory;
+use App\Models\CustomCategoryDefine;
 
 class RankingController extends Controller
 {
@@ -46,5 +48,32 @@ class RankingController extends Controller
         }else{
             return redirect()->route('home')->with('error', '該当のデータが存在しません');
         }
+    }
+    //カテゴリ別ランキング
+    public function category_ranking(Request $request)
+    {
+        $page   = $request->input('page', 1);
+        $id  = $request->input('id'); //カテゴリid
+        if($id){
+            //カテゴリ　項目のみ
+            $category_list = CustomCategory::getCustomCategory(null,false,null,null,null);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,user_id,ビット番号
+            $bit_num = 0;
+            foreach($category_list as $category){
+                if($category->id == $id && $category->disp_flag == 1) {
+                    $bit_num = $category->bit_num;
+                    $category_name = $category->name;
+                }
+            }
+            //対象カテゴリがあれば処理続行
+            $category_ranking = null;
+            $msg = null;
+            if($bit_num){
+                $category_ranking = Ranking::getCategoryRanking(10,true,$page,$bit_num);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ビット番号
+                $category_ranking->name = "カテゴリ別ランキング：". $category_name;
+            }
+            return view('category_ranking_show', compact('category_ranking', 'id', 'msg'));
+        }
+        return redirect()->route('home')->with('error', '該当のデータが存在しません');
+
     }
 }

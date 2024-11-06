@@ -92,6 +92,9 @@ Route::get('recommend', [RecommendController::class, 'recommend_show'])->name('r
 //ランキング　おすすめ
 Route::get('favorite-ranking', [RankingController::class, 'favorite_ranking'])->name('favorite-ranking');
 
+//ランキング　カテゴリ別
+Route::get('category-ranking', [RankingController::class, 'category_ranking'])->name('category-ranking');
+
 
 
 

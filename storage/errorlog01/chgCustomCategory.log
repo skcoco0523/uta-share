@@ -346,3 +346,33 @@
 )
   
 [2024-08-13 23:36:18] local.DEBUG: success  
+[2024-11-06 10:45:45] local.DEBUG: ---------start----------  
+[2024-11-06 10:45:45] local.DEBUG: data=Array
+(
+    [_token] => jjk5rNd2nMZRGrsiIa9Dopj2FOWdRReRt63PbLBy
+    [id] => 9
+    [name] => 恋人と
+    [disp_flag] => 0
+)
+  
+[2024-11-06 10:45:45] local.DEBUG: success  
+[2024-11-06 10:45:50] local.DEBUG: ---------start----------  
+[2024-11-06 10:45:50] local.DEBUG: data=Array
+(
+    [_token] => jjk5rNd2nMZRGrsiIa9Dopj2FOWdRReRt63PbLBy
+    [id] => 7
+    [name] => 友達と
+    [disp_flag] => 1
+)
+  
+[2024-11-06 10:45:50] local.DEBUG: success  
+[2024-11-06 10:46:38] local.DEBUG: ---------start----------  
+[2024-11-06 10:46:38] local.DEBUG: data=Array
+(
+    [_token] => jjk5rNd2nMZRGrsiIa9Dopj2FOWdRReRt63PbLBy
+    [id] => 9
+    [name] => 恋人と
+    [disp_flag] => 1
+)
+  
+[2024-11-06 10:46:38] local.DEBUG: success  

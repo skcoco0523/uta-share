@@ -99,4 +99,21 @@
     </div>
 @endif
 
+<?//おすすめ：プレイリスト?>
+@if(isset($category_list))
+    <div class="title-text">
+        <h3>カテゴリ別ランキング</h3>
+    </div>
+    <div class="category-container">
+        @foreach ($category_list as $category)
+        <a href="{{ route('category-ranking', ['id' => $category->id]) }}" class="no-decoration category-box">
+            <div class="category-top-icon">
+                    <p class="category-top-text">{{ $category->name }}</p>
+            </div>
+        </a>
+        @endforeach
+    </div>
+
+@endif
+
 @endsection
