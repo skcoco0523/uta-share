@@ -17,11 +17,10 @@
         </li>
     </ul>
 </div>
-<br>
 
 
 @if($input['table']=='mus')
-    @include('layouts.list_table', ['friend_table' => $favorite_list["mus"], 'table' => 'mus'])
+    @include('layouts.list_table', ['detail_table' => $favorite_list["mus"], 'table' => 'mus'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
         $additionalParams = ['table' => 'mus', 'friend_id' => $friend_profile->id ,];
@@ -44,10 +43,10 @@
     </div>
 
     <?//登録曲?>
-    @include('layouts.list_table', ['non_menu_table' => $favorite_list["category"], 'table' => 'mus'])
+    @include('layouts.list_table', ['detail_table' => $favorite_list["category"], 'table' => 'mus'])
     {{--ﾊﾟﾗﾒｰﾀ--}}
     @php
-        $additionalParams = ['table' => 'category' ,'bit_num' => $input['bit_num'] ,];
+        $additionalParams = ['table' => 'category' ,'bit_num' => $input['bit_num'] , 'friend_id' => $friend_profile->id ,];
     @endphp
     {{--ﾍﾟｰｼﾞｬｰ--}}
     @include('layouts.pagination', ['paginator' => $favorite_list["category"],'additionalParams' => $additionalParams,])

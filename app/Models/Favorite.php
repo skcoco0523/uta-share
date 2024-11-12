@@ -26,6 +26,10 @@ class Favorite extends Model
             // table: mus alb pl 引数のテーブルに合わせて取得
             $sql_cmd = DB::table("favorite_$table")->where('user_id', $user_id);
 
+            //無駄な接続にはなるけどjoinして
+            //$sql_cmd = $sql_cmd->orderBy('musics.name','asc');
+            //で並べ替えてから取得
+            
             // ページング・取得件数指定・全件で分岐
             if ($pageing){
                 if ($disp_cnt === null) $disp_cnt=5;
