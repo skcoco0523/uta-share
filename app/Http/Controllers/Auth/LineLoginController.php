@@ -154,6 +154,24 @@ class LineLoginController extends Controller
             $user->save();
             Auth::login($user);
             UserLog::create_user_log("line_user_reg");
+
+            //自身に通知する
+            $now_user_cnt = User::count();
+    
+            $send_info = new \stdClass();
+            $send_info->user_name = $profile->displayName;
+            $send_info->now_user_cnt = $now_user_cnt;
+            $mail = "syunsuke.05.23.15@gmail.com";//送信先
+            $tmpl='user_reg_notice';//  送信内容
+            mail_send($send_info, $mail, $tmpl);
+    
+            $send_info = [
+                'title' => '新規ユーザー登録',
+                'body' => "ユーザー名：".$profile->displayName."\n現在ユーザー数：". $now_user_cnt,
+                'url' => route('admin-user-search'),
+            ];
+            push_send(7,$send_info);
+            push_send(13,$send_info);
             
         }
         // ユーザーが認証された後にデバイス情報を登録するためフロントで識別できるようにする
