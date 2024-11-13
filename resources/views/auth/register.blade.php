@@ -128,6 +128,16 @@
                 </div>
             </div>
 
+            <?//reCAPTCHA 不正登録対応?>
+            <div class="row mb-0">
+                <div class="col-md-8 offset-md-4">
+                    <input type="hidden" id="recaptcha-token" name="g-recaptcha-response">
+                    @error('g-recaptcha-response')
+                        <strong style="color: red;">{{ $message }}</strong>
+                    @enderror
+                </div>
+            </div>
+
             <div class="row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
@@ -137,6 +147,7 @@
             </div>
         </form>
     </div>
+
 </div>
 
 <?//外部ログイン用?>
@@ -144,3 +155,28 @@
 
 @endsection
 
+
+
+<!-- reCAPTCHAのスクリプト -->
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('captcha.sitekey') }}"></script>
+
+<script>
+    console.log("start-----------------"); // コンソールに出力
+    var sitekey = @json(config('captcha.sitekey')); 
+    console.log(sitekey); // コンソールに出力
+    grecaptcha.ready(function() {
+        grecaptcha.execute(sitekey, { action: 'register' }).then(function(token) {
+            // トークンをフォームに追加
+            document.getElementById('recaptcha-token').value = token;
+        });
+    });
+
+    // フォーム送信時にトークンが確実にセットされているかチェック
+    document.querySelector('form').addEventListener('submit', function(e) {
+        var token = document.getElementById('recaptcha-token').value;
+        if (!token) {
+            e.preventDefault(); // トークンがない場合、フォーム送信を停止
+            alert("reCAPTCHAの検証が完了していません。");
+        }
+    });
+</script>

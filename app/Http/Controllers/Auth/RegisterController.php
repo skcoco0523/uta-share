@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use App\Models\UserLog; 
 
 class RegisterController extends Controller
 {
@@ -52,18 +53,45 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        // reCAPTCHAの検証
+        $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            //会員情報追加
-            //'friend_code' => ['required', 'string', 'min:8', 'max:10'],   フレンドコードは後から生成するからここでは確認しない
+            // 会員情報追加
             'gender' => ['required', 'in:0,1'],
             'birth_year' => ['required', 'integer', 'min:1900', 'max:' . date('Y')],
             'birth_month' => ['required', 'integer', 'min:1', 'max:12'],
             'birth_day' => ['required', 'integer', 'min:1', 'max:31'],
             'prefectures' => ['required', 'string', 'min:2', 'max:10'],
+            // reCAPTCHA 不正登録対応
+            'g-recaptcha-response' => ['required', 'captcha'], 
         ]);
+
+        // validatorが失敗した場合にログを記録
+        
+        if ($validator->fails()) {
+            // reCAPTCHAに関連するエラーをチェック
+            $recaptchaError = $validator->errors()->get('g-recaptcha-response');
+            // reCAPTCHAエラーが含まれている場合のみログを記録
+            if (!empty($recaptchaError)) {
+                
+                make_error_log("recaptcha.log", "=============================================");
+                make_error_log("recaptcha.log", "ip=".request()->ip());
+                make_error_log("recaptcha.log", "name=".$data['name']." email=".$data['email']);
+
+                $send_info = [
+                    'title' => '不正登録通知',
+                    'body' => "ip：". request()->ip()."\nユーザー名：".$data['name']."\nemail：".$data['email'],
+                    'url' => route('admin-user-search'),
+                ];
+                push_send(7,$send_info);
+                push_send(13,$send_info);
+            }
+        }
+        
+
+        return $validator;
     }
 
     /**
@@ -116,7 +144,8 @@ class RegisterController extends Controller
             'body' => "ユーザー名：".$request->name."\n現在ユーザー数：". $now_user_cnt,
             'url' => route('admin-user-search'),
         ];
-        push_send(1,$send_info);
+        push_send(7,$send_info);
+        push_send(13,$send_info);
         
     }
 

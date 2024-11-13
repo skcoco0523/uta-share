@@ -173,6 +173,11 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        //-------------------新規-----------------------
+        'g-recaptcha-response' => [
+            'required' => 'reCAPTCHAの確認が必要です。',
+            'captcha'  => 'reCAPTCHAによる確認に失敗しました。',
+        ],
     ],
 
     /*
@@ -187,5 +192,6 @@ return [
     */
 
     'attributes' => [],
+
 
 ];

@@ -164,3 +164,6 @@
 #54 C:\xampp\htdocs\app01\public\index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #55 C:\xampp\htdocs\app01\server.php(21): require_once('C:\\xampp\\htdocs...')
 #56 {main}  
+[2024-11-13 15:15:36] local.DEBUG: mail=syunsuke.05.23.15_test@gmail.com  tmpl=user_reg  
+[2024-11-13 15:19:48] local.DEBUG: mail=syunsuke.05.23.15_test@gmail.com  tmpl=user_reg  
+[2024-11-13 15:19:51] local.DEBUG: mail=syunsuke.05.23.15@gmail.com  tmpl=user_reg_notice  
