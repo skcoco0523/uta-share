@@ -93,6 +93,10 @@
                             <i class="fa-solid fa-magnifying-glass" style="float: right;"></i>
                         </td>`;
                     suggestionItem.addEventListener('click', function() {
+                        //２５文字以上で「...」で終了しているｷｰﾜｰﾄﾞの場合は加工して反映する
+                        if(item.length >= 25){
+                            item = item.replace(/\.\.\.$/, "");
+                        }
                         searchInput.value = item;
                         searchForm.submit(); // フォームを送信
                     });
