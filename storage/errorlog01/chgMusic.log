@@ -898,3 +898,45 @@
 )
   
 [2024-11-06 13:04:17] local.DEBUG: success  
+[2024-11-16 18:30:21] local.DEBUG: -------start-------  
+[2024-11-16 18:30:21] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 274
+    [alb_id] => 22
+    [art_id] => 10
+    [name] => (マブーハイ)
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:19:27
+    [updated_at] => 2024-07-02 16:19:27
+)
+  
+[2024-11-16 18:30:21] local.DEBUG: after_data=Array
+(
+    [art_id] => 1
+    [name] => (マブーハイ)
+)
+  
+[2024-11-16 18:30:21] local.DEBUG: success  
+[2024-11-16 18:30:51] local.DEBUG: -------start-------  
+[2024-11-16 18:30:51] local.DEBUG: before_data=stdClass Object
+(
+    [id] => 274
+    [alb_id] => 22
+    [art_id] => 1
+    [name] => (マブーハイ)
+    [release_date] => 
+    [link] => 
+    [aff_id] => 
+    [created_at] => 2024-07-02 16:19:27
+    [updated_at] => 2024-11-16 18:30:21
+)
+  
+[2024-11-16 18:30:51] local.DEBUG: after_data=Array
+(
+    [art_id] => 10
+    [name] => (マブーハイ)
+)
+  
+[2024-11-16 18:30:51] local.DEBUG: success  

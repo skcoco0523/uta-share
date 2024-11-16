@@ -143,3 +143,12 @@
     [art_id] => 12
 )
   
+[2024-11-16 18:34:50] local.DEBUG: -------start-------  
+[2024-11-16 18:34:50] local.DEBUG: id=28 art_id=6 name=&疾走  
+[2024-11-16 18:34:50] local.DEBUG: after_data=Array
+(
+    [name] => &疾走
+    [art_id] => 6
+    [release_date] => 2023-09-06
+)
+  

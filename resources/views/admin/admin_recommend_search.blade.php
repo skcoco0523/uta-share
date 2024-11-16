@@ -70,6 +70,7 @@
                 <th scope="col" class="fw-light">データ更新日</th>
                 <th scope="col" class="fw-light">詳細変更</th>
                 <th scope="col" class="fw-light"></th>
+                <th scope="col" class="fw-light"></th>
             </tr>
             </thead>
             @foreach($recommend as $recom)
@@ -108,6 +109,9 @@
                             <input type="hidden" name="category" value="{{$recom->category}}">
                             <input type="submit" value="詳細変更" class="btn btn-primary">
                         </form>
+                    </td>
+                    <td class="fw-light">
+                        <input type="button" value="編集" class="btn btn-primary edit-btn">
                     </td>
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-recommend-del') }}">
@@ -316,25 +320,27 @@
         //更新フォームを非表示
         form.style.display = 'none';
 
-        // テーブルの各行にクリックイベントリスナーを追加
-        document.querySelectorAll('table tr').forEach(row => {
-            row.addEventListener('click', () => {
-                //更新フォームを表示
+            // 各行の編集ボタンにイベントリスナーを追加
+            document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                // フォームを表示
                 form.style.display = 'block';
-                
-                // クリックされた行からデータを取得
-                const cells = row.querySelectorAll('td');
-                const id = cells[0].textContent;
-                const name = cells[1].textContent;
+
+                // ボタンの親要素（行）を取得
+                const row           = this.closest('tr');
+                const cells         = row.querySelectorAll('td');
+
+                const id            = cells[0].textContent;
+                const name          = cells[1].textContent;
                 const category_name = cells[2].textContent;
-                const disp_flag = cells[5].textContent.trim();
-                const user_name = cells[6].textContent;
+                const disp_flag     = cells[5].textContent.trim();
+                const user_name     = cells[6].textContent;
 
                 // フォームの対応するフィールドにデータを設定
-                document.querySelector('input[name="id"]').value = id;
-                document.querySelector('input[name="name"]').value = name;
+                document.querySelector('input[name="id"]').value            = id;
+                document.querySelector('input[name="name"]').value          = name;
                 document.querySelector('input[name="category_name"]').value = category_name;
-                document.querySelector('input[name="user_name"]').value = user_name;
+                document.querySelector('input[name="user_name"]').value     = user_name;
 
                 const selectDispflag = document.querySelector('select[name="disp_flag"]');
                 if (disp_flag === '非表示')         selectDispflag.value = '0';

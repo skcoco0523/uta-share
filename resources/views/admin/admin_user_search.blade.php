@@ -114,6 +114,7 @@
                 <th scope="col" class="fw-light">最終ﾛｸﾞｲﾝ日</th>
                 <th scope="col" class="fw-light">データ登録日</th>
                 <th scope="col" class="fw-light">データ更新日</th>
+                <th scope="col" class="fw-light"></th>
             </tr>
             </thead>
             @foreach($user_list as $user)
@@ -135,6 +136,9 @@
                     <td class="fw-light">{!! str_replace(' ', '<br>', $user->last_login_date) !!}</td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $user->created_at) !!}</td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $user->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <input type="button" value="編集" class="btn btn-primary edit-btn">
+                    </td>
                 </tr>
             @endforeach
             </tbody>
@@ -154,13 +158,16 @@ document.addEventListener('DOMContentLoaded', function() {
     //更新フォームを非表示
     form.style.display = 'none';
 
-    // テーブルの各行にクリックイベントリスナーを追加
-    document.querySelectorAll('table tr').forEach(row => {
-        row.addEventListener('click', () => {
-            //更新フォームを表示
+    // 各行の編集ボタンにイベントリスナーを追加
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            // フォームを表示
             form.style.display = 'block';
-            // クリックされた行からデータを取得
-            const cells         = row.querySelectorAll('td');
+
+            // ボタンの親要素（行）を取得
+            const row   = this.closest('tr');
+            const cells = row.querySelectorAll('td');
+            
             const id            = cells[0].textContent;
             const name          = cells[1].textContent;
             const email         = cells[3].textContent;
@@ -168,9 +175,9 @@ document.addEventListener('DOMContentLoaded', function() {
             //const prefectures   = cells[5].textContent;
 
             // フォームの対応するフィールドにデータを設定
-            document.querySelector('input[name="id"]').value = id;
-            document.querySelector('input[name="name"]').value = name;
-            document.querySelector('input[name="email"]').value = email;
+            document.querySelector('input[name="id"]').value        = id;
+            document.querySelector('input[name="name"]').value      = name;
+            document.querySelector('input[name="email"]').value     = email;
             document.querySelector('input[name="birthdate"]').value = birthdate;
             
             //都道府県を設定

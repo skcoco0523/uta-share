@@ -10,6 +10,7 @@
             <input type="hidden" name="page" value="{{request()->input('page') ?? $input['page'] ?? '' }}">
             {{--対象データ--}}
             <input type="hidden" id="id" name="id" value="{{$select->id ?? ($input['id'] ?? '')}}">
+            <input type="hidden" id="selectedArtistId" name="art_id" value="{{$select->art_id ?? ($input['art_id'] ?? '')}}">
             <input type="hidden" name="aff_id" value="{{$select->aff_id ?? ($input['aff_id'] ?? '')}}">
             <div class="col-6 col-md-4">
                 <label for="inputname" class="form-label">ｱﾙﾊﾞﾑ名</label>
@@ -18,7 +19,6 @@
             <div class="col-6 col-md-4">
                 <label for="inputart_name" class="form-label">ｱｰﾃｨｽﾄ名</label>
                 <input class="form-control" list="artistSelect" name="art_name" placeholder="Artist to search..." value="{{$input['art_name'] ?? ''}}" autocomplete="off">
-                <input type="hidden" id="selectedArtistId" name="art_id" value="{{$select->art_id ?? ($input['art_id'] ?? '')}}">
                 <datalist id="artistSelect">
                     @foreach($artist as $art)
                     <option value="{{ $art->name }}" data-id="{{ $art->id }}">{{ $art->name }}</option>
@@ -86,9 +86,8 @@
                 <th scope="col" class="fw-light">データ登録日</th>
                 <th scope="col" class="fw-light">データ更新日</th>
                 <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
-                <th scope="col" class="fw-light">詳細変更
-                    
-                </th>
+                <th scope="col" class="fw-light">詳細変更</th>
+                <th scope="col" class="fw-light"></th>
                 <th scope="col" class="fw-light"></th>
             </tr>
             </thead>
@@ -115,6 +114,9 @@
                             <input type="hidden" name="id" value="{{$alb->id}}">
                             <input type="submit" value="収録曲変更" class="btn btn-primary">
                         </form>
+                    </td>
+                    <td class="fw-light">
+                        <input type="button" value="編集" class="btn btn-primary edit-btn">
                     </td>
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-album-del') }}">
@@ -252,32 +254,35 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // テーブルの各行にクリックイベントリスナーを追加
-    document.querySelectorAll('table tr').forEach(row => {
-        row.addEventListener('click', () => {
-            //更新フォームを表示
+    // 各行の編集ボタンにイベントリスナーを追加
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            // フォームを表示
             form.style.display = 'block';
-            // クリックされた行からデータを取得
-            const cells = row.querySelectorAll('td');
-            const id = cells[0].textContent;
-            const alb_name = cells[1].textContent;
-            const art_name = cells[2].textContent;
-            const release_date = cells[4].textContent;
-            const aff_id_input = row.querySelector('input[name="aff_id"]');
-            const music_list_input = row.querySelector('input[name="music_list"]');
+
+            // ボタンの親要素（行）を取得
+            const row       = this.closest('tr');
+            const cells     = row.querySelectorAll('td');
+
+            const id                = cells[0].textContent;
+            const alb_name          = cells[1].textContent;
+            const art_name          = cells[2].textContent;
+            const release_date      = cells[4].textContent;
+            const aff_id_input      = row.querySelector('input[name="aff_id"]');
+            const music_list_input  = row.querySelector('input[name="music_list"]');
             //const music_list_input = document.querySelector('input[name="music_list"]');
-            const art_id_input = row.querySelector('input[name="art_id"]');
-            const art_id_value = art_id_input.value;
-            const aff_id_value = aff_id_input.value;
-            const music_list_value = music_list_input.value;
+            const art_id_input      = row.querySelector('input[name="art_id"]');
+            const art_id_value      = art_id_input.value;
+            const aff_id_value      = aff_id_input.value;
+            const music_list_value  = music_list_input.value;
 
             // フォームの対応するフィールドにデータを設定
-            document.querySelector('input[name="id"]').value = id;
-            document.querySelector('input[name="alb_name"]').value = alb_name;
-            document.querySelector('input[name="art_name"]').value = art_name;
-            document.querySelector('input[name="release_date"]').value = release_date;
-            document.querySelector('input[name="art_id"]').value = art_id_value; // art_idの値を設定
-            document.querySelector('input[name="aff_id"]').value = aff_id_value; // aff_idの値を設定
+            document.querySelector('input[name="id"]').value            = id;
+            document.querySelector('input[name="alb_name"]').value      = alb_name;
+            document.querySelector('input[name="art_name"]').value      = art_name;
+            document.querySelector('input[name="release_date"]').value  = release_date;
+            document.querySelector('input[name="art_id"]').value        = art_id_value; // art_idの値を設定
+            document.querySelector('input[name="aff_id"]').value        = aff_id_value; // aff_idの値を設定
             document.querySelector('textarea[name="music_list"]').value = music_list_value; // alb_musの値を設定
         });
     });

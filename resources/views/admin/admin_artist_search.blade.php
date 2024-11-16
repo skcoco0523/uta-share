@@ -65,6 +65,7 @@
                 <th scope="col" class="fw-light">データ登録日</th>
                 <th scope="col" class="fw-light">データ更新日</th>
                 <th scope="col" class="fw-light"></th>
+                <th scope="col" class="fw-light"></th>
             </tr>
             </thead>
             @foreach($artists as $artist)
@@ -85,6 +86,9 @@
                     </td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $artist->created_at) !!}</td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $artist->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <input type="button" value="編集" class="btn btn-primary edit-btn">
+                    </td>
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-artist-del') }}">
                             @csrf
@@ -113,31 +117,34 @@ document.addEventListener('DOMContentLoaded', function() {
     //更新フォームを非表示
     form.style.display = 'none';
 
-    // テーブルの各行にクリックイベントリスナーを追加
-    document.querySelectorAll('table tr').forEach(row => {
-        row.addEventListener('click', () => {
-            //更新フォームを表示
+    // 各行の編集ボタンにイベントリスナーを追加
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            // フォームを表示
             form.style.display = 'block';
-            // クリックされた行からデータを取得
-            const cells = row.querySelectorAll('td');
-            const id = cells[0].textContent;
-            const name = cells[1].textContent;
-            const name2 = cells[2].textContent;
-            const debut = cells[4].textContent;
-            const sex = cells[5].textContent.trim();
+
+            // ボタンの親要素（行）を取得
+            const row       = this.closest('tr');
+            const cells     = row.querySelectorAll('td');
+            
+            const id        = cells[0].textContent;
+            const name      = cells[1].textContent;
+            const name2     = cells[2].textContent;
+            const debut     = cells[4].textContent;
+            const sex       = cells[5].textContent.trim();
 
             // フォームの対応するフィールドにデータを設定
-            document.querySelector('input[name="id"]').value = id;
-            document.querySelector('input[name="name"]').value = name;
+            document.querySelector('input[name="id"]').value    = id;
+            document.querySelector('input[name="name"]').value  = name;
             document.querySelector('input[name="name2"]').value = name2;
             document.querySelector('input[name="debut"]').value = debut;
                     
         // 種別(性別)の選択肢を設定
         const selectSex = document.querySelector('select[name="sex"]');
-        if (sex === 'ｸﾞﾙｰﾌﾟ')         selectSex.value = '0';
-        else if (sex === '男性')    selectSex.value = '1';
-        else if (sex === '女性')    selectSex.value = '2';
-        else  selectSex.value = ''; // 種別の場合、空の値にする
+            if (sex === 'ｸﾞﾙｰﾌﾟ')         selectSex.value = '0';
+            else if (sex === '男性')    selectSex.value = '1';
+            else if (sex === '女性')    selectSex.value = '2';
+            else  selectSex.value = ''; // 種別の場合、空の値にする
         });
     });
 });

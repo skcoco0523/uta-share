@@ -56,6 +56,7 @@
                 <th scope="col" class="fw-light">データ更新日</th>
                 <th scope="col" class="fw-light">詳細変更</th>
                 <th scope="col" class="fw-light"></th>
+                <th scope="col" class="fw-light"></th>
             </tr>
             </thead>
             @foreach($playlist as $pl)
@@ -76,6 +77,9 @@
                             <input type="hidden" name="id" value="{{$pl->id}}">
                             <input type="submit" value="収録曲変更" class="btn btn-primary">
                         </form>
+                    </td>
+                    <td class="fw-light">
+                        <input type="button" value="編集" class="btn btn-primary edit-btn">
                     </td>
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-playlist-del') }}">
@@ -232,20 +236,23 @@
         //更新フォームを非表示
         form.style.display = 'none';
 
-        // テーブルの各行にクリックイベントリスナーを追加
-        document.querySelectorAll('table tr').forEach(row => {
-            row.addEventListener('click', () => {
-                //更新フォームを表示
+        // 各行の編集ボタンにイベントリスナーを追加
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                // フォームを表示
                 form.style.display = 'block';
-                // クリックされた行からデータを取得
+
+                // ボタンの親要素（行）を取得
+                const row   = this.closest('tr');
                 const cells = row.querySelectorAll('td');
-                const id = cells[0].textContent;
-                const name = cells[1].textContent;
-                const user_name = cells[3].textContent;
+
+                const id            = cells[0].textContent;
+                const name          = cells[1].textContent;
+                const user_name     = cells[3].textContent;
 
                 // フォームの対応するフィールドにデータを設定
-                document.querySelector('input[name="id"]').value = id;
-                document.querySelector('input[name="name"]').value = name;
+                document.querySelector('input[name="id"]').value        = id;
+                document.querySelector('input[name="name"]').value      = name;
                 document.querySelector('input[name="user_name"]').value = user_name;
                 
             });

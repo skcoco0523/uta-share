@@ -154,6 +154,8 @@
                 <th scope="col" class="fw-light">ｲﾒｰｼﾞ&ﾘﾝｸ</th>
                 <th scope="col" class="fw-light">ﾃﾞｰﾀ登録日</th>
                 <th scope="col" class="fw-light">ﾃﾞｰﾀ更新日</th>
+                <th scope="col" class="fw-light"></th>
+                <th scope="col" class="fw-light"></th>
             </tr>
             </thead>
             @foreach($advertisement as $adv)
@@ -176,6 +178,9 @@
                     </td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $adv->created_at) !!}</td>
                     <td class="fw-light">{!! str_replace(' ', '<br>', $adv->updated_at) !!}</td>
+                    <td class="fw-light">
+                        <input type="button" value="編集" class="btn btn-primary edit-btn">
+                    </td>
                     <td class="fw-light">
                         <form method="POST" action="{{ route('admin-adv-del') }}">
                             @csrf
@@ -231,13 +236,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // テーブルの各行にクリックイベントリスナーを追加
-    document.querySelectorAll('table tr').forEach(row => {
-        row.addEventListener('click', () => {
-            //更新フォームを表示
+    // 各行の編集ボタンにイベントリスナーを追加
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            // フォームを表示
             form.style.display = 'block';
-            // クリックされた行からデータを取得
+
+            // ボタンの親要素（行）を取得
+            const row       = this.closest('tr');
             const cells     = row.querySelectorAll('td');
+
             const id        = cells[0].textContent;
             const name      = cells[1].textContent;
             const type      = cells[2].textContent;
@@ -257,13 +265,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const aff_id_value = aff_id_input.value;
 
             // フォームの対応するフィールドにデータを設定
-            document.querySelector('input[name="id"]').value = id;
-            document.querySelector('input[name="name"]').value = name;
-            document.querySelector('select[name="type"]').value = type;
-            document.querySelector('select[name="month"]').value = month;
-            document.querySelector('select[name="day"]').value = day;
-            document.querySelector('select[name="days"]').value = days;
-            document.querySelector('select[name="age"]').value = age;
+            document.querySelector('input[name="id"]').value        = id;
+            document.querySelector('input[name="name"]').value      = name;
+            document.querySelector('select[name="type"]').value     = type;
+            document.querySelector('select[name="month"]').value    = month;
+            document.querySelector('select[name="day"]').value      = day;
+            document.querySelector('select[name="days"]').value     = days;
+            document.querySelector('select[name="age"]').value      = age;
             document.querySelector('select[name="priority"]').value = priority;
 
             const selectGender = document.querySelector('select[name="gender"]');

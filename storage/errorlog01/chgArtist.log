@@ -53,3 +53,19 @@
     [sex] => 1
 )
   
+[2024-11-16 18:11:32] local.DEBUG: after_data=Array
+(
+    [name] => HY
+    [name2] => エイチワ
+    [debut] => 2001-09-22
+    [sex] => 0
+)
+  
+[2024-11-16 18:11:44] local.DEBUG: after_data=Array
+(
+    [name] => HY
+    [name2] => エイチワイ
+    [debut] => 2001-09-22
+    [sex] => 0
+)
+  
