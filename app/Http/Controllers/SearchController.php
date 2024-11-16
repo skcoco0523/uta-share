@@ -71,7 +71,7 @@ class SearchController extends Controller
         
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="art"){
-            $search_list["art"] = Artist::getArtist_list(5,true,$art_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $search_list["art"] = Artist::getArtist_list(10,true,$art_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }        
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="mus"){
@@ -83,8 +83,7 @@ class SearchController extends Controller
         }        
         //すべてタブ、曲タブ
         if($input['table']=='all' || $input['table']=="pl"){
-            $input['user_serch'] = 1;
-            $search_list["pl"]  = Playlist::getPlaylist_list(20,true,$pl_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
+            $search_list["pl"]  = Playlist::getPlaylist_list(10,true,$pl_page,$input);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ
         }
         //dd($search_list["pl"]);
         //検索履歴の登録
