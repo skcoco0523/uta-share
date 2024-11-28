@@ -114,26 +114,42 @@
         <div class="col-12 col-md-6">
             <label for="inputmusic" class="form-label">収録曲</label>
 
+
             <div style="max-height: 600px; overflow-y: auto;">
-                <div class="row align-items-end">
+                <table class="table table-striped table-hover table-bordered fs-6 ">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="fw-light">楽曲名</th>
+                        <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
+                        <th scope="col" class="fw-light">ｲﾒｰｼﾞ</th>
+                        <th scope="col" class="fw-light"></th>
+                    </tr>
+                    </thead>
                     {{--変更フォーム--}}
                     @foreach($playlist_detail->music as $mus)
-                    <div class="row">
-                        <div class="col-sm-9 mb-2"> <!-- フォームの列 -->
-                            <input type="text" class="form-control" value="{{$mus->mus_name}}    < {{$mus->art_name}} >" disabled>
-                        </div>
-                        <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->
-                            <div class="d-sm-inline-flex"> <!-- スクリーン幅が小さいときにインラインフレックスにする -->
-                                <!--    プレイリストは変更なし
-                                <input type="button" class="btn btn-primary me-2" value="更新" onclick="alb_detail_fnc('chg','{{$mus->id}}');" >
-                                -->
-                                <input type="button" class="btn btn-danger" value="削除" onclick="alb_detail_fnc('del','{{$mus->id}}');" >
-                            </div>
-                        </div>
-                    </div>
+                        <tr>
+                            <td class="fw-light">
+                            <a href="{{ route('admin-music-search', ['search_music' => $mus->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                {{$mus->name}}
+                            </td>
+                            <td class="fw-light">
+                            <a href="{{ route('admin-artist-search', ['search_artist' => $mus->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
+                                {{$mus->art_name}}
+                            </td>
+                            <td class="fw-light">
+                                <a class="icon-40" href="{{ $mus->href }}">
+                                    <img src="{{ $mus->src }}" style="object-fit: contain; width: 100%; height: 100%;" alt="mus_image">
+                                </a>
+                            </td>
+                            <td class="fw-light">
+                            <input type="button" class="btn btn-danger" value="削除" onclick="alb_detail_fnc('del','{{$mus->id}}');" >
+                            </td>
+                        </tr>
                     @endforeach
-                </div>
+                    </tbody>
+                </table>
             </div>
+
         </div>
         <div class="col-12 col-md-6">
             {{--追加用  検索フォーム--}}
@@ -162,15 +178,14 @@
                     <table class="table table-striped table-hover table-bordered fs-6 ">
                         <thead>
                         <tr>
-                            <th scope="col" class="fw-light">#</th>
                             <th scope="col" class="fw-light">楽曲名</th>
                             <th scope="col" class="fw-light">ｱｰﾃｨｽﾄ名</th>
+                            <th scope="col" class="fw-light">ｲﾒｰｼﾞ</th>
                             <th scope="col" class="fw-light"></th>
                         </tr>
                         </thead>
                         @foreach($music as $mus)
                             <tr>
-                                <td class="fw-light">{{$mus->id}}</td>
                                 <td class="fw-light">
                                 <a href="{{ route('admin-music-search', ['search_music' => $mus->name] )}}" class="text-decoration-none" rel="noopener noreferrer">
                                     {{$mus->name}}
@@ -178,6 +193,11 @@
                                 <td class="fw-light">
                                 <a href="{{ route('admin-artist-search', ['search_artist' => $mus->art_name] )}}" class="text-decoration-none" rel="noopener noreferrer">
                                     {{$mus->art_name}}
+                                </td>
+                                <td class="fw-light">
+                                    <a class="icon-40" href="{{ $mus->href }}">
+                                        <img src="{{ $mus->src }}" style="object-fit: contain; width: 100%; height: 100%;" alt="mus_image">
+                                    </a>
                                 </td>
                                 <td class="fw-light">
                                     <input type="button" class="btn btn-success" value="追加" onclick="alb_detail_fnc('add','{{$mus->id}}');" >
