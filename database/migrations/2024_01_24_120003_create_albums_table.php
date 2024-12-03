@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger ('art_id');
             $table->date('release_date')->nullable();
-            $table->unsignedBigInteger ('aff_id');
+            $table->unsignedBigInteger ('aff_id')->nullable();
             $table->timestamps();
 
             // 外部キー制約
             $table->foreign('art_id')->references('id')->on('artists')->onDelete('cascade');
-            $table->foreign('aff_id')->references('id')->on('affiliates')->onDelete('cascade');
+            //$table->foreign('aff_id')->references('id')->on('affiliates')->onDelete('cascade');
 
             // インデックスの追加
             $table->index('name');

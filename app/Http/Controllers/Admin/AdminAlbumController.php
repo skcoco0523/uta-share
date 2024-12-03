@@ -35,26 +35,31 @@ class AdminAlbumController extends Controller
     //追加
     public function album_reg(Request $request)
     {
-        $input = $request->only(['alb_name', 'art_id', 'art_name', 'release_date', 'music_list', 'aff_link']);
+        $input = $request->all();
         $msg=null;
         //Album,Affiliate,Musicを一括で登録するため、事前にデータ確認
-        if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
+        if(!$input['no_link']){
+            if(!$input['aff_link'])     $msg =  "アフィリエイトリンクを入力してください。";
+        }
         if(!$input['art_id'])       $msg =  "登録されていないアーティストは選択できません。";
         if(!$input['art_name'])     $msg =  "アーティストを選択してください。";
         if(!$input['alb_name'])     $msg =  "アルバム名を入力してください。";
         if($msg!==null)         return redirect()->route('admin-album-reg', ['input' => $input, 'msg' => $msg]);
         //dd($data);
         
-        //affiliate登録
-        $input = $request->only(['aff_link']);
+        if($input['no_link']){
+            $aff_id=null;
+        }else{
+            //affiliate登録
+            $input = $request->only(['aff_link']);
 
-        $ret = Affiliate::createAffiliate($input);
-        if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
-        if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
-        if($ret['error_code']==-1)    $msg = "アフィリエイト情報の登録に失敗しました。";
-        if($msg!==null) return redirect()->route('admin-album-reg', ['input' => $input, 'msg' => $msg]);
-        $aff_id=$ret['id']; //追加したAffiliateID
-        
+            $ret = Affiliate::createAffiliate($input);
+            if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
+            if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
+            if($ret['error_code']==-1)    $msg = "アフィリエイト情報の登録に失敗しました。";
+            if($msg!==null) return redirect()->route('admin-album-reg', ['input' => $input, 'msg' => $msg]);
+            $aff_id=$ret['id']; //追加したAffiliateID
+        }
         //Album登録
         $input = $request->only(['alb_name', 'art_id','release_date']);
         $input['name'] = $input['alb_name'];    //albumのカラム名に合わせる
