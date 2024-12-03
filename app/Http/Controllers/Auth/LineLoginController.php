@@ -141,7 +141,9 @@ class LineLoginController extends Controller
 
         // あったらログイン
         if($user) {
-            Auth::login($user);
+            // 第二引数(remember)を使ってログイン
+            //Auth::login($user);
+            Auth::login($user, true); 
             UserLog::create_user_log("line_login");
 
         // なければ登録してからログイン
@@ -152,7 +154,9 @@ class LineLoginController extends Controller
             $user->name=$profile->displayName;
             $user->friend_code = User::generateUniqueFriendCode();
             $user->save();
-            Auth::login($user);
+            // 第二引数(remember)を使ってログイン
+            //Auth::login($user);
+            Auth::login($user, true); 
             UserLog::create_user_log("line_user_reg");
 
             //自身に通知する
@@ -174,6 +178,7 @@ class LineLoginController extends Controller
             push_send(13,$send_info);
             
         }
+
         // ユーザーが認証された後にデバイス情報を登録するためフロントで識別できるようにする
         return redirect('/home/?login=success');
         
