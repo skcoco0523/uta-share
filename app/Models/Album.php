@@ -182,9 +182,11 @@ class Album extends Model
             
             // 更新対象となるカラムと値を連想配列に追加
             $updateData = [];
-            if(isset($data['name']))    $updateData['name']     = $data['name'];
-            if(isset($data['art_id']))   $updateData['art_id']    = $data['art_id'];
-            if(isset($data['release_date']))   $updateData['release_date']    = $data['release_date'];
+            if(isset($data['name']))            $updateData['name']             = $data['name'];
+            if(isset($data['art_id']))          $updateData['art_id']           = $data['art_id'];
+            if(isset($data['release_date']))    $updateData['release_date']     = $data['release_date'];
+            //aff_idなしから新規でaff_idを作成する場合
+            if(isset($data['aff_id']))          $updateData['aff_id']           = $data['aff_id'];
         
             make_error_log("chgAlbum.log","after_data=".print_r($updateData,1));
             
@@ -218,7 +220,9 @@ class Album extends Model
                 DB::table('musics')->where('id', $music->id)->delete();
             }
             DB::table('albums')->where('id', $albums->id)->delete();
-            DB::table('affiliates')->where('id', $albums->aff_id)->delete();
+            if( $albums->aff_id){
+                DB::table('affiliates')->where('id', $albums->aff_id)->delete();
+            }
             make_error_log("delAlbum.log","alb_id=".$albums->id, " alb_id=".$albums->id, " alb_name=".$albums->name, " alb_aff_id=".$albums->aff_id);
 
             $msg = "アルバム：{$albums->name}、収録曲を削除しました。";

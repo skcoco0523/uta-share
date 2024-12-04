@@ -21,7 +21,7 @@ return new class extends Migration
 
             // 外部キー制約
             $table->foreign('art_id')->references('id')->on('artists')->onDelete('cascade');
-            //$table->foreign('aff_id')->references('id')->on('affiliates')->onDelete('cascade');
+            $table->foreign('aff_id')->references('id')->on('affiliates')->onDelete('set null');
 
             // インデックスの追加
             $table->index('name');

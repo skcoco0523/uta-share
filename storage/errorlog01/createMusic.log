@@ -471,3 +471,66 @@
 )
   
 [2024-11-04 16:04:13] local.DEBUG: success  
+[2024-12-04 21:41:44] local.DEBUG: -------start-------  
+[2024-12-04 21:41:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 36
+    [name] => test
+)
+  
+[2024-12-04 21:41:44] local.DEBUG: success  
+[2024-12-04 21:41:44] local.DEBUG: -------start-------  
+[2024-12-04 21:41:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 36
+    [name] => test1
+)
+  
+[2024-12-04 21:41:44] local.DEBUG: success  
+[2024-12-04 21:41:44] local.DEBUG: -------start-------  
+[2024-12-04 21:41:44] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 36
+    [name] => test2
+)
+  
+[2024-12-04 21:41:44] local.DEBUG: success  
+[2024-12-04 21:42:35] local.DEBUG: -------start-------  
+[2024-12-04 21:42:35] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 37
+    [name] => test
+)
+  
+[2024-12-04 21:42:35] local.DEBUG: success  
+[2024-12-04 21:42:35] local.DEBUG: -------start-------  
+[2024-12-04 21:42:35] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 37
+    [name] => test2
+)
+  
+[2024-12-04 21:42:35] local.DEBUG: success  
+[2024-12-04 21:55:11] local.DEBUG: -------start-------  
+[2024-12-04 21:55:11] local.DEBUG: create_data=Array
+(
+    [art_id] => 6
+    [alb_id] => 39
+    [name] => test
+)
+  
+[2024-12-04 21:55:11] local.DEBUG: success  
+[2024-12-04 22:27:09] local.DEBUG: -------start-------  
+[2024-12-04 22:27:09] local.DEBUG: create_data=Array
+(
+    [art_id] => 3
+    [alb_id] => 40
+    [name] => test
+)
+  
+[2024-12-04 22:27:09] local.DEBUG: success  

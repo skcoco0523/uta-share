@@ -5827,3 +5827,5 @@
 [2024-11-28 20:07:15] local.DEBUG: fnc=del pl_id=9 detail_id=443  
 [2024-11-28 20:07:46] local.DEBUG: -----start-----  
 [2024-11-28 20:07:46] local.DEBUG: fnc=add pl_id=9 detail_id=443  
+[2024-12-04 21:41:57] local.DEBUG: -----start-----  
+[2024-12-04 21:41:57] local.DEBUG: fnc=del alb_id=36 mus_id=452 name=test2  

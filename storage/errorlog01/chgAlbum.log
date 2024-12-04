@@ -152,3 +152,38 @@
     [release_date] => 2023-09-06
 )
   
+[2024-12-04 21:34:46] local.DEBUG: -------start-------  
+[2024-12-04 21:34:46] local.DEBUG: id=35 art_id=6 name=リンクなし  
+[2024-12-04 21:34:46] local.DEBUG: after_data=Array
+(
+    [name] => リンクなし
+    [art_id] => 6
+)
+  
+[2024-12-04 21:36:52] local.DEBUG: -------start-------  
+[2024-12-04 21:36:52] local.DEBUG: id=28 art_id=6 name=&疾走  
+[2024-12-04 21:36:52] local.DEBUG: after_data=Array
+(
+    [name] => &疾走
+    [art_id] => 6
+    [release_date] => 2023-09-06
+)
+  
+[2024-12-04 21:39:25] local.DEBUG: -------start-------  
+[2024-12-04 21:39:25] local.DEBUG: id=35 art_id=6 name=リンクなし  
+[2024-12-04 21:39:25] local.DEBUG: after_data=Array
+(
+    [name] => リンクなし
+    [art_id] => 6
+    [aff_id] => 56
+)
+  
+[2024-12-04 21:42:48] local.DEBUG: -------start-------  
+[2024-12-04 21:42:48] local.DEBUG: id=37 art_id=6 name=リンクなし  
+[2024-12-04 21:42:48] local.DEBUG: after_data=Array
+(
+    [name] => リンクなし
+    [art_id] => 6
+    [aff_id] => 57
+)
+  

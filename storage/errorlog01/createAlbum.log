@@ -17,3 +17,21 @@
 [2024-12-03 19:17:53] local.DEBUG: -------start-------  
 [2024-12-03 19:17:53] local.DEBUG: name=リンクなし art_id=6 release_date= aff_id=  
 [2024-12-03 19:17:53] local.DEBUG: success  
+[2024-12-04 21:41:44] local.DEBUG: -------start-------  
+[2024-12-04 21:41:44] local.DEBUG: name=リンクなし art_id=3 release_date= aff_id=  
+[2024-12-04 21:41:44] local.DEBUG: success  
+[2024-12-04 21:42:35] local.DEBUG: -------start-------  
+[2024-12-04 21:42:35] local.DEBUG: name=リンクなし art_id=6 release_date= aff_id=  
+[2024-12-04 21:42:35] local.DEBUG: success  
+[2024-12-04 21:53:42] local.DEBUG: -------start-------  
+[2024-12-04 21:53:42] local.DEBUG: name=リンクなし art_id=6 release_date= aff_id=  
+[2024-12-04 21:53:42] local.DEBUG: success  
+[2024-12-04 21:55:11] local.DEBUG: -------start-------  
+[2024-12-04 21:55:11] local.DEBUG: name=リンクなし art_id=6 release_date= aff_id=58  
+[2024-12-04 21:55:11] local.DEBUG: success  
+[2024-12-04 22:27:09] local.DEBUG: -------start-------  
+[2024-12-04 22:27:09] local.DEBUG: name=テスト art_id=3 release_date= aff_id=59  
+[2024-12-04 22:27:09] local.DEBUG: success  
+[2024-12-04 22:30:26] local.DEBUG: -------start-------  
+[2024-12-04 22:30:26] local.DEBUG: name=テスト art_id=3 release_date= aff_id=60  
+[2024-12-04 22:30:26] local.DEBUG: success  

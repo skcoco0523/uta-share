@@ -141,13 +141,20 @@ class AdminAlbumController extends Controller
 
         //affiliate変更
         //$input = $request->only(['aff_link', 'aff_id']);
+
         if($input['aff_link']){
-            $ret = Affiliate::chgAffiliate($input);
+            //既存aff_idがあれば更新　なければ作成後にアルバム情報を更新
+            if($input['aff_id']){
+                $ret = Affiliate::chgAffiliate($input);
+            }else{
+                $ret = Affiliate::createAffiliate($input);
+                $input['aff_id']=$ret['id']; //追加したAffiliateID
+            }
+
             if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
             if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
-            if($ret['error_code']==-1)    $msg = "アフィリエイト情報の変更に失敗しました。";
+            if($ret['error_code']==-1)    $msg = "アフィリエイト情報の登録に失敗しました。";
             if($msg!==null) return redirect()->route('admin-album-search', ['input' => $input, 'msg' => $msg]);
-
         }
         
         //Album変更
