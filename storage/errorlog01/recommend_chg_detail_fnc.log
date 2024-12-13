@@ -1537,3 +1537,31 @@
 [2024-11-04 16:01:26] local.DEBUG: fnc=add recom_id=51 category=0 detail_id=15  
 [2024-11-04 16:01:29] local.DEBUG: -----start-----  
 [2024-11-04 16:01:29] local.DEBUG: fnc=add recom_id=51 category=0 detail_id=443  
+[2024-12-13 22:47:42] local.DEBUG: -----start-----  
+[2024-12-13 22:47:42] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:52:21] local.DEBUG: -----start-----  
+[2024-12-13 22:52:21] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:53:09] local.DEBUG: -----start-----  
+[2024-12-13 22:53:09] local.DEBUG: fnc=del recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:53:25] local.DEBUG: -----start-----  
+[2024-12-13 22:53:25] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:54:03] local.DEBUG: -----start-----  
+[2024-12-13 22:54:03] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:54:05] local.DEBUG: -----start-----  
+[2024-12-13 22:54:05] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:59:16] local.DEBUG: -----start-----  
+[2024-12-13 22:59:16] local.DEBUG: fnc=del recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:59:19] local.DEBUG: -----start-----  
+[2024-12-13 22:59:19] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:59:20] local.DEBUG: -----start-----  
+[2024-12-13 22:59:20] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 22:59:22] local.DEBUG: -----start-----  
+[2024-12-13 22:59:22] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  
+[2024-12-13 23:02:48] local.DEBUG: -----start-----  
+[2024-12-13 23:02:48] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=32  
+[2024-12-13 23:02:48] local.DEBUG: -----start-----  
+[2024-12-13 23:02:48] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=2  
+[2024-12-13 23:02:49] local.DEBUG: -----start-----  
+[2024-12-13 23:02:49] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=34  
+[2024-12-13 23:02:51] local.DEBUG: -----start-----  
+[2024-12-13 23:02:51] local.DEBUG: fnc=add recom_id=45 category=3 detail_id=47  

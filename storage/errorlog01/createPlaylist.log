@@ -1296,3 +1296,13 @@
 )
   
 [2024-11-04 17:09:46] local.DEBUG: success  
+[2024-12-13 22:47:33] local.DEBUG: ---------start----------  
+[2024-12-13 22:47:33] local.DEBUG: data=Array
+(
+    [_token] => SD5ATtStG4TvVkf1jnoUe9dq13aPgYOMT3SZVAdb
+    [name] => アニメテスト
+    [admin_flag] => 1
+    [user_id] => 1
+)
+  
+[2024-12-13 22:47:33] local.DEBUG: success  

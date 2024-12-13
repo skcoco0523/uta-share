@@ -175,18 +175,24 @@ class Recommend extends Model
                 foreach ($detail_list as $key => $detail_data) {       
                     $add_list[$key] = Playlist::getPlaylist_detail($detail_data->detail_id);
                     if(!$add_list[$key]) {
-                        unset($detail_list[$key]);unset($add_list[$key]);
+                        //unset($detail_list[$key]);unset($add_list[$key]);
                     }else{
                         //プレイリストの収録曲が０件の場合は除外
                         if (count($add_list[$key]->music) == 0) {
-                            unset($detail_list[$key]);unset($add_list[$key]);
+                            //プレイリストのみ、データなしでも含めて返す
+                            //unset($detail_list[$key]);unset($add_list[$key]);
                         }
                     }
                 }
             }
             // キーを再インデックス化して、連続した配列にする (歯抜けになるから詰める)
             $detail = array_values($add_list); 
-            
+
+            // 名前を昇順に並べ替える
+            usort($detail, function($a, $b) {
+                return strcmp($a->name, $b->name);
+            });
+
             if($pageing){
                 $recommend2 = $detail_list;
                 $recommend2->setCollection(collect($detail));
@@ -315,7 +321,9 @@ class Recommend extends Model
             make_error_log("chgRecommend_detail.log","delete_id=".$data['detail_id']);
             switch($data['fnc']){
                 case "add":
-                    $detail_id = DB::table('recommenddetail')->insert(['recom_id' => $data['id'],'detail_id' => $data['detail_id']]);
+                    //重複登録されてしまうため修正
+                    //$detail_id = DB::table('recommenddetail')->insert(['recom_id' => $data['id'],'detail_id' => $data['detail_id']]);
+                    $detail_id = DB::table('recommenddetail')->updateOrInsert(['recom_id' => $data['id'],'detail_id' => $data['detail_id']]);
                     break;
                 case "del":
                     DB::table('recommenddetail')->where('recom_id', $data['id'])->where('detail_id', $data['detail_id'])->delete();
