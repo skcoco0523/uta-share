@@ -534,3 +534,37 @@
 )
   
 [2024-12-04 22:27:09] local.DEBUG: success  
+[2024-12-14 02:42:29] local.DEBUG: -------start-------  
+[2024-12-14 02:42:29] local.DEBUG: create_data=Array
+(
+    [_token] => SD5ATtStG4TvVkf1jnoUe9dq13aPgYOMT3SZVAdb
+    [name] => スクワッド!
+    [art_name] => HY
+    [art_id] => 5
+    [release_date] => 
+    [aff_link] => 
+    [no_link] => 1
+    [admin_flag] => 1
+    [alb_id] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-12-14 02:42:29] local.DEBUG: success  
+[2024-12-14 02:48:52] local.DEBUG: -------start-------  
+[2024-12-14 02:48:52] local.DEBUG: create_data=Array
+(
+    [_token] => SD5ATtStG4TvVkf1jnoUe9dq13aPgYOMT3SZVAdb
+    [name] => テスト
+    [art_name] => Dios
+    [art_id] => 6
+    [release_date] => 
+    [aff_link] => 
+    [no_link] => 1
+    [admin_flag] => 1
+    [alb_id] => 
+    [link] => 
+    [aff_id] => 
+)
+  
+[2024-12-14 02:48:52] local.DEBUG: success  

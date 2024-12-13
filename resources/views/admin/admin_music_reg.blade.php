@@ -38,6 +38,10 @@
             
             <div class="form-group mt-3">
                 <label class="form-label">イメージ(上記リンクのイメージが表示)</label>
+                    <input type="hidden" name="no_link" value="0">
+                    <!-- チェックボックス -->
+                    <input type="checkbox" class="form-check-input ms-2" name="no_link" value="1">
+                    <span class="ms-1">リンクなしで登録</span>
             </div>
             <div id="affiliate-preview">
                 {{--入力されたリンクが表示される部分--}}

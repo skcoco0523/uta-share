@@ -55,16 +55,21 @@ class AdminMusicController extends Controller
         if(!$input['name'])         $msg =  "曲名を入力してください。";
         if($msg!==null)         return redirect()->route('admin-music-reg', ['input' => $input, 'msg' => $msg]);
 
-        //affiliate登録
-        $ret = Affiliate::createAffiliate($input);
 
-        if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
-        if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
-        if($ret['error_code']==-1)    $msg = "アフィリエイト情報の登録に失敗しました。";
-        if($msg!==null) return redirect()->route('admin-music-reg', ['input' => $input, 'msg' => $msg]);
-        $input['aff_id']=$ret['id']; //追加したAffiliateID
-
+        if($input['no_link']){
+            $aff_id=null;
+        }else{
+            //affiliate登録
+            $ret = Affiliate::createAffiliate($input);
+            if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
+            if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
+            if($ret['error_code']==-1)    $msg = "アフィリエイト情報の登録に失敗しました。";
+            if($msg!==null) return redirect()->route('admin-music-reg', ['input' => $input, 'msg' => $msg]);
+            $aff_id=$ret['id']; //追加したAffiliateID
+        }
+        
         //曲登録
+        $input['aff_id'] = $aff_id;          //AffiliateID追加
         $ret = Music::createMusic($input);
         if($ret['error_code']==0){
              $msg = "曲：{$input['name']} を追加しました。";
@@ -126,7 +131,14 @@ class AdminMusicController extends Controller
         //$input = $request->only(['aff_link', 'aff_id','page']);
         $input = $request->all();
         if($input['aff_link']){
-            $ret = Affiliate::chgAffiliate($input);
+            //既存aff_idがあれば更新　なければ作成後にアルバム情報を更新
+            if($input['aff_id']){
+                $ret = Affiliate::chgAffiliate($input);
+            }else{
+                $ret = Affiliate::createAffiliate($input);
+                $input['aff_id']=$ret['id']; //追加したAffiliateID
+            }
+            
             if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
             if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
             if($ret['error_code']==-1)    $msg = "アフィリエイト情報の変更に失敗しました。";
@@ -136,7 +148,7 @@ class AdminMusicController extends Controller
         
         //music変更
         //$input = $request->only(['id', 'alb_name', 'art_id','release_date', 'link','page']);
-        $input = $request->all();
+        //$input = $request->all();
         $input['name'] = $input['mus_name'];    //musicのカラム名に合わせる
         if($input){
             $ret = Music::chgMusic($input);

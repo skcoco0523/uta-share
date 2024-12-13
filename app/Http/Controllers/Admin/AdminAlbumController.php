@@ -51,8 +51,6 @@ class AdminAlbumController extends Controller
             $aff_id=null;
         }else{
             //affiliate登録
-            $input = $request->only(['aff_link']);
-
             $ret = Affiliate::createAffiliate($input);
             if($ret['error_code']==1)     $msg = "アフィリエイトリンクを入力してください。";
             if($ret['error_code']==2)     $msg = "アフィリエイトリンクが不正です。(URLと画像情報が必要)";
