@@ -16,13 +16,13 @@ class Ranking extends Model
 
         if($table){
             if    ($table=="mus") $sql_cmd = DB::table('favorite_mus');
-            elseif($table=="alb") $sql_cmd = DB::table('favorite_mus');
+            elseif($table=="alb") $sql_cmd = DB::table('favorite_alb');
             elseif($table=="pl")  $sql_cmd = DB::table('favorite_pl');
             //ユーザーがtableを修正して引き渡した場合の対応
             else return null;
 
-            $sql_cmd = $sql_cmd->select('fav_id', DB::raw('COUNT(*) as count'));
-            $sql_cmd = $sql_cmd->groupBy('fav_id')->orderByDesc('count');
+            $sql_cmd->select('fav_id', DB::raw('COUNT(*) as count'));
+            $sql_cmd->groupBy('fav_id')->orderByDesc('count');
 
             // ページング・取得件数指定・全件で分岐
             if ($pageing){
@@ -32,23 +32,32 @@ class Ranking extends Model
             elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
             else                                $sql_cmd = $sql_cmd->get();       
             $favorite = $sql_cmd;
+
+            $id_list = array();
+            foreach($favorite as $fav){
+                //$ranking[] = Music::getMusic_detail($fav->fav_id);
+                $id_list[] = $fav->fav_id;
+            }
             
             $ranking = array();
-
-            if($table=="mus") {
-                foreach($favorite as $fav){
-                    $ranking[] = Music::getMusic_detail($fav->fav_id);
-                }
-            }
+            $input['default_sort'] = true;  //元の順番で取得する
+            $ranking = Music::getMusic_detail($id_list,$input);
+            if($table=="mus")  $ranking = Music::getMusic_detail($id_list);
             if($table=="alb") {}
             if($table=="pl") {}
 
-
             if($ranking){
+                //一致するアイテムを検索
+                $ranking = collect($ranking)->sortBy(function($item) use ($favorite) {
+                    return $favorite->search(function($fav) use ($item) {
+                        return $fav->fav_id == $item->mus_id;
+                    });
+                });
                 if($pageing){
                     $favorite->setCollection(collect($ranking));
                 }else{
-                    $favorite = $favorite->replace($ranking);
+                    //$favorite = $favorite->replace($ranking);
+                    $favorite = $ranking;
                     //dd($recommend2,$detail);
                 }
             }
@@ -80,10 +89,13 @@ class Ranking extends Model
             else                                $sql_cmd = $sql_cmd->get();
             $music_list = $sql_cmd;
 
-            $ranking = array();
+            $id_list = array();
             foreach($music_list as $key => $mus){
-                $ranking[$key] = Music::getMusic_detail($mus->id);
+                //$ranking[$key] = Music::getMusic_detail($mus->id);
+                $id_list[] = $mus->id;
             }
+            $input['default_sort'] = true;  //元の順番で取得する
+            $ranking = Music::getMusic_detail($id_list,$input);
 
             if($ranking){
                 if($pageing){

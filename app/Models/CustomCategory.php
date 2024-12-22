@@ -16,7 +16,7 @@ class CustomCategory extends Model
     //カテゴリ情報取得
     public static function getCustomCategory($disp_cnt=null,$pageing=false,$page=1,$user_id,$bit_num=null)
     {
-        try {
+        //try {
 
             if(!$bit_num){
                 //ビット番号指定なし　カテゴリ項目のみ返す
@@ -43,19 +43,30 @@ class CustomCategory extends Model
                 elseif($disp_cnt !== null)          $sql_cmd = $sql_cmd->limit($disp_cnt)->get();
                 else                                $sql_cmd = $sql_cmd->get();
                 $music_list = $sql_cmd;
-                $detail = array();
-                foreach($music_list as $key => $mus){
-                    $music_list[$key] = Music::getMusic_detail($mus->id);
+
+                $id_list = array();
+                foreach($music_list as $mus){
+                    //$ranking[] = Music::getMusic_detail($fav->fav_id);
+                    $id_list[] = $mus->id;
                 }
-                //dd($bit_num,$music_list);
+                $input['mus_name_asc'] = true;
+                $music = Music::getMusic_detail($id_list);
+                
+
+                if($pageing){
+                    $music_list->setCollection(collect($music));
+                }else{
+                    $music_list = $music;
+                }
+
                 return $music_list;
 
             }
         
-        } catch (\Exception $e) {
+        //} catch (\Exception $e) {
             make_error_log("getFavorite.log","failure");
             return null;
-        }
+        //}
     }
     //変更
     public static function chgCustomCategory($user_id, $music_id, $bit_num, $type)//type:add=追加、del=削除

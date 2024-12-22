@@ -933,3 +933,7 @@
 [2024-11-13 15:19:51] local.DEBUG: user_id=15      type=user_reg  
 [2024-11-16 17:38:27] local.DEBUG: -------start--------  
 [2024-11-16 17:38:27] local.DEBUG: user_id=1      type=login  
+[2024-12-22 16:49:20] local.DEBUG: -------start--------  
+[2024-12-22 16:49:21] local.DEBUG: user_id=1      type=login  
+[2024-12-22 17:33:34] local.DEBUG: -------start--------  
+[2024-12-22 17:33:34] local.DEBUG: user_id=2      type=login  

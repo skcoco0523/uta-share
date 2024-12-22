@@ -147,59 +147,54 @@ class Recommend extends Model
             $add_list = [];
             $item1 = "";
             $table = "";
+            $id_list = array();
+            
+            foreach ($detail_list as $key => $detail_data) {
+                $detail_data->id = $detail_data->detail_id;     //管理削除で参照するから　取得しておく
+                $id_list[] = $detail_data->detail_id;
+            }
             if($recommend->category==0){          //曲
                 $item1   = "曲名";
                 $table   = "mus";
-                foreach ($detail_list as $key => $detail_data) {
-                    $add_list[$key] = Music::getMusic_detail($detail_data->detail_id);
-                    if(!$add_list[$key]) {
-                        unset($detail_list[$key]);unset($add_list[$key]);
-                    }
-                }
+                //収録曲は曲名準
+                $input['mus_name_asc'] = true;
+                $detail = Music::getMusic_detail($id_list,$input);
+                
             }elseif($recommend->category==1){//アーティスト
                 $item1   = "アーティスト名";
                 $table   = "art";
+                $input['art_name_asc'] = true;
+                $detail = Artist::getArtist_detail($id_list,$input);
+
             }elseif($recommend->category==2){//アルバム
                 $item1   = "アルバム名";
                 $table   = "alb";
-                foreach ($detail_list as $key => $detail_data) {
-                    $add_list[$key] = Album::getAlbum_detail($detail_data->detail_id);
-                    if(!$add_list[$key]) {
-                        unset($detail_list[$key]);unset($add_list[$key]);
-                    }
-                }
-
+                //収録曲はアルバム名準
+                $input['alb_name_asc'] = true;
+                $detail = Album::getAlbum_detail($id_list,$input);
+                
             }elseif($recommend->category==3){//プレイリスト  
                 $item1   = "プレイリスト名";
                 $table   = "pl";
-                foreach ($detail_list as $key => $detail_data) {       
-                    $add_list[$key] = Playlist::getPlaylist_detail($detail_data->detail_id);
-                    if(!$add_list[$key]) {
-                        //unset($detail_list[$key]);unset($add_list[$key]);
-                    }else{
-                        //プレイリストの収録曲が０件の場合は除外
-                        if (count($add_list[$key]->music) == 0) {
-                            //プレイリストのみ、データなしでも含めて返す
-                            //unset($detail_list[$key]);unset($add_list[$key]);
-                        }
-                    }
-                }
+                //収録曲はプレイリスト名準
+                $input['pl_name_asc'] = true;
+                $detail = Playlist::getPlaylist_detail($id_list,$input);
             }
-            // キーを再インデックス化して、連続した配列にする (歯抜けになるから詰める)
-            $detail = array_values($add_list); 
-
-            // 名前を昇順に並べ替える
-            usort($detail, function($a, $b) {
-                return strcmp($a->name, $b->name);
-            });
 
             if($pageing){
                 $recommend2 = $detail_list;
                 $recommend2->setCollection(collect($detail));
             }else{
-                $recommend2 = $detail_list->values();
-                $recommend2 = $recommend2->replace($detail);
-                //$recommend2->collect($detail);
+                //$recommend2 = $detail_list->values();
+                //$recommend2 = $recommend2->replace($detail);
+                //getMusic_detailで対象無になったデータ　削除処理用に追加する
+                foreach ($detail_list as $detail_data) {
+                    if (!$detail->contains('id', $detail_data->id)) {
+                        $detail->push($detail_data);
+                    }
+                }
+                $recommend2 = $detail;
+
             }
         //}
         $recommend2->item1      = $item1;

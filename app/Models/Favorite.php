@@ -41,20 +41,21 @@ class Favorite extends Model
             $favorite = $sql_cmd;
 
             $favorite_detail = null;
+            foreach($favorite as $fav){
+                //$ranking[] = Music::getMusic_detail($fav->fav_id);
+                $id_list[] = $fav->fav_id;
+            }
             if($table=="mus"){
-                foreach($favorite as $fav){
-                    $favorite_detail[] = Music::getMusic_detail($fav->fav_id);
-                }
+                $input['mus_name_asc'] = true;
+                $favorite_detail = Music::getMusic_detail($id_list,$input);
             }
             if($table=="alb"){
-                foreach($favorite as $fav){
-                    $favorite_detail[] = Album::getAlbum_detail($fav->fav_id);
-                }
+                $input['alb_name_asc'] = true;
+                $favorite_detail = Album::getAlbum_detail($id_list,$input);
             }
             if($table=="pl"){
-                foreach($favorite as $fav){
-                    $favorite_detail[] = Playlist::getPlaylist_detail($fav->fav_id);
-                }
+                $input['pl_name_asc'] = true;
+                $favorite_detail = Playlist::getPlaylist_detail($id_list,$input);
             }
             //ページングでは戻り値を加工する
             if ($pageing) {

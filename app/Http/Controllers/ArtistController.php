@@ -30,10 +30,12 @@ class ArtistController extends Controller
     //アーティスト詳細
     public function artist_show(Request $request)
     {
+        //配列になってしまうからキャストする
         $input = $request->all();
         $input['page']                  = get_proc_data($input,"page");
 
-        $artist     = Artist::getartist_detail($request->only(['id']));
+        $art_id = (int) $request->input('id');
+        $artist     = Artist::getartist_detail($art_id);
         if($artist){
             $album      = Album::getAlbum_list(10,true,$input['page'],null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id
             $music      = Music::getMusic_list(10,true,$input['page'],null,$artist->id);  //件数,ﾍﾟｰｼﾞｬｰ,ｶﾚﾝﾄﾍﾟｰｼﾞ,ｷｰﾜｰﾄﾞ,art_id

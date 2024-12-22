@@ -28,7 +28,9 @@ class PlaylistController extends Controller
     //プレイリスト詳細
     public function playlist_show(Request $request)
     {
-        $playlist = Playlist::getplaylist_detail($request->only(['id']));  //mus_id
+        //   配列になってしまうからキャストする
+        $pl_id = (int) $request->input('id');
+        $playlist = Playlist::getplaylist_detail($pl_id);
         
         $msg = null;
         if($playlist){

@@ -106,36 +106,59 @@ class Album extends Model
         return $album; 
     }
     //取得
-    public static function getAlbum_detail($alb_id)
+    public static function getAlbum_detail($alb_id,$keyword=null)
     {
         try {
             
             //アルバム情報を取得
-            $album = DB::table('albums')
-                ->join('artists', 'albums.art_id', '=', 'artists.id')
-                ->leftJoin('musics', 'albums.id', '=', 'musics.alb_id')
-                ->where('albums.id', $alb_id)
-                ->select('albums.*','albums.id as alb_id','artists.name as art_name')
-                ->first();
+            $sql_cmd = DB::table('albums');;
+            $sql_cmd->join('artists', 'albums.art_id', '=', 'artists.id');
+            //$sql_cmd->leftJoin('musics', 'albums.id', '=', 'musics.alb_id');
+            $sql_cmd->select('albums.*','albums.id as alb_id','artists.name as art_name');
             
-            if ($album) {
-                // 収録曲の詳細情報を取得
-                $music = DB::table('musics')->where('alb_id', $album->alb_id)->get();
-                $detail_list = [];
-                foreach ($music as $key => $item) {
-                    $detail_list[$key] = Music::getMusic_detail($item->id);
+            //配列で受け取った場合一括で取得する
+            if (is_array($alb_id)) {
+                $sql_cmd->whereIn('albums.id', $alb_id);
+            } else {
+                $sql_cmd->where('albums.id', $alb_id);
+            }
+                
+            if($keyword){  
+                if (get_proc_data($keyword,"alb_name_asc")){
+                    $sql_cmd->orderBy('albums.name','asc');
                 }
-                $album->music = $detail_list;
-                $album->mus_cnt = count($album->music);
+                if (get_proc_data($keyword,"default_sort")){
+                    // もとの順序で並べる
+                    $sql_cmd->orderByRaw('FIELD(albums.id, ' . implode(',', $alb_id) . ')');
+                }
+            }
+
+            $album = $sql_cmd->get();
+
+            foreach ($album as $alb) {
+                // 収録曲の詳細情報を取得
+                $music = DB::table('musics')->where('alb_id', $alb->alb_id)->get();
+                
+                $id_list = array();
+                foreach($music as $mus){
+                    //$ranking[] = Music::getMusic_detail($fav->fav_id);
+                    $id_list[] = $mus->id;
+                }
+                $input['default_sort'] = true;  //元の順番で取得する
+                $detail_list = Music::getMusic_detail($id_list,$input);
+
+                $alb->music = $detail_list;
+                $alb->mus_cnt = count($detail_list);
             
                 // ログインしているユーザーはお気に入り情報も取得する
-                $album->fav_flag = Auth::check() ? Favorite::chkFavorite(Auth::id(), "alb", $alb_id) : 0;
+                $alb->fav_flag = Auth::check() ? Favorite::chkFavorite(Auth::id(), "alb", $alb->id) : 0;
+                
+                //画像情報を付与
+                $alb=setAffData($alb);
             }
-            
-            //画像情報を付与
-            $album=setAffData($album);
-            
-            return $album; 
+            if (is_array($alb_id))   return $album; 
+            else                    return $album[0]; 
+
         } catch (\Exception $e) {
             make_error_log("getAlbum_detail.log","failure");
             return null; 

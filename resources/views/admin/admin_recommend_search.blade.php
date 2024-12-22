@@ -161,11 +161,14 @@
                 @foreach($recommend_detail as $dtl)
                 <div class="row">
                     <div class="col-sm-9"> <!-- フォームの列 -->
-                    
-                    @if($input['category']==0 || $input['category']==2)
-                    <input type="text" class="form-control" value="{{$dtl->name}}    < {{$dtl->art_name}} >" disabled>
+                    @if(isset($dtl->name))
+                        @if($input['category']==0 || $input['category']==2)
+                        <input type="text" class="form-control" value="{{$dtl->name}}    < {{$dtl->art_name}} >" disabled>
+                        @else
+                        <input type="text" class="form-control" value="{{$dtl->name}}" disabled>
+                        @endif
                     @else
-                    <input type="text" class="form-control" value="{{$dtl->name}}" disabled>
+                    <input type="text" class="form-control" value="データなし" disabled>
                     @endif
                     </div>
                     <div class="col-sm-3 mb-2"> <!-- ボタンの列 -->

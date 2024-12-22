@@ -711,3 +711,30 @@
 )
   
 [2024-09-06 01:17:07] local.DEBUG: success  
+[2024-12-22 21:40:51] local.DEBUG: ---------start----------  
+[2024-12-22 21:40:51] local.DEBUG: data=Array
+(
+    [_token] => SD5ATtStG4TvVkf1jnoUe9dq13aPgYOMT3SZVAdb
+    [id] => 45
+    [name] => test1
+)
+  
+[2024-12-22 21:40:51] local.DEBUG: success  
+[2024-12-22 21:41:03] local.DEBUG: ---------start----------  
+[2024-12-22 21:41:03] local.DEBUG: data=Array
+(
+    [_token] => SD5ATtStG4TvVkf1jnoUe9dq13aPgYOMT3SZVAdb
+    [id] => 46
+    [name] => test2
+)
+  
+[2024-12-22 21:41:03] local.DEBUG: success  
+[2024-12-22 21:41:13] local.DEBUG: ---------start----------  
+[2024-12-22 21:41:13] local.DEBUG: data=Array
+(
+    [_token] => SD5ATtStG4TvVkf1jnoUe9dq13aPgYOMT3SZVAdb
+    [id] => 36
+    [name] => test3
+)
+  
+[2024-12-22 21:41:13] local.DEBUG: success  

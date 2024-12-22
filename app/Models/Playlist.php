@@ -96,32 +96,59 @@ class Playlist extends Model
         return $playlist; 
     }
     //詳細変更　収録曲変更
-    public static function getPlaylist_detail($pl_id)
+    public static function getPlaylist_detail($pl_id,$keyword=null)
     {
-        //プレイリスト情報を取得
-        $playlist = DB::table('playlist')->where('id', $pl_id)->first();
-        if($playlist){
-            //収録数、収録曲を取得
-            $music_list = DB::table('playlistdetail')->where('pl_id', $pl_id)->get();
-            $detail_list = [];
-            //dd($music_list);
-            foreach ($music_list as $key => $item) {
-                $detail_list[$key] = Music::getMusic_detail($item->mus_id);
+        try {
+            //プレイリスト情報を取得
+            $sql_cmd = DB::table('playlist');
+
+            //配列で受け取った場合一括で取得する
+            if (is_array($pl_id)) {
+                $sql_cmd->whereIn('playlist.id', $pl_id);
+            } else {
+                $sql_cmd->where('playlist.id', $pl_id);
             }
-            //ログインしているユーザーはお気に入り情報も取得する
-            if (Auth::check())  $playlist->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $pl_id);
-            else                $playlist->fav_flag = 0;
-            $playlist->music = $detail_list;  
-            //件数を取得
-            $playlist->pl_cnt = count($detail_list);
-            //dd($playlist);
-            //画像情報を付与 getMusic_detailで取得
-            //$playlist=setAffData($playlist);  
-            return $playlist; 
+                
+            if($keyword){  
+                if (get_proc_data($keyword,"pl_name_asc")){
+                    $sql_cmd->orderBy('playlist.name','asc');
+                }
+                if (get_proc_data($keyword,"default_sort")){
+                    // もとの順序で並べる
+                    $sql_cmd->orderByRaw('FIELD(playlist.id, ' . implode(',', $mus_id) . ')');
+                }
+                
+            }
+            $playlist = $sql_cmd->get();
+            
+            foreach ($playlist as $pl) {
+                //収録数、収録曲を取得
+                //$sql_cmd = DB::table('playlistdetail as pl_detail')->where('pl_id', $pl_id);
+                $sql_cmd = DB::table('playlistdetail as pl_detail');
+                $sql_cmd ->where('pl_id', $pl->id);
+                if($keyword){
+                }
 
-        }else{ 
+                //配列を引き渡して一括取得
+                $id_list = $sql_cmd->pluck('mus_id')->toArray();
+                //収録曲は曲名準
+                $input['mus_name_asc'] = true;
+                $detail_list = Music::getMusic_detail($id_list,$input);
+
+                //ログインしているユーザーはお気に入り情報も取得する
+                if (Auth::check())  $pl->fav_flag = Favorite::chkFavorite(Auth::id(), "pl", $pl->id);
+                else                $pl->fav_flag = 0;
+                $pl->music = $detail_list;  
+                //件数を取得
+                $pl->pl_cnt = count($detail_list);
+
+            }
+            
+            if (is_array($pl_id))   return $playlist; 
+            else                    return $playlist[0]; 
+        } catch (\Exception $e) {
+            make_error_log("getPlaylist_detail.log","failure");
             return null; 
-
         }
     }
     //作成

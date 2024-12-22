@@ -102,24 +102,40 @@ class Music extends Model
         return $music; 
     }
     //取得
-    public static function getMusic_detail($mus_id)
+    public static function getMusic_detail($mus_id,$keyword=null)
     {
         try {
             //オブジェクトの場合と配列の場合の2パターンを作成して負荷軽減
             //楽曲情報を取得
-            $music = DB::table('musics')
-                ->join('artists', 'musics.art_id', '=', 'artists.id')
-                ->leftJoin('albums', 'musics.alb_id', '=', 'albums.id')
-                ->where('musics.id', $mus_id)
-                ->select(
+            $sql_cmd = DB::table('musics');
+            $sql_cmd ->join('artists', 'musics.art_id', '=', 'artists.id');
+            $sql_cmd ->leftJoin('albums', 'musics.alb_id', '=', 'albums.id');
+            $sql_cmd ->select(
                     'musics.*',
                     'musics.id as mus_id','musics.name as mus_name',
                     'artists.name as art_name',
-                    'albums.name as alb_name','albums.aff_id as album_aff_id','albums.release_date as album_release_date'
-                )
-                ->first();
+                    'albums.name as alb_name','albums.aff_id as album_aff_id','albums.release_date as album_release_date');
 
-            if ($music) {
+            //配列で受け取った場合一括で取得する
+            if (is_array($mus_id)) {
+                $sql_cmd->whereIn('musics.id', $mus_id);
+            } else {
+                $sql_cmd->where('musics.id', $mus_id);
+            }
+                
+            if($keyword){  
+                if (get_proc_data($keyword,"mus_name_asc")){
+                    $sql_cmd->orderBy('musics.name','asc');
+                }
+                if (get_proc_data($keyword,"default_sort")){
+                    // もとの順序で並べる
+                    $sql_cmd->orderByRaw('FIELD(musics.id, ' . implode(',', $mus_id) . ')');
+                }
+                
+            }
+            $music_list = $sql_cmd->get();
+
+            foreach ($music_list as $music) {
                 if (is_null($music->aff_id))        $music->aff_id = $music->album_aff_id;
                 if (is_null($music->release_date))  $music->release_date = $music->album_release_date;
                 //ログインしているユーザーはお気に入り情報も取得する
@@ -128,11 +144,11 @@ class Music extends Model
                 //dd($music);
                 //画像情報を付与
                 $music=setAffData($music);
-    
-                return $music; 
-            }else{
-                return null;
             }
+
+            if (is_array($mus_id))  return $music_list; 
+            else                    return $music_list[0]; 
+            
         } catch (\Exception $e) {
             return null; 
         }

@@ -79,19 +79,41 @@ class Artist extends Model
         return $artist; 
     }
     //取得
-    public static function getArtist_detail($art_id)
+    public static function getArtist_detail($art_id,$keyword=null)
     {
         try {
             //アルバム情報を取得
-            $artist = DB::table('artists')
-                ->where('artists.id', $art_id)
-                ->select('artists.*','artists.id as art_id','artists.name as art_name')
-                ->first();
-            //アーティストは固定でfalse
-            if($artist)$artist->fav_flag = 0;
-            //dd($artist);
-            
-            return $artist; 
+            $sql_cmd = DB::table('artists');
+            $sql_cmd->select('artists.*','artists.id as art_id','artists.name as art_name');
+
+            //配列で受け取った場合一括で取得する
+            if (is_array($art_id)) {
+                $sql_cmd->whereIn('artists.id', $art_id);
+            } else {
+                $sql_cmd->where('artists.id', $art_id);
+            }
+                
+            if($keyword){  
+                if (get_proc_data($keyword,"art_name_asc")){
+                    $sql_cmd->orderBy('artists.name','asc');
+                }
+                if (get_proc_data($keyword,"default_sort")){
+                    // もとの順序で並べる
+                    $sql_cmd->orderByRaw('FIELD(artists.id, ' . implode(',', $mus_id) . ')');
+                }
+                
+            }
+            $artist = $sql_cmd->get();
+
+            foreach ($artist as $art) {
+                //アーティストは固定でfalse
+                if($art)$art->fav_flag = 0;
+                //dd($artist);
+            }
+
+            if (is_array($art_id))   return $artist; 
+            else                    return $artist[0]; 
+
         } catch (\Exception $e) {
             make_error_log("getArtist_detail.log","failure");
             return null; 

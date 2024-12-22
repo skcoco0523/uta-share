@@ -27,7 +27,9 @@ class AlbumController extends Controller
     //アルバム詳細
     public function album_show(Request $request)
     {
-        $album = Album::getAlbum_detail($request->only(['id']));  //mus_id
+        //配列になってしまうからキャストする
+        $alb_id = (int) $request->input('id');
+        $album = Album::getAlbum_detail($alb_id);  //mus_id
         $msg = null;
         if($album){
             return view('album_show', compact('album', 'msg'));

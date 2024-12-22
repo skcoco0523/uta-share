@@ -29,7 +29,8 @@ class MusicController extends Controller
     //曲詳細
     public function music_show(Request $request)
     {
-        $music_id = $request->only(['id']);
+        //$music_id = $request->only(['id']);   配列になってしまうからキャストする
+        $music_id = (int) $request->input('id');
         if($music_id){
             $music = Music::getMusic_detail($music_id);
             if(Auth::id()){
