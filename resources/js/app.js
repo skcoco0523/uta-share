@@ -7,6 +7,7 @@ JSファイルを追加したら
 ==========================================================================================
 
 */
+import './cookie.js';                   //クッキー
 import './notification.js';             //通知
 import './favorite_change.js';          //お気に入り
 import './custom_category_change.js';   //ユーザー別カテゴリ

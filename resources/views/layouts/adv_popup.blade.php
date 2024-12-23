@@ -19,16 +19,19 @@
 <script>
     
     document.addEventListener('DOMContentLoaded', async function() {
-        
-        const advDisplayInterval = 60*30;   // 広告表示間隔　(秒)        ページ遷移時に再度広告が表示されるまでの間隔       一旦30分間隔で
-        let advDisplayTime = 10;            // 広告表示時間　(秒)         広告を強制表示する秒数
+         // 広告表示時間　(秒)   広告を強制表示する秒数
+        let advDisplayTime = 5;           
+        //ページ遷移時に再度広告が表示されるまでの間隔
+        const disp_hour = 3;
+        const advDisplayInterval = 60*60*disp_hour;
         let disp_flag = 0;
         // セッションストレージから前回の表示時刻を取得
-        const lastDisplayed = sessionStorage.getItem('adv_disp_time');
+        //const lastAdTime = sessionStorage.getItem('adv_disp_time');
+        const lastAdTime = getCookie('adv_disp_time');
 
-        if (lastDisplayed) {
-            const currentTime = new Date().getTime();
-            const elapsedTime = (currentTime - lastDisplayed) / 1000;  // ミリ秒を秒に変換
+        const currentTime = new Date().getTime();
+        if (lastAdTime) {
+            const elapsedTime = (currentTime - lastAdTime) / 1000;  // ミリ秒を秒に変換
             // 指定した時間が経過していればモーダルを表示
             if (elapsedTime > advDisplayInterval) {
                 disp_flag = 1;
@@ -74,8 +77,10 @@
                 if (advDisplayTime === 0) {
                     clearInterval(interval);
                     countdownDisplay.style.display = 'none'; // ボタンを表示
-                    closeButton.style.display = 'block'; // ボタンを表示
-                    sessionStorage.setItem('adv_disp_time', new Date().getTime());      //指定秒数表示後、現在の時刻をセッションストレージに保存
+                    closeButton.style.display = 'block'; // ボタンを表示      
+                    //指定秒数表示後、現在の時刻をクッキーに1週間保存
+                    //sessionStorage.setItem('adv_disp_time', new Date().getTime());
+                    setCookie("adv_disp_time", new Date().getTime(), 7, "/");
                 }
             }, 1000); // 1秒ごとにカウントダウン
         }
